@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>担当をデビューさせる件｜番組ADなおの裏側SNS</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+--line:#06c755; --ink:#111; --sub:#8e8e93; --bg:#f2f2f7; --red:#ff3b30;
+--gold:#ffd60a; --accent:#7c5cff; --accent2:#ff5c8a;
+}
+html,body{height:100%}
+body{
+font-family:-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif;
+background:radial-gradient(1200px 700px at 20% 0%,#332b45 0%,#17141d 55%,#0b0a10 100%);
+color:#fff; display:flex; flex-direction:column; align-items:center; min-height:100dvh;
+}
+.page-head{padding:18px 16px 10px;text-align:center;max-width:560px}
+.page-head h1{font-size:20px;letter-spacing:.04em}
+.page-head p{font-size:12px;color:#c6bcd8;margin-top:5px;line-height:1.6}
+.page-head.src{font-size:10.5px;color:#877d9e;margin-top:6px;line-height:1.6}
+.phone{
+position:relative; width:min(400px,100vw); height:min(844px,calc(100dvh - 130px));
+background:#000; border-radius:54px; padding:11px;
+box-shadow:0 0 0 2px #3a3d42,0 0 0 5px #17181c,0 30px 70px rgba(0,0,0,.65), inset 0 0 4px #555;
+margin-bottom:14px; flex:none;
+}
+@media (max-width:430px){.phone{border-radius:0;padding:0;height:calc(100dvh - 108px);box-shadow:none}.page-head{padding:10px 12px 6px}.page-head.src{display:none}}
+.screen{position:relative;width:100%;height:100%;border-radius:44px;overflow:hidden;background:#000}
+@media (max-width:430px){.screen{border-radius:0}}
+.island{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:112px;height:30px;background:#000;border-radius:20px;z-index:200}
+.statusbar{
+position:absolute;top:0;left:0;right:0;height:52px;z-index:150;display:flex;align-items:flex-end;
+justify-content:space-between;padding:0 30px 4px;font-size:14.5px;font-weight:600;color:#fff;pointer-events:none;
+text-shadow:0 1px 4px rgba(0,0,0,.35);mix-blend-mode:difference;
+}
+.statusbar.sicons{display:flex;gap:6px;align-items:center;font-size:12px}
+.batt{display:inline-flex;align-items:center;gap:3px}
+.batt.box{width:24px;height:12px;border:1.5px solid rgba(255,255,255,.7);border-radius:4px;padding:1.5px;display:inline-block}
+.batt.fill{display:block;height:100%;width:43%;background:#fff;border-radius:2px}
+.homebar{position:absolute;bottom:6px;left:50%;transform:translateX(-50%);width:134px;height:5px;border-radius:3px;background:rgba(255,255,255,.85);z-index:190;cursor:pointer;box-shadow:0 0 3px rgba(0,0,0,.3)}
+.view{position:absolute;inset:0;display:none;flex-direction:column;background:#fff;color:var(--ink)}
+.view.on{display:flex}
+#v-home{background:#000}
+/* ===== home ===== */
+.wallpaper{position:absolute;inset:0;background:url('assets/wallpaper.jpg') center 22%/cover no-repeat}
+.wallpaper:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.30),rgba(0,0,0,0) 32%,rgba(0,0,0,0) 62%,rgba(0,0,0,.45))}
+.home-inner{position:relative;z-index:2;display:flex;flex-direction:column;height:100%;padding:64px 20px 16px}
+.widget{
+background:rgba(18,16,28,.58);backdrop-filter:blur(14px);border-radius:22px;color:#fff;
+padding:12px 14px;margin-bottom:16px;border:1px solid rgba(255,255,255,.14);
+}
+.widget.w-title{font-size:11px;color:var(--gold);font-weight:700;letter-spacing:.06em}
+.widget.w-main{font-size:14.5px;font-weight:700;margin-top:3px;line-height:1.45}
+.widget.w-row{display:flex;gap:14px;margin-top:7px;font-size:11.5px;color:#ddd6ee}
+.widget.w-row b{color:#fff;font-size:13px}
+.widget button{
+margin-top:10px;width:100%;border:none;border-radius:12px;padding:10px;font-size:13.5px;font-weight:700;
+background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;cursor:pointer;
+}
+.widget button:disabled{background:#555;color:#bbb}
+.apps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px 10px;margin-top:2px}
+.app{display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;position:relative}
+.app.ic{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 10px rgba(0,0,0,.35);overflow:hidden;background:#fff}
+.app.ic img{width:100%;height:100%;object-fit:cover}
+.app.lb{font-size:10.5px;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.app.bdg{position:absolute;top:-4px;right:8px;background:var(--red);color:#fff;font-size:10px;font-weight:700;min-width:18px;height:18px;border-radius:9px;display:flex;align-items:center;justify-content:center;padding:0 5px}
+.app.lock{opacity:.45}
+.dock{margin-top:auto;background:rgba(30,28,44,.5);backdrop-filter:blur(14px);border-radius:26px;padding:10px 14px;display:flex;justify-content:space-around;border:1px solid rgba(255,255,255,.10)}
+/* ===== generic app header ===== */
+.ahead{
+padding:56px 14px 10px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #e5e5ea;background:#f7f7fa;flex:none;
+}
+.ahead.back{font-size:20px;color:var(--accent);cursor:pointer;padding:2px 6px}
+.ahead.ttl{font-size:16.5px;font-weight:700}
+.ahead.sub2{font-size:11px;color:var(--sub)}
+.abody{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
+/* ===== talk list & chat ===== */
+.troom{display:flex;gap:11px;padding:12px 14px;border-bottom:1px solid #eee;cursor:pointer;align-items:center;background:#fff}
+.troom:active{background:#f2f2f7}
+.av{width:48px;height:48px;border-radius:50%;object-fit:cover;flex:none;background:#ddd}
+.av.sm{width:38px;height:38px}
+.troom.nm{font-size:14.5px;font-weight:600}
+.troom.pv{font-size:12px;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:230px}
+.troom.tm{margin-left:auto;font-size:10.5px;color:var(--sub);flex:none}
+.troom.bdg{background:var(--red);color:#fff;font-size:10px;font-weight:700;min-width:18px;height:18px;border-radius:9px;display:inline-flex;align-items:center;justify-content:center;padding:0 5px;margin-left:6px}
+#v-chat{background:#aebdd3}
+.chat-body{flex:1;overflow-y:auto;padding:14px 12px 8px;display:flex;flex-direction:column;gap:10px}
+.msg{display:flex;gap:7px;max-width:100%}
+.msg.col{display:flex;flex-direction:column;gap:2px;max-width:76%}
+.msg.who{font-size:10.5px;color:#3c4656}
+.bub{background:#fff;border-radius:14px;padding:8px 11px;font-size:13.5px;line-height:1.5;color:#111;box-shadow:0 1px 1px rgba(0,0,0,.08);white-space:pre-wrap;word-break:break-word}
+.msg.me{align-self:flex-end;flex-direction:row-reverse}
+.msg.me.bub{background:#ffe14d}
+.msg.me.col{align-items:flex-end}
+.sysmsg{align-self:center;background:rgba(0,0,0,.22);color:#fff;font-size:11px;border-radius:10px;padding:4px 10px}
+.chat-img{width:170px;border-radius:12px;display:block}
+.vbub{display:flex;align-items:center;gap:8px;min-width:170px}
+.vbtn{width:30px;height:30px;border-radius:50%;border:none;background:var(--line);color:#fff;font-size:13px;cursor:pointer;flex:none}
+.msg.me .vbtn{background:#e6b800}
+.vwave{display:flex;align-items:center;gap:2px;flex:1}
+.vwave i{display:block;width:3px;background:#9aa3ad;border-radius:2px}
+.vbub.playing .vwave i{background:var(--line);animation:vw .7s ease-in-out infinite alternate}
+@keyframes vw{from{transform:scaleY(.5)}to{transform:scaleY(1.15)}}
+.vdur{font-size:11px;color:#666;flex:none}
+.vcap{font-size:11px;color:#3c4656;margin-top:2px}
+.choices{flex:none;padding:8px 10px calc(10px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:7px;background:rgba(255,255,255,.75);backdrop-filter:blur(8px)}
+.choices button{border:1.5px solid var(--accent);background:#fff;color:var(--accent);font-weight:700;font-size:13.5px;border-radius:20px;padding:9px 12px;cursor:pointer}
+.choices button:active{background:var(--accent);color:#fff}
+.chat-input{flex:none;display:flex;gap:8px;padding:8px 10px calc(10px + env(safe-area-inset-bottom));background:#f7f7fa;border-top:1px solid #e0e0e5}
+.chat-input input{flex:1;border:1px solid #ddd;border-radius:18px;padding:8px 12px;font-size:13.5px;background:#fff}
+.chat-input button{border:none;background:var(--line);color:#fff;font-weight:700;border-radius:18px;padding:0 16px;font-size:13px}
+/* ===== story scene ===== */
+#v-scene{background:#0d0b14;color:#fff}
+.scene-body{flex:1;overflow-y:auto;padding:64px 20px 12px;display:flex;flex-direction:column;gap:12px}
+.scene-photo{width:100%;border-radius:16px;max-height:300px;object-fit:cover;object-position:top}
+.narr{font-size:13.5px;line-height:1.75;color:#cfc8e4}
+.dlg{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:10px 13px}
+.dlg.nm{font-size:11.5px;font-weight:700;color:var(--gold);margin-bottom:3px}
+.dlg.tx{font-size:14px;line-height:1.65;white-space:pre-wrap}
+.scene-next{flex:none;padding:10px 16px calc(16px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:8px}
+.scene-next button{border:none;border-radius:14px;padding:13px;font-size:14.5px;font-weight:700;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;cursor:pointer}
+.scene-next button.choice{background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.4)}
+/* ===== ranking ===== */
+.rk-row{display:flex;align-items:center;gap:11px;padding:11px 14px;border-bottom:1px solid #eee;background:#fff}
+.rk-row.me{background:#fff7d6}
+.rk-num{font-size:19px;font-weight:800;width:30px;text-align:center;font-style:italic}
+.rk-num.top{color:#e6a700}
+.rk-row.inf{flex:1}
+.rk-row.inf.nm{font-size:14.5px;font-weight:700}
+.rk-row.inf.dt{font-size:11px;color:var(--sub)}
+.rk-vote{font-size:12px;text-align:right;color:#333}
+.rk-vote b{font-size:14px}
+.zone-tag{font-size:9.5px;font-weight:700;border-radius:6px;padding:2px 6px;margin-left:6px;vertical-align:2px}
+.zone-in{background:#e3f8e8;color:#0a7c2e}
+.zone-out{background:#fde8e8;color:#c11}
+.rk-note{padding:12px 16px;font-size:12px;color:var(--sub);line-height:1.7;background:#fff}
+/* ===== X / news ===== */
+.xpost{display:flex;gap:10px;padding:12px 14px;border-bottom:1px solid #eee;background:#fff}
+.xpost.av{width:40px;height:40px}
+.xpost.xh{font-size:13px}
+.xpost.xh b{font-size:13.5px}
+.xpost.xh span{color:var(--sub);font-size:12px}
+.xpost.xt{font-size:13.5px;line-height:1.55;margin-top:2px;white-space:pre-wrap}
+.xpost.xt.tag{color:#1d9bf0}
+.xpost.xf{font-size:11.5px;color:var(--sub);margin-top:6px}
+.nitem{padding:13px 14px;border-bottom:1px solid #eee;background:#fff;cursor:pointer}
+.nitem.src{font-size:10.5px;color:var(--accent);font-weight:700}
+.nitem.hd{font-size:14.5px;font-weight:700;line-height:1.5;margin-top:2px}
+.nitem.sm{font-size:12px;color:var(--sub);margin-top:3px;line-height:1.55}
+.nbody{padding:16px;font-size:14px;line-height:1.85;background:#fff}
+/* ===== members ===== */
+.mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:14px;background:#fff}
+.mcard{text-align:center;cursor:pointer}
+.mcard img{width:100%;aspect-ratio:1;object-fit:cover;object-position:top;border-radius:14px}
+.mcard.nm{font-size:12.5px;font-weight:700;margin-top:5px}
+.mcard.cl{font-size:10.5px;color:var(--sub)}
+.pf-wrap{padding:0 0 20px;background:#fff}
+.pf-hero{width:100%;height:300px;object-fit:cover;object-position:top}
+.pf-in{padding:14px 16px}
+.pf-in h3{font-size:19px}
+.pf-in.meta{font-size:12px;color:var(--sub);margin-top:3px;line-height:1.6}
+.stat{display:flex;align-items:center;gap:8px;margin-top:8px;font-size:12px}
+.stat.sl{width:64px;color:#555;flex:none}
+.stat.bar{flex:1;height:8px;background:#eee;border-radius:4px;overflow:hidden}
+.stat.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.stat.sv{width:28px;text-align:right;font-weight:700}
+/* ===== edit room ===== */
+.ed-row{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid #eee;background:#fff}
+.ed-row.inf{flex:1}
+.ed-row.inf.nm{font-size:14px;font-weight:700}
+.ed-row.inf.dt{font-size:11px;color:var(--sub)}
+.stepper{display:flex;align-items:center;gap:9px}
+.stepper button{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--accent);background:#fff;color:var(--accent);font-size:16px;font-weight:700;cursor:pointer}
+.stepper.pt{font-size:16px;font-weight:800;width:22px;text-align:center}
+.ed-head{padding:12px 16px;background:#fff3f6;border-bottom:1px solid #f3d3de;font-size:12.5px;line-height:1.7}
+.ed-head b{color:#c2185b}
+.ed-foot{flex:none;padding:12px 14px calc(14px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid #eee}
+.ed-foot button{width:100%;border:none;border-radius:12px;padding:13px;font-size:14.5px;font-weight:700;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;cursor:pointer}
+.ed-foot button:disabled{background:#ccc}
+/* ===== title ===== */
+#v-title{background:#000}
+.title-bg{position:absolute;inset:0;background:url('assets/wallpaper.jpg') center 20%/cover no-repeat}
+.title-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,6,20,.25),rgba(10,6,20,.88) 78%)}
+.title-in{position:relative;z-index:2;margin-top:auto;padding:0 24px calc(30px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:10px}
+.title-in.kicker{font-size:11.5px;letter-spacing:.22em;color:var(--gold);font-weight:700}
+.title-in h2{font-size:29px;line-height:1.3;font-weight:800;text-shadow:0 2px 14px rgba(0,0,0,.5)}
+.title-in.desc{font-size:12.5px;line-height:1.7;color:#ddd6ee}
+.title-in button{border:none;border-radius:14px;padding:14px;font-size:15px;font-weight:800;cursor:pointer}
+.title-in.b-start{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff}
+.title-in.b-cont{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.35)}
+.title-in.fic{font-size:10px;color:#a79fc0;line-height:1.6;text-align:center}
+.toast{position:absolute;left:50%;bottom:110px;transform:translateX(-50%);background:rgba(10,10,16,.88);color:#fff;font-size:12.5px;padding:9px 16px;border-radius:20px;z-index:300;opacity:0;pointer-events:none;transition:opacity.3s;white-space:nowrap}
+.toast.on{opacity:1}
+.set-row{padding:15px 16px;border-bottom:1px solid #eee;background:#fff;font-size:14.5px;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+.set-row.danger{color:var(--red);font-weight:700}
+</style>
+</head>
+<body>
+<div class="page-head">
+<h1>担当をデビューさせる件</h1>
+<p>サバイバルオーディション番組『新世界ステージ』の裏側。ADのなおが、担当練習生・井汲大翔をデビュー圏内へ押し上げるスタッフ視点SNSゲーム。</p>
+<p class="src">※本作品は創作フィクションです。登場する番組・団体は架空のもので、実在の人物の言動を再現したものではありません。</p>
+</div>
+
+<div class="phone">
+<div class="screen">
+<div class="island"></div>
+<div class="statusbar"><span id="sb-time">9:41</span><span class="sicons">5G <span class="batt"><span class="box"><span class="fill"></span></span></span></span></div>
+
+<!-- TITLE -->
+<div class="view" id="v-title">
+<div class="title-bg"></div>
+<div class="title-in">
+<div class="kicker">SURVIVAL BACKSTAGE</div>
+<h2>担当を<br>デビューさせる件</h2>
+<div class="desc">配属されたのは、4度目の挑戦になる練習生・井汲大翔の担当AD。<br>分量を、順位を、運命を——裏側から動かせ。</div>
+<button class="b-start" id="btn-start">はじめから</button>
+<button class="b-cont" id="btn-cont" style="display:none">つづきから</button>
+<div class="fic">※創作フィクションです。番組・練習生（実在の人物をモチーフにした描写を含む）は物語上の存在として描かれます。</div>
+</div>
+</div>
+
+<!-- HOME -->
+<div class="view" id="v-home">
+<div class="wallpaper"></div>
+<div class="home-inner">
+<div class="widget">
+<div class="w-title" id="w-phase">DAY 1 ― 配属</div>
+<div class="w-main" id="w-main">制作チームに配属された。</div>
+<div class="w-row"><span>ひろと信頼度 <b id="w-trust">0</b></span><span>メンタル <b id="w-mental">70</b></span><span>現在順位 <b id="w-rank">―</b></span></div>
+<button id="btn-next">▶ ストーリーを進める</button>
+</div>
+<div class="apps" id="apps"></div>
+<div class="dock" id="dock"></div>
+</div>
+</div>
+
+<!-- TALK LIST -->
+<div class="view" id="v-talk">
+<div class="ahead"><span class="back" data-home>‹</span><div><div class="ttl">トーク</div><div class="sub2">番組関係者との連絡用</div></div></div>
+<div class="abody" id="talk-list"></div>
+</div>
+
+<!-- CHAT -->
+<div class="view" id="v-chat">
+<div class="ahead" style="background:#aebdd3;border-bottom:none"><span class="back" id="chat-back">‹</span><div><div class="ttl" id="chat-title">トーク</div><div class="sub2" id="chat-sub"></div></div></div>
+<div class="chat-body" id="chat-body"></div>
+<div class="choices" id="chat-choices" style="display:none"></div>
+<div class="chat-input" id="chat-input"><input id="chat-text" placeholder="メッセージを入力" autocomplete="off"><button id="chat-send">送信</button></div>
+</div>
+
+<!-- SCENE -->
+<div class="view" id="v-scene">
+<div class="scene-body" id="scene-body"></div>
+<div class="scene-next" id="scene-next"></div>
+</div>
+
+<!-- RANK -->
+<div class="view" id="v-rank">
+<div class="ahead"><span class="back" data-home>‹</span><div><div class="ttl">順位表</div><div class="sub2" id="rank-sub">第1回順位発表 ― 未実施</div></div></div>
+<div class="abody" id="rank-body"></div>
+</div>
+
+<!-- X -->
+<div class="view" id="v-x">
+<div class="ahead" style="background:#000;color:#fff;border-bottom-color:#222"><span class="back" data-home style="color:#fff">‹</span><div><div class="ttl">𝕏</div><div class="sub2" style="color:#aaa">「新世界ステージ」の検索結果</div></div></div>
+<div class="abody" id="x-body" style="background:#fff"></div>
+</div>
+
+<!-- NEWS -->
+<div class="view" id="v-news">
+<div class="ahead"><span class="back" data-home>‹</span><div><div class="ttl">ニュース</div><div class="sub2">エンタメ速報</div></div></div>
+<div class="abody" id="news-body"></div>
+</div>
+
+<!-- MEMBERS -->
+<div class="view" id="v-members">
+<div class="ahead"><span class="back" data-home>‹</span><div><div class="ttl">練習生名簿</div><div class="sub2">『新世界ステージ』参加者12名</div></div></div>
+<div class="abody" id="members-body"></div>
+</div>
+
+<!-- PROFILE -->
+<div class="view" id="v-profile">
+<div class="ahead"><span class="back" id="pf-back">‹</span><div><div class="ttl" id="pf-title">プロフィール</div></div></div>
+<div class="abody" id="pf-body"></div>
+</div>
+
+<!-- EDIT ROOM -->
+<div class="view" id="v-edit">
+<div class="ahead"><span class="back" data-home>‹</span><div><div class="ttl">編集室</div><div class="sub2">放送分の分量配分</div></div></div>
+<div class="ed-head" id="ed-head"></div>
+<div class="abody" id="ed-body"></div>
+<div class="ed-foot"><button id="ed-confirm">この配分で確定する</button></div>
+</div>
+
+<!-- SETTINGS -->
+<div class="view" id="v-settings">
+<div class="ahead"><span class="back" data-home>‹</span><div><div class="ttl">設定</div></div></div>
+<div class="abody" style="background:#f2f2f7">
+<div class="set-row" id="set-about"><span>この作品について</span><span>›</span></div>
+<div class="set-row" id="set-reset"><span class="danger">データを消して最初から</span><span>›</span></div>
+<div style="padding:14px 16px;font-size:11px;color:#8e8e93;line-height:1.7">担当をデビューさせる件 v1<br>※創作フィクションです。登場する番組・団体は架空のものです。</div>
+</div>
+</div>
+
+<div class="toast" id="toast"></div>
+<div class="homebar" id="homebar"></div>
+</div>
+</div>
+
+<script>
+"use strict";
+/* ================= DATA ================= */
+const DEBUT_N = 5; // デビュー圏（上位5名）
+const EDIT_POINTS = 12; // 編集会議で配れる分量ポイント
+const SAVE_KEY = "uragawaSaveV1";
+
+const TRAINEES = [
+{id:"hiroto", name:"井汲大翔", read:"いくみ ひろと", age:24, from:"大阪", img:"assets/tr-hiroto.jpg", hero:"assets/tr-hiroto-stage.jpg",
+vo:74, da:86, ra:42, vi:90, att:55, cls:"―",
+desc:"4度目のサバイバル挑戦。日プ無印・海外版・ボイプラを経て、最後のつもりでこの舞台に立つ。素は柔らかい関西弁で、感情は言葉より先に行動に出る。"},
+{id:"ousuke", name:"土田央修", read:"つちだ おうすけ", age:24, from:"千葉", img:"assets/tr-ousuke.jpg", hero:"assets/tr-ousuke2.jpg",
+vo:66, da:81, ra:84, vi:74, att:58, cls:"―",
+desc:"ボイプラ出身。大翔とは同世代の戦友で、敬語も遠慮もない距離感。実力は確かだが、要領の良さが誤解されやすい。"},
+{id:"ren", name:"高峰蓮", read:"たかみね れん", age:25, from:"東京", img:"assets/tr-ren.jpg",
+vo:85, da:88, ra:60, vi:86, att:80, cls:"―",
+desc:"元メジャーデビュー組。実力・知名度ともに頭一つ抜けた本命。プライドが高く、他者への当たりは強い。"},
+{id:"minato", name:"白瀬湊", read:"しらせ みなと", age:22, from:"神奈川", img:"assets/tr-minato.jpg",
+vo:62, da:70, ra:38, vi:95, att:72, cls:"―",
+desc:"圧倒的ビジュアルで事前人気1位。歌とダンスは発展途上だが、カメラを向けられた瞬間の輝きは本物。"},
+{id:"sota", name:"久遠颯太", read:"くおん そうた", age:23, from:"福岡", img:"assets/tr-sota.jpg",
+vo:58, da:74, ra:92, vi:70, att:50, cls:"―",
+desc:"地下ラッパー出身。ラップは参加者随一、ボーカルは課題。言葉が鋭く、衝突も多いが芯は真っ直ぐ。"},
+{id:"chiaki", name:"森永千秋", read:"もりなが ちあき", age:26, from:"愛知", img:"assets/tr-chiaki.jpg",
+vo:94, da:64, ra:30, vi:72, att:47, cls:"―",
+desc:"元ボーカルスクール講師。歌唱力は全員中トップ。ダンスの苦手意識が強く、年齢への焦りも抱える。"},
+{id:"ritsu", name:"一ノ瀬律", read:"いちのせ りつ", age:22, from:"北海道", img:"assets/tr-ritsu.jpg",
+vo:55, da:95, ra:35, vi:78, att:44, cls:"―",
+desc:"ダンス歴15年。無口で黙々と練習する職人肌。表現の幅が課題と言われ続けている。"},
+{id:"hinata", name:"花村陽向", read:"はなむら ひなた", age:21, from:"沖縄", img:"assets/tr-hinata.jpg",
+vo:60, da:66, ra:48, vi:80, att:66, cls:"―",
+desc:"天性のムードメーカー。実力は平凡だが、いるだけで場が明るくなる。バラエティ班からは既に重宝されている。"},
+{id:"reo", name:"黒木玲於", read:"くろき れお", age:24, from:"東京", img:"assets/tr-reo.jpg",
+vo:70, da:72, ra:55, vi:89, att:61, cls:"―",
+desc:"元子役。ミステリアスな雰囲気と演技力で独自のファン層を持つ。本心を見せない。"},
+{id:"yuma", name:"西園寺悠真", read:"さいおんじ ゆうま", age:23, from:"京都", img:"assets/tr-yuma.jpg",
+vo:72, da:79, ra:63, vi:75, att:52, cls:"―",
+desc:"韓国大手事務所の練習生を辞めて帰国。基礎が徹底的に叩き込まれており、安定感は随一。"},
+{id:"toru", name:"浅葱透", read:"あさぎ とおる", age:27, from:"広島", img:"assets/tr-toru.jpg",
+vo:68, da:71, ra:58, vi:68, att:40, cls:"―",
+desc:"最年長。元会社員で、退職しての背水の陣。面倒見がよく、練習生たちから兄貴と慕われる。"},
+{id:"nagi", name:"雨宮凪", read:"あまみや なぎ", age:18, from:"静岡", img:"assets/tr-nagi.jpg",
+vo:64, da:69, ra:40, vi:84, att:59, cls:"―",
+desc:"最年少。未経験から半年でここまで来た原石。伸びしろは全員中最大だが、メンタルはまだ脆い。"},
+];
+const T = {}; TRAINEES.forEach(t=>T[t.id]=t);
+
+const ROOMS = {
+staff:{name:"制作チーム（スタッフ）", sub:"メンバー 8", img:"assets/default-avatar.svg"},
+pd:{name:"三雲PD", sub:"番組プロデューサー", img:"assets/default-avatar.svg"},
+hiroto:{name:"井汲大翔", sub:"担当練習生", img:"assets/tr-hiroto.jpg"},
+ousuke:{name:"土田央修", sub:"練習生", img:"assets/tr-ousuke.jpg"},
+};
+
+/* ================= STATE ================= */
+function freshState(){
+const tr={};
+TRAINEES.forEach(t=>{ tr[t.id]={att:t.att, air:0, cls:"―", votes:null, rank:null, expRank:null};});
+return {
+beat:0, trust:10, mental:70,
+tr, chats:{staff:[],pd:[],hiroto:[],ousuke:[]},
+unread:{staff:0,pd:0,hiroto:0,ousuke:0},
+pendingChoice:null, editDone:false, ranked:false,
+freeSend:{hiroto:0,ousuke:0},
+};
+}
+let S = freshState();
+let curRoom=null, curProfile=null;
+
+function save(){ try{ localStorage.setItem(SAVE_KEY, JSON.stringify(S));}catch(e){}}
+function load(){ try{ const d=localStorage.getItem(SAVE_KEY); if(d){ S=Object.assign(freshState(), JSON.parse(d)); return true;}}catch(e){} return false;}
+
+/* ================= UI HELPERS ================= */
+const $=s=>document.querySelector(s);
+function show(id){
+document.querySelectorAll(".view").forEach(v=>v.classList.remove("on"));
+$("#"+id).classList.add("on");
+}
+function toast(msg){
+const t=$("#toast"); t.textContent=msg; t.classList.add("on");
+setTimeout(()=>t.classList.remove("on"),2200);
+}
+function clock(){
+const d=new Date(); let h=d.getHours(), m=("0"+d.getMinutes()).slice(-2);
+$("#sb-time").textContent=h+":"+m;
+}
+setInterval(clock,20000); clock();
+
+function pushChat(room, who, text, opts){
+opts=opts||{};
+S.chats[room].push({who, text, img:opts.img||null, voice:opts.voice||null, sys:!!opts.sys});
+if(curRoom!==room ||!$("#v-chat").classList.contains("on")){
+if(who!=="me" &&!opts.sys) S.unread[room]=(S.unread[room]||0)+1;
+}
+}
+function sysChat(room,text){ pushChat(room,"sys",text,{sys:true});}
+function pushVoice(room, who, src, dur, cap){
+pushChat(room, who, "🎤 ボイスメッセージ", {voice:{src, dur, cap}});
+}
+function voiceBars(seed){
+let h=""; let x=seed||7;
+for(let i=0;i<16;i++){ x=(x*1103515245+12345)%2147483648; h+=`<i style="height:${5+(x%15)}px"></i>`; }
+return h;
+}
+let _curAudio=null;
+function toggleVoice(btn, src){
+const bub=btn.closest(".vbub");
+if(_curAudio && _curAudio._bub && _curAudio._bub!==bub){ try{_curAudio.pause();}catch(e){} _curAudio._bub.classList.remove("playing"); _curAudio._btn.textContent="▶"; }
+if(!bub._au){ const au=new Audio(src); bub._au=au; au._bub=bub; au._btn=btn; au.addEventListener("ended",()=>{ bub.classList.remove("playing"); btn.textContent="▶"; }); }
+const au=bub._au;
+if(au.paused){ au.play(); _curAudio=au; bub.classList.add("playing"); btn.textContent="⏸"; }
+else{ au.pause(); bub.classList.remove("playing"); btn.textContent="▶"; }
+}
+
+/* ================= HOME ================= */
+const APPS=[
+{id:"talk", lb:"トーク", ic:"💬", bg:"linear-gradient(180deg,#29d967,#06c755)", view:"v-talk", badge:()=>Object.values(S.unread).reduce((a,b)=>a+b,0)},
+{id:"members", lb:"練習生名簿", ic:"📋", bg:"linear-gradient(180deg,#8e7bff,#7c5cff)", view:"v-members"},
+{id:"edit", lb:"編集室", ic:"🎬", bg:"linear-gradient(180deg,#ff7ba5,#ff5c8a)", view:"v-edit", lock:()=>S.beat<3, badge:()=> (S.beat>=3&&!S.editDone)?1:0},
+{id:"x", lb:"X", ic:"𝕏", bg:"#000", view:"v-x", lock:()=>S.beat<4},
+{id:"news", lb:"ニュース", ic:"📰", bg:"linear-gradient(180deg,#ffb340,#ff9500)", view:"v-news", lock:()=>S.beat<4},
+{id:"rank", lb:"順位表", ic:"👑", bg:"linear-gradient(180deg,#ffd60a,#f5b800)", view:"v-rank", badge:()=> (S.beat>=5&&!S.ranked)?1:0},
+{id:"settings", lb:"設定", ic:"⚙️", bg:"linear-gradient(180deg,#c7c7cc,#8e8e93)", view:"v-settings"},
+];
+function renderHome(){
+const phases=[
+["DAY 1 ― 配属","制作チームに配属された。担当練習生と初対面へ。"],
+["DAY 2 ― レベル分け評価","今日はレベル分け評価の収録。担当の本番を見守れ。"],
+["収録後 ― ひろとの反応","評価が終わった。ひろとから連絡が来ている。"],
+["編集会議","放送分の「分量」を決める会議。編集室で配分を確定せよ。"],
+["放送日","第1話が放送された。Xとニュースの反応をチェック。"],
+["順位発表","第1回順位発表。担当の運命が決まる。"],
+["第1話 ― 完","第1回順位発表が終わった。つづきは第2話で。"],
+];
+const p=phases[Math.min(S.beat,6)];
+$("#w-phase").textContent=p[0]; $("#w-main").textContent=p[1];
+$("#w-trust").textContent=S.trust;
+$("#w-mental").textContent=S.mental;
+$("#w-rank").textContent=S.tr.hiroto.rank? S.tr.hiroto.rank+"位":"―";
+$("#btn-next").disabled = S.beat>=6;
+$("#btn-next").textContent = S.beat>=6? "第1話クリア 🎉（第2話は制作中）": "▶ ストーリーを進める";
+const wrap=$("#apps"); wrap.innerHTML="";
+APPS.forEach(a=>{
+const d=document.createElement("div");
+d.className="app"+(a.lock&&a.lock()?" lock":"");
+const b=a.badge?a.badge():0;
+d.innerHTML=`<div class="ic" style="background:${a.bg};color:#fff">${a.ic}</div><div class="lb">${a.lb}</div>`+(b?`<div class="bdg">${b}</div>`:"");
+d.onclick=()=>{
+if(a.lock&&a.lock()){ toast("まだ解放されていません"); return;}
+openApp(a);
+};
+wrap.appendChild(d);
+});
+const dock=$("#dock"); dock.innerHTML="";
+["talk","rank","edit","members"].forEach(id=>{
+const a=APPS.find(x=>x.id===id);
+const d=document.createElement("div");
+d.className="app"+(a.lock&&a.lock()?" lock":"");
+d.innerHTML=`<div class="ic" style="background:${a.bg};color:#fff">${a.ic}</div>`;
+d.onclick=()=>{ if(a.lock&&a.lock()){ toast("まだ解放されていません"); return;} openApp(a);};
+dock.appendChild(d);
+});
+}
+function openApp(a){
+show(a.view);
+if(a.id==="talk") renderTalkList();
+if(a.id==="rank") renderRank();
+if(a.id==="x") renderX();
+if(a.id==="news") renderNews();
+if(a.id==="members") renderMembers();
+if(a.id==="edit") renderEdit();
+}
+document.querySelectorAll("[data-home]").forEach(el=>el.onclick=()=>{ renderHome(); show("v-home");});
+$("#homebar").onclick=()=>{ renderHome(); show("v-home");};
+
+/* ================= TALK ================= */
+function renderTalkList(){
+const w=$("#talk-list"); w.innerHTML="";
+Object.keys(ROOMS).forEach(id=>{
+const r=ROOMS[id], msgs=S.chats[id];
+const last=msgs[msgs.length-1];
+const d=document.createElement("div"); d.className="troom";
+d.innerHTML=`<img class="av" src="${r.img}"><div style="min-width:0"><div class="nm">${r.name}${S.unread[id]?`<span class="bdg">${S.unread[id]}</span>`:""}</div><div class="pv">${last?last.text.replace(/\n/g," "):"（まだメッセージがありません）"}</div></div><div class="tm"></div>`;
+d.onclick=()=>openChat(id);
+w.appendChild(d);
+});
+}
+function openChat(id){
+curRoom=id; S.unread[id]=0; save();
+$("#chat-title").textContent=ROOMS[id].name;
+$("#chat-sub").textContent=ROOMS[id].sub;
+renderChat(); show("v-chat");
+}
+function renderChat(){
+const w=$("#chat-body"); w.innerHTML="";
+S.chats[curRoom].forEach(m=>{
+if(m.sys){ const d=document.createElement("div"); d.className="sysmsg"; d.textContent=m.text; w.appendChild(d); return;}
+const d=document.createElement("div");
+if(m.voice){ const who2 = m.who==="pd" ? "三雲PD" : m.who==="staff" ? "佐伯（先輩AD）" : T[m.who]?T[m.who].name:m.who;
+const img2 = m.who==="pd"||m.who==="staff" ? "assets/default-avatar.svg" : T[m.who].img;
+d.className="msg";
+d.innerHTML=`<img class="av sm" src="${img2}"><div class="col"><div class="who">${who2}</div><div class="bub vbub"><button class="vbtn" onclick="toggleVoice(this,'${m.voice.src}')">▶</button><span class="vwave">${voiceBars(m.voice.src.length*13)}</span><span class="vdur">${m.voice.dur}</span></div><div class="vcap">🎤 ${esc(m.voice.cap||"")}</div></div>`;
+}
+else if(m.who==="me"){ d.className="msg me"; d.innerHTML=`<div class="col"><div class="bub">${m.img?`<img class="chat-img" src="${m.img}">`:""}${esc(m.text)}</div></div>`;}
+else{
+const who = m.who==="pd"? "三雲PD": m.who==="staff"? "佐伯（先輩AD）": T[m.who]?T[m.who].name:m.who;
+const img = m.who==="pd"||m.who==="staff"? "assets/default-avatar.svg": T[m.who].img;
+d.className="msg";
+d.innerHTML=`<img class="av sm" src="${img}"><div class="col"><div class="who">${who}</div><div class="bub">${m.img?`<img class="chat-img" src="${m.img}">`:""}${esc(m.text)}</div></div>`;
+}
+w.appendChild(d);
+});
+w.scrollTop=w.scrollHeight;
+const ch=$("#chat-choices");
+if(S.pendingChoice && S.pendingChoice.room===curRoom){
+ch.style.display="flex"; ch.innerHTML="";
+S.pendingChoice.options.forEach((o,i)=>{
+const b=document.createElement("button"); b.textContent=o.label;
+b.onclick=()=>chooseOption(i);
+ch.appendChild(b);
+});
+$("#chat-input").style.display="none";
+}else{
+ch.style.display="none"; $("#chat-input").style.display="flex";
+}
+}
+function esc(s){ return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+$("#chat-back").onclick=()=>{ renderTalkList(); show("v-talk");};
+$("#chat-send").onclick=sendFree;
+$("#chat-text").addEventListener("keydown",e=>{ if(e.key==="Enter") sendFree();});
+function sendFree(){
+const inp=$("#chat-text"); const v=inp.value.trim(); if(!v) return;
+inp.value="";
+pushChat(curRoom,"me",v); save(); renderChat();
+const room=curRoom;
+if(room==="hiroto" || room==="ousuke"){
+const key=room; const n=(S.freeSend[key]||0)+1; S.freeSend[key]=n; save();
+const replies = room==="hiroto"
+? ["おつかれさまです。今は練習中やから、また後で返しますね","ありがとうございます。……ちょっと救われました","ほんまですか。……ふふ、なんか嬉しいわ"]
+: ["お、ADさん。おつかれー","ひろとのことなら任せて。あいつ、意外と打たれ弱いから","サンキュー。あいつにも伝えとくわ"];
+setTimeout(()=>{ pushChat(room,room,replies[(n-1)%replies.length]); save(); if(curRoom===room) renderChat(); else renderHomeBadgeOnly();},900);
+}
+}
+function renderHomeBadgeOnly(){ /* unread handled on next home render */}
+
+/* ================= SCENE PLAYER ================= */
+let sceneQueue=[], sceneDone=null;
+function playScene(steps, done){
+sceneQueue=steps.slice(); sceneDone=done;
+$("#scene-body").innerHTML=""; show("v-scene");
+nextStep();
+}
+function nextStep(){
+const body=$("#scene-body"), nx=$("#scene-next");
+nx.innerHTML="";
+if(!sceneQueue.length){
+const b=document.createElement("button"); b.textContent="ホームに戻る";
+b.onclick=()=>{ const f=sceneDone; sceneDone=null; renderHome(); show("v-home"); if(f) f();};
+nx.appendChild(b); return;
+}
+const st=sceneQueue.shift();
+if(st.narr){ const d=document.createElement("div"); d.className="narr"; d.textContent=st.narr; body.appendChild(d);}
+if(st.photo){ const im=document.createElement("img"); im.className="scene-photo"; im.src=st.photo; body.appendChild(im);}
+if(st.dlg){ const d=document.createElement("div"); d.className="dlg"; d.innerHTML=`<div class="nm">${st.dlg[0]}</div><div class="tx">${esc(st.dlg[1])}</div>`; body.appendChild(d);}
+body.scrollTop=body.scrollHeight;
+if(st.choice){
+st.choice.forEach(c=>{
+const b=document.createElement("button"); b.className="choice"; b.textContent=c.label;
+b.onclick=()=>{
+if(c.fx) c.fx();
+if(c.reply){ const d=document.createElement("div"); d.className="dlg"; d.innerHTML=`<div class="nm">${c.reply[0]}</div><div class="tx">${esc(c.reply[1])}</div>`; body.appendChild(d);}
+if(c.note){ const d=document.createElement("div"); d.className="narr"; d.textContent=c.note; body.appendChild(d);}
+save(); nextStep();
+};
+nx.appendChild(b);
+});
+}else{
+const b=document.createElement("button"); b.textContent="つづける ›";
+b.onclick=nextStep; nx.appendChild(b);
+}
+}
+
+/* ================= STORY BEATS ================= */
+function fxTrust(d){ S.trust=Math.max(0,Math.min(100,S.trust+d));}
+function fxMental(d){ S.mental=Math.max(0,Math.min(100,S.mental+d));}
+
+const BEATS=[
+/* beat0: プロローグ */
+function(){
+sysChat("staff","制作チームのグループが作成されました");
+pushChat("staff","staff","おはようございます！『新世界ステージ』制作チームです。各自、担当練習生の割り振りがPDから届いているはずなので確認お願いします");
+pushChat("pd","pd","三雲です。なおさんには井汲大翔くんの担当ADをお願いします");
+pushChat("pd","pd","彼は今回で4回目の挑戦です。実力はあるのに、なぜか毎回あと一歩で落ちる。「素材は一級品なのに売り方が分からない」タイプですね");
+pushChat("pd","pd","あなたの仕事は、彼の魅力を「放送に乗せる」こと。期待しています");
+playScene([
+{narr:"サバイバルオーディション番組『新世界ステージ』。参加者101人から絞られた最終候補12名が、デビュー枠5席を争う。"},
+{narr:"ADのなおは今日、担当練習生・井汲大翔と初めて顔を合わせる。"},
+{photo:"assets/tr-hiroto-stage.jpg"},
+{dlg:["井汲大翔","……あ、はじめまして。井汲大翔です。担当、よろしくお願いします"]},
+{dlg:["井汲大翔","正直に言うと、こういうの何回もやってるんで。期待とか、あんまりせんといてもらえると助かります"]},
+{narr:"笑っているのに、どこか最初から諦めたような目をしていた。"},
+{choice:[
+{label:"「期待するよ。あたしは本気でデビューさせるつもり」", fx:()=>{fxTrust(12);fxMental(3);}, reply:["井汲大翔","……はは。そう言われたん、初めてかもしれん。……ほんなら、ちょっとだけ頑張ってみます"], note:"（まっすぐな言葉が刺さったみたいだ）"},
+{label:"「無理に期待しなくていい。まず現場に慣れよう」", fx:()=>{fxTrust(7);fxMental(6);}, reply:["井汲大翔","……優しいんですね。ありがとうございます。ほっとしました"], note:"（張りつめていた肩の力が、少し抜けた）"},
+{label:"「じゃあ結果で変えよう。まずプロフィール撮影から」", fx:()=>{fxTrust(4);}, reply:["井汲大翔","仕事早いですね。……分かりました、ついていきます"], note:"（事務的だけど、嫌ではなさそうだ）"},
+]},
+{dlg:["土田央修","おー、ひろと。担当さん決まったんや。……俺の戦友、よろしく頼みますよ"]},
+{dlg:["井汲大翔","おうすけ、うるさい。……すみません、こいつとは前の番組で一緒で"]},
+{narr:"土田央修。ボイプラ出身の同期で、大翔の数少ない本音を話せる相手らしい。"},
+], ()=>{
+pushChat("hiroto","hiroto","今日はありがとうございました。……なんか、思ってたより話しやすかったです");
+pushChat("hiroto","hiroto","改めて、自己紹介を声でも送っときます");
+pushVoice("hiroto","hiroto","assets/vc-intro.mp3","0:03","いくみひろとです。……ひろとって、呼んでください");
+pushChat("hiroto","hiroto","明日のレベル分け、見に来てくれます？");
+S.pendingChoice={room:"hiroto", options:[
+{label:"「もちろん。最前列で見てる」", fx:()=>{fxTrust(8);fxMental(5);}, msgs:[["hiroto","……！ ほんまですか。じゃあ、ちゃんと見せます。期待しといてください"]]},
+{label:"「仕事だから行くよ」", fx:()=>{fxTrust(2);}, msgs:[["hiroto","ですよね。……はい、頑張ります"]]},
+{label:"「緊張したら客席のあたしを見て」", fx:()=>{fxTrust(10);fxMental(8);}, msgs:[["hiroto","…………それ、逆に緊張するやつです。……でも、ありがとうございます"]]},
+]};
+S.beat=1; save(); toast("ひろとからメッセージが届いた");
+});
+},
+/* beat1: レベル分け評価 */
+function(){
+pushChat("staff","staff","本日はレベル分け評価の収録です。各担当は担当練習生のケアをお願いします。ひろとくんは14時から本番です");
+playScene([
+{narr:"収録当日。楽屋の前で、大翔がイヤモニを握りしめて立っていた。"},
+{dlg:["井汲大翔","……あ、なおさん。おはようございます"]},
+{dlg:["井汲大翔","昨日あんだけ寝たのに、全然緊張取れへんくて。……何回やっても、ここだけは慣れへん"]},
+{narr:"本番直前。声をかけるなら今しかない。"},
+{choice:[
+{label:"「大丈夫。昨日のあんたは、もう諦めた目をしてなかった」", fx:()=>{fxMental(12);}, reply:["井汲大翔","…………っ。……見ててくれたんですね。……よし。行ってきます"], note:"（メンタルが大きく上向いた）"},
+{label:"深呼吸に付き合う（何も言わず隣に立つ）", fx:()=>{fxMental(8);fxTrust(5);}, reply:["井汲大翔","……なんか、落ち着きました。一人やないって、こういうことなんですね"], note:"（言葉より、隣にいることが効いた）"},
+{label:"「結果は結果。まず楽しんでおいで」", fx:()=>{fxMental(5);}, reply:["井汲大翔","楽しむ、か。……久しぶりに聞いた言葉や。やってみます"], note:"（少しだけ肩の力が抜けた）"},
+]},
+{photo:"assets/tr-hiroto-stage.jpg"},
+{narr:"本番。課題曲は高難度のダンスボーカル。大翔のダンスは圧巻で、審査員席がどよめいた。だが——最後のロングトーンで、声がわずかに震えた。"},
+{dlg:["審査員","ダンスは文句なしにAクラス。でもボーカルが不安定。……総合して、Bクラスだね"]},
+{dlg:["井汲大翔","…………ありがとうございました"]},
+{narr:"頭を下げる大翔の横顔は、悔しさを噛み殺していた。全員のクラス分けが終わった。"},
+], ()=>{
+/* クラス決定 */
+const clsMap={ren:"A",chiaki:"A",ritsu:"A",minato:"B",hiroto:"B",ousuke:"B",yuma:"B",reo:"B",sota:"C",hinata:"C",toru:"C",nagi:"C"};
+Object.keys(clsMap).forEach(k=>{ S.tr[k].cls=clsMap[k]; T[k].cls=clsMap[k];});
+S.tr.hiroto.att += S.mental>=80? 6: 3; /* 本番の存在感 */
+pushChat("hiroto","hiroto","……終わりました。Bでした");
+pushChat("hiroto","hiroto","ダンスは褒めてもらえたけど、最後の声が震えたの、自分でも分かりました");
+S.pendingChoice={room:"hiroto", options:[
+{label:"「震えたのは、諦めてない証拠だよ」", fx:()=>{fxTrust(10);fxMental(6);}, msgs:[["hiroto","……なおさん、ほんまに……。……ありがとうございます。次は、震えへんようにします"]]},
+{label:"「Bは悪くない。ここから巻き返すのが番組だよ」", fx:()=>{fxTrust(6);fxMental(4);}, msgs:[["hiroto","巻き返す、か。……そうですね。まだ始まったばっかりや"]]},
+{label:"「今日はもう休んで。反省会は明日」", fx:()=>{fxTrust(5);fxMental(7);}, msgs:[["hiroto","……ふふ、優しい。……ほんなら今日は、甘えます"]]},
+]};
+pushChat("ousuke","ousuke","ADさん、今日はおつかれさま。ひろと、Bやったな");
+pushChat("ousuke","ousuke","あいつ、ステージ降りた後ずっと天井見てたわ。……まあ、昔からあんなんやけど。よろしく頼むな");
+S.beat=2; save(); toast("レベル分け結果：ひろとはBクラス");
+});
+},
+/* beat2: ひろとの反応〜編集会議へ */
+function(){
+playScene([
+{narr:"翌日。編集会議の前に、三雲PDに呼び止められた。"},
+{dlg:["三雲PD","昨日の評価、見ていたよ。井汲くんのダンスパートは間違いなく番組の見せ場になる"]},
+{dlg:["三雲PD","ただ、放送時間は有限だ。全員を映すことはできない。「誰の物語を視聴者に届けるか」——それを決めるのが今日の編集会議だ"]},
+{dlg:["三雲PD","君には分量ポイントを12配る。担当を贔屓するのも仕事のうちだ。ただし、露骨すぎる贔屓はSNSで叩かれる。バランス感覚を忘れずに"]},
+{narr:"編集室アプリが解放された。放送分の分量配分を決めよう。"},
+], ()=>{ S.beat=3; save(); toast("編集室が解放された");});
+},
+/* beat3: 編集確定の確認（編集室で確定すると進む。ここではヒント表示） */
+function(){
+if(!S.editDone){ toast("先に編集室で分量を確定してね"); return;}
+pushChat("staff","staff","第1話の編集が上がりました。今夜20時放送です。各自チェックお願いします");
+pushChat("pd","pd","編集、お疲れさま。あとは視聴者がどう受け取るかだね");
+S.beat=4; save(); renderHome(); toast("放送日になった（Xとニュースをチェック）");
+},
+/* beat4: 放送反応を見て順位発表へ */
+function(){
+playScene([
+{narr:"放送終了。SNSの反応は上々で、番組名はトレンド入りした。"},
+{narr:"そして——第1回順位発表の収録日。会場には12名分の椅子と、5つのデビュー圏の椅子が用意されている。"},
+{dlg:["井汲大翔","……なおさん。昨日、Xで自分の名前、ちょっとだけ増えてた気がしました。気のせいかもしれんけど"]},
+{dlg:["井汲大翔","今日の順位、正直怖い。でも……逃げたくはないです"]},
+{narr:"大翔の背中を押して、会場へ送り出す。"},
+], ()=>{ S.beat=5; save(); computeRanking(); toast("順位表が更新された！");});
+},
+/* beat5: 順位発表 */
+function(){
+const r=S.tr.hiroto.rank;
+const inZone = r<=DEBUT_N;
+playScene([
+{narr:"第1回順位発表。名前が下位から読み上げられていく。"},
+{photo:"assets/tr-hiroto-stage.jpg"},
+{narr:`――井汲大翔、第${r}位。`},
+{dlg:["井汲大翔", inZone? "……圏内。……ほんまに？ ……なおさん、やりました。まだ、残れます": "…………。……そっか。……でも、思ってたより悪くない。次、絶対上げます"]},
+{dlg:["土田央修","おいひろと、聞いたか。お前の名前、Xでバズってたやん。ここからやぞ"]},
+{narr: inZone? "デビュー圏内からのスタート。だが順位はまだ流動的だ。物語は始まったばかり。": "デビュー圏外からのスタート。けれど、注目度は確実に上がっている。ここからがADの腕の見せ所だ。"},
+{narr:"―― 第1話・完。第2話「ポジションバトル」へつづく。"},
+], ()=>{
+S.ranked=true; S.beat=6; save();
+pushChat("hiroto","hiroto","今日はありがとうございました。順位、見ました？");
+sysChat("hiroto","📞 ひろとからボイスメッセージが届いた");
+pushVoice("hiroto","hiroto","assets/vc-thanks.mp3","0:02","ありがとうな。ほんまに");
+pushChat("hiroto","hiroto","……なおさんが担当で、よかったです。次も、よろしくお願いします");
+toast("第1話クリア！");
+});
+},
+];
+
+function chooseOption(i){
+const pc=S.pendingChoice; if(!pc) return;
+const o=pc.options[i];
+pushChat(pc.room,"me",o.label);
+if(o.fx) o.fx();
+(o.msgs||[]).forEach(m=>pushChat(pc.room,m[0],m[1]));
+S.pendingChoice=null; save(); renderChat(); renderHome();
+toast("選択がストーリーに反映された");
+}
+$("#btn-next").onclick=()=>{
+const b=BEATS[S.beat];
+if(b) b();
+renderHome();
+};
+
+/* ================= RANKING ================= */
+function seededRand(seed){ let x=seed; return ()=>{ x=(x*1103515245+12345)%2147483648; return x/2147483648;};}
+function computeRanking(){
+const rnd=seededRand(20261103);
+const rows=TRAINEES.map(t=>{
+const st=S.tr[t.id];
+const skill=(t.vo+t.da+t.ra+t.vi)/4;
+const fan = t.vi*0.9 + st.att*1.6 + st.air*6 + rnd()*14;
+const onl = st.att*1.9 + st.air*9 + skill*0.35 + rnd()*14;
+const live= skill*1.7 + (st.cls==="A"?16:st.cls==="B"?8:0) + rnd()*10;
+const total = fan*0.5 + onl*0.3 + live*0.2;
+/* 表示票数は合成比率(50/30/20)を織り込んだ値。合計＝順位決定スコアと一致する */
+return {id:t.id, fan:Math.round(fan*0.5*820), onl:Math.round(onl*0.3*820), live:Math.round(live*0.2*820), total};
+});
+rows.sort((a,b)=>b.total-a.total);
+rows.forEach((r,i)=>{ S.tr[r.id].rank=i+1; S.tr[r.id].votes=r;});
+save();
+}
+function renderRank(){
+const w=$("#rank-body");
+if(!S.ranked && S.beat<5){
+w.innerHTML=`<div class="rk-note">第1回順位発表はまだ実施されていません。<br>投票内訳は ファン票50% ＋ オンライン30% ＋ 現場票20% で集計されます。<br><br></div>`+
+TRAINEES.slice().sort((a,b)=>S.tr[b.id].att-S.tr[a.id].att).map((t,i)=>{
+const st=S.tr[t.id];
+return `<div class="rk-row ${t.id==="hiroto"?"me":""}"><div class="rk-num">${i+1}</div><img class="av sm" src="${t.img}"><div class="inf"><div class="nm">${t.name}</div><div class="dt">注目度 ${st.att}／クラス ${st.cls}</div></div></div>`;
+}).join("");
+$("#rank-sub").textContent="事前注目度ランキング";
+return;
+}
+$("#rank-sub").textContent="第1回順位発表 ― 結果";
+const rows=TRAINEES.slice().sort((a,b)=>S.tr[a.id].rank-S.tr[b.id].rank);
+w.innerHTML=rows.map(t=>{
+const st=S.tr[t.id]; const v=st.votes||{fan:0,onl:0,live:0};
+const inz=st.rank<=DEBUT_N;
+return `<div class="rk-row ${t.id==="hiroto"?"me":""}"><div class="rk-num ${st.rank<=3?"top":""}">${st.rank}</div><img class="av sm" src="${t.img}"><div class="inf"><div class="nm">${t.name}<span class="zone-tag ${inz?"zone-in":"zone-out"}">${inz?"デビュー圏内":"圏外"}</span></div><div class="dt">ファン ${v.fan.toLocaleString()}／オンライン ${v.onl.toLocaleString()}／現場 ${v.live.toLocaleString()}</div></div><div class="rk-vote"><b>${(v.fan+v.onl+v.live).toLocaleString()}</b><br>票</div></div>`;
+}).join("")+`<div class="rk-note">集計方法：ファン票・オンライン投票・現場票を 50：30：20 で合成した順位（表示票数は合成後の値）。デビュー圏は上位${DEBUT_N}名。</div>`;
+}
+
+/* ================= X / NEWS ================= */
+function buzzList(){
+return TRAINEES.slice().sort((a,b)=>(S.tr[b.id].air*2+S.tr[b.id].att)-(S.tr[a.id].air*2+S.tr[a.id].att));
+}
+function renderX(){
+const w=$("#x-body");
+if(S.beat<4){ w.innerHTML=`<div class="rk-note">放送後にファンの投稿が表示されます。</div>`; return;}
+const top=buzzList(); const h=T.hiroto, hair=S.tr.hiroto.air;
+const posts=[
+{n:"新世界ステージ", h:"@shinsekai_stage", t:"『新世界ステージ』第1話をご覧いただきありがとうございました！第1回順位発表は次回放送で公開⚡ #新世界ステージ", f:"1.2万"},
+{n:"みかん🍊", h:"@mikan_p_101", t:"高峰蓮、次元が違う…あれはもうデビューしてる人のステージ #新世界ステージ #高峰蓮", f:"3,204"},
+{n:"推し活お姉さん", h:"@oshi_oneesan", t:"白瀬湊の顔面が強すぎて内容が入ってこない #白瀬湊", f:"5,881"},
+{n:"ダンス動画まとめ", h:"@dance_matome", t:"レベル分けで一番鳥肌立ったのは井汲大翔のダンス。なんでこの人まだデビューしてないの？？ #井汲大翔 #新世界ステージ", f:"9,412"},
+{n:"なおと", h:"@naoto_k_7", t: hair>=4? "井汲大翔、分量たっぷりで嬉しい…！ 4回目の挑戦、今年こそ報われてほしい #井汲大翔": "井汲大翔もっと映して…ダンスあんなにすごいのに分量少なすぎない？ #井汲大翔", f:"2,107"},
+{n:"現場レポ垢", h:"@genba_repo", t:`今日の収録、${top[0].name}と${top[1].name}の人気がすごかった。あと土田央修は現場の笑い全部持ってく #新世界ステージ`, f:"1,540"},
+{n:"千秋の歌声に泣いた人", h:"@chiaki_uta", t:"森永千秋のボーカルで普通に泣いた。年齢とか関係ない、実力で殴ってくるタイプ #森永千秋", f:"4,020"},
+];
+w.innerHTML=posts.map(p=>`<div class="xpost"><img class="av" src="assets/default-avatar.svg"><div><div class="xh"><b>${p.n}</b> <span>${p.h}</span></div><div class="xt">${p.t}</div><div class="xf">♥ ${p.f}</div></div></div>`).join("");
+}
+function renderNews(){
+const w=$("#news-body");
+if(S.beat<4){ w.innerHTML=`<div class="rk-note">放送後にニュースが表示されます。</div>`; return;}
+const hRank=S.tr.hiroto.rank;
+w.innerHTML=`
+<div class="nitem" onclick="document.querySelector('#news-a1').style.display='block'"><div class="src">エンタメ速報</div><div class="hd">『新世界ステージ』初回放送がトレンド席巻　「4度目の挑戦」井汲大翔のダンスに絶賛の声</div><div class="sm">サバイバルオーディション番組『新世界ステージ』第1話が放送され、関連ワードがSNSトレンドを席巻した。</div></div>
+<div class="nbody" id="news-a1" style="display:none">サバイバルオーディション番組『新世界ステージ』（架空の番組）の第1話が放送され、レベル分け評価の様子が公開された。特に注目を集めたのは、過去に複数のオーディション番組へ挑戦してきた井汲大翔のパフォーマンス。ダンスでは審査員から最高評価を得た一方、ボーカルで課題も残し、Bクラスからのスタートとなった。SNSでは「なぜこの実力でまだデビューしていないのか」「今年こそ報われてほしい」との声が多く上がっている。第1回順位発表は次回放送で明らかになる。</div>
+<div class="nitem"><div class="src">テレビ誌オンライン</div><div class="hd">本命・高峰蓮が貫禄のAクラス　最年少の雨宮凪ら「原石組」にも注目</div><div class="sm">元メジャーデビュー組の高峰蓮が実力通りの評価を獲得。一方、白瀬湊のビジュアル人気も依然として高い。</div></div>`;
+}
+
+/* ================= MEMBERS ================= */
+function renderMembers(){
+const w=$("#members-body");
+w.innerHTML=`<div class="mgrid">`+TRAINEES.map(t=>{
+const st=S.tr[t.id];
+return `<div class="mcard" data-id="${t.id}"><img src="${t.img}"><div class="nm">${t.name}${t.id==="hiroto"?"（担当）":""}</div><div class="cl">${st.cls}クラス／注目度 ${st.att}${st.rank?`／${st.rank}位`:""}</div></div>`;
+}).join("")+`</div>`;
+w.querySelectorAll(".mcard").forEach(c=>c.onclick=()=>openProfile(c.dataset.id));
+}
+function statRow(lb,v){ return `<div class="stat"><div class="sl">${lb}</div><div class="bar"><i style="width:${v}%"></i></div><div class="sv">${v}</div></div>`;}
+function openProfile(id){
+curProfile=id; const t=T[id], st=S.tr[id];
+$("#pf-title").textContent=t.name;
+$("#pf-body").innerHTML=`<div class="pf-wrap"><img class="pf-hero" src="${t.hero||t.img}"><div class="pf-in">
+<h3>${t.name} <span style="font-size:12px;color:#8e8e93">${t.read}</span></h3>
+<div class="meta">${t.age}歳／${t.from}出身／クラス：${st.cls}／注目度：${st.att}${st.rank?`／現在順位：${st.rank}位`:""}${id==="hiroto"?`<br>ひろと信頼度：${S.trust}／メンタル：${S.mental}`:""}</div>
+${statRow("ボーカル",t.vo)}${statRow("ダンス",t.da)}${statRow("ラップ",t.ra)}${statRow("ビジュアル",t.vi)}
+<div class="meta" style="margin-top:12px;color:#333;font-size:13px;line-height:1.8">${t.desc}</div>
+</div></div>`;
+show("v-profile");
+}
+$("#pf-back").onclick=()=>{ renderMembers(); show("v-members");};
+
+/* ================= EDIT ROOM ================= */
+let editDraft=null;
+function renderEdit(){
+const head=$("#ed-head"), w=$("#ed-body"), btn=$("#ed-confirm");
+if(S.beat<3){ head.innerHTML="編集会議はまだ始まっていません。"; w.innerHTML=""; btn.disabled=true; return;}
+if(S.editDone){
+head.innerHTML="第1話の分量配分は<b>確定済み</b>です。放送をお待ちください。";
+w.innerHTML=TRAINEES.map(t=>`<div class="ed-row"><img class="av sm" src="${t.img}"><div class="inf"><div class="nm">${t.name}</div><div class="dt">分量 ${S.tr[t.id].air} pt</div></div></div>`).join("");
+btn.disabled=true; btn.textContent="確定済み"; return;
+}
+if(!editDraft){ editDraft={}; TRAINEES.forEach(t=>editDraft[t.id]=S.tr[t.id].air||0);}
+const used=Object.values(editDraft).reduce((a,b)=>a+b,0);
+head.innerHTML=`編集会議：放送分の<b>分量ポイント ${EDIT_POINTS}pt</b> を12名に配分してください（残り <b>${EDIT_POINTS-used}pt</b>）。<br>分量が多いほど放送で映り、注目度とオンライン票が伸びます。担当を押し上げるのも、全体のバランスを取るのもADの判断です。`;
+btn.disabled = used!==EDIT_POINTS;
+btn.textContent = used===EDIT_POINTS? "この配分で確定する": `あと ${EDIT_POINTS-used}pt 配ってください`;
+w.innerHTML="";
+TRAINEES.forEach(t=>{
+const st=S.tr[t.id];
+const d=document.createElement("div"); d.className="ed-row";
+d.innerHTML=`<img class="av sm" src="${t.img}"><div class="inf"><div class="nm">${t.name}${t.id==="hiroto"?"（担当）":""}</div><div class="dt">${st.cls}クラス／注目度 ${st.att}</div></div>
+<div class="stepper"><button data-a="-1">−</button><div class="pt">${editDraft[t.id]}</div><button data-a="1">＋</button></div>`;
+d.querySelectorAll("button").forEach(b=>b.onclick=()=>{
+const dv=+b.dataset.a; const nu=Object.values(editDraft).reduce((a,x)=>a+x,0);
+if(dv>0 && nu>=EDIT_POINTS){ toast("ポイントが足りません"); return;}
+if(dv<0 && editDraft[t.id]<=0) return;
+editDraft[t.id]+=dv; renderEdit();
+});
+w.appendChild(d);
+});
+}
+$("#ed-confirm").onclick=()=>{
+if(S.editDone) return;
+TRAINEES.forEach(t=>{
+S.tr[t.id].air=editDraft[t.id];
+S.tr[t.id].att += editDraft[t.id]*2; /* 分量→注目度 */
+});
+S.editDone=true; save();
+pushChat("staff","staff","編集データを受け取りました。ありがとうございます、今夜の放送に反映します");
+toast("分量配分を確定した");
+renderEdit(); renderHome();
+};
+
+/* ================= SETTINGS / TITLE ================= */
+$("#set-reset").onclick=()=>{
+if(confirm("データを消して最初からやり直しますか？")){
+localStorage.removeItem(SAVE_KEY); S=freshState(); editDraft=null; curRoom=null;
+renderTitle(); toast("リセットしました");
+}
+};
+$("#set-about").onclick=()=>{ alert("『担当をデビューさせる件』v1\nサバイバル番組の裏側を描く創作フィクションです。登場する番組・団体は架空のものですが、実在の人物をモチーフにした描写を含みます。");};
+function renderTitle(){
+show("v-title");
+$("#btn-cont").style.display = localStorage.getItem(SAVE_KEY)? "block":"none";
+}
+$("#btn-start").onclick=()=>{
+if(localStorage.getItem(SAVE_KEY) &&!confirm("保存データがあります。最初から始めると上書きされます。よろしいですか？")) return;
+S=freshState(); editDraft=null; save(); renderHome(); show("v-home");
+toast("プロローグ開始");
+};
+$("#btn-cont").onclick=()=>{ load(); renderHome(); show("v-home");};
+
+/* init */
+if(load() && S.beat>0){ renderTitle();} else { S=freshState(); renderTitle();}
+</script>
+</body>
+</html>
