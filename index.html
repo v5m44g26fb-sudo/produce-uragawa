@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>担当をデビューさせる件｜PRODUCE 101 JAPAN Season1 IF・ADなおの裏側SNS</title>
+<title>担当をデビューさせる件｜PRODUCE 101 JAPAN Season1 IF・インターンなおの裏側SNS</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{
@@ -87,11 +87,11 @@ padding:56px 14px 10px;display:flex;align-items:center;gap:10px;border-bottom:1p
 .troom .bdg{background:var(--red);color:#fff;font-size:10px;font-weight:700;min-width:18px;height:18px;border-radius:9px;display:inline-flex;align-items:center;justify-content:center;padding:0 5px;margin-left:6px}
 #v-chat{background:#aebdd3}
 .chat-body{flex:1;overflow-y:auto;padding:14px 12px 8px;display:flex;flex-direction:column;gap:10px}
-.msg{display:flex;gap:7px;max-width:100%}
-.msg .col{display:flex;flex-direction:column;gap:2px;max-width:76%}
+.msg{display:flex;gap:7px;width:100%}
+.msg .col{display:flex;flex-direction:column;gap:2px;max-width:76%;min-width:0}
 .msg .who{font-size:10.5px;color:#3c4656}
 .bub{background:#fff;border-radius:14px;padding:8px 11px;font-size:13.5px;line-height:1.5;color:#111;box-shadow:0 1px 1px rgba(0,0,0,.08);white-space:pre-wrap;word-break:break-word}
-.msg.me{align-self:flex-end;flex-direction:row-reverse}
+.msg.me{justify-content:flex-end}
 .msg.me .bub{background:#ffe14d}
 .msg.me .col{align-items:flex-end}
 .sysmsg{align-self:center;background:rgba(0,0,0,.22);color:#fff;font-size:11px;border-radius:10px;padding:4px 10px}
@@ -197,12 +197,27 @@ padding:56px 14px 10px;display:flex;align-items:center;gap:10px;border-bottom:1p
 .toast.on{opacity:1}
 .set-row{padding:15px 16px;border-bottom:1px solid #eee;background:#fff;font-size:14.5px;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
 .set-row .danger{color:var(--red);font-weight:700}
+/* ===== call ===== */
+#v-call{background:linear-gradient(180deg,#1b1830,#0a0a12);color:#fff}
+.call-in{flex:1;display:flex;flex-direction:column;align-items:center;padding:96px 24px calc(26px + env(safe-area-inset-bottom))}
+.call-status{font-size:12.5px;color:#a79fc0;letter-spacing:.08em}
+.call-av{width:112px;height:112px;border-radius:50%;object-fit:cover;object-position:top;border:3px solid rgba(255,255,255,.35);margin-top:16px;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+.call-name{font-size:22px;font-weight:800;margin-top:14px}
+.call-time{font-size:13px;color:#cfc8e4;margin-top:4px;font-variant-numeric:tabular-nums}
+.call-sub{margin-top:26px;width:100%;max-width:320px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:13px 16px;font-size:14.5px;line-height:1.7;min-height:96px}
+.call-sub .call-who{font-size:11px;font-weight:700;color:var(--gold);margin-bottom:3px}
+.call-sub .call-vnote{font-size:11px;color:#a79fc0;margin-top:5px}
+.call-choices{display:none;flex-direction:column;gap:8px;width:100%;max-width:320px;margin-top:12px}
+.call-choices button{border:1.5px solid rgba(255,255,255,.55);background:rgba(255,255,255,.08);color:#fff;font-weight:700;font-size:13.5px;border-radius:20px;padding:10px 12px;cursor:pointer}
+.call-btns{margin-top:auto;display:flex;flex-direction:column;align-items:center;gap:10px;width:100%}
+.call-tap{border-radius:14px;padding:13px 22px;font-size:14px;font-weight:700;background:rgba(255,255,255,.14);color:#fff;cursor:pointer;border:1px solid rgba(255,255,255,.3)}
+.call-end{border:none;width:62px;height:62px;border-radius:50%;background:#ff3b30;color:#fff;font-size:24px;cursor:pointer;box-shadow:0 8px 20px rgba(255,59,48,.4)}
 </style>
 </head>
 <body>
 <div class="page-head">
 <h1>担当をデビューさせる件</h1>
-<p>『PRODUCE 101 JAPAN』Season1（2019・日プ無印）の裏側。ADのなおが、担当練習生・井汲大翔の史実（第2回発表36位・あと1枠差の脱落）を覆し、デビュー圏11位へ押し上げるスタッフ視点SNSゲーム。</p>
+<p>『PRODUCE 101 JAPAN』Season1（2019・日プ無印）の裏側。高校3年生の制作インターン・なおが、担当練習生・井汲大翔の史実（第2回発表36位・あと1枠差の脱落）を覆し、デビュー圏11位へ押し上げるスタッフ視点SNSゲーム。</p>
 <p class="src">※本作品は実在の番組・人物を題材にしたファンメイドのIF作品です。史実をもとにしていますが、登場人物の言動や順位の変動は創作を含みます。</p>
 </div>
 
@@ -217,7 +232,7 @@ padding:56px 14px 10px;display:flex;align-items:center;gap:10px;border-bottom:1p
 <div class="title-in">
 <div class="kicker">PRODUCE 101 JAPAN ― SEASON 1 IF</div>
 <h2>担当を<br>デビューさせる件</h2>
-<div class="desc">2019年、韓国・坡州。101人の練習生と、デビュー枠11席。<br>ADのなおが担当するのは、Team DKの井汲大翔。史実では36位で散った彼の物語を、裏側から書き換えろ。</div>
+<div class="desc">2019年、韓国・坡州。101人の練習生と、デビュー枠11席。<br>制作インターンとして合宿に帯同する高校3年生のなおが担当するのは、Team DKの井汲大翔。学年は、なおが1つ上。史実では36位で散った彼の物語を、裏側から書き換えろ。</div>
 <button class="b-start" id="btn-start">はじめから</button>
 <button class="b-cont" id="btn-cont" style="display:none">つづきから</button>
 <div class="fic">※本作品は実在の番組『PRODUCE 101 JAPAN』（2019）と実在の人物を題材にしたファンメイドのIF物語です。史実をもとにしていますが、登場人物の言動・順位の変動は創作です。</div>
@@ -303,7 +318,23 @@ padding:56px 14px 10px;display:flex;align-items:center;gap:10px;border-bottom:1p
 <div class="abody" style="background:#f2f2f7">
 <div class="set-row" id="set-about"><span>この作品について</span><span>›</span></div>
 <div class="set-row" id="set-reset"><span class="danger">データを消して最初から</span><span>›</span></div>
-<div style="padding:14px 16px;font-size:11px;color:#8e8e93;line-height:1.7">担当をデビューさせる件 v2<br>※本作品は実在の番組『PRODUCE 101 JAPAN』（2019）と実在の人物を題材にしたファンメイドのIF作品です。史実をもとにしていますが、登場人物の言動や順位の変動は創作を含みます。</div>
+<div style="padding:14px 16px;font-size:11px;color:#8e8e93;line-height:1.7">担当をデビューさせる件 v3<br>※本作品は実在の番組『PRODUCE 101 JAPAN』（2019）と実在の人物を題材にしたファンメイドのIF作品です。史実をもとにしていますが、登場人物の言動や順位の変動は創作を含みます。</div>
+</div>
+</div>
+
+<!-- CALL -->
+<div class="view" id="v-call">
+<div class="call-in">
+<div class="call-status" id="call-status">通話中</div>
+<img class="call-av" id="call-av" src="assets/s1/hiroto.jpg">
+<div class="call-name" id="call-name">井汲大翔</div>
+<div class="call-time" id="call-time">00:00</div>
+<div class="call-sub" id="call-sub"></div>
+<div class="call-choices" id="call-choices"></div>
+<div class="call-btns">
+<button class="call-tap" id="call-tap">タップで進む ›</button>
+<button class="call-end" id="call-end" style="display:none">📞</button>
+</div>
 </div>
 </div>
 
@@ -459,6 +490,15 @@ desc:"プチメンの一人。YKAダンススタジオ出身で、ダンスの�
 ];
 const T = {}; TRAINEES.forEach(t=>T[t.id]=t);
 
+/* 第2回発表（Ep8）の史実得票（キャスト分）。公表分は実数、未公表分（脱落者）は順位からの内部推定値。
+   null は第1回発表で脱落したため第2回投票の対象外 */
+const BASE2={hiroto:158000,takumi:1149244,ren:1074606,shion:996794,issei:962252,younghoon:748508,shunya:705067,junki:661099,tomoaki:654176,jun:519155,ruki:494924,shoya:477526,kosuke:477362,keigo:464326,sho:425199,yugo:414240,raira:364272,masahiko:336637,reito:269711,sukai:229731,koshin:180413,ryuji:176035,shuta:164879,minhyeok:128000,akihito:122000,ryuta:118000,mao:112000,kento:106000,toi:92000,hyuga:88000,keiya:null,kenta:null,reiya:null};
+/* 第2回発表の公式結果（票数が公表されている生存者31名）。ひろとのIF結果と合わせて再構成する */
+const OFFICIAL2=[
+["川西拓実",1149244],["川尻蓮",1074606],["鶴房汐恩",996794],["豆原一成",962252],["キム・ヒチョン",823022],["キム・ユンドン",807141],["チョン・ヨンフン",748508],["大澤駿弥",705067],["河野純喜",661099],["安藤誠明",654176],["大平祥生",543768],["上原潤",519155],["白岩瑠姫",494924],["木全翔也",477526],["本田康祐",477362],["佐藤景瑚",464326],["與那城奨",425199],["宮島優心",414240],["床波志音",402418],["青木聖波",365955],["佐藤來良",364272],["今西正彦",336637],["北川玲叶",269711],["男澤直樹",231106],["金城碧海",229731],["井上港人",203852],["小松倖真",180413],["福地正",176636],["佐藤隆士",176035],["佐野文哉",175673],["浦野秀太",164879]
+];
+const URANO_VOTES2=164879; // 史実の第2回発表・残留ライン（35位）浦野秀太の票数
+
 const ROOMS = {
 staff:{name:"制作チーム（スタッフ）", sub:"メンバー 8", img:"assets/default-avatar.svg"},
 pd:{name:"制作PD", sub:"番組プロデューサー", img:"assets/default-avatar.svg"},
@@ -469,12 +509,14 @@ dk:{name:"Team DK", sub:"井汲大翔・佐藤隆士・田口馨也・北川玲�
 /* ================= STATE ================= */
 function freshState(){
 const tr={};
-TRAINEES.forEach(t=>{ tr[t.id]={att:t.att, air:0, cls:"―", votes:null, rank:null};});
+TRAINEES.forEach(t=>{ tr[t.id]={att:t.att, air:0, air2:0, cls:"―", votes:null, rank:null, votes2:null};});
 return {
 beat:0, trust:10, mental:70,
 tr, chats:{staff:[],pd:[],hiroto:[],dk:[]},
 unread:{staff:0,pd:0,hiroto:0,dk:0},
 pendingChoice:null, editDone:false, ranked:false,
+edit2Done:false, ranked2:false, rank2mid:false, elim:false, boost2:0,
+snap2:null, pendingCall1:false, hirotoRank2:null,
 freeSend:{hiroto:0,dk:0},
 };
 }
@@ -527,7 +569,7 @@ else{ au.pause(); bub.classList.remove("playing"); btn.textContent="▶"; }
 }
 function whoName(who){
 if(who==="pd") return "PD";
-if(who==="staff") return "先輩AD";
+if(who==="staff") return "先輩スタッフ";
 return T[who]?T[who].name:who;
 }
 function whoImg(who){
@@ -539,30 +581,38 @@ return T[who]?T[who].img:"assets/default-avatar.svg";
 const APPS=[
 {id:"talk", lb:"トーク", ic:"💬", bg:"linear-gradient(180deg,#29d967,#06c755)", view:"v-talk", badge:()=>Object.values(S.unread).reduce((a,b)=>a+b,0)},
 {id:"members", lb:"練習生名簿", ic:"📋", bg:"linear-gradient(180deg,#8e7bff,#7c5cff)", view:"v-members"},
-{id:"edit", lb:"編集室", ic:"🎬", bg:"linear-gradient(180deg,#ff7ba5,#ff5c8a)", view:"v-edit", lock:()=>S.beat<4, badge:()=> (S.beat>=4&&!S.editDone)?1:0},
+{id:"edit", lb:"編集室", ic:"🎬", bg:"linear-gradient(180deg,#ff7ba5,#ff5c8a)", view:"v-edit", lock:()=>S.beat<4, badge:()=> ((S.beat>=4&&!S.editDone)||(S.beat>=9&&!S.edit2Done))?1:0},
 {id:"x", lb:"X", ic:"𝕏", bg:"#000", view:"v-x", lock:()=>S.beat<5},
 {id:"news", lb:"ニュース", ic:"📰", bg:"linear-gradient(180deg,#ffb340,#ff9500)", view:"v-news", lock:()=>S.beat<5},
-{id:"rank", lb:"順位表", ic:"👑", bg:"linear-gradient(180deg,#ffd60a,#f5b800)", view:"v-rank", badge:()=> (S.beat>=6&&!S.ranked)?1:0},
+{id:"rank", lb:"順位表", ic:"👑", bg:"linear-gradient(180deg,#ffd60a,#f5b800)", view:"v-rank", badge:()=> ((S.beat>=6&&!S.ranked)||(S.beat>=13&&!S.ranked2))?1:0},
 {id:"settings", lb:"設定", ic:"⚙️", bg:"linear-gradient(180deg,#c7c7cc,#8e8e93)", view:"v-settings"},
 ];
 function renderHome(){
 const phases=[
-["2019年8月 ― 坡州・合宿開始","制作チームに配属。担当はTeam DK、中心は井汲大翔。"],
+["2019年8月 ― 坡州・合宿開始","制作インターンとして合宿に帯同。担当はTeam DK、中心は井汲大翔。"],
 ["レベル分け評価","Team DK『Love so sweet』。大翔の初ステージを見守れ。"],
 ["ツカメ再評価","3日間の練習の果てに、運命のクラス替え。"],
 ["ポジション評価","ダンス『OVER THE TOP』1組。現場投票の行方は――"],
 ["編集会議","放送分の「分量」を決める会議。編集室で配分を確定せよ。"],
 ["放送開始 ― 第1回投票","GYAO!で放送開始。11pick投票と世間の反応を追え。"],
 ["第1回順位発表","101人→60人。ピラミッドの椅子に座れるのは誰だ。"],
-["第1部 ― 完","第1回順位発表が終わった。物語は第2部へ続く。"],
+["第2部 ― グループバトル","課題曲決めは障害物リレー。大翔が指名者になる。"],
+["グループバトル本番","SHINee『Everybody』。チームの、そして個人の結果は――"],
+["編集会議 ― 第2ラウンド","グループバトル回の「分量」を決める会議。編集室で確定せよ。"],
+["放送 ― 第2回投票","週次順位は急落。SMS認証が入った、重い第2回投票。"],
+["コンセプト評価マッチング","『やんちゃBOY』の暫定メンバー発表。大翔の名前は――"],
+["第2回順位発表 ― 前夜","明日、60人から35人へ。寝付けない夜。"],
+["第2回順位発表","残留ラインは35位。史実では、あと1枠だった。"],
+["第2部 ― 完","第2回順位発表が終わった。物語は第3部へ続く。"],
 ];
-const p=phases[Math.min(S.beat,7)];
-$("#w-phase").textContent=p[0]; $("#w-main").textContent=p[1];
+const p=phases[Math.min(S.beat,14)];
+$("#w-phase").textContent=p[0];
+$("#w-main").textContent= S.elim? "史実と同じ結末――36位。でも、IFは何度でも選び直せる。": p[1];
 $("#w-trust").textContent=S.trust;
 $("#w-mental").textContent=S.mental;
-$("#w-rank").textContent=S.tr.hiroto.rank? S.tr.hiroto.rank+"位":"―";
-$("#btn-next").disabled = S.beat>=7;
-$("#btn-next").textContent = S.beat>=7? "第1部クリア 🎉（第2部は制作中）": "▶ ストーリーを進める";
+$("#w-rank").textContent= S.hirotoRank2? S.hirotoRank2+"位（第2回）": (S.tr.hiroto.rank? S.tr.hiroto.rank+"位":"―");
+$("#btn-next").disabled = S.beat>=14 && !S.elim;
+$("#btn-next").textContent = S.elim? "↩ 第2部の始まりからやり直す": (S.beat>=14? "第2部クリア 🎉（第3部は制作中）": "▶ ストーリーを進める");
 const wrap=$("#apps"); wrap.innerHTML="";
 APPS.forEach(a=>{
 const d=document.createElement("div");
@@ -661,9 +711,9 @@ const replies=["おつかれさまです。今は練習中やから、また後�
 setTimeout(()=>{ pushChat(room,"hiroto",replies[(n-1)%replies.length]); save(); if(curRoom===room) renderChat(); },900);
 }else{
 const dkReplies=[
-["ryuji","お、ADさん。おつかれさまです！"],
-["reito","あ、ADさん……ありがとうございます"],
-["keiya","ADさん、見てくれてました？"],
+["ryuji","お、なおさん。おつかれさまです！"],
+["reito","あ、なおさん……ありがとうございます"],
+["keiya","なおさん、見てくれてました？"],
 ["hiroto","みんな、うるさいって。……でも、ありがとうございます"],
 ];
 setTimeout(()=>{ const r=dkReplies[(n-1)%dkReplies.length]; pushChat(room,r[0],r[1]); save(); if(curRoom===room) renderChat(); },900);
@@ -683,7 +733,7 @@ const body=$("#scene-body"), nx=$("#scene-next");
 nx.innerHTML="";
 if(!sceneQueue.length){
 const b=document.createElement("button"); b.textContent="ホームに戻る";
-b.onclick=()=>{ const f=sceneDone; sceneDone=null; renderHome(); show("v-home"); if(f) f();};
+b.onclick=()=>{ const f=sceneDone; sceneDone=null; if(f) f(); renderHome(); show("v-home"); };
 nx.appendChild(b); return;
 }
 const st=sceneQueue.shift();
@@ -709,6 +759,68 @@ b.onclick=nextStep; nx.appendChild(b);
 }
 }
 
+/* ================= CALL UI ================= */
+let callSteps=[], callDone=null, callTimer=null, callSec=0, callAudio=null;
+function startCall(cfg, done){
+callSteps=cfg.steps.slice(); callDone=done||null;
+$("#call-name").textContent=cfg.name||"井汲大翔";
+$("#call-av").src=cfg.img||"assets/s1/hiroto.jpg";
+$("#call-status").textContent=cfg.status||"通話中";
+show("v-call");
+callSec=0; $("#call-time").textContent="00:00";
+if(callTimer) clearInterval(callTimer);
+callTimer=setInterval(()=>{ callSec++; const m=("0"+Math.floor(callSec/60)).slice(-2), s=("0"+(callSec%60)).slice(-2); $("#call-time").textContent=m+":"+s; },1000);
+nextCallStep();
+}
+function nextCallStep(){
+const sub=$("#call-sub"), ch=$("#call-choices"), tap=$("#call-tap"), end=$("#call-end");
+ch.innerHTML=""; ch.style.display="none";
+if(!callSteps.length){
+tap.style.display="none"; end.style.display="block";
+sub.innerHTML=`<div class="call-who">通話</div>おつかれさま。📞ボタンで通話を終える`;
+return;
+}
+end.style.display="none"; tap.style.display="block";
+const st=callSteps.shift();
+if(st.choice){
+sub.innerHTML=`<div class="call-who">なお</div>（返事を選ぶ）`;
+tap.style.display="none"; ch.style.display="flex";
+st.choice.forEach(c=>{
+const b=document.createElement("button"); b.textContent=c.label;
+b.onclick=()=>{ if(c.fx) c.fx(); if(c.note) callSteps.unshift({who:"narr", text:c.note}); if(c.reply) callSteps.unshift({who:"hiroto", text:c.reply}); save(); nextCallStep(); };
+ch.appendChild(b);
+});
+return;
+}
+if(st.voice){
+if(callAudio){ try{callAudio.pause();}catch(e){} }
+callAudio=new Audio(st.voice.src);
+callAudio.play().catch(()=>{});
+sub.innerHTML=`<div class="call-who">井汲大翔</div>${esc(st.text)}<div class="call-vnote">🎤 ボイス ${st.voice.dur}</div>`;
+return;
+}
+sub.innerHTML=`<div class="call-who">${st.who==="nao"?"なお":(st.who==="narr"?"":"井汲大翔")}</div>${esc(st.text)}`;
+}
+$("#call-tap").onclick=nextCallStep;
+$("#call-end").onclick=()=>{
+if(callTimer) clearInterval(callTimer);
+if(callAudio){ try{callAudio.pause();}catch(e){} callAudio=null; }
+const f=callDone; callDone=null;
+renderHome(); show("v-home");
+if(f) f();
+};
+/* 第1回順位発表・直前の電話（line3ボイス使用） */
+const CALL1={name:"井汲大翔", img:"assets/s1/hiroto.jpg", steps:[
+{who:"nao", text:"……大翔？ もう会場入りしたはずじゃ"},
+{who:"hiroto", voice:{src:"assets/vc-call.mp3", dur:"0:05"}, text:"なおさん、ちょっとだけ声、聞きたくて。……いや、大丈夫です。行ってきます"},
+{who:"hiroto", text:"…………今の、変でしたね。……忘れてください"},
+{choice:[
+{label:"「忘れない。あたしも、声を聞きたかった」", fx:()=>{fxTrust(8);fxMental(6);}, reply:"…………！ ……ありがとうございます。……じゃあ、行ってきます"},
+{label:"「大丈夫。あたしがついてる」", fx:()=>{fxTrust(5);fxMental(8);}, reply:"……はい。……行ってきます"},
+{label:"「早く気持ちを切り替えて。もう本番だよ」", fx:()=>{fxTrust(3);fxMental(4);}, reply:"……はい。……行ってきます"},
+]},
+]};
+
 /* ================= STORY BEATS ================= */
 function fxTrust(d){ S.trust=Math.max(0,Math.min(100,S.trust+d));}
 function fxMental(d){ S.mental=Math.max(0,Math.min(100,S.mental+d));}
@@ -721,9 +833,9 @@ const BEATS=[
 function(){
 sysChat("staff","制作チームのグループが作成されました");
 pushChat("staff","staff","おはようございます。明日から韓国・坡州（パジュ）の英語村で合宿収録が始まります。各自の担当はPDからの連絡を確認してください");
-pushChat("pd","pd","なおさんにはTeam DKの担当ADをお願いします。高校生5人組——井汲大翔、佐藤隆士、田口馨也、北川玲叶、古屋亮人です");
+pushChat("pd","pd","なおさん、夏休みの制作インターン、おつかれさまです。Team DKの帯同をお願いします。高校生5人組——井汲大翔、佐藤隆士、田口馨也、北川玲叶、古屋亮人です");
 pushChat("pd","pd","中心で見てほしいのは井汲大翔くん。事前の人気は上々ですが、ダンスは未経験。「素材と実力のギャップ」が大きい子です");
-pushChat("pd","pd","ADの仕事は、彼の「伝わらなさ」を「伝わる」に変えること。よろしくお願いします");
+pushChat("pd","pd","帯同スタッフの仕事は、彼の「伝わらなさ」を「伝わる」に変えること。高校生同士、年の近さで見えるものもあるはず。よろしくお願いします");
 playScene([
 {narr:"2019年8月。韓国・京畿道坡州（パジュ）の英語村。約6,000人の応募者から選ばれた101人の、合宿と収録が始まった。"},
 {narr:"なおの担当は、番組側が組んだ高校生チーム「Team DK」。そして、その中心にいる17歳——井汲大翔。"},
@@ -755,7 +867,7 @@ S.beat=1; save(); toast("ひろとからメッセージが届いた");
 },
 /* beat1: レベル分け評価（Team DK「Love so sweet」） */
 function(){
-pushChat("staff","staff","本日はレベル分け評価の収録です。Team DKは午後イチ。担当ADは楽屋のケアをお願いします");
+pushChat("staff","staff","本日はレベル分け評価の収録です。Team DKは午後イチ。帯同スタッフは楽屋のケアをお願いします");
 playScene([
 {narr:"収録会場。審査席にはトレーナー6人——ボーカル：菅井秀憲・安倉さやか、ダンス：A-NON・WARNER、ラップ：サイプレス上野・Bose。"},
 {narr:"楽屋の前。大翔がイヤモニを握りしめて、深呼吸を繰り返していた。"},
@@ -781,6 +893,7 @@ pushChat("dk","hiroto","玲叶、泣くなって。まだ再評価あるやろ")
 pushChat("dk","keiya","次、ツカメやろ。頑張ろな");
 pushChat("hiroto","hiroto","……終わりました。Cでした");
 pushChat("hiroto","hiroto","A-NON先生に「可愛いにしか目がいかなくて」って言われました。……褒め言葉なんか、実力ないってことなんか、自分でも分からんくて");
+pushVoice("hiroto","hiroto","assets/vc-level.mp3","0:10","終わりました。……Cでした。A-NON先生に『可愛いにしか目がいかなくて』って言われて。……実力、付けます");
 S.pendingChoice={room:"hiroto", options:[
 {label:"「“目が行く”のは才能だよ。実力はここから付けられる」", fx:()=>{fxTrust(10);fxMental(6);}, msgs:[["hiroto","……！ ……ありがとうございます。付けます、絶対"]]},
 {label:"「Cは真ん中。スタート地点としては悪くない」", fx:()=>{fxTrust(6);fxMental(4);}, msgs:[["hiroto","真ん中、か。……ここから、上しかないですね"]]},
@@ -809,9 +922,10 @@ applyClasses("cls1");
 pushChat("hiroto","hiroto","……なおさん。やらかしました");
 pushChat("hiroto","hiroto","サビで歌詞、全部飛んで。……気づいたら、泣いてました。恥ずかしい");
 pushChat("hiroto","hiroto","CからDです。……俺、なにしに来たんやろ");
+pushVoice("hiroto","hiroto","assets/vc-tsukame.mp3","0:04","……歌詞、飛びました。……すみません。……でも、まだ終わりたくないです");
 S.pendingChoice={room:"hiroto", options:[
 {label:"「泣くほど本気やったってこと。あたしはそこを見た」", fx:()=>{fxTrust(12);fxMental(8);}, msgs:[["hiroto","…………。……なおさん、ほんまに……。もう一回、頑張ってみます"]]},
-{label:"「Dでもステージには立てる。あたしが一番いい画角で撮る」", fx:()=>{fxTrust(8);fxMental(6);}, msgs:[["hiroto","……ふふ、ADさんらしい返し。……お願いします"]]},
+{label:"「Dでもステージには立てる。落ちた瞬間だけが大翔じゃない」", fx:()=>{fxTrust(8);fxMental(6);}, msgs:[["hiroto","……ふふ。……ありがとうございます。……見ててくれたんですね"]]},
 {label:"「今日は何も考えず寝て。立て直しは明日から一緒に」", fx:()=>{fxTrust(6);fxMental(10);}, msgs:[["hiroto","……はい。……ありがとうございます"]]},
 ]};
 pushChat("dk","ryuji","大翔、飯食ったか");
@@ -822,7 +936,7 @@ S.beat=3; save(); toast("再評価：ひろとはDクラスへ降格");
 },
 /* beat3: ポジション評価（OVER THE TOP 1組）〜編集会議の案内 */
 function(){
-pushChat("staff","staff","ポジション評価の現場収録（9月14日）です。大翔くんはダンス「OVER THE TOP」1組。担当ADは現場サポートを");
+pushChat("staff","staff","ポジション評価の現場収録（9月14日）です。大翔くんはダンス「OVER THE TOP」1組。帯同スタッフは現場サポートを");
 playScene([
 {narr:"2019年9月14日。放送開始より前、最初の現場評価。国プ約500人の前で、同じ曲の2チームが対決する。"},
 {narr:"1組——センター：チョン・ヨンフン、リーダー：大川澪哉、北川玲叶、小松倖真、中谷日向、そして大翔。"},
@@ -838,9 +952,9 @@ playScene([
 {label:"「負けた理由、一緒に映像で確認しよ」", fx:()=>{fxTrust(5);fxMental(4);}, reply:["井汲大翔","……はい。逃げずに見ます"], note:"（真剣な顔に戻った）"},
 ]},
 {narr:"収録後、PDに呼び止められた。"},
-{dlg:["制作PD","お疲れさま。ここからがADの本番だよ"]},
+{dlg:["制作PD","お疲れさま。ここからが本番だよ"]},
 {dlg:["制作PD","9月26日からGYAO!で放送開始。同時に第1回投票——1日1回、11人を選ぶ「11pick」が始まる"]},
-{dlg:["制作PD","現場で負けても、放送の「分量」次第で物語は変わる。誰を、どれだけ映すか。編集会議で決めてもらう"]},
+{dlg:["制作PD","現場で負けても、放送の「分量」次第で物語は変わる。編集会議には、現場で一番近くで見てきた、なおさんの意見も入れてもらう"]},
 {narr:"編集室アプリが解放された。"},
 ], ()=>{ S.beat=4; save(); toast("編集室が解放された");});
 },
@@ -862,7 +976,7 @@ playScene([
 ], ()=>{
 pushChat("hiroto","hiroto","なおさん。今日、発表です");
 pushChat("hiroto","hiroto","正直、怖いです。でも……逃げたくない");
-S.beat=6; save(); computeRanking(); toast("順位表が更新された！");
+S.beat=6; S.pendingCall1=true; save(); computeRanking(); toast("順位表が更新された！");
 });
 },
 /* beat6: 第1回順位発表 */
@@ -898,6 +1012,198 @@ pushChat("dk","keiya","DK、まだ終わらへんな");
 toast("第1部クリア！");
 });
 },
+/* beat7: 第2部開始 ― グループバトル編成（障害物リレー→「Everybody」） */
+function(){
+if(!S.snap2){ S.snap2=JSON.stringify(S); save(); }
+pushChat("staff","staff","グループバトルの編成日です。課題曲は障害物リレーの順位順に決まります。帯同スタッフはチームについてください");
+playScene([
+{narr:"第1回順位発表から数日。生き残った60人は、次の現場評価「グループバトル」に挑む。同じ課題曲で2チームが対決し、観客投票で勝敗が決まる。"},
+{narr:"課題曲は、障害物リレーの順位が高いチームから選んでいく。大翔が指名者になったチームは、リレーで3位に入った。"},
+{dlg:["井汲大翔","……「Everybody」。SHINeeさんの曲でいきます。難しいけど……これがいいです"]},
+{hist:"安藤誠明チームも同じ「Everybody」を希望していた。井汲チームはリレー3位で、希望曲を獲得した。"},
+{narr:"指名者の大翔が、組むメンバーを一人ずつ選んでいく。"},
+{narr:"佐々木真生（メインボーカル候補）、イ・ミンヒョク（経験者）、中林登生、そしてTeam DKの兄貴分・佐藤隆士。"},
+{narr:"そして最後——指名されなかった側から、北岡謙人が手を挙げた。「逆指名」での加入だった。"},
+{dlg:["北岡謙人","……俺で、ええんですか"]},
+{dlg:["井汲大翔","来てくれるなら、嬉しいです。……一緒に、勝ちに行きましょ"]},
+{narr:"パートも決まった。センター：イ・ミンヒョク、リーダー：中林登生、メインボーカル：佐々木真生、ラッパー：大翔と佐藤隆士、サブボーカル：北岡謙人。"},
+{choice:[
+{label:"「いいチームやと思う。あたしは信じてる」", fx:()=>{fxTrust(6);fxMental(5);}, reply:["井汲大翔","……はい。選んだ責任、ステージで返します"], note:"（小さく頷いた）"},
+{label:"「センターはミンヒョクさんで大丈夫？」", fx:()=>{fxTrust(3);}, reply:["井汲大翔","経験あるし、チームの顔になれる人です。……俺は横で、盛り上げます"], note:"（自分の役割を、もう理解している）"},
+{label:"「隆士と同じチームなのは心強いね」", fx:()=>{fxMental(4);fxTrust(3);}, reply:["井汲大翔","はい。……あいつおると、変に緊張せぇへんのです"], note:"（少しだけ笑った）"},
+]},
+{narr:"チーム「Everybody」結成。対戦相手は、安藤誠明が率いる実力派チームだ。"},
+], ()=>{
+pushChat("dk","ryuji","おい大翔、また同じチームやな！ しかも指名してくれたんやろ");
+pushChat("dk","reito","いいなあ、俺も混ざりたかった……");
+pushChat("dk","hiroto","玲叶は玲叶のチームで頑張れ。……こっちは、勝つから");
+pushChat("hiroto","hiroto","チーム決まりました。「Everybody」です");
+pushChat("hiroto","hiroto","……今度こそ、勝ちたいです");
+S.pendingChoice={room:"hiroto", options:[
+{label:"「勝とう。あたしも裏で全力で支える」", fx:()=>{fxTrust(8);fxMental(6);}, msgs:[["hiroto","……！ ……はい。……じゃあ、絶対に勝ちます"]]},
+{label:"「まずは怪我なく、楽しんで」", fx:()=>{fxTrust(5);fxMental(8);}, msgs:[["hiroto","楽しむ余裕、か。……やってみます"]]},
+{label:"「隆士にだけは負けんなよ」", fx:()=>{fxTrust(4);fxMental(5);}, msgs:[["hiroto","……ふふ。あいつに負ける気は、ないです"]]},
+]};
+S.beat=8; save(); toast("第2部：グループバトル編成");
+});
+},
+/* beat8: グループバトル本番（「Everybody」チーム9位／大翔は個人2位） */
+function(){
+pushChat("staff","staff","グループバトルの現場収録です。大翔くんのチームは「Everybody」。ラッパーとして佐藤隆士くんと並びます");
+playScene([
+{narr:"練習期間。「Everybody」は、SHINeeの代表曲にして、高難度のダンスで知られる曲だ。"},
+{narr:"リーダーの中林登生が全体を締め、センターのイ・ミンヒョクが顔になる。佐々木真生のボーカルが、曲の背骨を通す。"},
+{dlg:["中林登生","大翔、ラップの入り、もう一回合わせよう"]},
+{dlg:["井汲大翔","はい。……隆士と息、揃えたいです"]},
+{narr:"夜遅く。練習室に一人残る大翔。鏡の前で、ラップの入りを何度も繰り返していた。"},
+{choice:[
+{label:"声をかけず、ドアの外に水とタオルだけ置いておく", fx:()=>{fxTrust(7);fxMental(7);}, note:"（翌朝、タオルには付箋が貼ってあった。「ありがとうございました」——小さな字で）"},
+{label:"「もう終わりにしなさい。明日も早いよ」", fx:()=>{fxTrust(4);fxMental(5);}, reply:["井汲大翔","……はい。……なおさんも、遅くまで、すみません"], note:"（名残惜しそうに、練習室の電気を消した）"},
+{label:"「一回だけ見せて。あたしが客席役をする」", fx:()=>{fxTrust(8);fxMental(8);}, reply:["井汲大翔","……！ ……じゃあ、本気でやります"], note:"（踊り終わった後、息を切らしながら聞いた。「……どうでした？」——その顔は、少しだけ誇らしかった）"},
+]},
+{narr:"本番当日。国プ約500人の前で、「Everybody」。ミンヒョクを中心に、6人の歯車が噛み合うステージになった。"},
+{photo:"assets/s1/minhyeok-big.jpg"},
+{narr:"結果発表——チーム順位は10組中9位。チーム得票1,416票。勝利チームへのベネフィット加算には届かなかった。"},
+{narr:"個人順位は、佐藤隆士が1位（357票）で楽曲内1位のベネフィット+20,000票を獲得。大翔は2位・277票。北岡謙人3位・242票、佐々木真生4位・238票、中林登生5位・213票、イ・ミンヒョク6位・89票。"},
+{hist:"チームは9位に沈んだが、大翔個人はチーム内2位。ポジション評価の36票とは違う「見せ場」を作った回だった。"},
+{dlg:["井汲大翔","…………チームは、負けました。……でも俺は2位で。……複雑です"]},
+{choice:[
+{label:"「2位は本物や。胸張っていい」", fx:()=>{fxMental(8); S.boost2=(S.boost2||0)+0.02;}, reply:["井汲大翔","……はい。……ありがとうございます"], note:"（俯いていた顔が、少し上がった）"},
+{label:"「隆士の1位も、チームの力や」", fx:()=>{fxMental(5);}, reply:["井汲大翔","……そうですね。あいつ、ほんまにすごいんです"], note:"（悔しさと尊敬が、半分ずつ混ざった顔）"},
+{label:"何も言わず、隣に座る", fx:()=>{fxTrust(6);fxMental(6);}, reply:["井汲大翔","…………（しばらく二人で、モニターの映像を見ていた）"], note:"（言葉はなくても、伝わるものがあった）"},
+]},
+], ()=>{
+pushChat("dk","ryuji","357票！ 俺、チーム内1位やて！");
+pushChat("dk","reito","隆士すごい……。大翔も2位やったんやろ");
+pushChat("dk","hiroto","うん。……チームは負けたけど、俺らはやれるだけやった");
+pushChat("hiroto","hiroto","今日はありがとうございました。チームは9位でしたけど……俺は、やれるだけやりました");
+pushChat("hiroto","hiroto","次は編集ですね。……よろしくお願いします");
+S.beat=9; save(); toast("編集室（第2ラウンド）が解放された");
+});
+},
+/* beat9: 編集会議・第2ラウンド確定の確認 */
+function(){
+if(!S.edit2Done){ toast("先に編集室で第2ラウンドの分量を確定してね"); return;}
+pushChat("staff","staff","第2ラウンドの編集データを受け取りました。第6話から順次放送です");
+pushChat("pd","pd","編集、お疲れさま。第2回投票は11月8日まで。今回はSMS認証が必須になって、1票が前回より重い。あとは国プ次第だね");
+S.beat=10; save(); renderHome(); toast("放送が始まった（Xとニュースをチェック）");
+},
+/* beat10: 放送〜第2回投票（週次33位への急落／死票と浦野） */
+function(){
+const air2=S.tr.hiroto.air2||0;
+playScene([
+{narr:"グループバトルの放送が始まった。「Everybody」のステージは、チーム9位という結果とは裏腹に、SNSで切り取られ、少しずつ広がっていった。"},
+{narr: air2>=4? "大翔のラップと、舞台裏で見せる素顔の分量がたっぷり確保された編集は、「井汲大翔の物語」として届き始めていた。": (air2>=1? "大翔の見せ場は決して多くなかったが、ラップの数秒は確かに誰かの目に留まった。": "大翔の見せ場は、放送ではほんの数秒に削られていた。このままでは、物語が届かない。")},
+{narr:"だが——第6回放送時点の週次順位速報。大翔は、19位から33位へ大きく落とした。"},
+{hist:"史実でも大翔は第6回時点で33位まで急落した。11pickの「広く浅い支持」が、物語の薄れた練習生から剥がれていく時期だった。"},
+{narr:"一方で、ボーダーラインには不思議な名前が残り続けていた。浦野秀太。第1回発表49位から、じわじわと生存圏の縁に居座り続ける。"},
+{hist:"浦野はファンの間で「死票（11pickの埋め草の票）の受け皿」と呼ばれた存在。本人は後年「死票とベネフィットのみで…伝説の練習生」と自ら語った。ただし票の内訳は非公開であり、証明された話ではない。"},
+{narr:"第2回投票の締切は11月8日。残れるのは35人だけ。崖っぷちの戦いが始まった。"},
+], ()=>{
+pushChat("hiroto","hiroto","なおさん。……33位って、見ました？");
+pushChat("hiroto","hiroto","分かってましたけど、数字は正直ですね");
+S.pendingChoice={room:"hiroto", options:[
+{label:"「まだ終わってない。ここからが本番やよ」", fx:()=>{fxTrust(8);fxMental(7);}, msgs:[["hiroto","…………。……はい。……ここから、ですね"]]},
+{label:"「33位は、35人の内側に入れる位置でもある」", fx:()=>{fxTrust(5);fxMental(5);}, msgs:[["hiroto","内側、か。……落ちたら終わり、残れば次がある。……シンプルですね"]]},
+{label:"「大翔の物語は、あたしが絶対に届ける」", fx:()=>{fxTrust(10);fxMental(6);}, msgs:[["hiroto","…………。……お願いします。俺も、最後までやります"]]},
+]};
+computeRanking2();
+S.beat=11; save(); toast("順位表が更新された（中間集計）");
+});
+},
+/* beat11: コンセプト評価マッチング（「やんちゃBOY」暫定センター） */
+function(){
+pushChat("staff","staff","コンセプト評価のマッチング結果（暫定メンバー）が出ました。帯同分は各自確認してください");
+playScene([
+{narr:"第2回順位発表に先立ち、第3次評価「コンセプト評価」のマッチング投票の結果が、暫定メンバーとして練習生に伝えられた。"},
+{narr:"「やんちゃBOY やんちゃGIRL」——グループ名は「バブリンチョ」。レトロで弾けたコンセプトの曲だ。"},
+{narr:"その暫定メンバーの中に、井汲大翔の名前があった。しかも、仮ポジションは——センター・サブボーカル。"},
+{hist:"史実でも大翔は「やんちゃBOY」の暫定メンバー（仮センター）に入っていた。しかし第2回発表で脱落し、本番のステージには立てなかった。彼の抜けた枠には、再編で大平祥生が入った。"},
+{dlg:["井汲大翔","……センター、俺なんですか。……まだ仮やけど、嬉しいです"]},
+{dlg:["井汲大翔","今度こそ、ステージに立ちたい。……なおさんにも、見てほしいです"]},
+{choice:[
+{label:"「絶対に立とう。そのセンター、あたしが守る」", fx:()=>{fxTrust(9);fxMental(8);}, reply:["井汲大翔","……！ ……はい。……約束、ですよ"], note:"（「約束」という言葉に、自分で少し照れたみたいだった）"},
+{label:"「まずは発表を生き残ること。それが条件やよ」", fx:()=>{fxTrust(5);fxMental(4);}, reply:["井汲大翔","……分かってます。……だから、余計に残りたい"], note:"（笑顔の奥で、真剣な目をしていた）"},
+{label:"「センターの大翔、楽しみにしてる」", fx:()=>{fxTrust(7);fxMental(7);}, reply:["井汲大翔","…………っ、……楽しみに、しててください"], note:"（耳まで少し赤くなっていた）"},
+]},
+{narr:"ただし、ステージに立てるのは「生き残った者」だけ。第2回順位発表は、11月14日。"},
+], ()=>{
+pushChat("hiroto","hiroto","やんちゃBOY、仮センターでした");
+pushChat("hiroto","hiroto","発表で残れな、始まらんけど。……俺、残りたいです");
+S.beat=12; save(); toast("第2回順位発表は明日");
+});
+},
+/* beat12: 第2回順位発表の前夜（通話） */
+function(){
+pushChat("pd","pd","なおさん、一つだけ。練習生との距離感には気をつけてください。合宿所では、噂が一番早く広がります。……担当への信頼は大事ですけどね");
+startCall({name:"井汲大翔", img:"assets/s1/hiroto.jpg", status:"着信 ― 井汲大翔", steps:[
+{who:"hiroto", text:"……あ、なおさん。……寝ようと思ったんですけど、寝れなくて"},
+{who:"nao", text:"大翔も？ あたしも、明日のことが頭から離れなくて"},
+{who:"hiroto", text:"……声、聞いたら寝れる気がして。……すみません、変なこと言って"},
+{choice:[
+{label:"「変じゃないよ。あたしも、大翔の声を聞くと落ち着く」", fx:()=>{fxTrust(10);fxMental(6);}, reply:"…………ほんまに、ですか。……それ、言われたら余計に寝れません", note:"（笑い声。でも、どこか嬉しそうだった）"},
+{label:"「早く寝なさい。泣いても笑っても、明日は来る」", fx:()=>{fxTrust(5);fxMental(8);}, reply:"……はい。……なおさんらしい。……おやすみなさい"},
+{label:"「明日、名前が呼ばれる。あたしは信じてる」", fx:()=>{fxTrust(8);fxMental(9);}, reply:"…………。……ありがとうございます。……じゃあ、明日。笑って会いましょう"},
+]},
+{who:"hiroto", text:"……ありがとうございました。……おやすみなさい、なおさん"},
+]}, ()=>{
+sysChat("hiroto","📞 ひろとと通話した（第2回発表の前夜）");
+S.beat=13; save(); renderHome();
+toast("明日は第2回順位発表");
+});
+},
+/* beat13: 第2回順位発表（生存／脱落の分岐） */
+function(){
+const hv=S.tr.hiroto.votes2||0;
+const survive = hv>URANO_VOTES2;
+const pos=S.hirotoRank2||36;
+const steps=[
+{narr:"2019年11月14日。第2回順位発表式。60人から35人へ——生き残りをかけた、2度目の審判。"},
+{dlg:["岡村隆史（国民プロデューサー代表）","第2回順位発表を、開始します"]},
+{narr:"名前が、次々と呼ばれていく。川西拓実、川尻蓮、鶴房汐恩、豆原一成——史実と同じ顔ぶれが、ピラミッドの席を埋めていく。"},
+{narr:"Team DKでは、北川玲叶と佐藤隆士が残留を決めた。古屋亮人は44位で、ここまでだった。"},
+{photo:"assets/s1/hiroto-big.jpg"},
+];
+if(survive){
+steps.push(
+{narr:`――第${pos}位、井汲大翔。`},
+{dlg:["井汲大翔","…………っ、……残れた……！ 俺、まだ……！"]},
+{hist:`史実では36位で終わった物語が、続いていく。分量とサポートの蓄積が、残留ライン（35位・${URANO_VOTES2.toLocaleString()}票）の壁を越えた。`},
+{narr:"会場の端で、目が合った。駆け寄りたいのを、二人とも寸前で止めた。スタッフと練習生——ここで抱き合えば、全部が終わる。だから大翔は、遠くから小さく、ガッツポーズだけをした。"},
+{narr:"最後の椅子、35位には浦野秀太。「死票」と呼ばれた票も、彼をここまで運んだ。"},
+{narr:"生き残った35人。次に待つのは、コンセプト評価。大翔の「仮センター」は、現実のステージになる。"},
+{narr:"―― 第2部・完。第3部「コンセプト評価 ― やんちゃBOY」へつづく。"}
+);
+}else{
+steps.push(
+{narr:"名前が、次々と呼ばれていく。……35人全員の名前が、呼ばれた。その中に、井汲大翔の名前はなかった。"},
+{narr:"第36位——井汲大翔。残留ラインまで、あと1枠だった。"},
+{dlg:["井汲大翔","……それが、自分の実力です。……勝ち残ったみんなには、頑張ってほしいです"]},
+{hist:"史実のモデルプレスは「涙を流しながら『それが自分の実力』だと語り、勝ち残った練習生たちにエールを送った」と報じた。ここは、史実で彼の物語が終わった場所。"},
+{narr:"「やんちゃBOY」の仮センターは、ステージに立つことなく消えた。"},
+{narr:"……だが、この物語はIFだ。終わり方は、選び直せる。"}
+);
+}
+playScene(steps, ()=>{
+S.ranked2=true;
+if(survive){
+S.beat=14; save();
+pushChat("hiroto","hiroto","なおさん……！ 残れました。俺、まだ踊れます");
+pushChat("hiroto","hiroto","やんちゃBOY、今度こそ本番に立てます。……見ててください");
+pushChat("dk","ryuji","大翔！！ やったな！！");
+pushChat("dk","reito","大翔、よかった……ほんまによかった");
+pushChat("dk","hiroto","……亮人。ごめん");
+pushChat("dk","ryuji","謝んな。亮人の分も、やるぞ");
+pushChat("pd","pd","お疲れさまでした。次はコンセプト評価の準備に入ります。……よく、残しましたね");
+toast("第2部クリア！");
+}else{
+S.elim=true; S.beat=14; save();
+pushChat("hiroto","hiroto","なおさん。……ありがとうございました");
+pushChat("hiroto","hiroto","俺の物語は、ここまででした");
+toast("史実ルートに到達（ホームから第2部をやり直せます）");
+}
+});
+},
 ];
 
 function chooseOption(i){
@@ -910,10 +1216,25 @@ S.pendingChoice=null; save(); renderChat(); renderHome();
 toast("選択がストーリーに反映された");
 }
 $("#btn-next").onclick=()=>{
+if(S.elim){ restoreSnap2(); return; }
+if(S.pendingCall1){
+S.pendingCall1=false; save();
+startCall(CALL1, ()=>{ sysChat("hiroto","📞 ひろとと通話した（第1回発表の直前）"); save(); const b=BEATS[S.beat]; if(b) b(); renderHome(); });
+return;
+}
 const b=BEATS[S.beat];
 if(b) b();
 renderHome();
 };
+function restoreSnap2(){
+if(!S.snap2){ toast("戻れるセーブポイントがありません"); return; }
+const snap=S.snap2;
+S=Object.assign(freshState(), JSON.parse(snap));
+S.snap2=snap; S.elim=false;
+editDraft=null; editDraft2=null; curRoom=null;
+save(); renderHome(); show("v-home");
+toast("第2部の始まりに戻った");
+}
 
 /* ================= RANKING ================= */
 function seededRand(seed){ let x=seed; return ()=>{ x=(x*1103515245+12345)%2147483648; return x/2147483648;};}
@@ -931,8 +1252,55 @@ rows.sort((a,b)=>b.total-a.total);
 rows.forEach((r,i)=>{ S.tr[r.id].rank=i+1; S.tr[r.id].votes=r.total;});
 save();
 }
+function computeRanking2(){
+const rnd=seededRand(20191114);
+const tb=Math.max(0,(S.trust-55))*0.003 + Math.max(0,S.mental-75)*0.0015;
+TRAINEES.forEach(t=>{
+const st=S.tr[t.id]; const b2=BASE2[t.id];
+if(b2==null){ st.votes2=null; return; }
+let total=b2*(1+((st.air||0)+(st.air2||0))*0.016)*(1+(rnd()-0.5)*0.02);
+if(t.id==="hiroto") total*=(1+tb+(S.boost2||0));
+st.votes2=Math.round(total);
+});
+const hv=S.tr.hiroto.votes2;
+if(hv>URANO_VOTES2){
+const rows=OFFICIAL2.map(o=>({name:o[0],votes:o[1]})).concat([{name:"井汲大翔",votes:hv}]);
+rows.sort((a,b)=>b.votes-a.votes);
+S.hirotoRank2=rows.findIndex(r=>r.name==="井汲大翔")+1;
+}else{
+S.hirotoRank2=36;
+}
+S.rank2mid=true;
+save();
+}
+function renderRank2Mid(w){
+$("#rank-sub").textContent="第2回順位発表 ― 中間集計";
+const rows=TRAINEES.filter(t=>BASE2[t.id]!=null).slice().sort((a,b)=>(S.tr[b.id].votes2||0)-(S.tr[a.id].votes2||0));
+w.innerHTML=rows.map((t,i)=>{
+const st=S.tr[t.id];
+return `<div class="rk-row ${t.id==="hiroto"?"me":""}"><div class="rk-num">${i+1}</div><img class="av sm" src="${t.img}"><div class="inf"><div class="nm">${t.name}</div><div class="dt">クラス ${st.cls}／分量 ${(st.air||0)+(st.air2||0)}pt</div></div><div class="rk-vote"><b>${(st.votes2||0).toLocaleString()}</b><br>票</div></div>`;
+}).join("")+`<div class="rk-note">第2回投票（11pick、2019年10月24日〜11月8日）の中間集計です。公式順位は第2回順位発表で確定します。残留ラインは35位——史実の35位は浦野秀太（${URANO_VOTES2.toLocaleString()}票）でした。</div>`;
+}
+function renderRank2(w){
+$("#rank-sub").textContent="第2回順位発表 ― 結果";
+const hv=S.tr.hiroto.votes2||0;
+const elim = hv<=URANO_VOTES2;
+const rows=OFFICIAL2.map(o=>({name:o[0],votes:o[1],img:(TRAINEES.find(t=>t.name===o[0])||{}).img||"assets/default-avatar.svg",me:false}));
+if(!elim) rows.push({name:"井汲大翔",votes:hv,img:T.hiroto.img,me:true});
+rows.sort((a,b)=>b.votes-a.votes);
+let html=rows.map((r,i)=>{
+const rank=i+1; const inz=rank<=DEBUT_N;
+return `<div class="rk-row ${r.me?"me":""}"><div class="rk-num ${rank<=3?"top":""}">${rank}</div><img class="av sm" src="${r.img}"><div class="inf"><div class="nm">${r.name}${r.me?`<span class="zone-tag ${inz?"zone-in":"zone-out"}">${inz?"デビュー圏内":"残留"}</span>`:""}</div><div class="dt">第2回順位発表</div></div><div class="rk-vote"><b>${r.votes.toLocaleString()}</b><br>票</div></div>`;
+}).join("");
+if(elim){
+html+=`<div class="rk-row me"><div class="rk-num">36</div><img class="av sm" src="${T.hiroto.img}"><div class="inf"><div class="nm">井汲大翔<span class="zone-tag zone-out">脱落</span></div><div class="dt">史実と同じ36位（票数は未公表）</div></div><div class="rk-vote"><b>―</b><br>票</div></div>`;
+}
+w.innerHTML=html+`<div class="rk-note">集計：第2回国民投票（11pick）の公式結果（票数が公表されている生存者31名）に、ひろとのIF結果を合わせて再構成した順位です。史実では大翔は36位で脱落しました（残留ライン35位・浦野秀太 ${URANO_VOTES2.toLocaleString()}票）。デビュー圏は上位${DEBUT_N}名、残留ラインは35位です。</div>`;
+}
 function renderRank(){
 const w=$("#rank-body");
+if(S.ranked2){ renderRank2(w); return; }
+if(S.rank2mid){ renderRank2Mid(w); return; }
 if(!S.ranked && S.beat<6){
 w.innerHTML=`<div class="rk-note">第1回順位発表はまだ実施されていません。<br>第1回投票は1日1回・11人を選ぶ「11pick」制（2019年9月26日〜10月18日）。下記は現在の注目度順です。<br><br></div>`+
 TRAINEES.slice().sort((a,b)=>S.tr[b.id].att-S.tr[a.id].att).map((t,i)=>{
@@ -958,6 +1326,20 @@ return TRAINEES.slice().sort((a,b)=>(S.tr[b.id].air*2+S.tr[b.id].att)-(S.tr[a.id
 function renderX(){
 const w=$("#x-body");
 if(S.beat<5){ w.innerHTML=`<div class="rk-note">放送後にファンの投稿が表示されます。</div>`; return;}
+if(S.beat>=10){
+const hair2=S.tr.hiroto.air2||0;
+const posts2=[
+{n:"PRODUCE 101 JAPAN", h:"@produce101jp_official", t:"グループバトル「Everybody」チームのステージを公開中！第2回投票（11pick）は11月8日まで⚡ #PRODUCE101JAPAN #日プ", f:"2.8万"},
+{n:"現場レポ垢", h:"@genba_repo", t:"Everybodyチーム、結果は9位だったけど佐藤隆士357票はすごい。井汲大翔も277票で個人2位、ラップ良かった", f:"3,214"},
+{n:"推し活お姉さん", h:"@oshi_oneesan", t:"週次33位まで落ちた井汲大翔が心配で眠れない。Everybodyであんなに良かったのに…物語が届いてない #井汲大翔", f:"7,930"},
+{n:"なおと", h:"@naoto_k_7", t: hair2>=4? "Everybody回、井汲大翔の見せ場ちゃんと放送されてた！ ここから巻き返せる #井汲大翔": "Everybody回、井汲大翔の分量もっと欲しかった…個人2位なのに #井汲大翔", f:"1,208"},
+{n:"票読み垢", h:"@hyoyomi", t:"浦野秀太、今回もボーダーに居座ってる。11pickの埋め草の票ってやつかな。本人は気にしてなさそうなのが、また強い", f:"2,642"},
+{n:"DK箱推し", h:"@dk_hakooshi", t:"Team DK、隆士と玲叶は残れそうだけど大翔が危ない。箱推しは大翔にも票を分けて…！ #TeamDK", f:"1,977"},
+{n:"ドンビン情報局", h:"@dongbin_info", t:"キム・ドンビンが応援してる井汲大翔くん、第2回投票はSMS認証あり。海外ファンは投票できない人も多いはず…国内の国プにかかってる", f:"4,105"},
+];
+w.innerHTML=posts2.map(p=>`<div class="xpost"><img class="av" src="assets/default-avatar.svg"><div><div class="xh"><b>${p.n}</b> <span>${p.h}</span></div><div class="xt">${p.t}</div><div class="xf">♥ ${p.f}</div></div></div>`).join("");
+return;
+}
 const top=buzzList(); const hair=S.tr.hiroto.air;
 const posts=[
 {n:"PRODUCE 101 JAPAN", h:"@produce101jp_official", t:"『PRODUCE 101 JAPAN』第1話をご覧いただきありがとうございました！第1回投票（11pick）受付中⚡ #PRODUCE101JAPAN #日プ", f:"3.4万"},
@@ -974,6 +1356,15 @@ w.innerHTML=posts.map(p=>`<div class="xpost"><img class="av" src="assets/default
 function renderNews(){
 const w=$("#news-body");
 if(S.beat<5){ w.innerHTML=`<div class="rk-note">放送後にニュースが表示されます。</div>`; return;}
+if(S.beat>=10){
+w.innerHTML=`
+<div class="nitem" onclick="document.querySelector('#news-b1').style.display='block'"><div class="src">エンタメ速報</div><div class="hd">グループバトル「Everybody」対決は安藤チームに軍配　井汲チームは9位、佐藤隆士が個人1位</div><div class="sm">井汲大翔が指名者として組んだチームは敗れたが、佐藤隆士が357票で楽曲内1位、大翔も277票で2位に入った。</div></div>
+<div class="nbody" id="news-b1" style="display:none">グループバトル（第2次評価）で、井汲大翔が障害物リレー3位の権利で獲得した「Everybody」は、安藤誠明チームとの対決に敗れ、チーム順位は10組中9位（1,416票）だった。一方で個人では、佐藤隆士が357票を集めて楽曲内1位となり、ベネフィット20,000票を獲得。指名者の大翔もラッパーとして277票の2位に入り、ポジション評価（36票）とは違う存在感を示した。センターのイ・ミンヒョクは89票、メインボーカルの佐々木真生は238票だった。</div>
+<div class="nitem" onclick="document.querySelector('#news-b2').style.display='block'"><div class="src">モデルプレス風レポート</div><div class="hd">週次速報で井汲大翔が33位に急落　第2回順位発表は「あと1枠」をめぐる攻防に</div><div class="sm">第1回発表19位から、第6回時点の速報では33位。残留ライン35位まで、余裕はなくなった。</div></div>
+<div class="nbody" id="news-b2" style="display:none">『PRODUCE 101 JAPAN』第6回放送時点の週次順位で、井汲大翔が19位から33位へ大きく順位を落とした。序盤の速報12位から一貫して下降しており、11pickの「広く浅い支持」が剥がれていく局面に入ったとみられる。一方、ボーダーラインでは第1回発表49位の浦野秀太が粘り強く残留圏に留まり続けており、ファンの間では11pickの「埋め草の票（いわゆる死票）」の受け皿ではないかと話題になっている。第2回投票はSMS認証が必須化され、11月8日に締め切られる。60人から35人へ——大翔が残るには、ここからの物語の届け方がすべてになる。</div>
+<div class="nitem"><div class="src">テレビ誌オンライン</div><div class="hd">コンセプト評価の暫定メンバー発表　「やんちゃBOY」に井汲大翔が仮センターで選出</div><div class="sm">ただし本番のステージに立てるのは、第2回順位発表を生き残った者だけだ。</div></div>`;
+return;
+}
 w.innerHTML=`
 <div class="nitem" onclick="document.querySelector('#news-a1').style.display='block'"><div class="src">エンタメ速報</div><div class="hd">「ツカメ」センターは川尻蓮に決定　101人の投票で選ばれた“実力の象徴”</div><div class="sm">テーマ曲「ツカメ 〜It's Coming〜」のセンター選抜で、Aクラスの川尻蓮が選出された。</div></div>
 <div class="nbody" id="news-a1" style="display:none">『PRODUCE 101 JAPAN』のテーマ曲「ツカメ 〜It's Coming〜」のセンターは、再評価後のAクラス全員が順にセンターで踊り、101人の練習生全員の投票で決める方式で選ばれた。候補には豆原一成、宮島優心らも名を連ねたが、選ばれたのは川尻蓮。「ダンス・歌・人柄すべてトップクラス」と、投票した練習生たちのコメントが彼の人望を物語る。ステージではクラスごとに立ち位置が決まり、Fクラスはステージに上がれないという厳しい現実も映し出された。</div>
@@ -1007,37 +1398,62 @@ show("v-profile");
 $("#pf-back").onclick=()=>{ renderMembers(); show("v-members");};
 
 /* ================= EDIT ROOM ================= */
-let editDraft=null;
+let editDraft=null, editDraft2=null;
 function renderEdit(){
 const head=$("#ed-head"), w=$("#ed-body"), btn=$("#ed-confirm");
 if(S.beat<4){ head.innerHTML="編集会議はまだ始まっていません。"; w.innerHTML=""; btn.disabled=true; return;}
+const round2 = S.beat>=9 && !S.edit2Done;
+if(!round2){
+if(S.edit2Done){
+head.innerHTML="第2ラウンド（グループバトル回）の分量配分は<b>確定済み</b>です。";
+w.innerHTML=TRAINEES.map(t=>`<div class="ed-row"><img class="av sm" src="${t.img}"><div class="inf"><div class="nm">${t.name}</div><div class="dt">第1R ${S.tr[t.id].air} pt／第2R ${S.tr[t.id].air2||0} pt</div></div></div>`).join("");
+btn.disabled=true; btn.textContent="確定済み"; return;
+}
 if(S.editDone){
 head.innerHTML="第1話の分量配分は<b>確定済み</b>です。放送をお待ちください。";
 w.innerHTML=TRAINEES.map(t=>`<div class="ed-row"><img class="av sm" src="${t.img}"><div class="inf"><div class="nm">${t.name}</div><div class="dt">分量 ${S.tr[t.id].air} pt</div></div></div>`).join("");
 btn.disabled=true; btn.textContent="確定済み"; return;
 }
-if(!editDraft){ editDraft={}; TRAINEES.forEach(t=>editDraft[t.id]=S.tr[t.id].air||0);}
-const used=Object.values(editDraft).reduce((a,b)=>a+b,0);
-head.innerHTML=`編集会議：放送分の<b>分量ポイント ${EDIT_POINTS}pt</b> を${TRAINEES.length}名に配分してください（残り <b>${EDIT_POINTS-used}pt</b>、1人あたり最大6pt）。<br>分量が多いほど放送で映り、注目度と票が伸びます。第1回投票は11pick——「推しの物語」をどう見せるかが、埋め草の票まで動かします。`;
+}
+if(round2){ if(!editDraft2){ editDraft2={}; TRAINEES.forEach(t=>editDraft2[t.id]=S.tr[t.id].air2||0);} }
+else if(!editDraft){ editDraft={}; TRAINEES.forEach(t=>editDraft[t.id]=S.tr[t.id].air||0);}
+const draft = round2? editDraft2: editDraft;
+const used=Object.values(draft).reduce((a,b)=>a+b,0);
+head.innerHTML= round2
+? `編集会議（第2ラウンド）：グループバトル回（第6〜7話）の<b>分量ポイント ${EDIT_POINTS}pt</b> を配分してください（残り <b>${EDIT_POINTS-used}pt</b>、1人あたり最大6pt）。<br>第2回順位発表の残留ラインは35位。崖っぷちの大翔に、どんな「物語」を見せるかが勝負です。`
+: `編集会議：放送分の<b>分量ポイント ${EDIT_POINTS}pt</b> を${TRAINEES.length}名に配分してください（残り <b>${EDIT_POINTS-used}pt</b>、1人あたり最大6pt）。<br>分量が多いほど放送で映り、注目度と票が伸びます。第1回投票は11pick——「推しの物語」をどう見せるかが、埋め草の票まで動かします。`;
 btn.disabled = used!==EDIT_POINTS;
 btn.textContent = used===EDIT_POINTS? "この配分で確定する": `あと ${EDIT_POINTS-used}pt 配ってください`;
 w.innerHTML="";
 TRAINEES.forEach(t=>{
 const st=S.tr[t.id];
 const d=document.createElement("div"); d.className="ed-row";
-d.innerHTML=`<img class="av sm" src="${t.img}"><div class="inf"><div class="nm">${t.name}${t.id==="hiroto"?"（担当）":""}</div><div class="dt">${st.cls}クラス／注目度 ${st.att}</div></div>
-<div class="stepper"><button data-a="-1">−</button><div class="pt">${editDraft[t.id]}</div><button data-a="1">＋</button></div>`;
+d.innerHTML=`<img class="av sm" src="${t.img}"><div class="inf"><div class="nm">${t.name}${t.id==="hiroto"?"（担当）":""}</div><div class="dt">${st.cls}クラス／注目度 ${st.att}${round2?`／第1R ${st.air}pt`:""}</div></div>
+<div class="stepper"><button data-a="-1">−</button><div class="pt">${draft[t.id]}</div><button data-a="1">＋</button></div>`;
 d.querySelectorAll("button").forEach(b=>b.onclick=()=>{
-const dv=+b.dataset.a; const nu=Object.values(editDraft).reduce((a,x)=>a+x,0);
+const dv=+b.dataset.a; const nu=Object.values(draft).reduce((a,x)=>a+x,0);
 if(dv>0 && nu>=EDIT_POINTS){ toast("ポイントが足りません"); return;}
-if(dv>0 && editDraft[t.id]>=6){ toast("1人あたり最大6ptまで"); return;}
-if(dv<0 && editDraft[t.id]<=0) return;
-editDraft[t.id]+=dv; renderEdit();
+if(dv>0 && draft[t.id]>=6){ toast("1人あたり最大6ptまで"); return;}
+if(dv<0 && draft[t.id]<=0) return;
+draft[t.id]+=dv; renderEdit();
 });
 w.appendChild(d);
 });
 }
 $("#ed-confirm").onclick=()=>{
+const round2 = S.beat>=9 && !S.edit2Done;
+if(round2){
+if(!editDraft2) return;
+TRAINEES.forEach(t=>{
+S.tr[t.id].air2=editDraft2[t.id];
+S.tr[t.id].att += editDraft2[t.id]*2; /* 分量→注目度 */
+});
+S.edit2Done=true; save();
+pushChat("staff","staff","第2ラウンドの編集データを受け取りました。グループバトル回に反映します");
+toast("分量配分（第2ラウンド）を確定した");
+renderEdit(); renderHome();
+return;
+}
 if(S.editDone) return;
 TRAINEES.forEach(t=>{
 S.tr[t.id].air=editDraft[t.id];
@@ -1052,11 +1468,11 @@ renderEdit(); renderHome();
 /* ================= SETTINGS / TITLE ================= */
 $("#set-reset").onclick=()=>{
 if(confirm("データを消して最初からやり直しますか？")){
-localStorage.removeItem(SAVE_KEY); S=freshState(); editDraft=null; curRoom=null;
+localStorage.removeItem(SAVE_KEY); S=freshState(); editDraft=null; editDraft2=null; curRoom=null;
 renderTitle(); toast("リセットしました");
 }
 };
-$("#set-about").onclick=()=>{ alert("『担当をデビューさせる件』v2\n実在の番組『PRODUCE 101 JAPAN』Season1（2019）を題材にした、ファンメイドのIF物語です。史実の流れ（レベル分け→ツカメ再評価→ポジション評価→第1回順位発表）をなぞりながら、編集の分量配分と大翔への裏側サポートで票と物語を動かし、史実36位の脱落を覆してデビュー圏11位を目指します。登場人物の言動は創作です。");};
+$("#set-about").onclick=()=>{ alert("『担当をデビューさせる件』v3\n実在の番組『PRODUCE 101 JAPAN』Season1（2019）を題材にした、ファンメイドのIF物語です。主人公のなおは高校3年生の制作インターンとして合宿に帯同し、担当練習生・井汲大翔（17歳、学年は1つ下）を裏側から支えます。史実の流れ（レベル分け→ツカメ再評価→ポジション評価→第1回順位発表→グループバトル→第2回順位発表）をなぞりながら、編集の分量配分と裏側サポートで票と物語を動かし、史実36位の脱落を覆してデビュー圏11位を目指します。登場人物の言動は創作です。");};
 function renderTitle(){
 show("v-title");
 $("#btn-cont").style.display = localStorage.getItem(SAVE_KEY)? "block":"none";
