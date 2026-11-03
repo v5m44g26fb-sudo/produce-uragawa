@@ -44,8 +44,10 @@ text-shadow:0 1px 4px rgba(0,0,0,.35);mix-blend-mode:difference;
 .view.on{display:flex}
 #v-home{background:#000}
 /* ===== home ===== */
-.wallpaper{position:absolute;inset:0;background:url('assets/s1/hiroto-big.jpg') center 22%/cover no-repeat}
-.wallpaper:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.30),rgba(0,0,0,0) 32%,rgba(0,0,0,0) 62%,rgba(0,0,0,.45))}
+/* v8.14: 実機報告（全面の人物写真が「頭のない胴体」に見える）を受け、ホーム背景は人物写真をやめて
+   番組カラーの青を落とした落ち着いたグラデーションに変更。写真はプロフィールや記事など本来の場所でのみ使う */
+.wallpaper{position:absolute;inset:0;background:radial-gradient(130% 85% at 50% -10%,rgba(56,116,255,.38),rgba(56,116,255,0) 55%),linear-gradient(180deg,#081a42 0%,#0c2a66 32%,#123a7d 60%,#081834 100%)}
+.wallpaper:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.22),rgba(0,0,0,0) 26%,rgba(0,0,0,0) 68%,rgba(0,0,0,.30))}
 .home-inner{position:relative;z-index:2;display:flex;flex-direction:column;height:100%;padding:64px 20px 16px;overflow-y:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
 .widget{
 background:rgba(18,16,28,.58);backdrop-filter:blur(14px);border-radius:22px;color:#fff;
@@ -60,13 +62,18 @@ margin-top:10px;width:100%;border:none;border-radius:12px;padding:10px;font-size
 background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;cursor:pointer;
 }
 .widget button:disabled{background:#555;color:#bbb}
-.apps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px 10px;margin-top:2px}
+.apps{display:grid;grid-template-columns:repeat(4,1fr);gap:15px 6px;margin-top:2px}
 .app{display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;position:relative}
-.app .ic{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 10px rgba(0,0,0,.35);overflow:hidden;background:#fff}
+.app .ic{width:66px;height:66px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 10px rgba(0,0,0,.35);overflow:hidden;background:#fff}
 .app .ic img{width:100%;height:100%;object-fit:cover}
-.app .lb{font-size:10.5px;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6)}
-.app .bdg{position:absolute;top:-4px;right:8px;background:var(--red);color:#fff;font-size:10px;font-weight:700;min-width:18px;height:18px;border-radius:9px;display:flex;align-items:center;justify-content:center;padding:0 5px}
-.app.lock{opacity:.45}
+.app .lb{font-size:11px;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+/* v8.14: 通知バッジは実物iOSの比率に作り直し（直径＝アイコンの約1/3、右上コーナーに重なる配置、 pill形）。
+   アイコン拡大（66/60/54/48px）に比例させ、グリッド・ドックで同じ基準にする */
+.app .bdg{position:absolute;top:-6px;left:calc(50% + 26px);background:var(--red);color:#fff;font-size:13px;font-weight:700;min-width:21px;height:21px;border-radius:10.5px;display:flex;align-items:center;justify-content:center;padding:0 6px;z-index:4;box-shadow:0 1px 3px rgba(0,0,0,.35)}
+/* v8.14: ロック中もタイルは減光しない（全体を45%に落とすと実機で色あせて「壊れて」見えたため）。
+   状態はラベルの減光＋タイル右下の小さな鍵バッジで示す。バッジ位置はタイル幅（66/60/54/48px）に追随させる */
+.app.lock .lb{opacity:.6}
+.app .lk{position:absolute;left:calc(50% + 20px);top:53px;width:17px;height:17px;border-radius:50%;background:rgba(12,12,22,.8);display:flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(0,0,0,.45);z-index:3;pointer-events:none}
 .dock{margin-top:auto;background:rgba(30,28,44,.5);backdrop-filter:blur(14px);border-radius:26px;padding:10px 14px;display:flex;justify-content:space-around;border:1px solid rgba(255,255,255,.10)}
 /* ===== generic app header ===== */
 .ahead{
@@ -698,29 +705,45 @@ button:active{transform:scale(.965)}
 .rk-jump{position:absolute;right:14px;bottom:30px;z-index:60;background:#16294d;color:#fff;border:none;border-radius:999px;padding:10px 15px;font-size:12.5px;font-weight:700;box-shadow:0 8px 22px rgba(10,20,50,.4);cursor:pointer;display:none;font-family:inherit}
 .rk-jump.on{display:block}
 /* ===== v8.11: ホーム画面の高さ適応（実機Safariのツールバーで実効高さが縮んでもドック／グリッドが切れないように段階的に圧縮。届かない場合は .home-inner のスクロールで必ず到達可能にする） ===== */
+/* ===== v8.14: アイコン拡大（66/60/54/48px）に合わせ、各段の適用上限を「その段の内容が初期表示に収まる高さ」へ再調整。
+   実測した内容高さ：66px段=701（収まるのは809px以上）／60px段=646（754px以上）／54px段=622〜603（730px以上）／48px段=529（637px以上）。
+   568px級だけは従来どおり .home-inner の微スクロールが安全網（ドックまで到達可能） ===== */
 .home-inner::-webkit-scrollbar{display:none}
-@media (max-height:780px){
+@media (max-height:812px){
 .home-inner{padding-top:58px}
 .widget{padding:12px 14px;margin-bottom:12px}
 .widget .w-main{line-height:1.35}
 .w-row{margin-top:6px}
 .w-gauges{gap:4px;margin-top:7px}
 .widget button{padding:11px;min-height:44px}
-.apps{gap:13px 10px}
-.app .ic{width:52px;height:52px}
+.apps{gap:13px 6px}
+.app .ic{width:60px;height:60px}
+.app .lk{left:calc(50% + 17px);top:47px}
+.app .bdg{left:calc(50% + 23px);top:-5px;min-width:20px;height:20px;border-radius:10px;font-size:12px}
 .dock{padding:8px 14px}
+}
+@media (max-height:760px){
+.home-inner{padding-top:56px}
+.widget{padding:10px 12px}
+.widget button{padding:10px;min-height:42px}
+.apps{gap:12px 6px}
+.app .ic{width:54px;height:54px}
+.app .lk{left:calc(50% + 14px);top:41px}
+.app .bdg{left:calc(50% + 20px);top:-5px;min-width:19px;height:19px;border-radius:9.5px;font-size:11.5px}
 }
 @media (max-height:740px){
 .home-inner{padding-top:56px}
 .widget{padding:10px 12px}
 .w-gauges{gap:3px}
 .widget button{padding:10px;min-height:42px}
-.apps{gap:10px 8px}
+.apps{gap:11px 6px}
 .app{gap:4px}
-.app .ic{width:47px;height:47px}
+.app .ic{width:54px;height:54px}
+.app .lk{left:calc(50% + 14px);top:41px}
+.app .bdg{left:calc(50% + 20px);top:-5px;min-width:19px;height:19px;border-radius:9.5px;font-size:11.5px}
 .dock{padding:7px 12px}
 }
-@media (max-height:700px){
+@media (max-height:712px){
 .home-inner{padding-bottom:10px}
 .widget{padding:8px 12px;margin-bottom:8px}
 .widget button{min-height:40px}
@@ -729,14 +752,17 @@ button:active{transform:scale(.965)}
 .wg{flex:1;flex-wrap:wrap;row-gap:3px}
 .wg .wg-bar{flex-basis:100%;order:3}
 .wg-lb{width:auto}
-.apps{gap:8px}
-.app .ic{width:42px;height:42px}
+.apps{gap:9px 6px}
+.app .ic{width:48px;height:48px}
+.app .lk{left:calc(50% + 11px);top:35px;width:15px;height:15px}
+.app .bdg{left:calc(50% + 17px);top:-4px;min-width:17px;height:17px;border-radius:8.5px;font-size:10.5px;padding:0 5px}
 .app .lb{font-size:10px}
 .dock{padding:6px 12px}
 }
 /* ===== v8.12: ホーム最下段（ゲージ1行3列）で数値を各列の右端に揃える／編集室の見通しカードを本文（スクロール領域）先頭へ移した際の余白 ===== */
 /* ===== v8.13: 最下段の適用上限を 680→700px に引き上げ（681〜699px帯で中段のままだとドックが僅かに見切れる帯があったため） ===== */
-@media (max-height:700px){
+/* ===== v8.14: 最下段（48px＋ゲージ1行化）の適用上限は 712px に合わせて引き上げ ===== */
+@media (max-height:712px){
 .wg b{margin-left:auto}
 }
 #ed-body .ed-outlook{margin:10px 12px 6px}
@@ -745,12 +771,16 @@ button:active{transform:scale(.965)}
    本文（練習生リスト）の初回表示を圧迫しない。開閉状態はJS変数 edOutlookOpen が持ち、
    ステッパー操作で再描画されても維持され、要約・全文の数値は同じ計算から毎回更新される ===== */
 .ed-ol-sum{display:none}
+.ed-ol-close{display:none}
 @media (max-height:600px){
 #ed-body .ed-outlook{padding:0}
 .ed-ol-sum{display:flex;align-items:center;gap:6px;padding:8px 11px;cursor:pointer}
 .ed-ol-sum .ed-ol-txt{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;min-width:0}
 .ed-ol-chev{flex:none;font-size:12px;color:#c2185b;transition:transform .25s ease}
 .ed-outlook.open .ed-ol-chev{transform:rotate(180deg)}
+/* v8.14: 展開時は要約（票数・順位）が全文と二重に出ないよう、要約行を「閉じる」に差し替える（実物のアコーディオンの流儀） */
+.ed-outlook.open .ed-ol-txt{display:none}
+.ed-outlook.open .ed-ol-close{display:block;flex:1;font-weight:700;color:#c2185b}
 .ed-ol-full{display:none;padding:0 11px 8px}
 .ed-outlook.open .ed-ol-full{display:block}
 }
@@ -932,8 +962,8 @@ button:active{transform:scale(.965)}
 <div class="set-row" style="cursor:default"><span>音量</span><input id="set-vol" type="range" min="0" max="100" step="5" style="flex:1;margin:0 12px"></div>
 <div class="set-row" id="set-about"><span>この作品について</span><span>›</span></div>
 <div class="set-row" id="set-reset"><span class="danger">データを消して最初から</span><span>›</span></div>
-<div style="padding:14px 16px;font-size:11px;color:#8e8e93;line-height:1.7">担当をデビューさせる件 v8.13<br>※v8.13：編集室の見通しカードは、短い画面では1行の要約に畳まれ、タップで全文が開くようになりました（通常の高さでは従来どおり常時表示）。ホームのアプリアイコンは2019年当時の実物寄せにさらに精密化し、ドックと通知バナーにも同じアイコン資産を使うよう統一しました。<br>※v8.12：編集室の「大翔の見通し」を、見出し側の固定表示から練習生リストの先頭へ移しました。短い画面でも進捗バーが見出しに残って常に見え、リストに使える広さも増えます。ホーム画面の圧縮表示（ゲージ1行3列）では、数値を各列の右端に揃えて読みやすくしました。<br>※v8.11：タイトル画面の「はじめから」の確認も、ネイティブの確認ダイアログからアプリ内モーダルに統一しました（設定のデータリセットと同じ流儀で、消えるデータと残るデータを明記）。順位表のジャンプチップは、大翔に加えて推しメン（★）登録した練習生の行にも対応。画面外の対象が複数ある場合は「他n人」と表示され、タップするたびに次の対象へ飛べます。<br>※v8.10：Twitter以外の画面まわり（順位表・ホーム・設定・ステータスバー）を精査しました。順位表は、大翔の順位が画面の外にあるときにタップでその行まで飛べるチップを追加。ホームはドックのアイコンにも未読バッジが付くようになり、注目度ゲージは数値（最大124）とバーの伸びが食い違わないよう目盛りを調整。設定の「データを消して最初から」はネイティブの確認ダイアログからアプリ内モーダルに替え、消えるデータと残るデータ（エンディング到達記録・サウンド設定）を明記しました。<br>※v8.9：Twitter以外のアプリをさらに精査しました。Yahoo!ニュースは自分のコメントの「そう思う」状態も保存されるようになり、LINEのトーク一覧の時刻表示は実物の形式（現在のフェーズ内の発言は時刻、日付が確定する場面では「昨日」など）に寄せ、音楽プレイヤーは再生が終わると曲目リストのイコライザ表示がその場で尺表示に戻るよう直しました。<br>※v8.8：Twitter以外のアプリを精査しました。LINEは下部タブとヘッダーのアイコンを2019年当時の実物風の線画SVGに替え、トーク画面の☰から開けるルームメニュー（検索／通話履歴／トーク情報）を追加。Yahoo!ニュースはカテゴリ名表示の連動、記事見出しの再タップで本文を閉じられるトグル化、自分のコメントとブックマークが再表示しても残る保存対応。編集室はステッパーの無効状態表示と配分進捗バーを追加。名簿は検索・絞り込みで0件の節の見出しを隠し、空状態の案内を表示。思い出コレクションの詳細に「解放済みカード n／総数」の位置表示、通話履歴は着信／発信の矢印付きアイコン、音楽プレイヤーは再生中イコライザ表示を追加しました。<br>※v8.7：Twitterの公式ツイートの文面・数値をプロフィール側とフィード側で統一しました（11月14日の「Everybody」ステージ写真ツイートは、フィード側だけ文面といいね数が食い違い、日付と投票締切も矛盾していたため、プロフィール側の文面に一本化。第3回順位発表のツイートもプロフィール側へ一元化）。あわせて全アプリの文面・数値の横断整合監査を実施（票数・順位・日付は画面間で一致を確認。史実の公表実数には変更なし）。<br>※v8.6：公式プロフィールに収録した実在ツイートを、タイムライン（フィード）側にも展開。第1回投票期の帯では先頭の創作ツイートを実物（10月3日のツカメMV公開、9月26日の投票スタート）に置き換え、グループバトル期の帯に10月24日の実在ツイート2件（第1回順位発表式告知、第2回国民投票スタート）を追加。最終回（12月11日）を過ぎたあとは、実在のJO1紹介ツイートがフィードの先頭に流れるようになりました（作中の時系列に合わせた出し分け）。設定アイコンの歯車は歯を少し長くして歯車らしく微調整。井汲大翔の公約ツイートは今回も本文・日付の特定に至らず、引き続き未収録です。<br>※v8.5：公式アカウントの実在ツイートを追加収録（2019年9月25日の初放送告知、9月26日の投票開始、10月24日の第1回順位発表式告知と第2回投票開始、12月11日のJO1紹介）。本文はWayback Machineに残る当時の投稿ページで確認し、改行の畳みとリンク省略のうえ収録。いいね数はアーカイブ取得時点の実数。従来の創作ツイート（10月25日付の順位発表告知）は実物に置き換え。ホーム画面のアプリアイコンも2019年当時の実物寄せに刷新（LINEの白吹き出し、Twitterの鳥、Yahoo!ニュースのY!、ミュージックの白地に赤い音符など、絵文字アイコンをSVG再現へ置き換え）。<br>※v8.4.1：公式アカウント（@produce101jp）のプロフィールに、2019年9月4日の練習生紹介ツイートと9月13日の推しカメラツイート（いずれも井汲大翔分・実際の投稿）を実物どおり収録。<br>※v8.4：Twitterの投稿ボタン（羽根ペン）を実物化し、投稿画面から実際にツイートできるように。プロフィールはバナーがスクロールで縮む実物挙動を追加。通知・検索タブを実物構成に刷新（メンション切替・キーワード検索・おすすめユーザー）。音楽プレイヤーにシャッフル／リピートを追加。Yahoo!ニュースは共有シートとコメント投稿に対応。思い出コレクションに第3回順位発表のカードを追加。<br>※v8.3：Twitterヘッダーのスクロール連動（下スクロールで隠れ、上スクロールで復帰する2019年実物の挙動）と、公式プロフィールへの登録月（2019年4月）表示を追加。新規ボイス2本（第3回発表後／デビューエンディング）も収録。<br>※v8.2：全アプリの実物寄せをさらに深化（Twitterの2019年仕様ヘッダーとスパークル切替・いいね／リツイートのトグル・ツイート詳細の時刻と件数、ニュースのサムネイルとコメント反応、音楽プレイヤーのシーク・前後送り、トーク一覧の検索と時刻表示）。プロフィールの「戻る」も開いた場所に戻るよう改善。<br>※v8：各アプリの豪華化（トークのスタンプ・写真送信・既読人数・検索／Twitterのプロフィール・トレンド・通知・ツイート詳細／ニュースの関連記事・コメント・アクセスランキング）、思い出コレクション、順位推移グラフ、推しメン登録、通話履歴、音楽プレイヤーを追加。課題曲5曲は公式音源の長尺版に差し替え。本人の意向により、v6で追加したフリーチャットは廃止しました。<br>※本作品は実在の番組『PRODUCE 101 JAPAN』（2019）と実在の人物を題材にしたファンメイドのIF作品です。史実をもとにしていますが、登場人物の言動や順位の変動は創作を含みます。<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲は各アーティストの公式音源（長尺版）を使用しています。</div>
-<div class="about-modal" id="about-modal" style="display:none"><div class="am-card"><div class="am-t">『担当をデビューさせる件』v8.13</div><div class="am-body">実在の番組『PRODUCE 101 JAPAN』Season1（2019）を題材にした、ファンメイドのIF物語です。<br>v8.13では、編集室の「大翔の見通し」カードを、短い画面でのみ折りたたみ式にしました（1行の要約＋タップで展開し、通常の高さでは常時表示のまま）。ホームのアプリアイコンは実物寄せをさらに精密化し（LINEの吹き出しの尾の位置と形、Y!の字形のパス化、設定の歯車の歯形、思い出の花びらの形など）、ドックと通知バナーの小アイコンも同じアイコン資産に統一しました。<br>v8.12では、編集室の「大翔の見通し」を練習生リストの先頭へ移しました。短い画面では見出し側に残した進捗バーが内部スクロールに埋もれず常に見え、一覧に使える広さも増えます。ホーム画面の圧縮表示（ゲージ1行3列）では、数値を各列の右端に揃えて読みやすくしました。<br>v8.11では、タイトル画面の「はじめから」の確認もアプリ内モーダルに統一し（消えるデータと残るデータは設定のリセット確認と同じ明記）、順位表のジャンプチップを推しメン（★）登録した練習生の行にも広げました。画面外の対象が複数あるときは「他n人」と併記され、タップのたびに次の対象へ移動します。<br>v8.10では、Twitter以外の画面まわり（順位表・ホーム・設定・ステータスバー）を精査しました。順位表には、大翔の順位が画面外にあるときにタップでその行まで移動できるチップを追加。ホームのドックにも未読バッジが付くようになり、注目度ゲージは数値（最大124）とバーの伸びが食い違って見える問題を目盛りの調整で解消しました。設定のデータリセットはアプリ内モーダルでの確認に統一し、消えるデータと残るデータ（エンディング到達記録・サウンド設定）を明示。ステータスバーは明るい画面・暗い画面の両方で時刻とアイコンが読めることを確認しています（時刻は端末の実時刻表示が仕様です）。<br>v8.9では、Twitter以外のアプリをさらに精査しました。Yahoo!ニュースは、自分のコメントに付けた「そう思う」の状態もセーブに保存され、開き直しても残るようになりました。LINEのトーク一覧の最終メッセージ表示は実物の形式に寄せ、作中の現在フェーズ内の発言は時刻、日付が日単位で確定する場面（2019年12月10日・11日）では前日の発言を「昨日」と表示します。音楽プレイヤーは、再生が終わった瞬間に曲目リストのイコライザ表示が尺表示へ戻るよう描画を直しました。<br>v8.8では、Twitter以外のアプリを精査しました。LINEは下部タブとヘッダーのアイコンを2019年当時の実物風の線画に替え、トーク画面のメニュー（☰）から検索・通話履歴・トーク情報へ進めるように。Yahoo!ニュースはカテゴリ名の連動、記事の開閉トグル、自分のコメントとブックマークの保存に対応。編集室には配分進捗バーとステッパーの無効表示、名簿には検索の空状態表示、コレクション詳細には解放済み枚数の位置表示、通話履歴には着信／発信の矢印、音楽プレイヤーには再生中イコライザを追加しました。<br>v8では各アプリを豪華にしました。トークはスタンプ・写真送信・グループ既読人数・トーク内検索・＋メニュー対応。Twitterは公式プロフィール画面・トレンド・通知・ツイート詳細（返信スレッド）・画像付きツイートに対応。Yahoo!ニュースは関連記事・コメント欄・アクセスランキング・カテゴリ別一覧を搭載。順位表には票数カウントアップ演出と、大翔の順位推移グラフ（史実 vs この物語）を追加。名簿では推しメン登録（★）と絞り込み、プロフィールの写真複数表示と101人データ連動を強化。新たに「思い出コレクション」（名場面カード＋両エンディング到達表示）、通話履歴、音楽プレイヤーを追加し、課題曲5曲は公式音源の長尺版に差し替えました。なお、v6で追加したフリーチャットは本人の意向によりv8で廃止しました（セーブデータ互換は維持）。<br>v8.4.1では、公式アカウント（@produce101jp）のプロフィール欄に、実際に2019年9月4日に投稿された井汲大翔の練習生紹介ツイートと、9月13日のツカメ推しカメラツイートを、本文そのまま収録しました。<br>v8.5では、Wayback Machineに残る当時の投稿ページから、2019年9月25日の初放送告知、9月26日の投票開始、10月24日の第1回順位発表式告知と第2回投票開始、12月11日のJO1紹介の各ツイートも本文確認のうえ追加収録しました（改行の畳みとリンク省略あり、いいね数はアーカイブ取得時点の実数）。これに伴い、従来の創作ツイート（10月25日付の順位発表告知）は実物に置き換えています。<br>v8.6では、その実在ツイートをタイムライン（フィード）側にも広げました。第1回投票期のフィードでは先頭の創作ツイートを実物（10月3日のツカメMV公開、9月26日の投票スタート）に置き換え、グループバトル期のフィードには10月24日の実在ツイート2件を追加し、最終回を過ぎると12月11日のJO1紹介ツイートが先頭に流れるよう、作中の時系列に合わせて出し分けています。あわせて設定アイコンの歯車の歯を少し長くし、歯車らしい見え方に微調整しました。なお、井汲大翔の公約ツイート（2019年9月17〜21日の「11人に選ばれたら」シリーズ）は、今回もファン記事の埋め込み引用やアーカイブ照合で本文・日付の特定に至らなかったため、推測では入れず未収録のままです。<br>v8.7では、Twitterの公式ツイートの文面・数値をプロフィールとタイムラインで統一しました（11月14日の「Everybody」ステージ写真ツイートの食い違いを解消し、第3回順位発表のツイートもプロフィール側へ一元化）。あわせて全アプリを通じた文面・数値の横断整合監査を行い、票数・順位・日付の画面間一致を確認しました（史実の公表実数は変更なし）。<br>v8.4では、Twitterの投稿ボタンを2019年当時の羽根ペンの実物様式にし、投稿画面から実際にツイートしてタイムラインへ反映できるようにしました。プロフィール画面ではバナーがスクロールに合わせて縮む実物の挙動を追加。通知タブは「すべて／メンション」切替と実物のアイコン構成に、検索タブはキーワード検索とおすすめユーザーに対応。音楽プレイヤーには当時のiOSミュージックの実物機能であるシャッフルとリピート（オフ／すべて／1曲）を追加。Yahoo!ニュースでは共有シートとコメント投稿ができるようになり、思い出コレクションには第3回順位発表のカード（ボイス付き）が増えました。<br>v8.3ではTwitterのヘッダーにスクロール連動（下スクロールでせり上がって隠れ、上スクロールで戻ってくる、2019年当時の挙動）を実装し、公式アカウントのプロフィールに登録月（2019年4月から利用しています）を追加。新規ボイス2本（第3回順位発表後の決意と、デビューエンディング後の感謝）も収録しました。<br>v8.2では全アプリの実物寄せをさらに深めました。Twitterは2019年当時のヘッダー（アバター＋「ホーム」＋スパークル切替）と下部タブ構成に寄せ、いいね／リツイートのトグル、ツイート詳細の時刻・件数表示、プロフィールのフォローボタンを実装。Yahoo!ニュースは記事サムネイルとカテゴリタブ、シェア／ブックマーク／コメントの「そう思う」に反応を持たせ、音楽プレイヤーはシークと前後の曲送りに対応。トーク一覧には検索と最終メッセージ時刻を追加し、プロフィールの「戻る」は開いた場所に戻るようになりました。<br>v7では各アプリの見た目を2019年当時の姿（LINE／Twitter／Yahoo!ニュース／iOS 13）に寄せ、練習生101人全員の史実データを収録。主人公のなおは高校3年生の制作インターンとして合宿に帯同し、担当練習生・井汲大翔（17歳、学年は1つ下）を裏側から支えます。史実の流れをなぞりながら、編集の分量配分と裏側サポートで票と物語を動かし、史実36位の脱落を覆してデビュー圏11位を目指します。登場人物の言動は創作です。<br><br>クレジット<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲: 嵐「Love so sweet」／PRODUCE 101 JAPAN「ツカメ 〜It's Coming〜」／Hey! Say! JUMP「OVER THE TOP」／SHINee「Everybody」／バブリンチョ「やんちゃBOY やんちゃGIRL」（各公式音源の長尺版を使用）</div><button id="about-close">閉じる</button></div></div>
+<div style="padding:14px 16px;font-size:11px;color:#8e8e93;line-height:1.7">担当をデビューさせる件 v8.14<br>※v8.14：編集室の見通しカードは、開いた状態では要約行が「閉じる」に切り替わるアコーディオン式に整理し、票数・順位が要約と全文で二重に出ないようにしました。Yahoo!ニュースは他人のコメントへの「そう思う」もセーブに保存され、開き直しても残るようになりました。ホーム画面は実機での見え方を見直し、背景の人物写真を番組カラーの青のグラデーションに替え、編集室・設定・Twitterなどアイコンの色味と歯車の形を描き直し、ロック中の表示は小さな鍵バッジに変えました。アプリアイコン自体も実機の比率に拡大し（通常の高さで66px、短い画面では段階的に圧縮）、通知バッジはiOSと同じ比率（高さはアイコンの約1/3、右上コーナーに重なるpill形）に作り直しました。<br>※v8.13：編集室の見通しカードは、短い画面では1行の要約に畳まれ、タップで全文が開くようになりました（通常の高さでは従来どおり常時表示）。ホームのアプリアイコンは2019年当時の実物寄せにさらに精密化し、ドックと通知バナーにも同じアイコン資産を使うよう統一しました。<br>※v8.12：編集室の「大翔の見通し」を、見出し側の固定表示から練習生リストの先頭へ移しました。短い画面でも進捗バーが見出しに残って常に見え、リストに使える広さも増えます。ホーム画面の圧縮表示（ゲージ1行3列）では、数値を各列の右端に揃えて読みやすくしました。<br>※v8.11：タイトル画面の「はじめから」の確認も、ネイティブの確認ダイアログからアプリ内モーダルに統一しました（設定のデータリセットと同じ流儀で、消えるデータと残るデータを明記）。順位表のジャンプチップは、大翔に加えて推しメン（★）登録した練習生の行にも対応。画面外の対象が複数ある場合は「他n人」と表示され、タップするたびに次の対象へ飛べます。<br>※v8.10：Twitter以外の画面まわり（順位表・ホーム・設定・ステータスバー）を精査しました。順位表は、大翔の順位が画面の外にあるときにタップでその行まで飛べるチップを追加。ホームはドックのアイコンにも未読バッジが付くようになり、注目度ゲージは数値（最大124）とバーの伸びが食い違わないよう目盛りを調整。設定の「データを消して最初から」はネイティブの確認ダイアログからアプリ内モーダルに替え、消えるデータと残るデータ（エンディング到達記録・サウンド設定）を明記しました。<br>※v8.9：Twitter以外のアプリをさらに精査しました。Yahoo!ニュースは自分のコメントの「そう思う」状態も保存されるようになり、LINEのトーク一覧の時刻表示は実物の形式（現在のフェーズ内の発言は時刻、日付が確定する場面では「昨日」など）に寄せ、音楽プレイヤーは再生が終わると曲目リストのイコライザ表示がその場で尺表示に戻るよう直しました。<br>※v8.8：Twitter以外のアプリを精査しました。LINEは下部タブとヘッダーのアイコンを2019年当時の実物風の線画SVGに替え、トーク画面の☰から開けるルームメニュー（検索／通話履歴／トーク情報）を追加。Yahoo!ニュースはカテゴリ名表示の連動、記事見出しの再タップで本文を閉じられるトグル化、自分のコメントとブックマークが再表示しても残る保存対応。編集室はステッパーの無効状態表示と配分進捗バーを追加。名簿は検索・絞り込みで0件の節の見出しを隠し、空状態の案内を表示。思い出コレクションの詳細に「解放済みカード n／総数」の位置表示、通話履歴は着信／発信の矢印付きアイコン、音楽プレイヤーは再生中イコライザ表示を追加しました。<br>※v8.7：Twitterの公式ツイートの文面・数値をプロフィール側とフィード側で統一しました（11月14日の「Everybody」ステージ写真ツイートは、フィード側だけ文面といいね数が食い違い、日付と投票締切も矛盾していたため、プロフィール側の文面に一本化。第3回順位発表のツイートもプロフィール側へ一元化）。あわせて全アプリの文面・数値の横断整合監査を実施（票数・順位・日付は画面間で一致を確認。史実の公表実数には変更なし）。<br>※v8.6：公式プロフィールに収録した実在ツイートを、タイムライン（フィード）側にも展開。第1回投票期の帯では先頭の創作ツイートを実物（10月3日のツカメMV公開、9月26日の投票スタート）に置き換え、グループバトル期の帯に10月24日の実在ツイート2件（第1回順位発表式告知、第2回国民投票スタート）を追加。最終回（12月11日）を過ぎたあとは、実在のJO1紹介ツイートがフィードの先頭に流れるようになりました（作中の時系列に合わせた出し分け）。設定アイコンの歯車は歯を少し長くして歯車らしく微調整。井汲大翔の公約ツイートは今回も本文・日付の特定に至らず、引き続き未収録です。<br>※v8.5：公式アカウントの実在ツイートを追加収録（2019年9月25日の初放送告知、9月26日の投票開始、10月24日の第1回順位発表式告知と第2回投票開始、12月11日のJO1紹介）。本文はWayback Machineに残る当時の投稿ページで確認し、改行の畳みとリンク省略のうえ収録。いいね数はアーカイブ取得時点の実数。従来の創作ツイート（10月25日付の順位発表告知）は実物に置き換え。ホーム画面のアプリアイコンも2019年当時の実物寄せに刷新（LINEの白吹き出し、Twitterの鳥、Yahoo!ニュースのY!、ミュージックの白地に赤い音符など、絵文字アイコンをSVG再現へ置き換え）。<br>※v8.4.1：公式アカウント（@produce101jp）のプロフィールに、2019年9月4日の練習生紹介ツイートと9月13日の推しカメラツイート（いずれも井汲大翔分・実際の投稿）を実物どおり収録。<br>※v8.4：Twitterの投稿ボタン（羽根ペン）を実物化し、投稿画面から実際にツイートできるように。プロフィールはバナーがスクロールで縮む実物挙動を追加。通知・検索タブを実物構成に刷新（メンション切替・キーワード検索・おすすめユーザー）。音楽プレイヤーにシャッフル／リピートを追加。Yahoo!ニュースは共有シートとコメント投稿に対応。思い出コレクションに第3回順位発表のカードを追加。<br>※v8.3：Twitterヘッダーのスクロール連動（下スクロールで隠れ、上スクロールで復帰する2019年実物の挙動）と、公式プロフィールへの登録月（2019年4月）表示を追加。新規ボイス2本（第3回発表後／デビューエンディング）も収録。<br>※v8.2：全アプリの実物寄せをさらに深化（Twitterの2019年仕様ヘッダーとスパークル切替・いいね／リツイートのトグル・ツイート詳細の時刻と件数、ニュースのサムネイルとコメント反応、音楽プレイヤーのシーク・前後送り、トーク一覧の検索と時刻表示）。プロフィールの「戻る」も開いた場所に戻るよう改善。<br>※v8：各アプリの豪華化（トークのスタンプ・写真送信・既読人数・検索／Twitterのプロフィール・トレンド・通知・ツイート詳細／ニュースの関連記事・コメント・アクセスランキング）、思い出コレクション、順位推移グラフ、推しメン登録、通話履歴、音楽プレイヤーを追加。課題曲5曲は公式音源の長尺版に差し替え。本人の意向により、v6で追加したフリーチャットは廃止しました。<br>※本作品は実在の番組『PRODUCE 101 JAPAN』（2019）と実在の人物を題材にしたファンメイドのIF作品です。史実をもとにしていますが、登場人物の言動や順位の変動は創作を含みます。<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲は各アーティストの公式音源（長尺版）を使用しています。</div>
+<div class="about-modal" id="about-modal" style="display:none"><div class="am-card"><div class="am-t">『担当をデビューさせる件』v8.14</div><div class="am-body">実在の番組『PRODUCE 101 JAPAN』Season1（2019）を題材にした、ファンメイドのIF物語です。<br>v8.14では、編集室の見通しカードの開閉表示を実物のアコーディオンの流儀に整理しました（開いた状態では要約行が「閉じる」に切り替わり、票数・順位が要約と全文で二重に出ません）。Yahoo!ニュースでは、他人のコメントへの「そう思う」もセーブに保存されるようになりました（自分のコメント分はv8.9で対応済み。新しい保存項目は旧セーブでも自動で補完されます）。ホーム画面は、実機で背景の人物写真が不自然に見えたため全面写真をやめて番組カラーの青のグラデーションに作り替え、アイコンは編集室のカチンコを鮮やかな紫に、設定の歯車は太い歯と中央の穴が小サイズでも分かる形に、Twitterは本来の鮮やかな青がそのまま出るようロック中の減光をやめて鍵バッジ表示に変えました（名簿の青も背景との差が出るよう少し明るくしています）。あわせてアプリアイコンを実機のホーム画面の比率に拡大しました（通常の高さで66px・セル内の間隔も詰め、短い画面では66→60→54→48pxと段階圧縮してドックが初期表示に収まるよう境界を再調整）。通知バッジは、アイコンに対して不釣り合いだった従来の表示を作り直し、iOSと同じ基準（高さ＝アイコンの約1/3、フォントも比例、右上コーナーに重なるpill形、2桁でも崩れない）にグリッド・ドック共通で揃えました。<br>v8.13では、編集室の「大翔の見通し」カードを、短い画面でのみ折りたたみ式にしました（1行の要約＋タップで展開し、通常の高さでは常時表示のまま）。ホームのアプリアイコンは実物寄せをさらに精密化し（LINEの吹き出しの尾の位置と形、Y!の字形のパス化、設定の歯車の歯形、思い出の花びらの形など）、ドックと通知バナーの小アイコンも同じアイコン資産に統一しました。<br>v8.12では、編集室の「大翔の見通し」を練習生リストの先頭へ移しました。短い画面では見出し側に残した進捗バーが内部スクロールに埋もれず常に見え、一覧に使える広さも増えます。ホーム画面の圧縮表示（ゲージ1行3列）では、数値を各列の右端に揃えて読みやすくしました。<br>v8.11では、タイトル画面の「はじめから」の確認もアプリ内モーダルに統一し（消えるデータと残るデータは設定のリセット確認と同じ明記）、順位表のジャンプチップを推しメン（★）登録した練習生の行にも広げました。画面外の対象が複数あるときは「他n人」と併記され、タップのたびに次の対象へ移動します。<br>v8.10では、Twitter以外の画面まわり（順位表・ホーム・設定・ステータスバー）を精査しました。順位表には、大翔の順位が画面外にあるときにタップでその行まで移動できるチップを追加。ホームのドックにも未読バッジが付くようになり、注目度ゲージは数値（最大124）とバーの伸びが食い違って見える問題を目盛りの調整で解消しました。設定のデータリセットはアプリ内モーダルでの確認に統一し、消えるデータと残るデータ（エンディング到達記録・サウンド設定）を明示。ステータスバーは明るい画面・暗い画面の両方で時刻とアイコンが読めることを確認しています（時刻は端末の実時刻表示が仕様です）。<br>v8.9では、Twitter以外のアプリをさらに精査しました。Yahoo!ニュースは、自分のコメントに付けた「そう思う」の状態もセーブに保存され、開き直しても残るようになりました。LINEのトーク一覧の最終メッセージ表示は実物の形式に寄せ、作中の現在フェーズ内の発言は時刻、日付が日単位で確定する場面（2019年12月10日・11日）では前日の発言を「昨日」と表示します。音楽プレイヤーは、再生が終わった瞬間に曲目リストのイコライザ表示が尺表示へ戻るよう描画を直しました。<br>v8.8では、Twitter以外のアプリを精査しました。LINEは下部タブとヘッダーのアイコンを2019年当時の実物風の線画に替え、トーク画面のメニュー（☰）から検索・通話履歴・トーク情報へ進めるように。Yahoo!ニュースはカテゴリ名の連動、記事の開閉トグル、自分のコメントとブックマークの保存に対応。編集室には配分進捗バーとステッパーの無効表示、名簿には検索の空状態表示、コレクション詳細には解放済み枚数の位置表示、通話履歴には着信／発信の矢印、音楽プレイヤーには再生中イコライザを追加しました。<br>v8では各アプリを豪華にしました。トークはスタンプ・写真送信・グループ既読人数・トーク内検索・＋メニュー対応。Twitterは公式プロフィール画面・トレンド・通知・ツイート詳細（返信スレッド）・画像付きツイートに対応。Yahoo!ニュースは関連記事・コメント欄・アクセスランキング・カテゴリ別一覧を搭載。順位表には票数カウントアップ演出と、大翔の順位推移グラフ（史実 vs この物語）を追加。名簿では推しメン登録（★）と絞り込み、プロフィールの写真複数表示と101人データ連動を強化。新たに「思い出コレクション」（名場面カード＋両エンディング到達表示）、通話履歴、音楽プレイヤーを追加し、課題曲5曲は公式音源の長尺版に差し替えました。なお、v6で追加したフリーチャットは本人の意向によりv8で廃止しました（セーブデータ互換は維持）。<br>v8.4.1では、公式アカウント（@produce101jp）のプロフィール欄に、実際に2019年9月4日に投稿された井汲大翔の練習生紹介ツイートと、9月13日のツカメ推しカメラツイートを、本文そのまま収録しました。<br>v8.5では、Wayback Machineに残る当時の投稿ページから、2019年9月25日の初放送告知、9月26日の投票開始、10月24日の第1回順位発表式告知と第2回投票開始、12月11日のJO1紹介の各ツイートも本文確認のうえ追加収録しました（改行の畳みとリンク省略あり、いいね数はアーカイブ取得時点の実数）。これに伴い、従来の創作ツイート（10月25日付の順位発表告知）は実物に置き換えています。<br>v8.6では、その実在ツイートをタイムライン（フィード）側にも広げました。第1回投票期のフィードでは先頭の創作ツイートを実物（10月3日のツカメMV公開、9月26日の投票スタート）に置き換え、グループバトル期のフィードには10月24日の実在ツイート2件を追加し、最終回を過ぎると12月11日のJO1紹介ツイートが先頭に流れるよう、作中の時系列に合わせて出し分けています。あわせて設定アイコンの歯車の歯を少し長くし、歯車らしい見え方に微調整しました。なお、井汲大翔の公約ツイート（2019年9月17〜21日の「11人に選ばれたら」シリーズ）は、今回もファン記事の埋め込み引用やアーカイブ照合で本文・日付の特定に至らなかったため、推測では入れず未収録のままです。<br>v8.7では、Twitterの公式ツイートの文面・数値をプロフィールとタイムラインで統一しました（11月14日の「Everybody」ステージ写真ツイートの食い違いを解消し、第3回順位発表のツイートもプロフィール側へ一元化）。あわせて全アプリを通じた文面・数値の横断整合監査を行い、票数・順位・日付の画面間一致を確認しました（史実の公表実数は変更なし）。<br>v8.4では、Twitterの投稿ボタンを2019年当時の羽根ペンの実物様式にし、投稿画面から実際にツイートしてタイムラインへ反映できるようにしました。プロフィール画面ではバナーがスクロールに合わせて縮む実物の挙動を追加。通知タブは「すべて／メンション」切替と実物のアイコン構成に、検索タブはキーワード検索とおすすめユーザーに対応。音楽プレイヤーには当時のiOSミュージックの実物機能であるシャッフルとリピート（オフ／すべて／1曲）を追加。Yahoo!ニュースでは共有シートとコメント投稿ができるようになり、思い出コレクションには第3回順位発表のカード（ボイス付き）が増えました。<br>v8.3ではTwitterのヘッダーにスクロール連動（下スクロールでせり上がって隠れ、上スクロールで戻ってくる、2019年当時の挙動）を実装し、公式アカウントのプロフィールに登録月（2019年4月から利用しています）を追加。新規ボイス2本（第3回順位発表後の決意と、デビューエンディング後の感謝）も収録しました。<br>v8.2では全アプリの実物寄せをさらに深めました。Twitterは2019年当時のヘッダー（アバター＋「ホーム」＋スパークル切替）と下部タブ構成に寄せ、いいね／リツイートのトグル、ツイート詳細の時刻・件数表示、プロフィールのフォローボタンを実装。Yahoo!ニュースは記事サムネイルとカテゴリタブ、シェア／ブックマーク／コメントの「そう思う」に反応を持たせ、音楽プレイヤーはシークと前後の曲送りに対応。トーク一覧には検索と最終メッセージ時刻を追加し、プロフィールの「戻る」は開いた場所に戻るようになりました。<br>v7では各アプリの見た目を2019年当時の姿（LINE／Twitter／Yahoo!ニュース／iOS 13）に寄せ、練習生101人全員の史実データを収録。主人公のなおは高校3年生の制作インターンとして合宿に帯同し、担当練習生・井汲大翔（17歳、学年は1つ下）を裏側から支えます。史実の流れをなぞりながら、編集の分量配分と裏側サポートで票と物語を動かし、史実36位の脱落を覆してデビュー圏11位を目指します。登場人物の言動は創作です。<br><br>クレジット<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲: 嵐「Love so sweet」／PRODUCE 101 JAPAN「ツカメ 〜It's Coming〜」／Hey! Say! JUMP「OVER THE TOP」／SHINee「Everybody」／バブリンチョ「やんちゃBOY やんちゃGIRL」（各公式音源の長尺版を使用）</div><button id="about-close">閉じる</button></div></div>
 <div class="about-modal" id="reset-modal" style="display:none"><div class="am-card"><div class="am-t">データを消して最初から</div><div class="am-body">進行状況・トーク・順位などのセーブデータを消して、最初からやり直します。元に戻せません。<br>※エンディング到達記録（思い出コレクションの到達表示）とサウンド設定は、この端末に残ります。</div><button id="reset-cancel">キャンセル</button><button id="reset-ok">消して最初から</button></div></div>
 </div>
 </div>
@@ -1275,7 +1305,7 @@ hirotoRankF:null, rankedF:false, ending:null, finalSong:"YOUNG", boost3:0,
 conceptBenefit:0, conceptTeamRank:null, conceptPersonalRank:null, conceptTeamVotes:null,
 freeSend:{hiroto:0,dk:0},
 epiDone:false, freeNoticed:false,
-fav:[], callLog:[], editHist:[], newsMine:{}, newsBm:[], newsMineLk:{},
+fav:[], callLog:[], editHist:[], newsMine:{}, newsBm:[], newsMineLk:{}, newsLk:{},
 };
 }
 let S = freshState();
@@ -1436,18 +1466,20 @@ return T[who]?T[who].img:"assets/default-avatar.svg";
 /* ================= HOME ================= */
 const APPS=[
 {id:"talk", lb:"トーク", ic:'<svg viewBox="0 0 56 56"><path fill="#fff" d="M17 8h22a10 10 0 0 1 10 10v11a10 10 0 0 1-10 10H17A10 10 0 0 1 7 29V18A10 10 0 0 1 17 8z"/><path fill="#fff" d="M18.5 35.5h11L21 46.8c-.7.9-2.1.4-2.1-.7z"/><text x="28" y="29" font-size="12" font-weight="900" fill="#00B900" text-anchor="middle" font-family="Arial, sans-serif" letter-spacing="1">LINE</text></svg>', bg:"#00B900", view:"v-talk", badge:()=>Object.values(S.unread).reduce((a,b)=>a+b,0)},
-{id:"members", lb:"練習生名簿", ic:'<svg viewBox="0 0 56 56"><g fill="#fff"><circle cx="19.5" cy="18.5" r="6.8"/><path d="M7.8 40.6c1.7-6.6 6.1-9.9 11.7-9.9s10 3.3 11.7 9.9z"/><rect x="36" y="14.6" width="13" height="3.6" rx="1.8"/><rect x="36" y="22.6" width="13" height="3.6" rx="1.8"/><rect x="36" y="30.6" width="9" height="3.6" rx="1.8"/></g></svg>', bg:"linear-gradient(180deg,#33507e,#16294d)", view:"v-members"},
-{id:"edit", lb:"編集室", ic:'<svg viewBox="0 0 56 56"><g transform="rotate(-7 10 24)"><rect x="9" y="14" width="38" height="9" rx="2.5" fill="#fff"/><g fill="#33415c"><rect x="14" y="14" width="4" height="9" transform="skewX(-18)"/><rect x="23" y="14" width="4" height="9" transform="skewX(-18)"/><rect x="32" y="14" width="4" height="9" transform="skewX(-18)"/><rect x="41" y="14" width="4" height="9" transform="skewX(-18)"/></g></g><rect x="9" y="27" width="38" height="18" rx="3" fill="#fff"/><circle cx="15.5" cy="36" r="2.2" fill="#33415c"/><rect x="22" y="31.4" width="19" height="2.8" rx="1.4" fill="#33415c" opacity=".5"/><rect x="22" y="37.8" width="14" height="2.8" rx="1.4" fill="#33415c" opacity=".5"/></svg>', bg:"linear-gradient(180deg,#5b6b82,#33415c)", view:"v-edit", lock:()=>S.beat<4, badge:()=> ((S.beat>=4&&!S.editDone)||(S.beat>=9&&!S.edit2Done)||(S.beat>=15&&!S.edit3Done))?1:0},
+{id:"members", lb:"練習生名簿", ic:'<svg viewBox="0 0 56 56"><g fill="#fff"><circle cx="19.5" cy="18.5" r="6.8"/><path d="M7.8 40.6c1.7-6.6 6.1-9.9 11.7-9.9s10 3.3 11.7 9.9z"/><rect x="36" y="14.6" width="13" height="3.6" rx="1.8"/><rect x="36" y="22.6" width="13" height="3.6" rx="1.8"/><rect x="36" y="30.6" width="9" height="3.6" rx="1.8"/></g></svg>', bg:"linear-gradient(180deg,#3d639b,#1d3a63)", view:"v-members"},
+{id:"edit", lb:"編集室", ic:'<svg viewBox="0 0 56 56"><g transform="rotate(-7 10 24)"><rect x="9" y="14" width="38" height="9" rx="2.5" fill="#fff"/><g fill="#3d1470"><rect x="14" y="14" width="4" height="9" transform="skewX(-18)"/><rect x="23" y="14" width="4" height="9" transform="skewX(-18)"/><rect x="32" y="14" width="4" height="9" transform="skewX(-18)"/><rect x="41" y="14" width="4" height="9" transform="skewX(-18)"/></g></g><rect x="9" y="27" width="38" height="18" rx="3" fill="#fff"/><circle cx="15.5" cy="36" r="2.2" fill="#3d1470"/><rect x="22" y="31.4" width="19" height="2.8" rx="1.4" fill="#3d1470" opacity=".5"/><rect x="22" y="37.8" width="14" height="2.8" rx="1.4" fill="#3d1470" opacity=".5"/></svg>', bg:"linear-gradient(180deg,#8b46ff,#5e23c8)", view:"v-edit", lock:()=>S.beat<4, badge:()=> ((S.beat>=4&&!S.editDone)||(S.beat>=9&&!S.edit2Done)||(S.beat>=15&&!S.edit3Done))?1:0},
 {id:"x", lb:"Twitter", ic:'<svg viewBox="0 0 56 56"><g transform="translate(9.8 10.5) scale(1.42)" fill="#fff"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.094 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59l-.047-.02z"/></g></svg>', bg:"#1DA1F2", view:"v-x", lock:()=>S.beat<5},
 {id:"news", lb:"ニュース", ic:'<svg viewBox="0 0 56 56"><g fill="#fff"><path d="M10 12h7.5l6 9.8 6-9.8H37L26.8 27.6V41h-6.6V27.6z"/><rect x="40.6" y="12" width="4.4" height="18" rx="0.8"/><circle cx="42.8" cy="37.6" r="2.8"/></g></svg>', bg:"#FF0033", view:"v-news", lock:()=>S.beat<5},
 {id:"rank", lb:"順位表", ic:'<svg viewBox="0 0 56 56"><g fill="#fff"><circle cx="7.5" cy="17.3" r="2.6"/><circle cx="28" cy="12.8" r="2.6"/><circle cx="48.5" cy="17.3" r="2.6"/><path d="M11 39L7.5 18.5L19 28l9-13.5L37 28l11.5-9.5L45 39z"/><rect x="11" y="42.5" width="34" height="4.5" rx="2.25"/></g></svg>', bg:"linear-gradient(180deg,#ffd60a,#f5b800)", view:"v-rank", badge:()=> ((S.beat>=6&&!S.ranked)||(S.beat>=13&&!S.ranked2)||(S.beat>=17&&!S.ranked3))?1:0},
 {id:"gallery", lb:"思い出", ic:'<svg viewBox="0 0 56 56"><g opacity="0.6"><path d="M28 6c3.4 5.4 3.4 13.4 0 21-3.4-7.6-3.4-15.6 0-21z" fill="#f5c518"/><path d="M28 6c3.4 5.4 3.4 13.4 0 21-3.4-7.6-3.4-15.6 0-21z" fill="#f08a24" transform="rotate(45 28 28)"/><path d="M28 6c3.4 5.4 3.4 13.4 0 21-3.4-7.6-3.4-15.6 0-21z" fill="#e84e8a" transform="rotate(90 28 28)"/><path d="M28 6c3.4 5.4 3.4 13.4 0 21-3.4-7.6-3.4-15.6 0-21z" fill="#9b59c9" transform="rotate(135 28 28)"/><path d="M28 6c3.4 5.4 3.4 13.4 0 21-3.4-7.6-3.4-15.6 0-21z" fill="#3d7dc4" transform="rotate(180 28 28)"/><path d="M28 6c3.4 5.4 3.4 13.4 0 21-3.4-7.6-3.4-15.6 0-21z" fill="#39b5a8" transform="rotate(225 28 28)"/><path d="M28 6c3.4 5.4 3.4 13.4 0 21-3.4-7.6-3.4-15.6 0-21z" fill="#57ab4a" transform="rotate(270 28 28)"/><path d="M28 6c3.4 5.4 3.4 13.4 0 21-3.4-7.6-3.4-15.6 0-21z" fill="#a4c639" transform="rotate(315 28 28)"/></g></svg>', bg:"#ffffff", view:"v-gallery"},
 {id:"music", lb:"ミュージック", ic:'<svg viewBox="0 0 56 56"><defs><linearGradient id="musg813" x1="0" y1="0" x2="0.7" y2="1"><stop offset="0" stop-color="#fc5c7d"/><stop offset="1" stop-color="#fa2d48"/></linearGradient></defs><g fill="url(#musg813)"><path d="M20 15.8L43 11v7.6L20 23.4z"/><rect x="39.2" y="11" width="3.8" height="24.5"/><rect x="16.2" y="15.8" width="3.8" height="24.5"/><ellipse cx="13" cy="40.8" rx="6.6" ry="4.9" transform="rotate(-16 13 40.8)"/><ellipse cx="35.7" cy="36" rx="6.6" ry="4.9" transform="rotate(-16 35.7 36)"/></g></svg>', bg:"#ffffff", view:"v-music"},
 {id:"calls", lb:"通話履歴", ic:'<svg viewBox="0 0 56 56"><g transform="translate(11 11) scale(1.42)" fill="#fff"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></g></svg>', bg:"linear-gradient(180deg,#5be584,#28b446)", view:"v-calls"},
-{id:"settings", lb:"設定", ic:'<svg viewBox="0 0 56 56"><g fill="#636366"><path d="M25.2 3.8h5.6l-1.1 14.2h-3.4z"/><path d="M25.2 3.8h5.6l-1.1 14.2h-3.4z" transform="rotate(45 28 28)"/><path d="M25.2 3.8h5.6l-1.1 14.2h-3.4z" transform="rotate(90 28 28)"/><path d="M25.2 3.8h5.6l-1.1 14.2h-3.4z" transform="rotate(135 28 28)"/><path d="M25.2 3.8h5.6l-1.1 14.2h-3.4z" transform="rotate(180 28 28)"/><path d="M25.2 3.8h5.6l-1.1 14.2h-3.4z" transform="rotate(225 28 28)"/><path d="M25.2 3.8h5.6l-1.1 14.2h-3.4z" transform="rotate(270 28 28)"/><path d="M25.2 3.8h5.6l-1.1 14.2h-3.4z" transform="rotate(315 28 28)"/><circle cx="28" cy="28" r="11"/></g><circle cx="28" cy="28" r="8.8" fill="none" stroke="#dedee3" stroke-width="1.8" opacity=".85"/><circle cx="28" cy="28" r="4.8" fill="#dedee3"/></svg>', bg:"linear-gradient(180deg,#f2f2f7,#c7c7cc)", view:"v-settings"},
+{id:"settings", lb:"設定", ic:'<svg viewBox="0 0 56 56"><g fill="#3a3a3c"><rect x="23.4" y="5" width="9.2" height="13.5" rx="2.4"/><rect x="23.4" y="5" width="9.2" height="13.5" rx="2.4" transform="rotate(45 28 28)"/><rect x="23.4" y="5" width="9.2" height="13.5" rx="2.4" transform="rotate(90 28 28)"/><rect x="23.4" y="5" width="9.2" height="13.5" rx="2.4" transform="rotate(135 28 28)"/><rect x="23.4" y="5" width="9.2" height="13.5" rx="2.4" transform="rotate(180 28 28)"/><rect x="23.4" y="5" width="9.2" height="13.5" rx="2.4" transform="rotate(225 28 28)"/><rect x="23.4" y="5" width="9.2" height="13.5" rx="2.4" transform="rotate(270 28 28)"/><rect x="23.4" y="5" width="9.2" height="13.5" rx="2.4" transform="rotate(315 28 28)"/><circle cx="28" cy="28" r="15.6"/></g><circle cx="28" cy="28" r="6.6" fill="#e9e9ee"/></svg>', bg:"linear-gradient(180deg,#f2f2f7,#c7c7cc)", view:"v-settings"},
 ];
 /* v8.13: 通知バナーの小アイコンもホームと同じ資産（APPSのLINEアイコン）に揃える */
 { const nbi=document.querySelector(".nb-appic"); if(nbi) nbi.innerHTML=APPS[0].ic; }
+/* v8.14: ロック中の鍵バッジ（タイルは減光せず、このバッジで状態を示す） */
+const LOCK_IC='<svg viewBox="0 0 24 24" width="10" height="10" aria-hidden="true"><path d="M7 11V8a5 5 0 0 1 10 0v3" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/><rect x="5" y="11" width="14" height="9" rx="2" fill="#fff"/></svg>';
 function renderHome(){
 const phases=[
 ["2019年8月 ― 坡州・合宿開始","制作インターンとして合宿に帯同。担当はTeam DK、中心は井汲大翔。"],
@@ -1491,7 +1523,7 @@ APPS.forEach(a=>{
 const d=document.createElement("div");
 d.className="app"+(a.lock&&a.lock()?" lock":"");
 const b=a.badge?a.badge():0;
-d.innerHTML=`<div class="ic" style="background:${a.bg};color:#fff">${a.ic}</div><div class="lb">${a.lb}</div>`+(b?`<div class="bdg">${b}</div>`:"");
+d.innerHTML=`<div class="ic" style="background:${a.bg};color:#fff">${a.ic}</div><div class="lb">${a.lb}</div>`+(a.lock&&a.lock()?`<div class="lk">${LOCK_IC}</div>`:"")+(b?`<div class="bdg">${b}</div>`:"");
 d.onclick=()=>{
 if(a.lock&&a.lock()){ toast("まだ解放されていません"); return;}
 openApp(a);
@@ -1504,7 +1536,7 @@ const a=APPS.find(x=>x.id===id);
 const d=document.createElement("div");
 d.className="app"+(a.lock&&a.lock()?" lock":"");
 const b=a.badge?a.badge():0;
-d.innerHTML=`<div class="ic" style="background:${a.bg};color:#fff">${a.ic}</div>`+(b?`<div class="bdg">${b}</div>`:"");
+d.innerHTML=`<div class="ic" style="background:${a.bg};color:#fff">${a.ic}</div>`+(a.lock&&a.lock()?`<div class="lk">${LOCK_IC}</div>`:"")+(b?`<div class="bdg">${b}</div>`:"");
 d.onclick=()=>{ if(a.lock&&a.lock()){ toast("まだ解放されていません"); return;} openApp(a);};
 dock.appendChild(d);
 });
@@ -3049,6 +3081,13 @@ if(!lk) return;
 lk.dataset.wired="1"; lk.style.cursor="pointer";
 lk.onclick=()=>{ const on=lk.classList.toggle("on"); const mm=/そう思う (\d+)/.exec(lk.textContent); if(mm){ const vv=+mm[1]+(on?1:-1); lk.textContent=lk.textContent.replace(/そう思う \d+/,"そう思う "+vv); lk.style.color=on? "#ff0033":""; lk.style.fontWeight=on? "700":""; } if(id && idx!=null){ S.newsMineLk=S.newsMineLk||{}; (S.newsMineLk[id]=S.newsMineLk[id]||[])[idx]=on?1:0; save(); } };
 }
+/* v8.14: 他人の既存コメントの「そう思う」トグル配線（状態を S.newsLk[記事id][コメントindex] に保存する。
+   newsLk は freshState の既定値 {} があり、旧セーブは load 時の Object.assign で補完される） */
+function wireNewsLk(lk, id, idx){
+if(!lk) return;
+lk.dataset.wired="1"; lk.style.cursor="pointer";
+lk.onclick=()=>{ const on=lk.classList.toggle("on"); const mm=/そう思う (\d+)/.exec(lk.textContent); if(mm){ const vv=+mm[1]+(on?1:-1); lk.textContent=lk.textContent.replace(/そう思う \d+/,"そう思う "+vv); lk.style.color=on? "#ff0033":""; lk.style.fontWeight=on? "700":""; } if(id && idx!=null){ S.newsLk=S.newsLk||{}; (S.newsLk[id]=S.newsLk[id]||[])[idx]=on?1:0; save(); } };
+}
 /* v8.4: Yahoo!ニュースの共有シート（iOS共有シート風） */
 function openNewsShare(head){ const shEl=$("#nsheet"), bg=$("#nsheet-bg"); if(!shEl) return; const t=$("#nsheet-title"); if(t) t.textContent= head? "シェア："+head: "記事をシェア"; shEl.style.display="flex"; if(bg) bg.style.display="block"; }
 function closeNewsShare(){ const shEl=$("#nsheet"), bg=$("#nsheet-bg"); if(shEl) shEl.style.display="none"; if(bg) bg.style.display="none"; }
@@ -3062,7 +3101,11 @@ const others=Object.keys(NEWS_HEAD).filter(k=>k!==id && document.getElementById(
 if(others.length) b.insertAdjacentHTML("beforeend",`<div class="nrel"><h5>関連記事</h5>${others.slice(0,3).map(k=>`<div class="nr-row" onclick="openNewsBody('${k}')">${NEWS_HEAD[k]}</div>`).join("")}</div>`);
 const hsh=[...id].reduce((a,c)=>a+c.charCodeAt(0),0);
 const cs=[0,1,2].map(k=>NEWS_COMMENTS[(hsh+k*2)%NEWS_COMMENTS.length]);
-b.insertAdjacentHTML("beforeend",`<div class="ncom"><h5>コメント欄</h5>${cs.map(c=>`<div class="nc-row"><img src="assets/default-avatar.svg"><div><div class="nc-nm">${c.n}</div><div class="nc-tx">${c.t}</div><div class="nc-lk">そう思う ${c.g} ／ そう思わない ${c.b}</div></div></div>`).join("")}</div>`);
+/* v8.14: 他人の既存コメントの「そう思う」状態（S.newsLk[記事id][index]）を復元して描画し、保存配線する
+   （従来はセッション内だけの汎用配線で、再描画・リロードで状態が戻っていた） */
+const lkSaved=(S.newsLk&&S.newsLk[id])||[];
+b.insertAdjacentHTML("beforeend",`<div class="ncom"><h5>コメント欄</h5>${cs.map((c,k)=>{ const on=!!lkSaved[k]; return `<div class="nc-row"><img src="assets/default-avatar.svg"><div><div class="nc-nm">${c.n}</div><div class="nc-tx">${c.t}</div><div class="nc-lk${on?" on":""}"${on?' style="color:#ff0033;font-weight:700"':""}>そう思う ${c.g+(on?1:0)} ／ そう思わない ${c.b}</div></div></div>`; }).join("")}</div>`);
+b.querySelectorAll(".ncom .nc-row .nc-lk").forEach((lk,k)=>wireNewsLk(lk, id, k));
 const nc=b.querySelector(".ncom");
 if(nc && !nc.querySelector(".nc-form")){
 const h5=nc.querySelector("h5");
@@ -3334,8 +3377,9 @@ line=`大翔の見通し：約 <b>${est.toLocaleString()}票</b>（第3回の顔
 sum=`大翔の見通し：約 <b>${est.toLocaleString()}票</b>・約 <b>${rank}位</b> 相当`;
 }
 /* v8.13: 要約行（短い画面でのみ表示）と全文の2段構成。要約・全文とも同じ計算結果から生成し、
-   ステッパー操作のたびに両方が最新数値へ更新される。通常の高さでは要約行は CSS で隠れ、全文が常時表示 */
-return `<div class="ed-outlook${edOutlookOpen?" open":""}"><div class="ed-ol-sum" role="button" tabindex="0" aria-expanded="${edOutlookOpen}" aria-label="見通しの詳細を開閉"><span class="ed-ol-txt">📊 ${sum}</span><span class="ed-ol-chev">▾</span></div><div class="ed-ol-full">📊 ${line}<br><span style="color:#a04">※見通しは概算です（実際の結果は当日の揺らぎで前後します）</span></div></div>`;
+   ステッパー操作のたびに両方が最新数値へ更新される。通常の高さでは要約行は CSS で隠れ、全文が常時表示
+   v8.14: 展開時は要約行の文面を「閉じる」に差し替え（.ed-ol-close、CSSで切替）、票数・順位の二重表示をなくす */
+return `<div class="ed-outlook${edOutlookOpen?" open":""}"><div class="ed-ol-sum" role="button" tabindex="0" aria-expanded="${edOutlookOpen}" aria-label="見通しの詳細を開閉"><span class="ed-ol-txt">📊 ${sum}</span><span class="ed-ol-close">閉じる</span><span class="ed-ol-chev">▾</span></div><div class="ed-ol-full">📊 ${line}<br><span style="color:#a04">※見通しは概算です（実際の結果は当日の揺らぎで前後します）</span></div></div>`;
 }
 function editHistHTML(){
 if(!S.editHist||!S.editHist.length) return "";
