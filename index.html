@@ -346,7 +346,7 @@ button:active{transform:scale(.965)}
 .xpost .xh span{color:#657786}
 .xf{display:flex;gap:0;margin-top:8px;max-width:300px}
 .xf span{flex:1;display:flex;align-items:center;gap:5px;font-size:11.5px;color:#657786}
-.xf .lk{color:#e0245e}
+.xf .lk-act{color:#657786}
 /* Yahoo!ニュース */
 .y-head{background:#fff;border-bottom:2.5px solid #ff0033}
 .y-chips{flex:none;display:flex;gap:6px;background:#fff;padding:8px 12px;border-bottom:1px solid #eee;overflow-x:auto}
@@ -392,6 +392,58 @@ button:active{transform:scale(.965)}
 .prog-tbl th{background:#f2f5fa;color:#555;font-weight:600}
 .prog-tbl td b{color:#16294d}
 .pf-sec-t{font-size:12px;font-weight:700;color:#8e8e93;margin-top:16px;letter-spacing:.05em}
+
+/* ===== v8.2: 全アプリ実物寄せ深化＋ナビ改善 ===== */
+.tw-head{gap:8px}
+.tw-av-head{width:34px;height:34px;border-radius:50%;background:linear-gradient(180deg,#33507e,#16294d);color:#fff;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none}
+.tw-title{font-size:17px;font-weight:800;color:#14171a;flex:1}
+.tw-spark{cursor:pointer;flex:none;padding:4px;display:flex;align-items:center}
+.tw-sheet-bg{position:absolute;inset:0;background:rgba(0,0,0,.35);z-index:55}
+.tw-sheet{position:absolute;left:8px;right:8px;bottom:calc(10px + env(safe-area-inset-bottom));background:#fff;border-radius:14px;z-index:56;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 12px 34px rgba(0,0,0,.3)}
+.tw-sheet .tws-note{padding:13px 16px;font-size:12.5px;color:#657786;text-align:center;border-bottom:1px solid #e6ecf0}
+.tw-sheet button{border:none;background:#fff;padding:14px;font-size:15px;color:#1DA1F2;cursor:pointer;border-bottom:1px solid #f0f0f3;font-family:inherit}
+.tw-sheet button.cancel{color:#14171a;font-weight:700;border-bottom:none;border-top:6px solid #f2f2f7}
+.tw-searchbar{padding:10px 12px 4px;background:#fff}
+.tw-searchbar .tw-search{display:flex;gap:7px;align-items:center;background:#e6ecf0;border-radius:999px;padding:7px 14px;font-size:13px;color:#657786}
+.xav{width:46px;height:46px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:17px}
+.xf span.act{cursor:pointer}
+.xf .rt-act.on{color:#17bf63}
+.xf .lk-act.on{color:#e0245e}
+.xf .lk-act.on svg{animation:hrtPop .32s ease}
+@keyframes hrtPop{0%{transform:scale(.6)}55%{transform:scale(1.35)}100%{transform:scale(1)}}
+.xd-time{padding:4px 14px 0;color:#657786;font-size:13px}
+.xd-counts{display:flex;gap:18px;padding:10px 14px;border-bottom:1px solid #e6ecf0;font-size:13.5px;color:#657786}
+.xd-counts b{color:#14171a}
+.pin-label{font-size:12px;color:#657786;padding:10px 14px 0}
+.twp-in{position:relative}
+.twp-follow{position:absolute;right:14px;top:8px;border:1.5px solid #1DA1F2;background:#1DA1F2;color:#fff;font-weight:700;font-size:13px;border-radius:999px;padding:6px 14px;cursor:pointer;font-family:inherit}
+.twp-follow.on{background:#fff;color:#1DA1F2}
+.twp-meta{margin-top:7px;font-size:12.5px;color:#657786}
+.twp-meta a{color:#1DA1F2;text-decoration:none}
+.tl-search{padding:8px 12px;background:#fff;border-bottom:1px solid #eee}
+.tl-search input{width:100%;border:none;background:#f2f2f7;border-radius:10px;padding:8px 12px;font-size:16px}
+.troom .tm{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.troom .bdg{background:#00B900;margin-left:0}
+.line-tabs span{cursor:pointer}
+.y-chips span{border:none;border-radius:0;padding:7px 3px;margin-right:6px}
+.y-chips span.on{background:none;border-bottom:2.5px solid #ff0033;color:#ff0033}
+.nitem.has-thumb{display:flex;gap:10px}
+.nitem .nth{width:62px;height:62px;border-radius:8px;object-fit:cover;object-position:top;flex:none}
+.nitem .ntx{flex:1;min-width:0}
+.nshare span{cursor:pointer}
+.nshare span.on{background:#fff0f3;border-color:#ff0033;color:#ff0033}
+.ncom .nc-lk{cursor:pointer}
+.call-grid div{cursor:pointer}
+.call-grid div.on .cg{background:rgba(255,255,255,.42)}
+.pl-prog{cursor:pointer}
+.gd-nav{display:flex;justify-content:space-between;gap:10px;padding:14px 16px 4px}
+.gd-nav button{flex:1;border:1.5px solid #c9c2e8;background:#fff;color:#4a2fb5;font-weight:700;font-size:13px;border-radius:999px;padding:9px 6px;cursor:pointer;font-family:inherit}
+.gd-nav button:disabled{opacity:.35;cursor:default}
+.about-modal{position:absolute;inset:0;background:rgba(10,10,20,.5);z-index:90;display:flex;align-items:center;justify-content:center;padding:22px}
+.am-card{background:#fff;border-radius:16px;max-height:82%;overflow-y:auto;padding:18px 18px 14px;width:100%;color:#14171a}
+.am-t{font-size:15px;font-weight:800;margin-bottom:8px}
+.am-body{font-size:12.5px;line-height:1.75;color:#333}
+#about-close{margin-top:12px;width:100%;border:none;background:#007aff;color:#fff;font-weight:700;font-size:14px;border-radius:10px;padding:10px;cursor:pointer;font-family:inherit}
 
 /* ===== v7.1 hotfix: 通話画面の下切れ修正（実機で進行不能になる問題） ===== */
 .call-sub{flex:0 1 auto;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch}
@@ -641,9 +693,9 @@ button:active{transform:scale(.965)}
 
 <!-- TALK LIST -->
 <div class="view" id="v-talk">
-<div class="ahead line-head"><span class="back" data-home>‹</span><div><div class="ttl">トーク</div></div><div class="lh-ic"><span>🔍</span><span>➕</span></div></div>
+<div class="ahead line-head"><span class="back" data-home>‹</span><div><div class="ttl">トーク</div></div><div class="lh-ic"><span id="tl-sbtn" style="cursor:pointer">🔍</span><span id="tl-plus" style="cursor:pointer">➕</span></div></div>
 <div class="abody" id="talk-list"></div>
-<div class="line-tabs"><span>🏠<i>ホーム</i></span><span class="on">💬<i>トーク</i></span><span>🕐<i>タイムライン</i></span><span>📰<i>ニュース</i></span><span>👛<i>ウォレット</i></span></div>
+<div class="line-tabs"><span data-lt="home">🏠<i>ホーム</i></span><span class="on" data-lt="talk">💬<i>トーク</i></span><span data-lt="tl">🕐<i>タイムライン</i></span><span data-lt="news">📰<i>ニュース</i></span><span data-lt="wallet">👛<i>ウォレット</i></span></div>
 </div>
 
 <!-- CHAT -->
@@ -672,11 +724,17 @@ button:active{transform:scale(.965)}
 
 <!-- X -->
 <div class="view" id="v-x">
-<div class="tw-head"><span class="back" data-home>‹</span><div class="tw-search"><span>🔍</span><span>PRODUCE 101 JAPAN</span></div><svg class="tw-bird" width="21" height="21" viewBox="0 0 24 24" fill="#1DA1F2"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.094 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59l-.047-.02z"/></svg></div>
-<div class="tw-tabs"><span class="on" data-xt="feed">ホーム</span><span data-xt="trends">トレンド</span><span data-xt="notif">通知</span><span data-xt="prof">プロフィール</span></div>
+<div class="tw-head"><span class="back" data-home>‹</span><span class="tw-av-head" id="tw-av-head">P</span><div class="tw-title" id="tw-title">ホーム</div><span class="tw-spark" id="tw-spark"><svg viewBox="0 0 24 24" width="21" height="21" fill="#1DA1F2"><path d="M11.2 2.4l1.95 6.35 6.35 1.95-6.35 1.95L11.2 19l-1.95-6.35L2.9 10.7l6.35-1.95z"/><path d="M18.7 14.9l.85 2.75 2.75.85-2.75.85-.85 2.75-.85-2.75-2.75-.85 2.75-.85z"/></svg></span></div>
 <div class="abody" id="x-body" style="background:#fff;position:relative"></div>
 <div class="tw-fab" onclick="toast('ツイート作成はこのアプリでは開けません')"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.094 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59l-.047-.02z"/></svg></div>
 <div class="tw-tabs-b"><span class="on"><svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M22 11.6L12 2 2 11.6V21a1 1 0 0 0 1 1h6v-7h6v7h6a1 1 0 0 0 1-1z"/></svg></span><span><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="10.5" cy="10.5" r="7"/><path d="M16 16l5.5 5.5"/></svg></span><span><svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22c1.4 0 2.4-1 2.4-2.4H9.6C9.6 21 10.6 22 12 22zm6.7-2.4v-1.9L17 15V9.9C17 6.9 15.4 4.6 13 3.7V3a1 1 0 1 0-2 0v.7C8.6 4.6 7 6.9 7 9.9V15l-1.7 2.7v1.9h13.4z"/></svg></span><span><svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M21 4H3a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1zm-9 7.4L4.2 6h15.6L12 11.4z"/></svg></span></div>
+<div class="tw-sheet-bg" id="tw-sheet-bg" style="display:none"></div>
+<div class="tw-sheet" id="tw-sheet" style="display:none">
+<div class="tws-note">「ホーム」ではトップツイートが優先的に表示されます</div>
+<button id="tw-to-latest">最新ツイートに切り替える</button>
+<button id="tw-to-home">ホーム表示に戻す</button>
+<button id="tw-sheet-cancel" class="cancel">キャンセル</button>
+</div>
 </div>
 
 <!-- NEWS -->
@@ -714,7 +772,8 @@ button:active{transform:scale(.965)}
 <div class="set-row" style="cursor:default"><span>音量</span><input id="set-vol" type="range" min="0" max="100" step="5" style="flex:1;margin:0 12px"></div>
 <div class="set-row" id="set-about"><span>この作品について</span><span>›</span></div>
 <div class="set-row" id="set-reset"><span class="danger">データを消して最初から</span><span>›</span></div>
-<div style="padding:14px 16px;font-size:11px;color:#8e8e93;line-height:1.7">担当をデビューさせる件 v8<br>※v8：各アプリの豪華化（トークのスタンプ・写真送信・既読人数・検索／Twitterのプロフィール・トレンド・通知・ツイート詳細／ニュースの関連記事・コメント・アクセスランキング）、思い出コレクション、順位推移グラフ、推しメン登録、通話履歴、音楽プレイヤーを追加。課題曲5曲は公式音源の長尺版に差し替え。本人の意向により、v6で追加したフリーチャットは廃止しました。<br>※本作品は実在の番組『PRODUCE 101 JAPAN』（2019）と実在の人物を題材にしたファンメイドのIF作品です。史実をもとにしていますが、登場人物の言動や順位の変動は創作を含みます。<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲は各アーティストの公式音源（長尺版）を使用しています。</div>
+<div style="padding:14px 16px;font-size:11px;color:#8e8e93;line-height:1.7">担当をデビューさせる件 v8.2<br>※v8.2：全アプリの実物寄せをさらに深化（Twitterの2019年仕様ヘッダーとスパークル切替・いいね／リツイートのトグル・ツイート詳細の時刻と件数、ニュースのサムネイルとコメント反応、音楽プレイヤーのシーク・前後送り、トーク一覧の検索と時刻表示）。プロフィールの「戻る」も開いた場所に戻るよう改善。<br>※v8：各アプリの豪華化（トークのスタンプ・写真送信・既読人数・検索／Twitterのプロフィール・トレンド・通知・ツイート詳細／ニュースの関連記事・コメント・アクセスランキング）、思い出コレクション、順位推移グラフ、推しメン登録、通話履歴、音楽プレイヤーを追加。課題曲5曲は公式音源の長尺版に差し替え。本人の意向により、v6で追加したフリーチャットは廃止しました。<br>※本作品は実在の番組『PRODUCE 101 JAPAN』（2019）と実在の人物を題材にしたファンメイドのIF作品です。史実をもとにしていますが、登場人物の言動や順位の変動は創作を含みます。<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲は各アーティストの公式音源（長尺版）を使用しています。</div>
+<div class="about-modal" id="about-modal" style="display:none"><div class="am-card"><div class="am-t">『担当をデビューさせる件』v8.2</div><div class="am-body">実在の番組『PRODUCE 101 JAPAN』Season1（2019）を題材にした、ファンメイドのIF物語です。<br>v8では各アプリを豪華にしました。トークはスタンプ・写真送信・グループ既読人数・トーク内検索・＋メニュー対応。Twitterは公式プロフィール画面・トレンド・通知・ツイート詳細（返信スレッド）・画像付きツイートに対応。Yahoo!ニュースは関連記事・コメント欄・アクセスランキング・カテゴリ別一覧を搭載。順位表には票数カウントアップ演出と、大翔の順位推移グラフ（史実 vs この物語）を追加。名簿では推しメン登録（★）と絞り込み、プロフィールの写真複数表示と101人データ連動を強化。新たに「思い出コレクション」（名場面カード＋両エンディング到達表示）、通話履歴、音楽プレイヤーを追加し、課題曲5曲は公式音源の長尺版に差し替えました。なお、v6で追加したフリーチャットは本人の意向によりv8で廃止しました（セーブデータ互換は維持）。<br>v8.2では全アプリの実物寄せをさらに深めました。Twitterは2019年当時のヘッダー（アバター＋「ホーム」＋スパークル切替）と下部タブ構成に寄せ、いいね／リツイートのトグル、ツイート詳細の時刻・件数表示、プロフィールのフォローボタンを実装。Yahoo!ニュースは記事サムネイルとカテゴリタブ、シェア／ブックマーク／コメントの「そう思う」に反応を持たせ、音楽プレイヤーはシークと前後の曲送りに対応。トーク一覧には検索と最終メッセージ時刻を追加し、プロフィールの「戻る」は開いた場所に戻るようになりました。<br>v7では各アプリの見た目を2019年当時の姿（LINE／Twitter／Yahoo!ニュース／iOS 13）に寄せ、練習生101人全員の史実データを収録。主人公のなおは高校3年生の制作インターンとして合宿に帯同し、担当練習生・井汲大翔（17歳、学年は1つ下）を裏側から支えます。史実の流れをなぞりながら、編集の分量配分と裏側サポートで票と物語を動かし、史実36位の脱落を覆してデビュー圏11位を目指します。登場人物の言動は創作です。<br><br>クレジット<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲: 嵐「Love so sweet」／PRODUCE 101 JAPAN「ツカメ 〜It's Coming〜」／Hey! Say! JUMP「OVER THE TOP」／SHINee「Everybody」／バブリンチョ「やんちゃBOY やんちゃGIRL」（各公式音源の長尺版を使用）</div><button id="about-close">閉じる</button></div></div>
 </div>
 </div>
 
@@ -1271,7 +1330,7 @@ if(a.id==="talk") renderTalkList();
 if(a.id==="rank") renderRank();
 if(a.id==="x") renderX();
 if(a.id==="news"){ renderNews(); decorateNews(); }
-if(a.id==="members") renderMembers();
+if(a.id==="members"){ pfStack=[]; renderMembers(); }
 if(a.id==="edit") renderEdit();
 if(a.id==="gallery") renderGallery();
 if(a.id==="music") renderMusic();
@@ -1281,20 +1340,27 @@ document.querySelectorAll("[data-home]").forEach(el=>el.onclick=()=>{ renderHome
 $("#homebar").onclick=()=>{ renderHome(); show("v-home");};
 
 /* ================= TALK ================= */
+let talkQuery="";
 function renderTalkList(){
-const w=$("#talk-list"); w.innerHTML="";
+const w=$("#talk-list"); w.innerHTML=`<div class="tl-search"><input id="tl-q" placeholder="検索" autocomplete="off"></div>`;
 Object.keys(ROOMS).forEach(id=>{
 const r=ROOMS[id], msgs=S.chats[id];
 const last=msgs[msgs.length-1];
-const d=document.createElement("div"); d.className="troom";
-d.innerHTML=`<img class="av" src="${r.img}"><div style="min-width:0"><div class="nm">${r.name}${S.unread[id]?`<span class="bdg">${S.unread[id]}</span>`:""}</div><div class="pv">${last?last.text.replace(/\n/g," "):"（まだメッセージがありません）"}</div></div><div class="tm"></div>`;
+const d=document.createElement("div"); d.className="troom"; d.dataset.name=r.name;
+const tmStr= msgs.length? (last.d||msgTimeStr(id, msgs.length-1)): "";
+d.innerHTML=`<img class="av" src="${r.img}"><div style="min-width:0"><div class="nm">${r.name}</div><div class="pv">${last?last.text.replace(/\n/g," "):"（まだメッセージがありません）"}</div></div><div class="tm"><span>${esc(tmStr)}</span>${S.unread[id]?`<span class="bdg">${S.unread[id]}</span>`:""}</div>`;
 d.onclick=()=>openChat(id);
 w.appendChild(d);
 });
+const tq=w.querySelector("#tl-q");
+tq.value=talkQuery;
+const applyQ=()=>{ w.querySelectorAll(".troom").forEach(el=>{ el.style.display=(!talkQuery||el.dataset.name.indexOf(talkQuery)>=0)? "":"none"; }); };
+tq.addEventListener("input",()=>{ talkQuery=tq.value; applyQ(); });
+applyQ();
 }
 function openChat(id){
-curRoom=id; S.unread[id]=0; save();
-$("#chat-title").textContent=ROOMS[id].name;
+curRoom=id; S.unread[id]=0; save(); pfStack=[];
+$("#chat-title").innerHTML=ROOMS[id].name+(GROUP_SIZE[id]? ` <span style="color:#8e8e93;font-size:14px;font-weight:400">${GROUP_SIZE[id]}</span>`:"");
 $("#chat-sub").textContent=ROOMS[id].sub;
 hidePanels(); renderChat(); show("v-chat");
 }
@@ -2448,17 +2514,42 @@ return TRAINEES.slice().sort((a,b)=>(S.tr[b.id].air*2+S.tr[b.id].att)-(S.tr[a.id
 }
 const ICO_RP='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#657786" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5c-1.5 0-3-.4-4.2-1.1L3 20l1.1-5.3A8.5 8.5 0 1 1 21 11.5z"/></svg>';
 const ICO_RT='<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#657786" stroke-width="1.8"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>';
-const ICO_HT='<svg width="16" height="16" viewBox="0 0 24 24" fill="#e0245e"><path d="M12 21s-7.5-4.7-10-9.3C.4 8.6 2.3 4.9 5.7 4.9c2 0 3.4 1.1 4.3 2.4.9-1.3 2.3-2.4 4.3-2.4 3.4 0 5.3 3.7 3.7 6.8C19.5 16.3 12 21 12 21z" transform="scale(0.92) translate(1,0.6)"/></svg>';
+const ICO_HT='<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.7-10-9.3C.4 8.6 2.3 4.9 5.7 4.9c2 0 3.4 1.1 4.3 2.4.9-1.3 2.3-2.4 4.3-2.4 3.4 0 5.3 3.7 3.7 6.8C19.5 16.3 12 21 12 21z" transform="scale(0.92) translate(1,0.6)"/></svg>';
 const ICO_SH='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#657786" stroke-width="1.8"><path d="M12 15V4m0 0L8 8m4-4l4 4"/><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/></svg>';
-let xTab="feed", curPosts=[], twpMode="tweets";
+let xTab="feed", curPosts=[], twpMode="tweets", twMode="home", twFollow=false;
 function setXTab(t){ xTab=t; renderX(); }
+const AV_COLORS=["#7a5c2e","#3d7dc4","#8e44ad","#c0392b","#16a085","#d35400","#2c3e50","#b03a5b","#5d6d7e","#7d6608"];
+function avColor(h){ let x=0; const s=h||""; for(let i=0;i<s.length;i++) x+=s.charCodeAt(i); return AV_COLORS[x%AV_COLORS.length]; }
+function vbadgeSVG(){ return '<svg width="15" height="15" viewBox="0 0 24 24" style="vertical-align:-2px;margin-left:2px"><path fill="#1DA1F2" d="M12 1.8l2.5 2 3.2-.3 1.1 3 3 1.1-.3 3.2 2 2.5-2 2.5.3 3.2-3 1.1-1.1 3-3.2-.3-2.5 2-2.5-2-3.2.3-1.1-3-3-1.1.3-3.2-2-2.5 2-2.5-.3-3.2 3-1.1 1.1-3 3.2.3z"/><path fill="#fff" d="M10.6 15.6l-3-3 1.3-1.3 1.7 1.7 4.5-4.6 1.3 1.3z"/></svg>'; }
 function tweetHTML(p, idx, plain){
 let n=parseFloat(String(p.f).replace(/,/g,""))||0; if(String(p.f).indexOf("万")>=0) n*=10000;
 const rt=Math.round(n*0.36).toLocaleString(), rp=Math.round(n*0.12).toLocaleString();
 const txt=esc(p.t).replace(/#([^\s#]+)/g,'<span class="tag">#$1</span>');
 const tm=p.tm||["1時間","3時間","5時間","9時間","14時間","21時間"][(idx||0)%6];
-const veri=p.h==="@produce101jp"? ' <span style="color:#1DA1F2;font-size:12px">✔</span>':"";
-return `<div class="xpost"${plain?"":` onclick="openTweet(${idx||0})"`}><img class="av" src="assets/default-avatar.svg"><div style="flex:1;min-width:0"><div class="xh"><b>${p.n}</b>${veri}<span>${p.h} ・ ${tm}</span></div><div class="xt">${txt}</div>${p.img?`<img class="tw-img" src="${p.img}">`:""}<div class="xf"><span>${ICO_RP}${rp}</span><span>${ICO_RT}${rt}</span><span class="lk">${ICO_HT}${p.f}</span><span>${ICO_SH}</span></div></div></div>`;
+const off=p.h==="@produce101jp";
+const veri=off? vbadgeSVG():"";
+const avc=off? "linear-gradient(180deg,#33507e,#16294d)": avColor(p.h);
+const avch=off? "P": esc((p.n||"?").charAt(0));
+return `<div class="xpost"${plain?"":` onclick="openTweet(${idx||0})"`}><span class="xav" style="background:${avc}">${avch}</span><div style="flex:1;min-width:0"><div class="xh"><b>${p.n}</b>${veri}<span>${p.h} ・ ${tm}</span></div><div class="xt">${txt}</div>${p.img?`<img class="tw-img" src="${p.img}">`:""}<div class="xf"><span class="act rp-act" onclick="twAct(event,this)">${ICO_RP}<span class="cnt">${rp}</span></span><span class="act rt-act" onclick="twAct(event,this)">${ICO_RT}<span class="cnt">${rt}</span></span><span class="act lk-act" onclick="twAct(event,this)">${ICO_HT}<span class="cnt">${p.f}</span></span><span class="act">${ICO_SH}</span></div></div></div>`;
+}
+function twAct(ev, el){
+ev.stopPropagation();
+const on=el.classList.toggle("on");
+const c=el.querySelector(".cnt"); if(!c) return;
+const s=c.textContent.trim(); let v;
+if(s.indexOf("万")>=0) v=Math.round(parseFloat(s)*10000); else v=parseInt(s.replace(/,/g,""),10)||0;
+v+= on? 1: -1; if(v<0) v=0;
+c.textContent= v>=10000? (Math.round(v/1000)/10)+"万" : v.toLocaleString();
+}
+function tweetDateTime(p){
+const hsh=[...(p.t||"")].reduce((a,c)=>a+c.charCodeAt(0),0);
+let date;
+const m=/(\d+)月(\d+)日/.exec(p.tm||"");
+if(m) date=`2019年${+m[1]}月${+m[2]}日`;
+else date=(BEAT_MONTH[Math.min(S.beat,20)]||"2019年10月")+(1+(hsh%27))+"日";
+const hh=8+(hsh%13), mm=hsh%60;
+const ap=hh<12? "午前":"午後"; const h12=hh%12===0? 12: hh%12;
+return `${ap}${h12}:${("0"+mm).slice(-2)} ・ ${date}`;
 }
 const REPLY_POOL=["わかりみが深い…","これほんまにそう","投票完了しました！！","布教させてください、、","泣いた","現場で見てたけど鳥肌やった","国プの鑑すぎる","RT失礼します、これは見てほしい","待って待って待って","語彙力なくなるくらい良かった"];
 function openTweet(i){
@@ -2466,14 +2557,16 @@ const p=curPosts[i]; if(!p) return;
 const hsh=[...(p.t||"")].reduce((a,c)=>a+c.charCodeAt(0),0);
 const names=["国プの民","ぽん","さくらんぼ","夜更かし国プ","みそ","kpopおじさん","ちな","ゆず茶"];
 const reps=[0,1,2].map(k=>({n:names[(hsh+k*2)%names.length], h:"@fan_"+((hsh*(k+3))%900+100), t:REPLY_POOL[(hsh+k*3)%REPLY_POOL.length], f:String((hsh*(k+2))%180+3), tm:(k+1)+"時間"}));
-$("#xd-body").innerHTML=`<div style="border-bottom:8px solid #f2f2f7">${tweetHTML(p,i,true)}</div><div style="padding:10px 14px;font-weight:800;font-size:13.5px;border-bottom:1px solid #e6ecf0">返信</div>`+reps.map((r,j)=>tweetHTML(r,j,true)).join("");
+let nn=parseFloat(String(p.f).replace(/,/g,""))||0; if(String(p.f).indexOf("万")>=0) nn*=10000;
+const rtc=Math.round(nn*0.36).toLocaleString();
+$("#xd-body").innerHTML=`<div style="border-bottom:8px solid #f2f2f7">${tweetHTML(p,i,true)}<div class="xd-time">${tweetDateTime(p)}</div><div class="xd-counts"><span><b>${rtc}</b> 件のリツイート</span><span><b>${p.f}</b> 件のいいね</span></div></div><div style="padding:10px 14px;font-weight:800;font-size:13.5px;border-bottom:1px solid #e6ecf0">返信</div>`+reps.map((r,j)=>tweetHTML(r,j,true)).join("");
 show("v-xdetail");
 }
 function renderTrends(w){
 const base=[["PRODUCE 101 JAPAN","5.2万"],["#日プ","3.8万"],["ツカメ","2.1万"],["川尻蓮","9,842"],["国プ","7,315"],["#PRODUCE101JAPAN","6,204"],["岡村隆史","4,930"]];
 const pos= S.beat>=17? 2: (S.beat>=10? 4: 3);
 base.splice(pos,0,["井汲大翔","1.4万"]);
-w.innerHTML=`<div style="padding:13px 14px 4px;font-weight:800;font-size:15.5px">日本のトレンド</div>`+base.map((t,i)=>`<div class="trend-row"><div class="tr-c">${i+1} ・ エンターテインメントのトレンド</div><div class="tr-t">${t[0]}</div><div class="tr-n">${t[1]}件のツイート</div></div>`).join("")+`<div class="rk-note">トレンドは作中の時点（${BEAT_MONTH[Math.min(S.beat,20)]||"2019年"}）の盛り上がりを再現したものです。</div>`;
+w.innerHTML=`<div class="tw-searchbar"><div class="tw-search"><span>🔍</span><span>キーワード検索</span></div></div><div style="padding:10px 14px 4px;font-weight:800;font-size:15.5px">日本のトレンド</div>`+base.map((t,i)=>`<div class="trend-row"><div class="tr-c">${i+1} ・ エンターテインメントのトレンド</div><div class="tr-t">${t[0]}</div><div class="tr-n">${t[1]}件のツイート</div></div>`).join("")+`<div class="rk-note">トレンドは作中の時点（${BEAT_MONTH[Math.min(S.beat,20)]||"2019年"}）の盛り上がりを再現したものです。</div>`;
 }
 function renderNotif(w){
 const items=[
@@ -2493,20 +2586,22 @@ const PROF_POSTS=[
 ];
 function renderTwProfile(w){
 const media=["assets/s1/ren-big.jpg","assets/s1/hiroto-big.jpg","assets/s1/minhyeok-big.jpg","assets/s1/younghoon-big.jpg","assets/s1/shion-big.jpg","assets/s1/takumi-big.jpg"];
-w.innerHTML=`<div class="twp-head" style="background-image:url('assets/s1/ren-big.jpg')"></div><div class="twp-in"><div class="twp-av">P</div><div class="twp-name">PRODUCE 101 JAPAN <span class="veri">✔</span></div><div class="twp-h">@produce101jp</div><div class="twp-bio">『PRODUCE 101 JAPAN』公式アカウント。国民プロデューサーの皆さまの投票で、デビューする11人が決まります。投票はGYAO!特設サイトから⚡ #PRODUCE101JAPAN #日プ</div><div class="twp-stats"><span><b>4</b> フォロー中</span><span><b>31.6万</b> フォロワー</span></div></div>
+w.innerHTML=`<div class="twp-head" style="background-image:url('assets/s1/ren-big.jpg')"></div><div class="twp-in"><button class="twp-follow${twFollow?" on":""}" id="twp-follow">${twFollow?"フォロー中":"フォローする"}</button><div class="twp-av">P</div><div class="twp-name">PRODUCE 101 JAPAN ${vbadgeSVG()}</div><div class="twp-h">@produce101jp</div><div class="twp-bio">『PRODUCE 101 JAPAN』公式アカウント。国民プロデューサーの皆さまの投票で、デビューする11人が決まります。投票はGYAO!特設サイトから⚡ #PRODUCE101JAPAN #日プ</div><div class="twp-stats"><span><b>4</b> フォロー中</span><span><b>31.6万</b> フォロワー</span></div><div class="twp-meta">🔗 <a href="https://produce101.jp" target="_blank" rel="noopener">produce101.jp</a></div></div>
 <div class="twp-tabs"><span class="${twpMode==="tweets"?"on":""}" onclick="twpMode='tweets';renderX()">ツイート</span><span class="${twpMode==="media"?"on":""}" onclick="twpMode='media';renderX()">メディア</span></div>
 ${twpMode==="media"? `<div class="twp-media">${media.map(m=>`<img src="${m}">`).join("")}</div>`: `<div id="twp-tweets"></div>`}`;
-if(twpMode==="tweets"){ curPosts=PROF_POSTS; const el=document.getElementById("twp-tweets"); if(el) el.innerHTML=PROF_POSTS.map((p,i)=>tweetHTML(p,i)).join(""); }
+if(twpMode==="tweets"){ curPosts=PROF_POSTS; const el=document.getElementById("twp-tweets"); if(el) el.innerHTML='<div class="pin-label">📌 固定されたツイート</div>'+PROF_POSTS.map((p,i)=>tweetHTML(p,i)).join(""); }
+const fb=document.getElementById("twp-follow"); if(fb) fb.onclick=()=>{ twFollow=!twFollow; fb.classList.toggle("on",twFollow); fb.textContent=twFollow?"フォロー中":"フォローする"; toast(twFollow? "PRODUCE 101 JAPANをフォローしました":"フォローを解除しました"); };
 }
 function renderX(){
 const w=$("#x-body");
-document.querySelectorAll(".tw-tabs span").forEach(s=>s.classList.toggle("on", s.dataset.xt===xTab));
+const tt=$("#tw-title"); if(tt) tt.textContent= xTab==="feed"? (twMode==="latest"? "最新ツイート":"ホーム"): (xTab==="trends"? "検索": xTab==="notif"? "通知":"プロフィール");
 document.querySelectorAll(".tw-tabs-b span").forEach((s,i)=>{ s.classList.toggle("on", (xTab==="feed"&&i===0)||(xTab==="trends"&&i===1)||(xTab==="notif"&&i===2)); });
 if(xTab==="trends"){ renderTrends(w); return; }
 if(xTab==="notif"){ renderNotif(w); return; }
 if(xTab==="prof"){ renderTwProfile(w); return; }
 renderXFeed(w);
 }
+function setFeed(w, arr){ const a= twMode==="latest"? arr.slice().reverse(): arr; curPosts=a; w.innerHTML=a.map((p,i)=>tweetHTML(p,i)).join(""); }
 function renderXFeed(){
 const w=$("#x-body");
 if(S.beat<5){ curPosts=[]; w.innerHTML=`<div class="rk-note">放送後にファンの投稿が表示されます。</div>`; return;}
@@ -2520,7 +2615,7 @@ const posts3=[
 {n:"ドンビン情報局", h:"@dongbin_info", t:"ファイナルは1pick。ドンビンが応援する井汲大翔、最後の一枠の物語はここからが本番", f:"5,540"},
 {n:"実況お姉さん", h:"@jikkyo_101", t:"待って待って待って、やんちゃBOYのセンター大翔だったの！？ 成長物語すぎて泣いてる #やんちゃBOY #井汲大翔", tm:"11月28日", f:"6,120"},
 ];
-curPosts=posts3; w.innerHTML=posts3.map((p,i)=>tweetHTML(p,i)).join("");
+setFeed(w, posts3);
 return;
 }
 if(S.beat>=10){
@@ -2535,7 +2630,7 @@ const posts2=[
 {n:"ドンビン情報局", h:"@dongbin_info", t:"キム・ドンビンが応援してる井汲大翔くん、第2回投票はSMS認証あり。海外ファ人は投票できない人も多いはず…国内の国プにかかってる", f:"4,105"},
 {n:"実況お姉さん", h:"@jikkyo_101", t:"Everybodyの大翔、ラップのとこ何回も巻き戻した。あの子こんな顔もするの…？ #Everybody #井汲大翔", tm:"11月14日", f:"2,864"},
 ];
-curPosts=posts2; w.innerHTML=posts2.map((p,i)=>tweetHTML(p,i)).join("");
+setFeed(w, posts2);
 return;
 }
 const top=buzzList(); const hair=S.tr.hiroto.air;
@@ -2550,7 +2645,7 @@ const posts=[
 {n:"豆粒の母", h:"@mame_no_haha", t:"豆原一成、17歳であの完成度はバグってる。岡山の星 #豆原一成", f:"5,020"},
 {n:"実況お姉さん", h:"@jikkyo_101", t:"再評価の録画見返してるんだけど、歌詞飛んでからの大翔の顔が忘れられない…これは推すしかないやつ #井汲大翔", tm:"10月3日", f:"4,477"},
 ];
-curPosts=posts; w.innerHTML=posts.map((p,i)=>tweetHTML(p,i)).join("");
+setFeed(w, posts);
 }
 let newsCat="entame";
 const NEWS_GENERAL={
@@ -2618,10 +2713,20 @@ const cs=[0,1,2].map(k=>NEWS_COMMENTS[(hsh+k*2)%NEWS_COMMENTS.length]);
 b.insertAdjacentHTML("beforeend",`<div class="ncom"><h5>コメント欄</h5>${cs.map(c=>`<div class="nc-row"><img src="assets/default-avatar.svg"><div><div class="nc-nm">${c.n}</div><div class="nc-tx">${c.t}</div><div class="nc-lk">そう思う ${c.g} ／ そう思わない ${c.b}</div></div></div>`).join("")}</div>`);
 const item=b.previousElementSibling;
 if(item && item.classList && item.classList.contains("nitem") && NEWS_META[id] && !item.querySelector(".nmeta")) item.insertAdjacentHTML("beforeend",`<div class="sm nmeta" style="color:#999;font-size:11px">${NEWS_META[id]} 配信 ・ 💬 ${120+hsh%380}</div>`);
+const THUMB={"news-a1":"assets/s1/ren-big.jpg","news-a2":"assets/s1/hiroto-big.jpg","news-b1":"assets/s1/minhyeok-big.jpg","news-b2":"assets/s1/hiroto.jpg","news-c1":"assets/s1/hiroto-big.jpg","news-c2":"assets/s1/hiroto.jpg"};
+if(item && item.classList && item.classList.contains("nitem") && THUMB[id] && !item.classList.contains("has-thumb")){ const kids=Array.from(item.childNodes); const wrap=document.createElement("div"); wrap.className="ntx"; kids.forEach(k=>wrap.appendChild(k)); const im=document.createElement("img"); im.className="nth"; im.src=THUMB[id]; item.appendChild(im); item.appendChild(wrap); item.classList.add("has-thumb"); }
 }
+const sh=b.querySelector(".nshare");
+if(sh && !sh.dataset.wired){ sh.dataset.wired="1"; const sp=sh.querySelectorAll("span");
+sp[0].onclick=()=>toast("リンクをコピーしました");
+sp[1].onclick=()=>{ const c=b.querySelector(".ncom"); if(c) c.scrollIntoView({block:"center"}); else toast("この記事にはコメント欄がありません"); };
+sp[2].onclick=()=>{ const on=sp[2].classList.toggle("on"); sp[2].textContent=on? "🔖 保存済み":"🔖 ブックマーク"; toast(on? "ブックマークに保存しました":"ブックマークを外しました"); };
+}
+b.querySelectorAll(".nc-lk").forEach(lk=>{ if(lk.dataset.wired) return; lk.dataset.wired="1"; lk.onclick=()=>{ const on=lk.classList.toggle("on"); const m=/そう思う (\d+)/.exec(lk.textContent); if(m){ const v=+m[1]+(on?1:-1); lk.textContent=lk.textContent.replace(/そう思う \d+/,"そう思う "+v); lk.style.color=on? "#ff0033":""; lk.style.fontWeight=on? "700":""; } }; });
 });
 const nb=$("#news-body");
 if(nb && !nb.querySelector(".y-rank") && (newsCat==="entame"||newsCat==="top")) nb.insertAdjacentHTML("beforeend", newsRankHTML());
+document.querySelectorAll("#news-body .yr-row").forEach(r=>{ if(r.dataset.wired) return; r.dataset.wired="1"; r.onclick=()=>{ const sp=r.querySelectorAll("span"); const t=sp.length>1? sp[1].textContent:""; const k=Object.keys(NEWS_HEAD).find(kk=>NEWS_HEAD[kk]===t); if(k && document.getElementById(k)) openNewsBody(k); else toast("この記事はこのアプリでは開けません"); }; });
 }
 
 /* ================= MEMBERS ================= *//* ================= MEMBERS ================= */
@@ -2656,8 +2761,26 @@ const fb=w.querySelector("#m-favonly");
 if(fb) fb.onclick=()=>{ favOnly=!favOnly; fb.classList.toggle("on",favOnly); applyMemberFilter(); };
 applyMemberFilter();
 }
+/* v8.2: プロフィールの戻り先スタック（開いた場所に戻る） */
+let pfStack=[], pfRestoring=false;
+function pfPushReturn(){
+if(document.querySelector("#v-chat").classList.contains("on")){ pfStack.push(()=>{ show("v-chat"); }); }
+else if(document.querySelector("#v-members").classList.contains("on")){ pfStack.push(()=>{ renderMembers(); show("v-members"); }); }
+else if(document.querySelector("#v-profile").classList.contains("on")){
+const cp={kind:curPf.kind,key:curPf.key};
+if(cp.kind==="cast") pfStack.push(()=>openProfile(cp.key));
+else if(cp.kind==="101") pfStack.push(()=>openProfile101(cp.key));
+}
+}
+function pfMaybePush(kind, key){
+if(pfRestoring) return;
+const pv=document.querySelector("#v-profile");
+if(pv.classList.contains("on") && curPf.kind===kind && curPf.key===key) return;
+pfPushReturn();
+}
 function openProfile101(name){
 const o=ALL101_BY_NAME[name]; if(!o) return;
+pfMaybePush("101", name);
 curPf={kind:"101", key:name};
 $("#pf-title").textContent=o.n;
 const eps=["Ep1","Ep2","Ep3","第1回発表","Ep6","第2回発表","Ep9","第3回発表","最終"];
@@ -2680,6 +2803,7 @@ show("v-profile");
 }
 function statRow(lb,v){ return `<div class="stat"><div class="sl">${lb}</div><div class="bar"><i style="width:${v}%"></i></div><div class="sv">${v}</div></div>`;}
 function openProfile(id){
+pfMaybePush("cast", id);
 curProfile=id; curPf={kind:"cast", key:id}; const t=T[id], st=S.tr[id];
 $("#pf-title").textContent=t.name;
 $("#pf-body").innerHTML=`<div class="pf-wrap"><img class="pf-hero" id="pf-hero" src="${t.hero||t.img}"><div class="pf-strip"><img src="${t.hero||t.img}" class="on" onclick="setPfHero(this)"><img src="${t.img}" onclick="setPfHero(this)"></div><div class="pf-in">
@@ -2692,7 +2816,7 @@ ${favBtnHTML(t.name)}${prog101HTML(t.name)}
 </div></div>`;
 show("v-profile");
 }
-$("#pf-back").onclick=()=>{ renderMembers(); show("v-members");};
+$("#pf-back").onclick=()=>{ const f=pfStack.pop(); if(f){ pfRestoring=true; try{ f(); } finally{ pfRestoring=false; } } else { renderMembers(); show("v-members"); } };
 
 /* ================= EDIT ROOM ================= */
 let editDraft=null, editDraft2=null, editDraft3=null;
@@ -2822,7 +2946,7 @@ if(!S.editHist||!S.editHist.length) return "";
 const rows=S.editHist.map(h=>`<div class="eh-row"><b>第${h.r}ラウンド</b>：${h.items.map(i=>`${i[0]} ${i[1]}pt`).join("、")}（分量1ptごとに注目度+2）</div>`).join("");
 return `<div class="ed-hist"><div class="m-sec">采配履歴（これまでの配分）</div>${rows}</div>`;
 }
-function renderEdit(){ renderEditCore(); const w=$("#ed-body"); if(w && S.editHist && S.editHist.length && !w.querySelector(".ed-hist")) w.insertAdjacentHTML("beforeend", editHistHTML()); }
+function renderEdit(){ const w0=$("#ed-body"); const st=w0? w0.scrollTop:0; renderEditCore(); const w=$("#ed-body"); if(w && S.editHist && S.editHist.length && !w.querySelector(".ed-hist")) w.insertAdjacentHTML("beforeend", editHistHTML()); if(w) w.scrollTop=st; }
 
 /* ================= SETTINGS / TITLE ================= */
 $("#set-reset").onclick=()=>{
@@ -2844,7 +2968,9 @@ updateMusicBar();
 };
 $("#set-vol").addEventListener("input",e=>{ SND.vol=+e.target.value; saveSnd(); applyMusicVol(); });
 renderSnd();
-$("#set-about").onclick=()=>{ alert("『担当をデビューさせる件』v8\n実在の番組『PRODUCE 101 JAPAN』Season1（2019）を題材にした、ファンメイドのIF物語です。v8では各アプリを豪華にしました。トークはスタンプ・写真送信・グループ既読人数・トーク内検索・＋メニュー対応。Twitterは公式プロフィール画面・トレンド・通知・ツイート詳細（返信スレッド）・画像付きツイートに対応。Yahoo!ニュースは関連記事・コメント欄・アクセスランキング・カテゴリ別一覧を搭載。順位表には票数カウントアップ演出と、大翔の順位推移グラフ（史実 vs この物語）を追加。名簿では推しメン登録（★）と絞り込み、プロフィールの写真複数表示と101人データ連動を強化。新たに「思い出コレクション」（名場面カード＋両エンディング到達表示）、通話履歴、音楽プレイヤーを追加し、課題曲5曲は公式音源の長尺版に差し替えました。なお、v6で追加したフリーチャットは本人の意向によりv8で廃止しました（セーブデータ互換は維持）。v7では各アプリの見た目を2019年当時の姿（LINE／Twitter／Yahoo!ニュース／iOS 13）に寄せ、練習生101人全員の史実データを収録。主人公のなおは高校3年生の制作インターンとして合宿に帯同し、担当練習生・井汲大翔（17歳、学年は1つ下）を裏側から支えます。史実の流れをなぞりながら、編集の分量配分と裏側サポートで票と物語を動かし、史実36位の脱落を覆してデビュー圏11位を目指します。登場人物の言動は創作です。\n\nクレジット\n順位発表BGM: \"The Descent\" by Kevin MacLeod (CC-BY)\n課題曲: 嵐「Love so sweet」／PRODUCE 101 JAPAN「ツカメ 〜It's Coming〜」／Hey! Say! JUMP「OVER THE TOP」／SHINee「Everybody」／バブリンチョ「やんちゃBOY やんちゃGIRL」（各公式音源の長尺版を使用）");};
+$("#set-about").onclick=()=>{ const m=$("#about-modal"); if(m) m.style.display="flex"; };
+$("#about-close").onclick=()=>{ $("#about-modal").style.display="none"; };
+$("#about-modal").onclick=(e)=>{ if(e.target && e.target.id==="about-modal") e.target.style.display="none"; };
 function renderTitle(){
 show("v-title");
 $("#btn-cont").style.display = localStorage.getItem(SAVE_KEY)? "block":"none";
@@ -2881,8 +3007,8 @@ function renderMusic(){
 const w=$("#music-body");
 const cur=musicKey? TRACKS[musicKey]: null;
 w.innerHTML=`<div class="pl-now"><div class="pl-t">${cur? esc(cur.title.replace(/^♪ /,"")):"（再生中の曲はありません）"}</div><div class="pl-a">${cur? esc(TRACK_META[musicKey].artist):"下のリストから曲を選んでください"}</div>
-<div class="pl-prog"><i id="pl-fill"></i></div><div class="pl-times"><span id="pl-cur">0:00</span><span id="pl-dur">${cur? TRACK_META[musicKey].dur:"0:00"}</span></div>
-<div class="pl-ctl"><button class="sub2b" id="pl-stop">■</button><button id="pl-play">${musicAu.paused?"▶":"⏸"}</button></div></div>
+<div class="pl-prog" id="pl-prog"><i id="pl-fill"></i></div><div class="pl-times"><span id="pl-cur">0:00</span><span id="pl-dur">${cur? TRACK_META[musicKey].dur:"0:00"}</span></div>
+<div class="pl-ctl"><button class="sub2b" id="pl-prev">⏮</button><button class="sub2b" id="pl-stop">■</button><button id="pl-play">${musicAu.paused?"▶":"⏸"}</button><button class="sub2b" id="pl-next">⏭</button></div></div>
 ${cur? `<div class="pl-lyric"><span class="pl-lt">LYRIC / NOTE</span>
 ${esc(TRACK_META[musicKey].hook)}</div>`:""}
 <div class="m-sec">曲目リスト（課題曲）</div>
@@ -2891,6 +3017,10 @@ ${Object.keys(TRACKS).map(k=>{ const m=TRACK_META[k]; return `<div class="pl-row
 w.querySelectorAll(".pl-row").forEach(r=>r.onclick=()=>{ const k=r.dataset.k; if(!SND.on){ toast("設定でサウンドがOFFになっています"); return; } startMusic(k); renderMusic(); });
 const pb=$("#pl-play"); if(pb) pb.onclick=()=>{ if(!musicKey){ toast("まず曲を選んでください"); return; } if(!SND.on){ toast("設定でサウンドがOFFになっています"); return; } if(musicAu.paused) musicAu.play().catch(()=>{}); else musicAu.pause(); renderMusic(); };
 const sb=$("#pl-stop"); if(sb) sb.onclick=()=>{ stopMusic(); renderMusic(); };
+const mkeys=Object.keys(TRACKS);
+const pv=$("#pl-prev"); if(pv) pv.onclick=()=>{ if(!musicKey){ toast("まず曲を選んでください"); return; } if(!SND.on){ toast("設定でサウンドがOFFになっています"); return; } startMusic(mkeys[(mkeys.indexOf(musicKey)-1+mkeys.length)%mkeys.length]); renderMusic(); };
+const nx=$("#pl-next"); if(nx) nx.onclick=()=>{ if(!musicKey){ toast("まず曲を選んでください"); return; } if(!SND.on){ toast("設定でサウンドがOFFになっています"); return; } startMusic(mkeys[(mkeys.indexOf(musicKey)+1)%mkeys.length]); renderMusic(); };
+const pg=$("#pl-prog"); if(pg) pg.onclick=(e)=>{ if(!musicKey || !isFinite(musicAu.duration) || !musicAu.duration) return; const r=pg.getBoundingClientRect(); const ratio=Math.min(1,Math.max(0,(e.clientX-r.left)/r.width)); try{ musicAu.currentTime=ratio*musicAu.duration; }catch(err){} const f=$("#pl-fill"); if(f) f.style.width=(ratio*100)+"%"; };
 }
 setInterval(()=>{ if(!$("#v-music") || !$("#v-music").classList.contains("on")) return; const f=$("#pl-fill"), c=$("#pl-cur"), d=$("#pl-dur"), pb=$("#pl-play"); if(f&&musicAu.duration) f.style.width=(musicAu.currentTime/musicAu.duration*100)+"%"; if(c) c.textContent=fmtT(musicAu.currentTime); if(d&&musicAu.duration) d.textContent=fmtT(musicAu.duration); if(pb) pb.textContent=musicAu.paused?"▶":"⏸"; },500);
 
@@ -2910,6 +3040,7 @@ const GALLERY=[
 {t:"あと一歩 ― 旅立ち", s:"エンディング", end:"step", img:"assets/s1/hiroto-big.jpg", un:()=>META.endings.indexOf("step")>=0, lines:["デビューには、あと一歩届かなかった。","それでも歩みは止まらない。RBW JBOYZとして、そして中国『創造営2021』へ。続編で、再会する。"], voice:{src:"assets/vc-china.mp3",dur:"0:07",cap:"中国に行ってきます"}},
 ];
 function galBack(){ galDetail=-1; renderGallery(); const b=$("#gallery-body"); if(b) b.scrollTop=0; }
+function galNav(dir){ const unl=GALLERY.map((x,i)=>x.un()? i:-1).filter(i=>i>=0); const pos=unl.indexOf(galDetail); const np=pos+dir; if(pos<0||np<0||np>=unl.length) return; galDetail=unl[np]; renderGallery(); const b=$("#gallery-body"); if(b) b.scrollTop=0; }
 function galPlayMusic(key, btn){ if(musicKey===key && !musicAu.paused){ stopMusic(); btn.textContent="🎵 この場面の曲を再生"; } else { if(!SND.on){ toast("設定でサウンドがOFFになっています"); return; } startMusic(key); btn.textContent="⏸ 曲を止める"; } }
 function renderGallery(){
 const w=$("#gallery-body");
@@ -2918,6 +3049,7 @@ const g=GALLERY[galDetail];
 w.innerHTML=`<span class="gal-back" onclick="galBack()">‹ コレクションに戻る</span><div class="gal-detail"><img class="gd-hero" src="${g.img}"><div class="gd-in"><div class="gd-ch">${esc(g.s)}</div><h3>${esc(g.t)}</h3>${g.lines.map(l=>`<div class="gd-line">${esc(l)}</div>`).join("")}
 ${g.voice?`<div class="msg" style="margin-top:14px"><div class="col" style="max-width:100%"><div class="bub vbub"><button class="vbtn" onclick="toggleVoice(this,'${g.voice.src}')">▶</button><span class="vwave">${voiceBars(g.voice.src.length*13)}</span><span class="vdur">${g.voice.dur}</span></div><div class="vcap">🎤 ${esc(g.voice.cap)}</div></div></div>`:""}
 ${g.music?`<button class="gal-play" onclick="galPlayMusic('${g.music}',this)">🎵 この場面の曲を再生（${esc(TRACKS[g.music].title.replace(/^♪ /,""))}）</button>`:""}
+${(()=>{ const unl=GALLERY.map((x,i)=>x.un()? i:-1).filter(i=>i>=0); const pos=unl.indexOf(galDetail); return `<div class="gd-nav"><button ${pos<=0?"disabled":""} onclick="galNav(-1)">‹ 前の場面</button><button ${pos<0||pos>=unl.length-1?"disabled":""} onclick="galNav(1)">次の場面 ›</button></div>`; })()}
 </div></div>`;
 return;
 }
@@ -2945,7 +3077,18 @@ return `<div class="pf-sec-t">順位推移（史実・101人データ）</div><t
 
 /* ================= v8 wiring ================= */
 document.querySelectorAll("[data-home2]").forEach(el=>el.onclick=()=>{ renderHome(); show("v-home"); });
-document.querySelectorAll(".tw-tabs span").forEach(s=>s.onclick=()=>setXTab(s.dataset.xt));
+$("#tw-av-head").onclick=()=>setXTab("prof");
+$("#tw-spark").onclick=()=>{ $("#tw-sheet").style.display="flex"; $("#tw-sheet-bg").style.display="block"; };
+const twSheetClose=()=>{ $("#tw-sheet").style.display="none"; $("#tw-sheet-bg").style.display="none"; };
+$("#tw-sheet-bg").onclick=twSheetClose;
+$("#tw-sheet-cancel").onclick=twSheetClose;
+$("#tw-to-latest").onclick=()=>{ twMode="latest"; twSheetClose(); renderX(); };
+$("#tw-to-home").onclick=()=>{ twMode="home"; twSheetClose(); renderX(); };
+document.querySelectorAll(".line-tabs span").forEach(s=>s.onclick=()=>{ const k=s.dataset.lt; if(k==="talk") return; toast(({home:"LINEホームはこのアプリでは開けません",tl:"タイムラインはこのアプリでは開けません",news:"LINEニュースはこのアプリでは開けません",wallet:"ウォレットはこのアプリでは開けません"})[k]||"このアプリでは開けません"); });
+$("#tl-sbtn").onclick=()=>{ const q=$("#tl-q"); if(q){ q.focus(); q.scrollIntoView({block:"center"}); } };
+$("#tl-plus").onclick=()=>toast("新しいトークはこのアプリでは作れません");
+document.querySelectorAll(".call-grid div").forEach(d=>d.onclick=()=>d.classList.toggle("on"));
+document.querySelectorAll(".call-incoming div").forEach(d=>d.onclick=()=>toast("この機能はこのアプリでは使えません"));
 document.querySelectorAll(".tw-tabs-b span").forEach((s,i)=>s.onclick=()=>{ if(i===0) setXTab("feed"); else if(i===1) setXTab("trends"); else if(i===2) setXTab("notif"); else toast("メッセージはこのアプリでは開けません"); });
 document.querySelectorAll(".y-chips span").forEach(s=>s.onclick=()=>{ document.querySelectorAll(".y-chips span").forEach(x=>x.classList.remove("on")); s.classList.add("on"); newsCat=s.dataset.cat; renderNews(); decorateNews(); });
 $("#xd-back").onclick=()=>{ show("v-x"); renderX(); };
