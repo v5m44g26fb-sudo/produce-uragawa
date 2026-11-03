@@ -546,6 +546,12 @@ button:active{transform:scale(.965)}
 .graph-card .gl i{display:inline-block;width:16px;height:0;border-top:3px solid #3d7dc4;vertical-align:middle;margin-right:4px}
 .graph-card .gl i.f{border-top:3px dashed #a9a9b3}
 .graph-note{font-size:11px;color:#8e8e93;line-height:1.6;margin-top:4px}
+.graph-detail{margin-top:9px;background:#f2f7fd;border:1px solid #dde8f5;border-radius:11px;padding:9px 12px;font-size:12px;line-height:1.75;color:#33475e}
+.graph-detail .gd-h{font-weight:800;color:#16294d;font-size:12.5px}
+.graph-detail .gd-if b{color:#1e5fa8}
+.graph-detail .gd-fc b{color:#6d6d74}
+.g-dot{cursor:pointer}
+.g-hit{cursor:pointer}
 /* 推しメン */
 .m-filter{flex:none;padding:9px 12px;background:#fff;border-bottom:1px solid #eee;display:flex;gap:8px;align-items:center}
 .m-filter button{border:1.5px solid #e6a700;background:#fff;color:#a87400;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:700;cursor:pointer}
@@ -595,6 +601,17 @@ button:active{transform:scale(.965)}
 .gal-detail .gd-line{font-size:13.5px;line-height:1.85;margin-top:11px;color:#333}
 .gal-back{display:inline-block;margin:12px 16px 0;font-size:13px;color:#3d7dc4;font-weight:700;cursor:pointer}
 .gal-play{margin-top:14px;width:100%;border:none;border-radius:12px;padding:12px;font-size:13.5px;font-weight:700;background:linear-gradient(90deg,#16294d,#3d7dc4);color:#fff;cursor:pointer}
+/* v8.19: 思い出コレクションのテキストカード（写真のない場面用） */
+.gal-card .gc-txt{height:104px;display:flex;flex-direction:column;justify-content:center;padding:10px 13px;color:#fff;position:relative;overflow:hidden}
+.gal-card .gc-txt .qt{font-size:26px;font-family:Georgia,serif;line-height:.6;opacity:.55}
+.gal-card .gc-txt .qx{font-size:12.5px;font-weight:700;line-height:1.55;margin-top:7px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.gal-card.lock .gc-txt{filter:grayscale(.7) brightness(.5)}
+.gal-card .gc-txtag{position:absolute;top:8px;right:9px;font-size:8.5px;font-weight:800;letter-spacing:.08em;background:rgba(255,255,255,.22);border-radius:4px;padding:1.5px 5px}
+.gd-hero-txt{min-height:216px;display:flex;flex-direction:column;justify-content:center;padding:26px 22px;color:#fff}
+.gd-hero-txt .qt{font-size:44px;font-family:Georgia,serif;line-height:.55;opacity:.5}
+.gd-hero-txt .qx{font-size:19px;font-weight:800;line-height:1.75;margin-top:14px}
+.gd-hero-txt .qa{font-size:12px;color:rgba(255,255,255,.75);margin-top:12px}
+.txt-badge{font-size:9.5px;font-weight:700;border-radius:5px;padding:1.5px 6px;margin-left:5px;vertical-align:2px;background:#e8f0fe;color:#1e5fa8}
 /* ミュージックプレイヤー */
 .pl-now{padding:18px 16px 8px;background:#fff;text-align:center}
 .pl-now .pl-t{font-size:17px;font-weight:800;line-height:1.4}
@@ -682,6 +699,30 @@ button:active{transform:scale(.965)}
 .nc-form input{flex:1;border:1px solid #ddd;border-radius:999px;padding:8px 13px;font-size:16px;font-family:inherit;outline:none;min-width:0;background:#fff}
 .nc-form button{flex:none;border:none;background:#ff0033;color:#fff;font-weight:700;font-size:12.5px;border-radius:999px;padding:9px 14px;cursor:pointer;font-family:inherit}
 .nc-row.mine{background:#fff8f8;border-radius:10px;padding-left:6px;padding-right:6px}
+/* ===== v8.19: ロック画面（2019年 iOS 13様式） ===== */
+#v-lock{background:#081a42;color:#fff;overflow:hidden}
+#v-lock.on{animation:none}
+#v-lock.unlocking{transform:translateY(-103%);transition:transform .38s cubic-bezier(.3,.7,.3,1)}
+#v-lock .lk-wall{position:absolute;inset:0;background:radial-gradient(130% 85% at 50% -10%,rgba(56,116,255,.38),rgba(56,116,255,0) 55%),linear-gradient(180deg,#081a42 0%,#0c2a66 32%,#123a7d 60%,#081834 100%)}
+#v-lock .lk-wall:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,0) 30%,rgba(0,0,0,0) 60%,rgba(0,0,0,.34))}
+.lk-in{position:relative;flex:1;display:flex;flex-direction:column;align-items:center;padding:64px 18px 0;z-index:1}
+.lk-lockic{width:34px;height:34px;display:flex;align-items:center;justify-content:center;opacity:.95}
+.lk-date{font-size:19px;font-weight:500;margin-top:10px;letter-spacing:.02em}
+.lk-time{font-size:80px;font-weight:200;line-height:1.04;letter-spacing:-1.5px;margin-top:1px;font-variant-numeric:tabular-nums}
+.lk-notifs{width:100%;margin-top:26px;display:flex;flex-direction:column;gap:9px}
+.lk-ntf{background:rgba(38,42,54,.55);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-radius:20px;padding:10px 13px 11px;color:#fff;box-shadow:0 8px 24px rgba(0,0,0,.25);text-align:left}
+.lk-ntf .lk-nt-top{display:flex;align-items:center;gap:6px;font-size:11px;color:rgba(255,255,255,.72);letter-spacing:.03em}
+.lk-ntf .lk-nt-top .lk-when{margin-left:auto}
+.lk-ic{width:19px;height:19px;border-radius:5px;overflow:hidden;flex:none;display:inline-block;vertical-align:-4px}
+.lk-ic svg{width:100%;height:100%;display:block}
+.lk-ntf .lk-nt-t{font-size:14.5px;font-weight:700;margin-top:3px}
+.lk-ntf .lk-nt-b{font-size:13.5px;line-height:1.5;color:rgba(255,255,255,.94);margin-top:1px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.lk-hint{position:relative;z-index:1;text-align:center;font-size:11.5px;color:rgba(255,255,255,.72);padding:10px 0 12px}
+.lk-bottom{position:relative;z-index:1;padding:0 46px 4px;display:flex;justify-content:space-between;align-items:center}
+.lk-qbtn{width:50px;height:50px;border-radius:50%;background:rgba(20,24,34,.45);display:flex;align-items:center;justify-content:center}
+.lk-bar{width:134px;height:5px;border-radius:3px;background:#fff;margin:10px auto 8px;position:relative;z-index:1;flex:none}
+@media (max-height:700px){.lk-time{font-size:62px}.lk-in{padding-top:50px}.lk-notifs{margin-top:18px}}
+
 /* ===== v8.8: Twitter以外のアプリ精査（LINE／Yahoo!ニュース／編集室／名簿／コレクション／通話履歴／音楽） ===== */
 .line-tabs span svg{display:block}
 .lh-ic svg{display:block}
@@ -842,6 +883,20 @@ button:active{transform:scale(.965)}
 <div class="about-modal" id="start-modal" style="display:none"><div class="am-card"><div class="am-t">最初から始めますか？</div><div class="am-body">保存データがあります。最初から始めると、進行状況・トーク・順位などのセーブデータは新しいデータで上書きされます。元に戻せません。<br>※エンディング到達記録（思い出コレクションの到達表示）とサウンド設定は、この端末に残ります。</div><button id="start-cancel">キャンセル</button><button id="start-ok">最初から始める</button></div></div>
 </div>
 
+<!-- LOCK (v8.19: 「つづきから」のあとに挟まるロック画面) -->
+<div class="view" id="v-lock">
+<div class="lk-wall"></div>
+<div class="lk-in">
+<div class="lk-lockic"><svg width="27" height="27" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 1.8a5.2 5.2 0 0 0-5.2 5.2v3.2H6a2.4 2.4 0 0 0-2.4 2.4v7.4A2.4 2.4 0 0 0 6 22.4h12a2.4 2.4 0 0 0 2.4-2.4v-7.4a2.4 2.4 0 0 0-2.4-2.4h-.8V7A5.2 5.2 0 0 0 12 1.8zm-3.2 8.4V7a3.2 3.2 0 1 1 6.4 0v3.2H8.8z"/></svg></div>
+<div class="lk-date" id="lk-date">2019年9月</div>
+<div class="lk-time" id="lk-time">9:41</div>
+<div class="lk-notifs" id="lk-notifs"></div>
+</div>
+<div class="lk-hint">タップ／上にスワイプで開く</div>
+<div class="lk-bottom"><div class="lk-qbtn"><svg width="23" height="23" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M9.2 2.5h5.6l.9 4.7H8.3l.9-4.7zM8.6 9.2h6.8l-.6 3a3.6 3.6 0 1 1-5.6 0l-.6-3z"/></svg></div><div class="lk-qbtn"><svg width="25" height="25" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M9.4 3.8L8.2 5.9H4a2.2 2.2 0 0 0-2.2 2.2v10.4A2.2 2.2 0 0 0 4 20.7h16a2.2 2.2 0 0 0 2.2-2.2V8.1A2.2 2.2 0 0 0 20 5.9h-4.2L14.6 3.8H9.4z"/><circle cx="12" cy="13.1" r="4.4" fill="none" stroke="#3a3f4a" stroke-width="1.7"/><circle cx="12" cy="13.1" r="1.9" fill="#3a3f4a"/></svg></div></div>
+<div class="lk-bar"></div>
+</div>
+
 <!-- HOME -->
 <div class="view" id="v-home">
 <div class="wallpaper"></div>
@@ -966,8 +1021,8 @@ button:active{transform:scale(.965)}
 <div class="set-row" style="cursor:default"><span>音量</span><input id="set-vol" type="range" min="0" max="100" step="5" style="flex:1;margin:0 12px"></div>
 <div class="set-row" id="set-about"><span>この作品について</span><span>›</span></div>
 <div class="set-row" id="set-reset"><span class="danger">データを消して最初から</span><span>›</span></div>
-<div style="padding:14px 16px;font-size:11px;color:#8e8e93;line-height:1.7">担当をデビューさせる件 v8.18<br>※v8.18：全体を読み直し、文章の接続や表示の小さな不整合を整えました（第2回順位発表は、発表シーンの順位と順位表の順位が食い違わないよう集計を統一し、「最後の椅子」の描写も実際の順位に連動させました）。LINEの日付は、第6話の放送日（2019年10月31日・番組の放送スケジュールで裏取り）をその週のトークにも割り当て、グループバトルの収録と第6話の編集確定の月表示も、放送より前の10月に揃えました。収録日そのものが確認できない場面（第3回順位発表など）は、今回も推測で日付を作っていません。<br>※v8.17：本編（第1部〜第3部）の既存の場面に、恋愛ラインの描写を織り込んで密度を上げました（新規の章や後日談の追加ではありません）。再評価の夜に隣で同じ高さで待つ場面、放送期間の自販機での一幕、第2部の並んで歩く帰り道や仲間のからかい、第2回発表前夜の通話で「聞いてほしいこと」を預ける伏線、コンセプト評価の本番後に漏れる本音、ファイナル前夜の「最初に言うこと」の約束などです。育ち方は第1部＝信頼の範囲、第2部＝少しずつ意識し合う、第3部＝ファイナル前に気持ちが形になる段階設計で、エンディングの締め（約束と短いハグ）の位置づけ、史実データ・数値・時系列ゲート・実在ツイート・定型返信（sendFree）・セーブ互換は不変です。<br>※v8.16：LINEのトーク一覧の日付表示を広げました。作中で日付がはっきり分かる場面（ポジション評価の9月14日、放送開始の9月26日、第1回順位発表の10月24日、第2回順位発表の前夜11月13日と当日11月14日など）には日付を割り当て、一覧では前日の発言が「昨日」、少し前の発言が「2019/9/26」のような日付で表示されます。日付が確定しない場面は推測で作らず、従来どおりの表示のままです。トーク内の日付区切りと通話履歴の日付も、同じ基準で細かくなります。<br>※v8.15：v8.14でアイコンを拡大した際の副作用を点検しました。ホーム画面の圧縮境界は、全ビート（ウィジェットの本文が2行になる場合を含む）の最悪値で再実測し、境界のすぐ上ではドックが僅かにはみ出す帯があったため、各段が初期表示に収まる境界（827／772／729px）へ引き上げました。アイコン下のラベルの折り返し・見切れ、通知バッジと鍵バッジの位置、通知バナーの小アイコン、最下段のゲージ表示も全高さで点検し、問題がないことを確認しています。<br>※v8.14：編集室の見通しカードは、開いた状態では要約行が「閉じる」に切り替わるアコーディオン式に整理し、票数・順位が要約と全文で二重に出ないようにしました。Yahoo!ニュースは他人のコメントへの「そう思う」もセーブに保存され、開き直しても残るようになりました。ホーム画面は実機での見え方を見直し、背景の人物写真を番組カラーの青のグラデーションに替え、編集室・設定・Twitterなどアイコンの色味と歯車の形を描き直し、ロック中の表示は小さな鍵バッジに変えました。アプリアイコン自体も実機の比率に拡大し（通常の高さで66px、短い画面では段階的に圧縮）、通知バッジはiOSと同じ比率（高さはアイコンの約1/3、右上コーナーに重なるpill形）に作り直しました。<br>※v8.13：編集室の見通しカードは、短い画面では1行の要約に畳まれ、タップで全文が開くようになりました（通常の高さでは従来どおり常時表示）。ホームのアプリアイコンは2019年当時の実物寄せにさらに精密化し、ドックと通知バナーにも同じアイコン資産を使うよう統一しました。<br>※v8.12：編集室の「大翔の見通し」を、見出し側の固定表示から練習生リストの先頭へ移しました。短い画面でも進捗バーが見出しに残って常に見え、リストに使える広さも増えます。ホーム画面の圧縮表示（ゲージ1行3列）では、数値を各列の右端に揃えて読みやすくしました。<br>※v8.11：タイトル画面の「はじめから」の確認も、ネイティブの確認ダイアログからアプリ内モーダルに統一しました（設定のデータリセットと同じ流儀で、消えるデータと残るデータを明記）。順位表のジャンプチップは、大翔に加えて推しメン（★）登録した練習生の行にも対応。画面外の対象が複数ある場合は「他n人」と表示され、タップするたびに次の対象へ飛べます。<br>※v8.10：Twitter以外の画面まわり（順位表・ホーム・設定・ステータスバー）を精査しました。順位表は、大翔の順位が画面の外にあるときにタップでその行まで飛べるチップを追加。ホームはドックのアイコンにも未読バッジが付くようになり、注目度ゲージは数値（最大124）とバーの伸びが食い違わないよう目盛りを調整。設定の「データを消して最初から」はネイティブの確認ダイアログからアプリ内モーダルに替え、消えるデータと残るデータ（エンディング到達記録・サウンド設定）を明記しました。<br>※v8.9：Twitter以外のアプリをさらに精査しました。Yahoo!ニュースは自分のコメントの「そう思う」状態も保存されるようになり、LINEのトーク一覧の時刻表示は実物の形式（現在のフェーズ内の発言は時刻、日付が確定する場面では「昨日」など）に寄せ、音楽プレイヤーは再生が終わると曲目リストのイコライザ表示がその場で尺表示に戻るよう直しました。<br>※v8.8：Twitter以外のアプリを精査しました。LINEは下部タブとヘッダーのアイコンを2019年当時の実物風の線画SVGに替え、トーク画面の☰から開けるルームメニュー（検索／通話履歴／トーク情報）を追加。Yahoo!ニュースはカテゴリ名表示の連動、記事見出しの再タップで本文を閉じられるトグル化、自分のコメントとブックマークが再表示しても残る保存対応。編集室はステッパーの無効状態表示と配分進捗バーを追加。名簿は検索・絞り込みで0件の節の見出しを隠し、空状態の案内を表示。思い出コレクションの詳細に「解放済みカード n／総数」の位置表示、通話履歴は着信／発信の矢印付きアイコン、音楽プレイヤーは再生中イコライザ表示を追加しました。<br>※v8.7：Twitterの公式ツイートの文面・数値をプロフィール側とフィード側で統一しました（11月14日の「Everybody」ステージ写真ツイートは、フィード側だけ文面といいね数が食い違い、日付と投票締切も矛盾していたため、プロフィール側の文面に一本化。第3回順位発表のツイートもプロフィール側へ一元化）。あわせて全アプリの文面・数値の横断整合監査を実施（票数・順位・日付は画面間で一致を確認。史実の公表実数には変更なし）。<br>※v8.6：公式プロフィールに収録した実在ツイートを、タイムライン（フィード）側にも展開。第1回投票期の帯では先頭の創作ツイートを実物（10月3日のツカメMV公開、9月26日の投票スタート）に置き換え、グループバトル期の帯に10月24日の実在ツイート2件（第1回順位発表式告知、第2回国民投票スタート）を追加。最終回（12月11日）を過ぎたあとは、実在のJO1紹介ツイートがフィードの先頭に流れるようになりました（作中の時系列に合わせた出し分け）。設定アイコンの歯車は歯を少し長くして歯車らしく微調整。井汲大翔の公約ツイートは今回も本文・日付の特定に至らず、引き続き未収録です。<br>※v8.5：公式アカウントの実在ツイートを追加収録（2019年9月25日の初放送告知、9月26日の投票開始、10月24日の第1回順位発表式告知と第2回投票開始、12月11日のJO1紹介）。本文はWayback Machineに残る当時の投稿ページで確認し、改行の畳みとリンク省略のうえ収録。いいね数はアーカイブ取得時点の実数。従来の創作ツイート（10月25日付の順位発表告知）は実物に置き換え。ホーム画面のアプリアイコンも2019年当時の実物寄せに刷新（LINEの白吹き出し、Twitterの鳥、Yahoo!ニュースのY!、ミュージックの白地に赤い音符など、絵文字アイコンをSVG再現へ置き換え）。<br>※v8.4.1：公式アカウント（@produce101jp）のプロフィールに、2019年9月4日の練習生紹介ツイートと9月13日の推しカメラツイート（いずれも井汲大翔分・実際の投稿）を実物どおり収録。<br>※v8.4：Twitterの投稿ボタン（羽根ペン）を実物化し、投稿画面から実際にツイートできるように。プロフィールはバナーがスクロールで縮む実物挙動を追加。通知・検索タブを実物構成に刷新（メンション切替・キーワード検索・おすすめユーザー）。音楽プレイヤーにシャッフル／リピートを追加。Yahoo!ニュースは共有シートとコメント投稿に対応。思い出コレクションに第3回順位発表のカードを追加。<br>※v8.3：Twitterヘッダーのスクロール連動（下スクロールで隠れ、上スクロールで復帰する2019年実物の挙動）と、公式プロフィールへの登録月（2019年4月）表示を追加。新規ボイス2本（第3回発表後／デビューエンディング）も収録。<br>※v8.2：全アプリの実物寄せをさらに深化（Twitterの2019年仕様ヘッダーとスパークル切替・いいね／リツイートのトグル・ツイート詳細の時刻と件数、ニュースのサムネイルとコメント反応、音楽プレイヤーのシーク・前後送り、トーク一覧の検索と時刻表示）。プロフィールの「戻る」も開いた場所に戻るよう改善。<br>※v8：各アプリの豪華化（トークのスタンプ・写真送信・既読人数・検索／Twitterのプロフィール・トレンド・通知・ツイート詳細／ニュースの関連記事・コメント・アクセスランキング）、思い出コレクション、順位推移グラフ、推しメン登録、通話履歴、音楽プレイヤーを追加。課題曲5曲は公式音源の長尺版に差し替え。本人の意向により、v6で追加したフリーチャットは廃止しました。<br>※本作品は実在の番組『PRODUCE 101 JAPAN』（2019）と実在の人物を題材にしたファンメイドのIF作品です。史実をもとにしていますが、登場人物の言動や順位の変動は創作を含みます。<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲は各アーティストの公式音源（長尺版）を使用しています。</div>
-<div class="about-modal" id="about-modal" style="display:none"><div class="am-card"><div class="am-t">『担当をデビューさせる件』v8.18</div><div class="am-body">実在の番組『PRODUCE 101 JAPAN』Season1（2019）を題材にした、ファンメイドのIF物語です。<br>v8.18では、全文を読み直して文章の粗を整えました。v8.17で足した恋愛描写と既存文の接続（再評価の夜の場面の並び順、グループバトル後の帰り道の場面の置き場所、第2回発表前夜の通話で締めの挨拶が重なる問題など）を見直し、第2回順位発表では発表シーンの順位と順位表の順位が食い違わないよう集計方法を統一して、「最後の椅子」の描写も実際の順位に連動させました。LINEの日付は、第6話の放送日が2019年10月31日であることを番組の放送スケジュール（Wikipediaの放送・配信日程ほか）で裏取りし、その週のトーク（第6回放送の週次順位への反応）にも割り当てました。あわせて、グループバトルの収録と第6話の編集確定は放送より前の出来事のため、該当場面の月表示を11月から10月に修正しています。第3回順位発表の収録日など、裏取りできない日付は推測で作らず、従来どおり月表示のままです。<br>v8.17では、本編の既存の場面（トーク・発表前夜の通話・舞台裏）に、担当と練習生の距離が縮まっていく描写を織り込み、恋愛ラインの密度を上げました。新規の章や後日談エピローグの追加ではなく、第1部は信頼の範囲、第2部で少しずつ意識し合い、第3部でファイナル前に気持ちが形になる、という既存の流れに沿った段階設計です。本編中盤の追加は緊張感と行動の描写までにとどめ、エンディングの締め（約束と短いハグ）の位置づけは変えていません。<br>v8.16では、LINEのトーク一覧の日付・曜日表示を拡張しました。作中の場面に日付の根拠があるものだけ日付を割り当てています（ポジション評価＝9月14日、放送開始＝9月26日、第1回順位発表＝10月24日、第2回順位発表の前夜＝11月13日・当日＝11月14日、ファイナル前夜＝12月10日・当日＝12月11日）。一覧では、現在の作中日付から見て前日の発言は「昨日」、1週間以内は曜日、それ以前は「2019/9/26」形式の日付で表示されます。根拠のない場面には推測で日付を作らず、従来どおり月ラベル／時刻の表示のままです。あわせてトーク内の日付区切りと通話履歴の日付も同じ基準で日まで表示される場面が増えます（旧セーブの既存メッセージは従来のラベルのまま残ります）。<br>v8.15では、v8.14のアイコン拡大に伴うホーム画面の副作用を点検しました。圧縮の各段が切り替わる境界は、全ビートのうち最も縦に長い表示（ウィジェット本文が2行になる場合）でもドックまで初期表示に収まるよう再実測し、境界値を引き上げました（827／772／729px）。あわせて、アイコン下のラベル（折り返し・見切れなし）、通知バッジとロック中の鍵バッジの位置（グリッド・ドック共通で段ごとに一致）、通知バナーの小アイコン、最下段で1行に並ぶゲージの数値とバーの収まりを、全ての画面高で確認しています。<br>v8.14では、編集室の見通しカードの開閉表示を実物のアコーディオンの流儀に整理しました（開いた状態では要約行が「閉じる」に切り替わり、票数・順位が要約と全文で二重に出ません）。Yahoo!ニュースでは、他人のコメントへの「そう思う」もセーブに保存されるようになりました（自分のコメント分はv8.9で対応済み。新しい保存項目は旧セーブでも自動で補完されます）。ホーム画面は、実機で背景の人物写真が不自然に見えたため全面写真をやめて番組カラーの青のグラデーションに作り替え、アイコンは編集室のカチンコを鮮やかな紫に、設定の歯車は太い歯と中央の穴が小サイズでも分かる形に、Twitterは本来の鮮やかな青がそのまま出るようロック中の減光をやめて鍵バッジ表示に変えました（名簿の青も背景との差が出るよう少し明るくしています）。あわせてアプリアイコンを実機のホーム画面の比率に拡大しました（通常の高さで66px・セル内の間隔も詰め、短い画面では66→60→54→48pxと段階圧縮してドックが初期表示に収まるよう境界を再調整）。通知バッジは、アイコンに対して不釣り合いだった従来の表示を作り直し、iOSと同じ基準（高さ＝アイコンの約1/3、フォントも比例、右上コーナーに重なるpill形、2桁でも崩れない）にグリッド・ドック共通で揃えました。<br>v8.13では、編集室の「大翔の見通し」カードを、短い画面でのみ折りたたみ式にしました（1行の要約＋タップで展開し、通常の高さでは常時表示のまま）。ホームのアプリアイコンは実物寄せをさらに精密化し（LINEの吹き出しの尾の位置と形、Y!の字形のパス化、設定の歯車の歯形、思い出の花びらの形など）、ドックと通知バナーの小アイコンも同じアイコン資産に統一しました。<br>v8.12では、編集室の「大翔の見通し」を練習生リストの先頭へ移しました。短い画面では見出し側に残した進捗バーが内部スクロールに埋もれず常に見え、一覧に使える広さも増えます。ホーム画面の圧縮表示（ゲージ1行3列）では、数値を各列の右端に揃えて読みやすくしました。<br>v8.11では、タイトル画面の「はじめから」の確認もアプリ内モーダルに統一し（消えるデータと残るデータは設定のリセット確認と同じ明記）、順位表のジャンプチップを推しメン（★）登録した練習生の行にも広げました。画面外の対象が複数あるときは「他n人」と併記され、タップのたびに次の対象へ移動します。<br>v8.10では、Twitter以外の画面まわり（順位表・ホーム・設定・ステータスバー）を精査しました。順位表には、大翔の順位が画面外にあるときにタップでその行まで移動できるチップを追加。ホームのドックにも未読バッジが付くようになり、注目度ゲージは数値（最大124）とバーの伸びが食い違って見える問題を目盛りの調整で解消しました。設定のデータリセットはアプリ内モーダルでの確認に統一し、消えるデータと残るデータ（エンディング到達記録・サウンド設定）を明示。ステータスバーは明るい画面・暗い画面の両方で時刻とアイコンが読めることを確認しています（時刻は端末の実時刻表示が仕様です）。<br>v8.9では、Twitter以外のアプリをさらに精査しました。Yahoo!ニュースは、自分のコメントに付けた「そう思う」の状態もセーブに保存され、開き直しても残るようになりました。LINEのトーク一覧の最終メッセージ表示は実物の形式に寄せ、作中の現在フェーズ内の発言は時刻、日付が日単位で確定する場面（2019年12月10日・11日）では前日の発言を「昨日」と表示します。音楽プレイヤーは、再生が終わった瞬間に曲目リストのイコライザ表示が尺表示へ戻るよう描画を直しました。<br>v8.8では、Twitter以外のアプリを精査しました。LINEは下部タブとヘッダーのアイコンを2019年当時の実物風の線画に替え、トーク画面のメニュー（☰）から検索・通話履歴・トーク情報へ進めるように。Yahoo!ニュースはカテゴリ名の連動、記事の開閉トグル、自分のコメントとブックマークの保存に対応。編集室には配分進捗バーとステッパーの無効表示、名簿には検索の空状態表示、コレクション詳細には解放済み枚数の位置表示、通話履歴には着信／発信の矢印、音楽プレイヤーには再生中イコライザを追加しました。<br>v8では各アプリを豪華にしました。トークはスタンプ・写真送信・グループ既読人数・トーク内検索・＋メニュー対応。Twitterは公式プロフィール画面・トレンド・通知・ツイート詳細（返信スレッド）・画像付きツイートに対応。Yahoo!ニュースは関連記事・コメント欄・アクセスランキング・カテゴリ別一覧を搭載。順位表には票数カウントアップ演出と、大翔の順位推移グラフ（史実 vs この物語）を追加。名簿では推しメン登録（★）と絞り込み、プロフィールの写真複数表示と101人データ連動を強化。新たに「思い出コレクション」（名場面カード＋両エンディング到達表示）、通話履歴、音楽プレイヤーを追加し、課題曲5曲は公式音源の長尺版に差し替えました。なお、v6で追加したフリーチャットは本人の意向によりv8で廃止しました（セーブデータ互換は維持）。<br>v8.4.1では、公式アカウント（@produce101jp）のプロフィール欄に、実際に2019年9月4日に投稿された井汲大翔の練習生紹介ツイートと、9月13日のツカメ推しカメラツイートを、本文そのまま収録しました。<br>v8.5では、Wayback Machineに残る当時の投稿ページから、2019年9月25日の初放送告知、9月26日の投票開始、10月24日の第1回順位発表式告知と第2回投票開始、12月11日のJO1紹介の各ツイートも本文確認のうえ追加収録しました（改行の畳みとリンク省略あり、いいね数はアーカイブ取得時点の実数）。これに伴い、従来の創作ツイート（10月25日付の順位発表告知）は実物に置き換えています。<br>v8.6では、その実在ツイートをタイムライン（フィード）側にも広げました。第1回投票期のフィードでは先頭の創作ツイートを実物（10月3日のツカメMV公開、9月26日の投票スタート）に置き換え、グループバトル期のフィードには10月24日の実在ツイート2件を追加し、最終回を過ぎると12月11日のJO1紹介ツイートが先頭に流れるよう、作中の時系列に合わせて出し分けています。あわせて設定アイコンの歯車の歯を少し長くし、歯車らしい見え方に微調整しました。なお、井汲大翔の公約ツイート（2019年9月17〜21日の「11人に選ばれたら」シリーズ）は、今回もファン記事の埋め込み引用やアーカイブ照合で本文・日付の特定に至らなかったため、推測では入れず未収録のままです。<br>v8.7では、Twitterの公式ツイートの文面・数値をプロフィールとタイムラインで統一しました（11月14日の「Everybody」ステージ写真ツイートの食い違いを解消し、第3回順位発表のツイートもプロフィール側へ一元化）。あわせて全アプリを通じた文面・数値の横断整合監査を行い、票数・順位・日付の画面間一致を確認しました（史実の公表実数は変更なし）。<br>v8.4では、Twitterの投稿ボタンを2019年当時の羽根ペンの実物様式にし、投稿画面から実際にツイートしてタイムラインへ反映できるようにしました。プロフィール画面ではバナーがスクロールに合わせて縮む実物の挙動を追加。通知タブは「すべて／メンション」切替と実物のアイコン構成に、検索タブはキーワード検索とおすすめユーザーに対応。音楽プレイヤーには当時のiOSミュージックの実物機能であるシャッフルとリピート（オフ／すべて／1曲）を追加。Yahoo!ニュースでは共有シートとコメント投稿ができるようになり、思い出コレクションには第3回順位発表のカード（ボイス付き）が増えました。<br>v8.3ではTwitterのヘッダーにスクロール連動（下スクロールでせり上がって隠れ、上スクロールで戻ってくる、2019年当時の挙動）を実装し、公式アカウントのプロフィールに登録月（2019年4月から利用しています）を追加。新規ボイス2本（第3回順位発表後の決意と、デビューエンディング後の感謝）も収録しました。<br>v8.2では全アプリの実物寄せをさらに深めました。Twitterは2019年当時のヘッダー（アバター＋「ホーム」＋スパークル切替）と下部タブ構成に寄せ、いいね／リツイートのトグル、ツイート詳細の時刻・件数表示、プロフィールのフォローボタンを実装。Yahoo!ニュースは記事サムネイルとカテゴリタブ、シェア／ブックマーク／コメントの「そう思う」に反応を持たせ、音楽プレイヤーはシークと前後の曲送りに対応。トーク一覧には検索と最終メッセージ時刻を追加し、プロフィールの「戻る」は開いた場所に戻るようになりました。<br>v7では各アプリの見た目を2019年当時の姿（LINE／Twitter／Yahoo!ニュース／iOS 13）に寄せ、練習生101人全員の史実データを収録。主人公のなおは高校3年生の制作インターンとして合宿に帯同し、担当練習生・井汲大翔（17歳、学年は1つ下）を裏側から支えます。史実の流れをなぞりながら、編集の分量配分と裏側サポートで票と物語を動かし、史実36位の脱落を覆してデビュー圏11位を目指します。登場人物の言動は創作です。<br><br>クレジット<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲: 嵐「Love so sweet」／PRODUCE 101 JAPAN「ツカメ 〜It's Coming〜」／Hey! Say! JUMP「OVER THE TOP」／SHINee「Everybody」／バブリンチョ「やんちゃBOY やんちゃGIRL」（各公式音源の長尺版を使用）</div><button id="about-close">閉じる</button></div></div>
+<div style="padding:14px 16px;font-size:11px;color:#8e8e93;line-height:1.7">担当をデビューさせる件 v8.19<br>※v8.19：機能を追加しました。タイトルの「つづきから」を選ぶと、2019年当時のiOS風ロック画面が挟まります（作中の日時に連動した時計と、LINE・Yahoo!ニュース・順位表・編集室・ミュージックからの通知。Twitter由来の通知はありません）。タップ／上にスワイプでホームへ進みます。順位表の順位推移グラフは第3回順位発表とファイナルまで広げ、点をタップすると各回の順位と票数を確認できるようになりました。思い出コレクションには、写真のない場面のための引用文テキストカードを5枚追加しました（再評価の夜の廊下、自販機の缶コーヒー、車道側の帰り道、コンセプト評価のあとの本音、ファイナル前夜の約束）。<br>※v8.18：全体を読み直し、文章の接続や表示の小さな不整合を整えました（第2回順位発表は、発表シーンの順位と順位表の順位が食い違わないよう集計を統一し、「最後の椅子」の描写も実際の順位に連動させました）。LINEの日付は、第6話の放送日（2019年10月31日・番組の放送スケジュールで裏取り）をその週のトークにも割り当て、グループバトルの収録と第6話の編集確定の月表示も、放送より前の10月に揃えました。収録日そのものが確認できない場面（第3回順位発表など）は、今回も推測で日付を作っていません。<br>※v8.17：本編（第1部〜第3部）の既存の場面に、恋愛ラインの描写を織り込んで密度を上げました（新規の章や後日談の追加ではありません）。再評価の夜に隣で同じ高さで待つ場面、放送期間の自販機での一幕、第2部の並んで歩く帰り道や仲間のからかい、第2回発表前夜の通話で「聞いてほしいこと」を預ける伏線、コンセプト評価の本番後に漏れる本音、ファイナル前夜の「最初に言うこと」の約束などです。育ち方は第1部＝信頼の範囲、第2部＝少しずつ意識し合う、第3部＝ファイナル前に気持ちが形になる段階設計で、エンディングの締め（約束と短いハグ）の位置づけ、史実データ・数値・時系列ゲート・実在ツイート・定型返信（sendFree）・セーブ互換は不変です。<br>※v8.16：LINEのトーク一覧の日付表示を広げました。作中で日付がはっきり分かる場面（ポジション評価の9月14日、放送開始の9月26日、第1回順位発表の10月24日、第2回順位発表の前夜11月13日と当日11月14日など）には日付を割り当て、一覧では前日の発言が「昨日」、少し前の発言が「2019/9/26」のような日付で表示されます。日付が確定しない場面は推測で作らず、従来どおりの表示のままです。トーク内の日付区切りと通話履歴の日付も、同じ基準で細かくなります。<br>※v8.15：v8.14でアイコンを拡大した際の副作用を点検しました。ホーム画面の圧縮境界は、全ビート（ウィジェットの本文が2行になる場合を含む）の最悪値で再実測し、境界のすぐ上ではドックが僅かにはみ出す帯があったため、各段が初期表示に収まる境界（827／772／729px）へ引き上げました。アイコン下のラベルの折り返し・見切れ、通知バッジと鍵バッジの位置、通知バナーの小アイコン、最下段のゲージ表示も全高さで点検し、問題がないことを確認しています。<br>※v8.14：編集室の見通しカードは、開いた状態では要約行が「閉じる」に切り替わるアコーディオン式に整理し、票数・順位が要約と全文で二重に出ないようにしました。Yahoo!ニュースは他人のコメントへの「そう思う」もセーブに保存され、開き直しても残るようになりました。ホーム画面は実機での見え方を見直し、背景の人物写真を番組カラーの青のグラデーションに替え、編集室・設定・Twitterなどアイコンの色味と歯車の形を描き直し、ロック中の表示は小さな鍵バッジに変えました。アプリアイコン自体も実機の比率に拡大し（通常の高さで66px、短い画面では段階的に圧縮）、通知バッジはiOSと同じ比率（高さはアイコンの約1/3、右上コーナーに重なるpill形）に作り直しました。<br>※v8.13：編集室の見通しカードは、短い画面では1行の要約に畳まれ、タップで全文が開くようになりました（通常の高さでは従来どおり常時表示）。ホームのアプリアイコンは2019年当時の実物寄せにさらに精密化し、ドックと通知バナーにも同じアイコン資産を使うよう統一しました。<br>※v8.12：編集室の「大翔の見通し」を、見出し側の固定表示から練習生リストの先頭へ移しました。短い画面でも進捗バーが見出しに残って常に見え、リストに使える広さも増えます。ホーム画面の圧縮表示（ゲージ1行3列）では、数値を各列の右端に揃えて読みやすくしました。<br>※v8.11：タイトル画面の「はじめから」の確認も、ネイティブの確認ダイアログからアプリ内モーダルに統一しました（設定のデータリセットと同じ流儀で、消えるデータと残るデータを明記）。順位表のジャンプチップは、大翔に加えて推しメン（★）登録した練習生の行にも対応。画面外の対象が複数ある場合は「他n人」と表示され、タップするたびに次の対象へ飛べます。<br>※v8.10：Twitter以外の画面まわり（順位表・ホーム・設定・ステータスバー）を精査しました。順位表は、大翔の順位が画面の外にあるときにタップでその行まで飛べるチップを追加。ホームはドックのアイコンにも未読バッジが付くようになり、注目度ゲージは数値（最大124）とバーの伸びが食い違わないよう目盛りを調整。設定の「データを消して最初から」はネイティブの確認ダイアログからアプリ内モーダルに替え、消えるデータと残るデータ（エンディング到達記録・サウンド設定）を明記しました。<br>※v8.9：Twitter以外のアプリをさらに精査しました。Yahoo!ニュースは自分のコメントの「そう思う」状態も保存されるようになり、LINEのトーク一覧の時刻表示は実物の形式（現在のフェーズ内の発言は時刻、日付が確定する場面では「昨日」など）に寄せ、音楽プレイヤーは再生が終わると曲目リストのイコライザ表示がその場で尺表示に戻るよう直しました。<br>※v8.8：Twitter以外のアプリを精査しました。LINEは下部タブとヘッダーのアイコンを2019年当時の実物風の線画SVGに替え、トーク画面の☰から開けるルームメニュー（検索／通話履歴／トーク情報）を追加。Yahoo!ニュースはカテゴリ名表示の連動、記事見出しの再タップで本文を閉じられるトグル化、自分のコメントとブックマークが再表示しても残る保存対応。編集室はステッパーの無効状態表示と配分進捗バーを追加。名簿は検索・絞り込みで0件の節の見出しを隠し、空状態の案内を表示。思い出コレクションの詳細に「解放済みカード n／総数」の位置表示、通話履歴は着信／発信の矢印付きアイコン、音楽プレイヤーは再生中イコライザ表示を追加しました。<br>※v8.7：Twitterの公式ツイートの文面・数値をプロフィール側とフィード側で統一しました（11月14日の「Everybody」ステージ写真ツイートは、フィード側だけ文面といいね数が食い違い、日付と投票締切も矛盾していたため、プロフィール側の文面に一本化。第3回順位発表のツイートもプロフィール側へ一元化）。あわせて全アプリの文面・数値の横断整合監査を実施（票数・順位・日付は画面間で一致を確認。史実の公表実数には変更なし）。<br>※v8.6：公式プロフィールに収録した実在ツイートを、タイムライン（フィード）側にも展開。第1回投票期の帯では先頭の創作ツイートを実物（10月3日のツカメMV公開、9月26日の投票スタート）に置き換え、グループバトル期の帯に10月24日の実在ツイート2件（第1回順位発表式告知、第2回国民投票スタート）を追加。最終回（12月11日）を過ぎたあとは、実在のJO1紹介ツイートがフィードの先頭に流れるようになりました（作中の時系列に合わせた出し分け）。設定アイコンの歯車は歯を少し長くして歯車らしく微調整。井汲大翔の公約ツイートは今回も本文・日付の特定に至らず、引き続き未収録です。<br>※v8.5：公式アカウントの実在ツイートを追加収録（2019年9月25日の初放送告知、9月26日の投票開始、10月24日の第1回順位発表式告知と第2回投票開始、12月11日のJO1紹介）。本文はWayback Machineに残る当時の投稿ページで確認し、改行の畳みとリンク省略のうえ収録。いいね数はアーカイブ取得時点の実数。従来の創作ツイート（10月25日付の順位発表告知）は実物に置き換え。ホーム画面のアプリアイコンも2019年当時の実物寄せに刷新（LINEの白吹き出し、Twitterの鳥、Yahoo!ニュースのY!、ミュージックの白地に赤い音符など、絵文字アイコンをSVG再現へ置き換え）。<br>※v8.4.1：公式アカウント（@produce101jp）のプロフィールに、2019年9月4日の練習生紹介ツイートと9月13日の推しカメラツイート（いずれも井汲大翔分・実際の投稿）を実物どおり収録。<br>※v8.4：Twitterの投稿ボタン（羽根ペン）を実物化し、投稿画面から実際にツイートできるように。プロフィールはバナーがスクロールで縮む実物挙動を追加。通知・検索タブを実物構成に刷新（メンション切替・キーワード検索・おすすめユーザー）。音楽プレイヤーにシャッフル／リピートを追加。Yahoo!ニュースは共有シートとコメント投稿に対応。思い出コレクションに第3回順位発表のカードを追加。<br>※v8.3：Twitterヘッダーのスクロール連動（下スクロールで隠れ、上スクロールで復帰する2019年実物の挙動）と、公式プロフィールへの登録月（2019年4月）表示を追加。新規ボイス2本（第3回発表後／デビューエンディング）も収録。<br>※v8.2：全アプリの実物寄せをさらに深化（Twitterの2019年仕様ヘッダーとスパークル切替・いいね／リツイートのトグル・ツイート詳細の時刻と件数、ニュースのサムネイルとコメント反応、音楽プレイヤーのシーク・前後送り、トーク一覧の検索と時刻表示）。プロフィールの「戻る」も開いた場所に戻るよう改善。<br>※v8：各アプリの豪華化（トークのスタンプ・写真送信・既読人数・検索／Twitterのプロフィール・トレンド・通知・ツイート詳細／ニュースの関連記事・コメント・アクセスランキング）、思い出コレクション、順位推移グラフ、推しメン登録、通話履歴、音楽プレイヤーを追加。課題曲5曲は公式音源の長尺版に差し替え。本人の意向により、v6で追加したフリーチャットは廃止しました。<br>※本作品は実在の番組『PRODUCE 101 JAPAN』（2019）と実在の人物を題材にしたファンメイドのIF作品です。史実をもとにしていますが、登場人物の言動や順位の変動は創作を含みます。<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲は各アーティストの公式音源（長尺版）を使用しています。</div>
+<div class="about-modal" id="about-modal" style="display:none"><div class="am-card"><div class="am-t">『担当をデビューさせる件』v8.19</div><div class="am-body">実在の番組『PRODUCE 101 JAPAN』Season1（2019）を題材にした、ファンメイドのIF物語です。<br>v8.19では、機能の追加を行いました。タイトルで「つづきから」を選ぶと、2019年当時のiOS風ロック画面が挟まります（作中の日時に連動した時計と既存アプリからの通知で、Twitter由来の通知は含まれません）。順位表の順位推移グラフは第3回順位発表とファイナルまでを扱い、点をタップ／ホバーすると井汲大翔の順位と票数（史実側は公表値と、速報・非公表の区別つき）を確認できます。思い出コレクションには、写真のない場面のための引用文テキストカードを5枚追加しました（解放タイミングは各場面への到達時点）。物語本文・史実データ・数値設計・定型返信（sendFree）・セーブ互換は不変です。<br>v8.18では、全文を読み直して文章の粗を整えました。v8.17で足した恋愛描写と既存文の接続（再評価の夜の場面の並び順、グループバトル後の帰り道の場面の置き場所、第2回発表前夜の通話で締めの挨拶が重なる問題など）を見直し、第2回順位発表では発表シーンの順位と順位表の順位が食い違わないよう集計方法を統一して、「最後の椅子」の描写も実際の順位に連動させました。LINEの日付は、第6話の放送日が2019年10月31日であることを番組の放送スケジュール（Wikipediaの放送・配信日程ほか）で裏取りし、その週のトーク（第6回放送の週次順位への反応）にも割り当てました。あわせて、グループバトルの収録と第6話の編集確定は放送より前の出来事のため、該当場面の月表示を11月から10月に修正しています。第3回順位発表の収録日など、裏取りできない日付は推測で作らず、従来どおり月表示のままです。<br>v8.17では、本編の既存の場面（トーク・発表前夜の通話・舞台裏）に、担当と練習生の距離が縮まっていく描写を織り込み、恋愛ラインの密度を上げました。新規の章や後日談エピローグの追加ではなく、第1部は信頼の範囲、第2部で少しずつ意識し合い、第3部でファイナル前に気持ちが形になる、という既存の流れに沿った段階設計です。本編中盤の追加は緊張感と行動の描写までにとどめ、エンディングの締め（約束と短いハグ）の位置づけは変えていません。<br>v8.16では、LINEのトーク一覧の日付・曜日表示を拡張しました。作中の場面に日付の根拠があるものだけ日付を割り当てています（ポジション評価＝9月14日、放送開始＝9月26日、第1回順位発表＝10月24日、第2回順位発表の前夜＝11月13日・当日＝11月14日、ファイナル前夜＝12月10日・当日＝12月11日）。一覧では、現在の作中日付から見て前日の発言は「昨日」、1週間以内は曜日、それ以前は「2019/9/26」形式の日付で表示されます。根拠のない場面には推測で日付を作らず、従来どおり月ラベル／時刻の表示のままです。あわせてトーク内の日付区切りと通話履歴の日付も同じ基準で日まで表示される場面が増えます（旧セーブの既存メッセージは従来のラベルのまま残ります）。<br>v8.15では、v8.14のアイコン拡大に伴うホーム画面の副作用を点検しました。圧縮の各段が切り替わる境界は、全ビートのうち最も縦に長い表示（ウィジェット本文が2行になる場合）でもドックまで初期表示に収まるよう再実測し、境界値を引き上げました（827／772／729px）。あわせて、アイコン下のラベル（折り返し・見切れなし）、通知バッジとロック中の鍵バッジの位置（グリッド・ドック共通で段ごとに一致）、通知バナーの小アイコン、最下段で1行に並ぶゲージの数値とバーの収まりを、全ての画面高で確認しています。<br>v8.14では、編集室の見通しカードの開閉表示を実物のアコーディオンの流儀に整理しました（開いた状態では要約行が「閉じる」に切り替わり、票数・順位が要約と全文で二重に出ません）。Yahoo!ニュースでは、他人のコメントへの「そう思う」もセーブに保存されるようになりました（自分のコメント分はv8.9で対応済み。新しい保存項目は旧セーブでも自動で補完されます）。ホーム画面は、実機で背景の人物写真が不自然に見えたため全面写真をやめて番組カラーの青のグラデーションに作り替え、アイコンは編集室のカチンコを鮮やかな紫に、設定の歯車は太い歯と中央の穴が小サイズでも分かる形に、Twitterは本来の鮮やかな青がそのまま出るようロック中の減光をやめて鍵バッジ表示に変えました（名簿の青も背景との差が出るよう少し明るくしています）。あわせてアプリアイコンを実機のホーム画面の比率に拡大しました（通常の高さで66px・セル内の間隔も詰め、短い画面では66→60→54→48pxと段階圧縮してドックが初期表示に収まるよう境界を再調整）。通知バッジは、アイコンに対して不釣り合いだった従来の表示を作り直し、iOSと同じ基準（高さ＝アイコンの約1/3、フォントも比例、右上コーナーに重なるpill形、2桁でも崩れない）にグリッド・ドック共通で揃えました。<br>v8.13では、編集室の「大翔の見通し」カードを、短い画面でのみ折りたたみ式にしました（1行の要約＋タップで展開し、通常の高さでは常時表示のまま）。ホームのアプリアイコンは実物寄せをさらに精密化し（LINEの吹き出しの尾の位置と形、Y!の字形のパス化、設定の歯車の歯形、思い出の花びらの形など）、ドックと通知バナーの小アイコンも同じアイコン資産に統一しました。<br>v8.12では、編集室の「大翔の見通し」を練習生リストの先頭へ移しました。短い画面では見出し側に残した進捗バーが内部スクロールに埋もれず常に見え、一覧に使える広さも増えます。ホーム画面の圧縮表示（ゲージ1行3列）では、数値を各列の右端に揃えて読みやすくしました。<br>v8.11では、タイトル画面の「はじめから」の確認もアプリ内モーダルに統一し（消えるデータと残るデータは設定のリセット確認と同じ明記）、順位表のジャンプチップを推しメン（★）登録した練習生の行にも広げました。画面外の対象が複数あるときは「他n人」と併記され、タップのたびに次の対象へ移動します。<br>v8.10では、Twitter以外の画面まわり（順位表・ホーム・設定・ステータスバー）を精査しました。順位表には、大翔の順位が画面外にあるときにタップでその行まで移動できるチップを追加。ホームのドックにも未読バッジが付くようになり、注目度ゲージは数値（最大124）とバーの伸びが食い違って見える問題を目盛りの調整で解消しました。設定のデータリセットはアプリ内モーダルでの確認に統一し、消えるデータと残るデータ（エンディング到達記録・サウンド設定）を明示。ステータスバーは明るい画面・暗い画面の両方で時刻とアイコンが読めることを確認しています（時刻は端末の実時刻表示が仕様です）。<br>v8.9では、Twitter以外のアプリをさらに精査しました。Yahoo!ニュースは、自分のコメントに付けた「そう思う」の状態もセーブに保存され、開き直しても残るようになりました。LINEのトーク一覧の最終メッセージ表示は実物の形式に寄せ、作中の現在フェーズ内の発言は時刻、日付が日単位で確定する場面（2019年12月10日・11日）では前日の発言を「昨日」と表示します。音楽プレイヤーは、再生が終わった瞬間に曲目リストのイコライザ表示が尺表示へ戻るよう描画を直しました。<br>v8.8では、Twitter以外のアプリを精査しました。LINEは下部タブとヘッダーのアイコンを2019年当時の実物風の線画に替え、トーク画面のメニュー（☰）から検索・通話履歴・トーク情報へ進めるように。Yahoo!ニュースはカテゴリ名の連動、記事の開閉トグル、自分のコメントとブックマークの保存に対応。編集室には配分進捗バーとステッパーの無効表示、名簿には検索の空状態表示、コレクション詳細には解放済み枚数の位置表示、通話履歴には着信／発信の矢印、音楽プレイヤーには再生中イコライザを追加しました。<br>v8では各アプリを豪華にしました。トークはスタンプ・写真送信・グループ既読人数・トーク内検索・＋メニュー対応。Twitterは公式プロフィール画面・トレンド・通知・ツイート詳細（返信スレッド）・画像付きツイートに対応。Yahoo!ニュースは関連記事・コメント欄・アクセスランキング・カテゴリ別一覧を搭載。順位表には票数カウントアップ演出と、大翔の順位推移グラフ（史実 vs この物語）を追加。名簿では推しメン登録（★）と絞り込み、プロフィールの写真複数表示と101人データ連動を強化。新たに「思い出コレクション」（名場面カード＋両エンディング到達表示）、通話履歴、音楽プレイヤーを追加し、課題曲5曲は公式音源の長尺版に差し替えました。なお、v6で追加したフリーチャットは本人の意向によりv8で廃止しました（セーブデータ互換は維持）。<br>v8.4.1では、公式アカウント（@produce101jp）のプロフィール欄に、実際に2019年9月4日に投稿された井汲大翔の練習生紹介ツイートと、9月13日のツカメ推しカメラツイートを、本文そのまま収録しました。<br>v8.5では、Wayback Machineに残る当時の投稿ページから、2019年9月25日の初放送告知、9月26日の投票開始、10月24日の第1回順位発表式告知と第2回投票開始、12月11日のJO1紹介の各ツイートも本文確認のうえ追加収録しました（改行の畳みとリンク省略あり、いいね数はアーカイブ取得時点の実数）。これに伴い、従来の創作ツイート（10月25日付の順位発表告知）は実物に置き換えています。<br>v8.6では、その実在ツイートをタイムライン（フィード）側にも広げました。第1回投票期のフィードでは先頭の創作ツイートを実物（10月3日のツカメMV公開、9月26日の投票スタート）に置き換え、グループバトル期のフィードには10月24日の実在ツイート2件を追加し、最終回を過ぎると12月11日のJO1紹介ツイートが先頭に流れるよう、作中の時系列に合わせて出し分けています。あわせて設定アイコンの歯車の歯を少し長くし、歯車らしい見え方に微調整しました。なお、井汲大翔の公約ツイート（2019年9月17〜21日の「11人に選ばれたら」シリーズ）は、今回もファン記事の埋め込み引用やアーカイブ照合で本文・日付の特定に至らなかったため、推測では入れず未収録のままです。<br>v8.7では、Twitterの公式ツイートの文面・数値をプロフィールとタイムラインで統一しました（11月14日の「Everybody」ステージ写真ツイートの食い違いを解消し、第3回順位発表のツイートもプロフィール側へ一元化）。あわせて全アプリを通じた文面・数値の横断整合監査を行い、票数・順位・日付の画面間一致を確認しました（史実の公表実数は変更なし）。<br>v8.4では、Twitterの投稿ボタンを2019年当時の羽根ペンの実物様式にし、投稿画面から実際にツイートしてタイムラインへ反映できるようにしました。プロフィール画面ではバナーがスクロールに合わせて縮む実物の挙動を追加。通知タブは「すべて／メンション」切替と実物のアイコン構成に、検索タブはキーワード検索とおすすめユーザーに対応。音楽プレイヤーには当時のiOSミュージックの実物機能であるシャッフルとリピート（オフ／すべて／1曲）を追加。Yahoo!ニュースでは共有シートとコメント投稿ができるようになり、思い出コレクションには第3回順位発表のカード（ボイス付き）が増えました。<br>v8.3ではTwitterのヘッダーにスクロール連動（下スクロールでせり上がって隠れ、上スクロールで戻ってくる、2019年当時の挙動）を実装し、公式アカウントのプロフィールに登録月（2019年4月から利用しています）を追加。新規ボイス2本（第3回順位発表後の決意と、デビューエンディング後の感謝）も収録しました。<br>v8.2では全アプリの実物寄せをさらに深めました。Twitterは2019年当時のヘッダー（アバター＋「ホーム」＋スパークル切替）と下部タブ構成に寄せ、いいね／リツイートのトグル、ツイート詳細の時刻・件数表示、プロフィールのフォローボタンを実装。Yahoo!ニュースは記事サムネイルとカテゴリタブ、シェア／ブックマーク／コメントの「そう思う」に反応を持たせ、音楽プレイヤーはシークと前後の曲送りに対応。トーク一覧には検索と最終メッセージ時刻を追加し、プロフィールの「戻る」は開いた場所に戻るようになりました。<br>v7では各アプリの見た目を2019年当時の姿（LINE／Twitter／Yahoo!ニュース／iOS 13）に寄せ、練習生101人全員の史実データを収録。主人公のなおは高校3年生の制作インターンとして合宿に帯同し、担当練習生・井汲大翔（17歳、学年は1つ下）を裏側から支えます。史実の流れをなぞりながら、編集の分量配分と裏側サポートで票と物語を動かし、史実36位の脱落を覆してデビュー圏11位を目指します。登場人物の言動は創作です。<br><br>クレジット<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲: 嵐「Love so sweet」／PRODUCE 101 JAPAN「ツカメ 〜It's Coming〜」／Hey! Say! JUMP「OVER THE TOP」／SHINee「Everybody」／バブリンチョ「やんちゃBOY やんちゃGIRL」（各公式音源の長尺版を使用）</div><button id="about-close">閉じる</button></div></div>
 <div class="about-modal" id="reset-modal" style="display:none"><div class="am-card"><div class="am-t">データを消して最初から</div><div class="am-body">進行状況・トーク・順位などのセーブデータを消して、最初からやり直します。元に戻せません。<br>※エンディング到達記録（思い出コレクションの到達表示）とサウンド設定は、この端末に残ります。</div><button id="reset-cancel">キャンセル</button><button id="reset-ok">消して最初から</button></div></div>
 </div>
 </div>
@@ -2770,18 +2825,45 @@ const rank=i+1; const inz=rank<=DEBUT_N;
 return `<div class="rk-row ${r.me?"me":""}" data-rkname="${r.name}"><div class="rk-num ${rank<=3?"top":""}">${rank}</div><img class="av sm" src="${imgOf(r.name)}"><div class="inf"><div class="nm">${r.name}${r.me?`<span class="zone-tag ${inz?"zone-in":"zone-out"}">${inz?"デビュー圏内":"圏外"}</span>`:""}</div><div class="dt">第1回順位発表</div></div><div class="rk-vote"><b>${r.votes.toLocaleString()}</b><br>票</div></div>`;
 }).join("")+`<div class="rk-note">集計：第1回国民投票（11pick、2019年9月26日〜10月18日）の史実結果（全60名・票数は公表値）に、ひろとのIF票（放送の分量配分と裏側サポートの効果）を合わせて再構成した順位です。史実では大翔は${HIST_HIROTO_RANK}位（${HIST_HIROTO_VOTES.toLocaleString()}票）でした。デビュー圏は上位${DEBUT_N}名、生き残りラインは60位です。61位以下で脱落した41名は「練習生名簿」で全員確認できます。</div>`;
 }
-/* v8: 順位推移グラフ（史実 vs IF）＋票数カウントアップ */
+/* v8: 順位推移グラフ（史実 vs IF）＋票数カウントアップ
+   v8.19: 第3回・ファイナルまでを扱い、点をタップ／ホバーすると順位と票数（既存データと同値）を詳細パネルに表示する。
+   史実側は第2回発表36位で脱落のため、第3回・最終は✕印＋パネルで「脱落」と明示する（線は引かない） */
+let GRAPH_PTS=[], GRAPH_SEL=null;
+function graphDetailHTML(){
+if(!GRAPH_SEL||!GRAPH_PTS[GRAPH_SEL.i]) return "グラフの点をタップすると、各回の順位と票数を確認できます。";
+const p=GRAPH_PTS[GRAPH_SEL.i];
+const head=p.k==="最終"? "最終順位発表": (p.k.indexOf("第")===0? p.k+"順位発表": p.k+" 週次速報");
+const fTxt= p.fr!=null? `<span class="gd-fc">史実：<b>${p.fr}位</b>（${p.fv!=null? p.fv.toLocaleString()+"票": p.fn||"票数なし"}）</span>`: `<span class="gd-fc">史実：<b>―</b>（第2回発表で脱落のため、この回にはいません）</span>`;
+const iTxt= p.ir!=null? `<span class="gd-if">この物語：<b>${p.ir}位</b>${p.iv!=null? "（"+p.iv.toLocaleString()+"票）": ""}</span>`: `<span class="gd-if">この物語：<b>未確定</b>（物語を進めると確定します）</span>`;
+return `<span class="gd-h">${head}</span><br>${iTxt}<br>${fTxt}`;
+}
+function graphTap(i,s){
+GRAPH_SEL={i:i,s:s};
+const d=document.getElementById("graph-detail"); if(d) d.innerHTML=graphDetailHTML();
+document.querySelectorAll(".g-dot").forEach(c=>{ const on=(+c.getAttribute("data-gi")===i && c.getAttribute("data-gs")===s); c.setAttribute("r", on? "5.2": "3.2"); if(on){ c.setAttribute("stroke","#ffd60a"); c.setAttribute("stroke-width","2.4"); } else { c.removeAttribute("stroke"); c.removeAttribute("stroke-width"); } });
+}
 function hirotoGraphHTML(){
 const W=344,H=172,L=30,R=10,T=12,B=22, iw=W-L-R, ih=H-T-B, maxR=40;
-const xs=["Ep1","Ep2","Ep3","第1回","Ep6","第2回","第3回","最終"];
-const fact=[12,16,16,19,33,36,null,null];
-const ifs=[null,null,null,S.tr.hiroto.rank||null,null,S.hirotoRank2||null,S.hirotoRank3||null,S.hirotoRankF||null];
+const st=S.tr.hiroto;
+GRAPH_PTS=[
+{k:"Ep1", fr:12, fv:null, fn:"週次速報のため票数なし", ir:null, iv:null},
+{k:"Ep2", fr:16, fv:null, fn:"週次速報のため票数なし", ir:null, iv:null},
+{k:"Ep3", fr:16, fv:null, fn:"週次速報のため票数なし", ir:null, iv:null},
+{k:"第1回", fr:19, fv:HIST_HIROTO_VOTES, ir:st.rank||null, iv:st.votes||null},
+{k:"Ep6", fr:33, fv:null, fn:"週次速報のため票数なし", ir:null, iv:null},
+{k:"第2回", fr:36, fv:null, fn:"票数は非公表", ir:S.hirotoRank2||null, iv:st.votes2||null},
+{k:"第3回", fr:null, ir:S.hirotoRank3||null, iv:st.votes3||null},
+{k:"最終", fr:null, ir:S.hirotoRankF||null, iv:S.hirotoFinalVotes||null},
+];
+const fact=GRAPH_PTS.map(p=>p.fr), ifs=GRAPH_PTS.map(p=>p.ir);
 const X=i=>L+iw*i/7, Y=r=>T+ih*(Math.min(r,maxR)-1)/(maxR-1);
 function path(series){ let d="", pen=false; series.forEach((r,i)=>{ if(r==null){ pen=false; return; } d+=(pen?"L":"M")+X(i).toFixed(1)+","+Y(r).toFixed(1)+" "; pen=true; }); return d; }
-function dots(series,color){ return series.map((r,i)=> r==null?"":`<circle cx="${X(i)}" cy="${Y(r)}" r="3.2" fill="${color}"/><text x="${X(i)}" y="${Y(r)-6}" font-size="9.5" fill="${color}" text-anchor="middle" font-weight="700">${r}</text>`).join(""); }
+function dots(series,color,sk){ return series.map((r,i)=>{ if(r==null) return ""; const on=GRAPH_SEL&&GRAPH_SEL.i===i&&GRAPH_SEL.s===sk; return `<circle class="g-dot" data-gi="${i}" data-gs="${sk}" cx="${X(i)}" cy="${Y(r)}" r="${on?5.2:3.2}" fill="${color}"${on?` stroke="#ffd60a" stroke-width="2.4"`:""}/><text x="${X(i)}" y="${Y(r)-6}" font-size="9.5" fill="${color}" text-anchor="middle" font-weight="700">${r}</text>`; }).join(""); }
+function hits(series,sk){ return series.map((r,i)=> r==null?"":`<circle class="g-hit" cx="${X(i)}" cy="${Y(r)}" r="13" fill="rgba(0,0,0,0)" onclick="graphTap(${i},'${sk}')" onmouseenter="graphTap(${i},'${sk}')"/>`).join(""); }
+const elimX=[6,7].map(i=>`<text x="${X(i)}" y="${Y(36)+3.5}" font-size="10.5" fill="#b9b9c0" text-anchor="middle" font-weight="700">✕</text>`).join("");
 const grid=[1,11,20,35,40].map(r=>`<line x1="${L}" y1="${Y(r)}" x2="${W-R}" y2="${Y(r)}" stroke="${r===11?"#e6c34a":"#e8ebf0"}" stroke-width="1"/><text x="${L-4}" y="${Y(r)+3}" font-size="8.5" fill="#8e8e93" text-anchor="end">${r}</text>`).join("");
-const xlabs=xs.map((x,i)=>`<text x="${X(i)}" y="${H-6}" font-size="8.5" fill="#8e8e93" text-anchor="middle">${x}</text>`).join("");
-return `<div class="graph-card"><h4>井汲大翔 ― 順位推移グラフ</h4><div class="gl"><span><i></i>この物語（IF）</span><span><i class="f"></i>史実</span></div><svg width="100%" viewBox="0 0 ${W} ${H}"><rect x="${L}" y="${Y(1)}" width="${iw}" height="${Y(11)-Y(1)}" fill="rgba(255,214,10,.14)"/>${grid}<path d="${path(fact)}" fill="none" stroke="#a9a9b3" stroke-width="2" stroke-dasharray="5 4"/>${dots(fact,"#8e8e93")}<path d="${path(ifs)}" fill="none" stroke="#3d7dc4" stroke-width="2.6"/>${dots(ifs,"#16294d")}${xlabs}</svg><div class="graph-note">金色の帯がデビュー圏（11位以内）。史実はEp1速報12位→第1回発表19位→第2回発表36位で脱落。IFの点はあなたの采配で確定した順位です（未確定の回は表示されません）。</div></div>`;
+const xlabs=GRAPH_PTS.map((p,i)=>`<text x="${X(i)}" y="${H-6}" font-size="8.5" fill="#8e8e93" text-anchor="middle">${p.k}</text>`).join("");
+return `<div class="graph-card"><h4>井汲大翔 ― 順位推移グラフ</h4><div class="gl"><span><i></i>この物語（IF）</span><span><i class="f"></i>史実</span></div><svg width="100%" viewBox="0 0 ${W} ${H}"><rect x="${L}" y="${Y(1)}" width="${iw}" height="${Y(11)-Y(1)}" fill="rgba(255,214,10,.14)"/>${grid}${elimX}<path d="${path(fact)}" fill="none" stroke="#a9a9b3" stroke-width="2" stroke-dasharray="5 4"/>${dots(fact,"#8e8e93","f")}<path d="${path(ifs)}" fill="none" stroke="#3d7dc4" stroke-width="2.6"/>${dots(ifs,"#16294d","i")}${hits(fact,"f")}${hits(ifs,"i")}${xlabs}</svg><div class="graph-detail" id="graph-detail">${graphDetailHTML()}</div><div class="graph-note">金色の帯がデビュー圏（11位以内）。史実はEp1速報12位→第1回発表19位→第2回発表36位で脱落（第3回・最終は✕）。IFの点はあなたの采配で確定した順位です（未確定の回は表示されません）。</div></div>`;
 }
 function animateVotes(scope){
 try{ if(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return; }catch(e){}
@@ -3480,7 +3562,62 @@ startNewGame();
 $("#start-cancel").onclick=()=>{ $("#start-modal").style.display="none"; };
 $("#start-modal").onclick=(e)=>{ if(e.target && e.target.id==="start-modal") e.target.style.display="none"; };
 $("#start-ok").onclick=()=>{ $("#start-modal").style.display="none"; startNewGame(); };
-$("#btn-cont").onclick=()=>{ load(); renderHome(); show("v-home");};
+/* ================= v8.19: ロック画面（2019年 iOS 13様式） =================
+   導線：タイトルの「つづきから」→ ロック画面 → 解除（タップ／上スワイプ）→ ホーム。
+   「はじめから」は従来どおり直接ホームへ進むため、既存フロー・セーブ・進行には影響しない。
+   日付は curDateLabel() の作中日付に連動し、日まで確定している日は実カレンダー（2019年）の曜日を出す。
+   時刻は場面の文脈に合わせた近似（発表前夜は深夜帯、収録日は夕方など）。
+   通知は既存アプリ（LINE／Yahoo!ニュース／順位表／編集室／ミュージック）由来のみで、Twitter由来は作らない */
+const BEAT_TIME={0:"9:41",1:"13:24",2:"18:47",3:"21:16",4:"20:58",5:"17:32",6:"22:08",7:"12:04",8:"19:41",9:"23:18",10:"21:27",11:"20:12",12:"22:43",13:"17:56",14:"14:19",15:"11:23",16:"18:34",17:"19:07",18:"23:02",19:"23:47",20:"19:28"};
+const LK_WD=["日","月","火","水","木","金","土"];
+function lockClockInfo(){
+let time=BEAT_TIME[Math.min(S.beat,20)]||"9:41";
+const lbl=curDateLabel();
+const m=lbl.match(/(\d{4})年(\d{1,2})月(\d{1,2})日/);
+if(m){ const dt=new Date(+m[1], +m[2]-1, +m[3]); return {time, date:(+m[2])+"月"+(+m[3])+"日（"+LK_WD[dt.getDay()]+"）"}; }
+if(S.epiDone) time="12:00";
+return {time, date:lbl};
+}
+function lkIcon(appId){ const a=APPS.find(x=>x.id===appId); if(!a) return ""; return `<span class="lk-ic" style="background:${a.bg}">${a.ic}</span>`; }
+function lockNotifs(){
+const out=[];
+const un=Object.values(S.unread||{}).reduce((a,b)=>a+b,0);
+if(un>0){
+const order=["hiroto","dk","staff","pd"];
+let pick=null;
+for(const rid of order){ if((S.unread[rid]||0)>0){ const msgs=(S.chats[rid]||[]).filter(x=>x.who!=="me"&&!x.sys); if(msgs.length){ pick={rid,msg:msgs[msgs.length-1]}; break; } } }
+if(pick){ const nm=(pick.rid==="dk"||pick.rid==="staff")? ROOMS[pick.rid].name+"（"+whoName(pick.msg.who)+"）": whoName(pick.msg.who);
+out.push({app:"talk", name:"LINE", title:nm, body:pick.msg.voice? "🎤 ボイスメッセージ": (pick.msg.text||"")}); }
+}
+if(S.beat>=5){ const hk=S.beat>=17? "news-c1": (S.beat>=10? "news-b1": "news-a2"); out.push({app:"news", name:"Yahoo!ニュース", title:"エンタメ速報", body:NEWS_HEAD[hk]}); }
+const rkA=APPS.find(x=>x.id==="rank"); if(rkA&&rkA.badge&&rkA.badge()) out.push({app:"rank", name:"順位表", title:"順位発表", body:"新しい順位発表の結果が確認できます"});
+const edA=APPS.find(x=>x.id==="edit"); if(edA&&edA.badge&&edA.badge()) out.push({app:"edit", name:"編集室", title:"編集室", body:"新しい編集フェーズが始まっています。分量配分を確認してください"});
+if(S.beat>=1){
+let mk=musicKey;
+if(!mk){ const ks=Object.keys(BEAT_MUSIC).map(Number).filter(k=>k<=S.beat); mk=ks.length? BEAT_MUSIC[Math.max.apply(null,ks)]: "love"; }
+if(TRACKS[mk]) out.push({app:"music", name:"ミュージック", title:TRACKS[mk].title.replace(/^♪ /,""), body:TRACK_META[mk].artist});
+}
+return out.slice(0,3);
+}
+let lkUnlocking=false;
+function renderLock(){
+const ci=lockClockInfo();
+$("#lk-date").textContent=ci.date;
+$("#lk-time").textContent=ci.time;
+$("#lk-notifs").innerHTML=lockNotifs().map(n=>`<div class="lk-ntf"><div class="lk-nt-top">${lkIcon(n.app)}<span>${esc(n.name)}</span><span class="lk-when">今</span></div><div class="lk-nt-t">${esc(n.title)}</div><div class="lk-nt-b">${esc(n.body)}</div></div>`).join("");
+}
+function unlockPhone(){
+if(lkUnlocking) return; lkUnlocking=true;
+const v=$("#v-lock"); v.classList.add("unlocking");
+setTimeout(()=>{ v.classList.remove("unlocking"); lkUnlocking=false; renderHome(); show("v-home"); },390);
+}
+{ const lv=document.getElementById("v-lock");
+lv.addEventListener("click", unlockPhone);
+let lkY=null;
+lv.addEventListener("touchstart", e=>{ lkY=e.touches[0].clientY; }, {passive:true});
+lv.addEventListener("touchend", e=>{ if(lkY!=null && lkY-e.changedTouches[0].clientY>42) unlockPhone(); lkY=null; }, {passive:true});
+}
+$("#btn-cont").onclick=()=>{ load(); renderLock(); show("v-lock"); };
 
 /* v8 realism: 通知バナーをタップしたらそのトークを開く */
 $("#notif-banner").onclick=()=>{ $("#notif-banner").classList.remove("on"); if(_nbRoom) openChat(_nbRoom); };
@@ -3542,13 +3679,18 @@ const GALLERY=[
 {t:"坡州の合宿所", s:"プロローグ", img:"assets/s1/hiroto-big.jpg", un:()=>S.beat>=1, lines:["2019年8月、韓国・坡州。高校3年生の制作インターン・なおが帯同した合宿で、担当になったのはTeam DK。","中心は、ダンス未経験の17歳・井汲大翔。物語はここから始まった。"], voice:{src:"assets/vc-intro.mp3",dur:"0:03",cap:"いくみひろとです。……ひろとって、呼んでください"}},
 {t:"可愛いにしか目がいかなくて", s:"レベル分け評価", img:"assets/s1/hiroto-big.jpg", un:()=>S.beat>=2, lines:["Team DK『Love so sweet』。結果はCクラス。","A-NONトレーナーの言葉は「可愛いにしか目がいかなくて」。悔しさと、始まったばかりの手応えが同居した日。"], voice:{src:"assets/vc-level.mp3",dur:"0:10",cap:"終わりました。……Cでした"}},
 {t:"歌詞が飛んだ日", s:"ツカメ再評価", img:"assets/s1/hiroto-big.jpg", un:()=>S.beat>=3, lines:["3日間の練習の果てに臨んだ再評価で、歌詞が飛んだ。","うずくまって泣いた17歳に、トレーナー陣の厳しい言葉。それでも「まだ終わりたくない」が残った。"], voice:{src:"assets/vc-tsukame.mp3",dur:"0:04",cap:"……歌詞、飛びました"}},
+{t:"同じ高さで待つ", s:"ツカメ再評価の夜", txt:1, grad:"linear-gradient(160deg,#1c2b52,#3a2b5c)", quote:"……もうちょっとだけ、このままで、おってください", un:()=>S.beat>=3, lines:["再評価の結果が出た夜。控室に戻る廊下で、壁にもたれて動けない彼の隣に、何も言わず、しゃがんで同じ高さで待った。","声をかけるより、隣にいること。それが、この夜の支え方だった。"]},
+{t:"温かい缶コーヒー", s:"第1回順位発表・直前", txt:1, grad:"linear-gradient(160deg,#4a2c1a,#8a5a24)", quote:"……ちょうど、2本買うとこでした。これ、どうぞ", un:()=>S.beat>=6, lines:["発表を控えた時期の夜、合宿所の自販機の前でばったり。小銭を数えていた手が止まって、温かい缶コーヒーが、押し付けがましくなく手渡された。","理由は、聞かなかった。"]},
 {t:"発表直前の電話", s:"第1回順位発表・直前", img:"assets/s1/hiroto.jpg", un:()=>S.beat>=6, lines:["順位発表の直前、会場入りしたはずの大翔から電話が来た。","「ちょっとだけ声、聞きたくて」――素直な一言と、照れた「忘れてください」。"], voice:{src:"assets/vc-call.mp3",dur:"0:05",cap:"なおさん、ちょっとだけ声、聞きたくて"}},
 {t:"第1回順位発表", s:"ピラミッドの椅子", img:"assets/s1/hiroto-big.jpg", un:()=>!!S.ranked, lines:["101人から60人へ。ピラミッドの椅子に、大翔の名前が残った。","史実では19位通過。この物語では、裏側の分量とサポートが少しだけ運命を動かした。"], voice:{src:"assets/vc-thanks.mp3",dur:"0:02",cap:"ありがとうな。ほんまに"}},
 {t:"Everybody", s:"グループバトル", img:"assets/s1/minhyeok-big.jpg", un:()=>S.beat>=9, lines:["大翔が指名者として組んだチーム。センターはイ・ミンヒョク。","チームは9位に敗れたが、大翔は個人2位（277票）。ラップで見せた、新しい顔。"], music:"everybody"},
+{t:"車道側の帰り道", s:"グループバトルのあと", txt:1, grad:"linear-gradient(160deg,#12355c,#1d4e4a)", quote:"……あ、すみません、癖で。……誰とでも、こうなります", un:()=>S.beat>=11, lines:["グループバトルのあと、合宿所まで並んで歩いた帰り道。彼は無意識に、車道側を歩くよう位置を入れ替えた。","「誰とでも」と言った時だけ、なぜか少し声が小さかった。"]},
 {t:"あと1枠の先", s:"第2回順位発表", img:"assets/s1/hiroto-big.jpg", un:()=>!!S.ranked2, lines:["史実では36位。残留ライン35位・浦野秀太と、たった1枠の差で終わった場所。","この物語で、その1枠の先に何が起きたかは――あなたの采配の結果。"]},
 {t:"本物のセンター", s:"コンセプト評価", img:"assets/s1/hiroto-big.jpg", un:()=>S.beat>=17, lines:["『やんちゃBOY やんちゃGIRL』。史実では立つはずのなかったセンターの場所。","暫定センターの看板を守り抜いて、17歳が本物のセンターとしてステージに立った。"], voice:{src:"assets/vc-yancha.mp3",dur:"0:05",cap:"センター、立てました"}, music:"yancha"},
+{t:"なおさんにだけ", s:"コンセプト評価・本番後", txt:1, grad:"linear-gradient(160deg,#3c1d4e,#7a1f4d)", quote:"今の、なおさんにだけ見せたかったんです", un:()=>S.beat>=17, lines:["コンセプト評価の本番後、袖に戻る途中で小声で漏れた本音。","言った直後、自分で慌てて「ほんまです」と付け足したところまでが、彼らしかった。"]},
 {t:"まだ終われない", s:"第3回順位発表", img:"assets/s1/hiroto-big.jpg", un:()=>!!S.ranked3, lines:["35人から20人へ。ファイナリストを決める第3回順位発表で、大翔の名前が呼ばれた。","「……聞いてください。俺、まだ終われないです」――発表のあと、トークに届いた短い決意。"], voice:{src:"assets/vc-madaowarenai.mp3",dur:"0:03",cap:"……聞いてください。俺、まだ終われないです"}},
 {t:"ファイナル前夜", s:"2019年12月10日", img:"assets/s1/hiroto.jpg", un:()=>S.beat>=19, lines:["幕張メッセを前にした最後の夜の電話。","「ここまで来れたの、なおさんのおかげです」――始まりの坡州から、ずっと裏側で支えてきた。"], voice:{src:"assets/vc-final.mp3",dur:"0:07",cap:"明日で全部決まりますね"}},
+{t:"最初に言うこと", s:"ファイナル前夜の電話", txt:1, grad:"linear-gradient(160deg,#101d3a,#274b73)", quote:"……デビューできたら、最初に言うこと、もう決めてるんです", un:()=>S.beat>=20, lines:["ファイナル前夜の電話で預けられた約束。「内容は明日まで内緒で。待っててください」。","その答え合わせは、幕張メッセの結果の先にある。"]},
 {t:"デビュー ― JO1の11人へ", s:"エンディング", end:"debut", img:"assets/s1/hiroto-big.jpg", un:()=>META.endings.indexOf("debut")>=0, lines:["最終順位発表で、上位11人の椅子に井汲大翔が座った。","2020年3月4日、JO1デビューシングル『PROTOSTAR』。最初の報告は、約束どおり、なおのところへ。"], voice:{src:"assets/vc-debut-after.mp3",dur:"0:04",cap:"デビュー、決まりました"}},
 {t:"あと一歩 ― 旅立ち", s:"エンディング", end:"step", img:"assets/s1/hiroto-big.jpg", un:()=>META.endings.indexOf("step")>=0, lines:["デビューには、あと一歩届かなかった。","それでも歩みは止まらない。RBW JBOYZとして、そして中国『創造営2021』へ。続編で、再会する。"], voice:{src:"assets/vc-china.mp3",dur:"0:07",cap:"中国に行ってきます"}},
 ];
@@ -3560,7 +3702,7 @@ const w=$("#gallery-body");
 if(galDetail>=0 && GALLERY[galDetail] && GALLERY[galDetail].un()){
 const g=GALLERY[galDetail];
 const unlP=GALLERY.map((x,i)=>x.un()? i:-1).filter(i=>i>=0); const posP=unlP.indexOf(galDetail);
-w.innerHTML=`<span class="gal-back" onclick="galBack()">‹ コレクションに戻る</span><div class="gal-detail"><img class="gd-hero" src="${g.img}"><div class="gd-in"><div class="gd-ch">${esc(g.s)}</div><div class="gd-pos">解放済みカード ${posP+1} / ${unlP.length} 枚目</div><h3>${esc(g.t)}</h3>${g.lines.map(l=>`<div class="gd-line">${esc(l)}</div>`).join("")}
+w.innerHTML=`<span class="gal-back" onclick="galBack()">‹ コレクションに戻る</span><div class="gal-detail">${g.txt? `<div class="gd-hero-txt" style="background:${g.grad}"><span class="qt">&ldquo;</span><div class="qx">${esc(g.quote)}</div><div class="qa">―― 井汲大翔</div></div>`: `<img class="gd-hero" src="${g.img}">`}<div class="gd-in"><div class="gd-ch">${esc(g.s)}</div><div class="gd-pos">解放済みカード ${posP+1} / ${unlP.length} 枚目</div><h3>${esc(g.t)}</h3>${g.lines.map(l=>`<div class="gd-line">${esc(l)}</div>`).join("")}
 ${g.voice?`<div class="msg" style="margin-top:14px"><div class="col" style="max-width:100%"><div class="bub vbub"><button class="vbtn" onclick="toggleVoice(this,'${g.voice.src}')">▶</button><span class="vwave">${voiceBars(g.voice.src.length*13)}</span><span class="vdur">${g.voice.dur}</span></div><div class="vcap">🎤 ${esc(g.voice.cap)}</div></div></div>`:""}
 ${g.music?`<button class="gal-play" onclick="galPlayMusic('${g.music}',this)">🎵 この場面の曲を再生（${esc(TRACKS[g.music].title.replace(/^♪ /,""))}）</button>`:""}
 ${(()=>{ const unl=GALLERY.map((x,i)=>x.un()? i:-1).filter(i=>i>=0); const pos=unl.indexOf(galDetail); return `<div class="gd-nav"><button ${pos<=0?"disabled":""} onclick="galNav(-1)">‹ 前の場面</button><button ${pos<0||pos>=unl.length-1?"disabled":""} onclick="galNav(1)">次の場面 ›</button></div>`; })()}
@@ -3570,7 +3712,7 @@ return;
 galDetail=-1;
 const unl=GALLERY.filter(g=>g.un()).length;
 const endLine=`エンディング到達：デビュー編 ${META.endings.indexOf("debut")>=0?"<b>★ 到達</b>":"― 未到達"} ／ あと一歩編 ${META.endings.indexOf("step")>=0?"<b>★ 到達</b>":"― 未到達"}`;
-w.innerHTML=`<div class="gal-head"><div class="gh-t">名場面コレクション</div><div class="gh-s">${endLine}<br>解放済みカード：<b>${unl} / ${GALLERY.length}</b>（物語の進行で解放されます）</div></div><div class="gal-grid">${GALLERY.map((g,i)=>{ const u=g.un(); return `<div class="gal-card ${u?"":"lock"}" data-i="${i}"><img src="${g.img}"><div class="gc-in"><div class="gc-ch">${u? esc(g.s):"？？？"}</div><div class="gc-t">${u? esc(g.t):"未解放のカード"}${g.end?'<span class="gc-end">ENDING</span>':""}</div></div></div>`; }).join("")}</div><div class="rk-note" style="background:#f7f5fb">エンディングカードは、到達したエンディングだけが解放されます。両エンディング到達でコレクション完成です（到達記録はデータをリセットしても残ります）。</div>`;
+w.innerHTML=`<div class="gal-head"><div class="gh-t">名場面コレクション</div><div class="gh-s">${endLine}<br>解放済みカード：<b>${unl} / ${GALLERY.length}</b>（物語の進行で解放されます）</div></div><div class="gal-grid">${GALLERY.map((g,i)=>{ const u=g.un(); return `<div class="gal-card ${u?"":"lock"}" data-i="${i}">${g.txt? `<div class="gc-txt" style="background:${g.grad}"><span class="gc-txtag">TEXT</span><span class="qt">&ldquo;</span><span class="qx">${u? esc(g.quote):"？？？"}</span></div>`: `<img src="${g.img}">`}<div class="gc-in"><div class="gc-ch">${u? esc(g.s):"？？？"}</div><div class="gc-t">${u? esc(g.t):"未解放のカード"}${g.txt?'<span class="txt-badge">テキスト</span>':""}${g.end?'<span class="gc-end">ENDING</span>':""}</div></div></div>`; }).join("")}</div><div class="rk-note" style="background:#f7f5fb">エンディングカードは、到達したエンディングだけが解放されます。両エンディング到達でコレクション完成です（到達記録はデータをリセットしても残ります）。</div>`;
 w.querySelectorAll(".gal-card").forEach(c=>c.onclick=()=>{ const i=+c.dataset.i; if(!GALLERY[i].un()){ toast("まだ解放されていません（物語を進めると開きます）"); return; } galDetail=i; renderGallery(); });
 }
 
