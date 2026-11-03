@@ -404,6 +404,162 @@ button:active{transform:scale(.965)}
 .call-tap{padding:11px 18px;font-size:13px}
 .call-end{width:56px;height:56px;font-size:21px}
 }
+
+/* ===== v8: 豪華化（LINE/Twitter/ニュース/ギャラリー/グラフ/プレイヤー/通話履歴） ===== */
+/* LINE: スタンプ・既読人数・検索・＋メニュー */
+.bub.stamp{background:transparent;box-shadow:none;font-size:54px;line-height:1.15;padding:2px 4px}
+.msg.me .bub.stamp{background:transparent;box-shadow:none}
+.chat-search{flex:none;display:flex;gap:8px;align-items:center;padding:8px 10px;background:#fff;border-bottom:1px solid #e0e0e5}
+.chat-search input{flex:1;border:none;background:#f2f2f7;border-radius:16px;padding:8px 12px}
+.chat-search .qn{font-size:11.5px;color:#8e8e93;flex:none}
+.chat-search .qx{font-size:16px;color:#555;cursor:pointer;flex:none;padding:2px 4px}
+.chat-body mark{background:#ffe45e;border-radius:3px;padding:0 1px}
+.plus-menu{flex:none;background:#f7f7fa;border-top:1px solid #e0e0e5;padding:12px 10px calc(12px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.pm-item{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:11px;color:#333;cursor:pointer}
+.pm-item span{width:52px;height:52px;border-radius:16px;background:#fff;border:1px solid #e3e3e8;display:flex;align-items:center;justify-content:center;font-size:23px}
+.stamp-panel{flex:none;background:#fff;border-top:1px solid #e0e0e5;padding:10px 12px calc(12px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(8,1fr);gap:6px}
+.stamp-panel span{font-size:27px;text-align:center;cursor:pointer;padding:3px 0}
+.ci-ic{cursor:pointer}
+/* Twitter: プロフィール/トレンド/通知/詳細/画像ツイート */
+.tw-img{width:100%;border-radius:14px;margin-top:8px;border:1px solid #e6ecf0;display:block;max-height:210px;object-fit:cover;object-position:top}
+.twp-head{height:110px;background-size:cover;background-position:center 25%}
+.twp-in{padding:0 14px 12px;background:#fff;border-bottom:1px solid #e6ecf0}
+.twp-av{width:66px;height:66px;border-radius:50%;background:#1DA1F2;color:#fff;font-size:24px;font-weight:800;display:flex;align-items:center;justify-content:center;border:3.5px solid #fff;margin-top:-33px}
+.twp-name{font-size:17px;font-weight:800;margin-top:4px}
+.twp-name .veri{color:#1DA1F2;font-size:14px}
+.twp-h{color:#657786;font-size:13px}
+.twp-bio{font-size:13.5px;line-height:1.6;margin-top:7px}
+.twp-stats{display:flex;gap:16px;margin-top:9px;font-size:13px;color:#657786}
+.twp-stats b{color:#14171a}
+.twp-tabs{display:flex;border-bottom:1px solid #e6ecf0;background:#fff}
+.twp-tabs span{flex:1;text-align:center;padding:10px 0;font-size:13.5px;color:#657786;cursor:pointer}
+.twp-tabs span.on{color:#1DA1F2;font-weight:700;border-bottom:2.5px solid #1DA1F2}
+.twp-media{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#fff}
+.twp-media img{width:100%;aspect-ratio:1;object-fit:cover;object-position:top}
+.trend-row{padding:11px 14px;border-bottom:1px solid #e6ecf0;background:#fff}
+.trend-row .tr-c{font-size:11.5px;color:#657786}
+.trend-row .tr-t{font-size:15px;font-weight:700;margin-top:1px}
+.trend-row .tr-n{font-size:11.5px;color:#657786;margin-top:1px}
+.notif-row{display:flex;gap:10px;padding:12px 14px;border-bottom:1px solid #e6ecf0;background:#fff;font-size:13.5px;line-height:1.55}
+.notif-row .ni{font-size:19px;flex:none}
+.notif-row .nt2{color:#657786;font-size:12px}
+.xpost{cursor:pointer}
+/* Yahoo!ニュース: ランキング/関連/コメント */
+.y-rank{background:#fff;border-top:8px solid #f2f2f7;padding:13px 14px}
+.y-rank h4{font-size:13.5px;font-weight:800;color:#ff0033;margin-bottom:8px}
+.y-rank .yr-row{display:flex;gap:9px;padding:6px 0;border-bottom:1px solid #f0f0f3;font-size:13px;line-height:1.45;cursor:pointer}
+.y-rank .yr-n{font-weight:800;color:#ff0033;width:16px;flex:none;text-align:center;font-style:italic}
+.nrel{margin-top:16px;padding-top:12px;border-top:1px solid #eee}
+.nrel h5,.ncom h5{font-size:12.5px;font-weight:800;color:#333;margin-bottom:7px}
+.nrel .nr-row{font-size:13px;color:#0645ad;padding:5px 0;border-bottom:1px solid #f4f4f6;cursor:pointer;line-height:1.5}
+.ncom{margin-top:16px;padding-top:12px;border-top:1px solid #eee}
+.ncom .nc-row{display:flex;gap:8px;padding:7px 0;border-bottom:1px solid #f4f4f6}
+.ncom .nc-row img{width:30px;height:30px;border-radius:50%;flex:none}
+.ncom .nc-nm{font-size:12px;font-weight:700}
+.ncom .nc-tx{font-size:12.5px;line-height:1.55;color:#333}
+.ncom .nc-lk{font-size:11px;color:#8e8e93;margin-top:2px}
+/* 順位: 大翔の行の鼓動 */
+.rk-row.me{animation:msgIn .3s ease both,mePulse 1.1s ease .35s 2}
+@keyframes mePulse{0%,100%{box-shadow:inset 3px 0 0 #e6a700}50%{box-shadow:inset 3px 0 0 #e6a700,0 0 0 3px rgba(230,167,0,.45)}}
+/* 順位推移グラフ */
+.graph-card{background:#fff;border-bottom:8px solid #f2f2f7;padding:13px 14px 10px}
+.graph-card h4{font-size:13.5px;font-weight:800}
+.graph-card .gl{display:flex;gap:14px;font-size:11px;color:#657786;margin:5px 0 2px}
+.graph-card .gl i{display:inline-block;width:16px;height:0;border-top:3px solid #3d7dc4;vertical-align:middle;margin-right:4px}
+.graph-card .gl i.f{border-top:3px dashed #a9a9b3}
+.graph-note{font-size:11px;color:#8e8e93;line-height:1.6;margin-top:4px}
+/* 推しメン */
+.m-filter{flex:none;padding:9px 12px;background:#fff;border-bottom:1px solid #eee;display:flex;gap:8px;align-items:center}
+.m-filter button{border:1.5px solid #e6a700;background:#fff;color:#a87400;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:700;cursor:pointer}
+.m-filter button.on{background:#ffd60a;color:#5c4300;border-color:#ffd60a}
+.m-filter .mf-n{font-size:11.5px;color:#8e8e93}
+.mcard{position:relative}
+.fav-star{position:absolute;top:4px;right:4px;font-size:19px;color:rgba(255,255,255,.85);text-shadow:0 1px 4px rgba(0,0,0,.5);cursor:pointer;z-index:2;padding:4px}
+.fav-star.on{color:#ffd60a}
+.mrow .fav-star{position:static;font-size:17px;margin-left:auto;text-shadow:none;color:#c7c7cc;padding:4px 2px}
+.mrow .fav-star.on{color:#e6a700}
+.fav-btn{margin-top:12px;width:100%;border:1.5px solid #e6a700;background:#fff;color:#a87400;border-radius:12px;padding:10px;font-size:13.5px;font-weight:700;cursor:pointer}
+.fav-btn.on{background:#ffd60a;color:#5c4300}
+.pf-strip{display:flex;gap:8px;overflow-x:auto;padding:10px 14px 0;background:#fff}
+.pf-strip img{width:74px;height:74px;border-radius:12px;object-fit:cover;object-position:top;cursor:pointer;flex:none;border:2px solid transparent}
+.pf-strip img.on{border-color:#3d7dc4}
+.pf-link{margin-top:12px;background:#eef4fb;border:1px solid #cbdcf2;color:#16294d;border-radius:10px;padding:10px 12px;font-size:12.5px;font-weight:700;cursor:pointer;text-align:center}
+/* 編集室: プレビュー/履歴 */
+.ed-pv{font-size:10.5px;color:#0a7c2e;font-weight:600}
+.ed-outlook{margin-top:8px;background:#fff;border:1px solid #f0c6d8;border-radius:10px;padding:8px 11px;font-size:12px;line-height:1.65;color:#7a103f}
+.ed-hist{padding:4px 0 14px;background:#fff}
+.ed-hist .eh-row{padding:9px 14px;border-bottom:1px solid #f0f0f3;font-size:12.5px;line-height:1.6}
+.ed-hist .eh-row b{color:#16294d}
+/* 通話履歴 */
+.call-row{display:flex;gap:11px;padding:12px 14px;border-bottom:1px solid #eee;background:#fff;align-items:center}
+.call-row .ci2{width:42px;height:42px;border-radius:50%;background:#e9f9ec;display:flex;align-items:center;justify-content:center;font-size:19px;flex:none}
+.call-row .cn{font-size:14.5px;font-weight:600}
+.call-row .cd{font-size:11.5px;color:#8e8e93;margin-top:1px}
+.call-row .ct{margin-left:auto;font-size:11.5px;color:#8e8e93;text-align:right;flex:none}
+/* 思い出コレクション */
+.gal-head{padding:14px 16px;background:linear-gradient(135deg,#2b2140,#16294d);color:#fff}
+.gal-head .gh-t{font-size:15.5px;font-weight:800}
+.gal-head .gh-s{font-size:12px;color:#cfc8e4;margin-top:5px;line-height:1.65}
+.gal-head .gh-s b{color:#ffd60a}
+.gal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:14px;background:#f7f5fb}
+.gal-card{background:#fff;border-radius:16px;overflow:hidden;cursor:pointer;box-shadow:0 4px 12px rgba(30,20,60,.10)}
+.gal-card img{width:100%;height:104px;object-fit:cover;object-position:top;display:block}
+.gal-card.lock img{filter:grayscale(1) brightness(.55)}
+.gal-card .gc-in{padding:9px 11px 11px}
+.gal-card .gc-ch{font-size:10px;color:#8e8e93;font-weight:700;letter-spacing:.05em}
+.gal-card .gc-t{font-size:13px;font-weight:700;margin-top:2px;line-height:1.45}
+.gal-card .gc-end{font-size:9.5px;font-weight:700;border-radius:5px;padding:1.5px 6px;margin-left:5px;vertical-align:2px;background:#ffe9f2;color:#c2185b}
+.gal-detail{padding:0 0 22px;background:#fff}
+.gal-detail img.gd-hero{width:100%;height:260px;object-fit:cover;object-position:top;display:block}
+.gal-detail .gd-in{padding:14px 16px}
+.gal-detail .gd-ch{font-size:11px;color:#8e8e93;font-weight:700}
+.gal-detail h3{font-size:18px;margin-top:3px}
+.gal-detail .gd-line{font-size:13.5px;line-height:1.85;margin-top:11px;color:#333}
+.gal-back{display:inline-block;margin:12px 16px 0;font-size:13px;color:#3d7dc4;font-weight:700;cursor:pointer}
+.gal-play{margin-top:14px;width:100%;border:none;border-radius:12px;padding:12px;font-size:13.5px;font-weight:700;background:linear-gradient(90deg,#16294d,#3d7dc4);color:#fff;cursor:pointer}
+/* ミュージックプレイヤー */
+.pl-now{padding:18px 16px 8px;background:#fff;text-align:center}
+.pl-now .pl-t{font-size:17px;font-weight:800;line-height:1.4}
+.pl-now .pl-a{font-size:12.5px;color:#8e8e93;margin-top:3px}
+.pl-prog{height:5px;background:#eee;border-radius:3px;margin:14px 4px 5px;overflow:hidden}
+.pl-prog i{display:block;height:100%;width:0;background:#fa2d48;border-radius:3px}
+.pl-times{display:flex;justify-content:space-between;font-size:10.5px;color:#8e8e93;margin:0 4px}
+.pl-ctl{display:flex;justify-content:center;gap:14px;padding:10px 0 4px}
+.pl-ctl button{width:58px;height:58px;border-radius:50%;border:none;background:#fa2d48;color:#fff;font-size:21px;cursor:pointer;box-shadow:0 6px 16px rgba(250,45,72,.35)}
+.pl-ctl button.sub2b{width:44px;height:44px;background:#e5e5ea;color:#333;font-size:15px;box-shadow:none}
+.pl-lyric{margin:10px 16px;background:#f7f7fa;border:1px solid #eee;border-radius:14px;padding:13px 15px;font-size:12.5px;line-height:1.9;color:#444;white-space:pre-wrap}
+.pl-lyric .pl-lt{font-size:10.5px;font-weight:700;color:#fa2d48;letter-spacing:.08em}
+.pl-row{display:flex;align-items:center;gap:11px;padding:11px 14px;border-bottom:1px solid #eee;background:#fff;cursor:pointer}
+.pl-row.on{background:#fff2f4}
+.pl-row .pn{flex:1;min-width:0}
+.pl-row .pn .pt2{font-size:14px;font-weight:700}
+.pl-row .pn .pa2{font-size:11.5px;color:#8e8e93;margin-top:1px}
+.pl-row .pd2{font-size:11.5px;color:#8e8e93;flex:none}
+.full-badge{font-size:9px;font-weight:800;background:#fa2d48;color:#fff;border-radius:4px;padding:1.5px 5px;margin-left:6px;vertical-align:2px}
+
+/* ===== v8 realism: 通知バナー/入力中/段階表示/着信パルス/スクロール ===== */
+.notif-banner{position:absolute;top:12px;left:10px;right:10px;z-index:400;background:rgba(250,250,252,.94);backdrop-filter:blur(16px);border-radius:20px;box-shadow:0 14px 40px rgba(0,0,0,.35);display:flex;gap:10px;padding:11px 13px;color:#111;transform:translateY(-140%);transition:transform .45s cubic-bezier(.2,.9,.25,1);cursor:pointer}
+.notif-banner.on{transform:translateY(0)}
+.notif-banner img{width:38px;height:38px;border-radius:9px;object-fit:cover;flex:none}
+.notif-banner .nb-appic{width:38px;height:38px;border-radius:9px;background:#00B900;color:#fff;font-weight:900;font-size:10px;display:flex;align-items:center;justify-content:center;flex:none;font-family:Arial,sans-serif}
+.notif-banner .nb-in{flex:1;min-width:0}
+.notif-banner .nb-top{display:flex;justify-content:space-between;font-size:10.5px;color:#8e8e93;letter-spacing:.04em}
+.notif-banner .nb-nm{font-size:13.5px;font-weight:700;margin-top:1px}
+.notif-banner .nb-tx{font-size:12.5px;color:#333;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:1px}
+.bub.typing{display:flex;gap:4px;align-items:center;padding:13px 15px}
+.bub.typing i{width:7px;height:7px;border-radius:50%;background:#9aa3ad;animation:tyB 1.1s ease-in-out infinite}
+.bub.typing i:nth-child(2){animation-delay:.18s}
+.bub.typing i:nth-child(3){animation-delay:.36s}
+@keyframes tyB{0%,60%,100%{transform:translateY(0);opacity:.45}30%{transform:translateY(-4px);opacity:1}}
+.rk-row:nth-child(11){animation-delay:.4s}.rk-row:nth-child(12){animation-delay:.44s}.rk-row:nth-child(13){animation-delay:.48s}.rk-row:nth-child(14){animation-delay:.52s}.rk-row:nth-child(15){animation-delay:.56s}.rk-row:nth-child(16){animation-delay:.6s}.rk-row:nth-child(17){animation-delay:.64s}.rk-row:nth-child(18){animation-delay:.68s}.rk-row:nth-child(19){animation-delay:.72s}.rk-row:nth-child(20){animation-delay:.76s}.rk-row:nth-child(21){animation-delay:.8s}.rk-row:nth-child(22){animation-delay:.84s}.rk-row:nth-child(23){animation-delay:.88s}.rk-row:nth-child(24){animation-delay:.92s}.rk-row:nth-child(25){animation-delay:.96s}.rk-row:nth-child(26){animation-delay:1s}.rk-row:nth-child(27){animation-delay:1.04s}.rk-row:nth-child(28){animation-delay:1.08s}.rk-row:nth-child(29){animation-delay:1.12s}.rk-row:nth-child(30){animation-delay:1.16s}.rk-row:nth-child(n+31){animation-delay:1.2s}
+#v-call.incoming .call-tap.accept{animation:acceptPulse 1.3s ease-in-out infinite}
+@keyframes acceptPulse{0%,100%{box-shadow:0 0 0 0 rgba(76,217,100,.45)}50%{box-shadow:0 0 0 13px rgba(76,217,100,0)}}
+.call-grid div{transition:transform .1s ease}
+.call-grid div:active{transform:scale(.93)}
+.abody,.chat-body,.scene-body,.call-sub{overscroll-behavior:contain}
+.chat-body,.scene-body{-webkit-overflow-scrolling:touch}
+.xpost .xh .tm2{color:#657786}
+.nitem .nmeta{margin-top:4px}
 </style>
 </head>
 <body>
@@ -418,6 +574,7 @@ button:active{transform:scale(.965)}
 <div class="notch"></div>
 <div class="statusbar"><span id="sb-time">9:41</span><span class="sicons"><svg width="17" height="11" viewBox="0 0 17 11" fill="#fff"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><span style="font-size:12.5px;font-weight:600">4G</span><svg width="16" height="11" viewBox="0 0 16 12" fill="#fff"><path d="M8 9.6a1.9 1.9 0 1 1 0 3.8 1.9 1.9 0 0 1 0-3.8zM8 5.4c1.9 0 3.6.75 4.9 1.95l-1.7 1.85A4.9 4.9 0 0 0 8 8.35c-1.24 0-2.37.45-3.2 1.2L3.1 7.35A7.3 7.3 0 0 1 8 5.4zM8 1c2.9 0 5.6 1.14 7.55 3L13.85 6A9.55 9.55 0 0 0 8 4.15c-2.24 0-4.3.78-5.85 2.1L.45 4.15A11.4 11.4 0 0 1 8 1z" transform="scale(0.92)"/></svg><svg width="25" height="12" viewBox="0 0 25 12"><rect x="0.5" y="0.5" width="20" height="11" rx="3.5" fill="none" stroke="rgba(255,255,255,.5)"/><rect x="2.2" y="2.2" width="9" height="7.6" rx="1.8" fill="#fff"/><path d="M22.8 4v4a2.2 2.2 0 0 0 0-4z" fill="rgba(255,255,255,.5)"/></svg></span></div>
 
+<div class="notif-banner" id="notif-banner"><span class="nb-appic">LINE</span><div class="nb-in"><div class="nb-top"><span>LINE</span><span>今</span></div><div class="nb-nm" id="nb-nm"></div><div class="nb-tx" id="nb-tx"></div></div></div>
 <!-- TITLE -->
 <div class="view" id="v-title">
 <div class="title-bg"></div>
@@ -460,10 +617,13 @@ button:active{transform:scale(.965)}
 
 <!-- CHAT -->
 <div class="view" id="v-chat">
-<div class="ahead line-head"><span class="back" id="chat-back">‹</span><div><div class="ttl" id="chat-title">トーク</div><div class="sub2" id="chat-sub"></div></div><div class="lh-ic"><span>🔍</span><span>📞</span><span>☰</span></div></div>
+<div class="ahead line-head"><span class="back" id="chat-back">‹</span><div><div class="ttl" id="chat-title">トーク</div><div class="sub2" id="chat-sub"></div></div><div class="lh-ic"><span id="chat-sbtn" style="cursor:pointer">🔍</span><span id="chat-pbtn" style="cursor:pointer">📞</span><span>☰</span></div></div>
+<div class="chat-search" id="chat-searchbar" style="display:none"><input id="chat-q" placeholder="トーク内を検索" autocomplete="off"><span class="qn" id="chat-qn"></span><span class="qx" id="chat-qx">✕</span></div>
 <div class="chat-body" id="chat-body"></div>
 <div class="choices" id="chat-choices" style="display:none"></div>
-<div class="chat-input" id="chat-input"><span class="ci-ic">＋</span><span class="ci-ic">📷</span><span class="ci-ic">☺</span><input id="chat-text" placeholder="メッセージを入力" autocomplete="off"><button id="chat-send">送信</button></div>
+<div class="chat-input" id="chat-input"><span class="ci-ic" id="ci-plus">＋</span><span class="ci-ic" id="ci-photo">📷</span><span class="ci-ic" id="ci-stamp">☺</span><input id="chat-text" placeholder="メッセージを入力" autocomplete="off"><button id="chat-send">送信</button></div>
+<div class="plus-menu" id="plus-menu" style="display:none"><div class="pm-item" id="pm-photo"><span>📷</span>写真</div><div class="pm-item" id="pm-stamp"><span>☺</span>スタンプ</div><div class="pm-item" id="pm-voice"><span>🎤</span>ボイス</div><div class="pm-item" id="pm-call"><span>📞</span>通話履歴</div></div>
+<div class="stamp-panel" id="stamp-panel" style="display:none"></div>
 </div>
 
 <!-- SCENE -->
@@ -482,7 +642,7 @@ button:active{transform:scale(.965)}
 <!-- X -->
 <div class="view" id="v-x">
 <div class="tw-head"><span class="back" data-home>‹</span><div class="tw-search"><span>🔍</span><span>PRODUCE 101 JAPAN</span></div><svg class="tw-bird" width="21" height="21" viewBox="0 0 24 24" fill="#1DA1F2"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.094 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59l-.047-.02z"/></svg></div>
-<div class="tw-tabs"><span class="on">話題のツイート</span><span>最新ツイート</span><span>ユーザー</span><span>画像</span><span>動画</span></div>
+<div class="tw-tabs"><span class="on" data-xt="feed">ホーム</span><span data-xt="trends">トレンド</span><span data-xt="notif">通知</span><span data-xt="prof">プロフィール</span></div>
 <div class="abody" id="x-body" style="background:#fff;position:relative"></div>
 <div class="tw-fab" onclick="toast('ツイート作成はこのアプリでは開けません')"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.094 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59l-.047-.02z"/></svg></div>
 <div class="tw-tabs-b"><span class="on"><svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M22 11.6L12 2 2 11.6V21a1 1 0 0 0 1 1h6v-7h6v7h6a1 1 0 0 0 1-1z"/></svg></span><span><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="10.5" cy="10.5" r="7"/><path d="M16 16l5.5 5.5"/></svg></span><span><svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22c1.4 0 2.4-1 2.4-2.4H9.6C9.6 21 10.6 22 12 22zm6.7-2.4v-1.9L17 15V9.9C17 6.9 15.4 4.6 13 3.7V3a1 1 0 1 0-2 0v.7C8.6 4.6 7 6.9 7 9.9V15l-1.7 2.7v1.9h13.4z"/></svg></span><span><svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M21 4H3a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1zm-9 7.4L4.2 6h15.6L12 11.4z"/></svg></span></div>
@@ -491,7 +651,7 @@ button:active{transform:scale(.965)}
 <!-- NEWS -->
 <div class="view" id="v-news">
 <div class="ahead y-head"><span class="back" data-home>‹</span><div><div class="ttl"><span style="color:#ff0033;font-weight:900">Yahoo!</span>ニュース</div><div class="sub2">エンタメ</div></div></div>
-<div class="y-chips"><span>トップ</span><span>国内</span><span>国際</span><span class="on">エンタメ</span><span>スポーツ</span><span>経済</span><span>IT</span><span>ライフ</span></div>
+<div class="y-chips"><span data-cat="top">トップ</span><span data-cat="world">国際</span><span data-cat="entame" class="on">エンタメ</span><span data-cat="sports">スポーツ</span><span data-cat="economy">経済</span><span data-cat="it">IT</span><span data-cat="life">ライフ</span></div>
 <div class="abody" id="news-body"></div>
 </div>
 
@@ -523,8 +683,33 @@ button:active{transform:scale(.965)}
 <div class="set-row" style="cursor:default"><span>音量</span><input id="set-vol" type="range" min="0" max="100" step="5" style="flex:1;margin:0 12px"></div>
 <div class="set-row" id="set-about"><span>この作品について</span><span>›</span></div>
 <div class="set-row" id="set-reset"><span class="danger">データを消して最初から</span><span>›</span></div>
-<div style="padding:14px 16px;font-size:11px;color:#8e8e93;line-height:1.7">担当をデビューさせる件 v7.1<br>※本作品は実在の番組『PRODUCE 101 JAPAN』（2019）と実在の人物を題材にしたファンメイドのIF作品です。史実をもとにしていますが、登場人物の言動や順位の変動は創作を含みます。<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲は各アーティストの公式音源（プレビュー版）を使用しています。</div>
+<div style="padding:14px 16px;font-size:11px;color:#8e8e93;line-height:1.7">担当をデビューさせる件 v8<br>※v8：各アプリの豪華化（トークのスタンプ・写真送信・既読人数・検索／Twitterのプロフィール・トレンド・通知・ツイート詳細／ニュースの関連記事・コメント・アクセスランキング）、思い出コレクション、順位推移グラフ、推しメン登録、通話履歴、音楽プレイヤーを追加。課題曲5曲は公式音源の長尺版に差し替え。本人の意向により、v6で追加したフリーチャットは廃止しました。<br>※本作品は実在の番組『PRODUCE 101 JAPAN』（2019）と実在の人物を題材にしたファンメイドのIF作品です。史実をもとにしていますが、登場人物の言動や順位の変動は創作を含みます。<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲は各アーティストの公式音源（長尺版）を使用しています。</div>
 </div>
+</div>
+
+
+<!-- TWEET DETAIL -->
+<div class="view" id="v-xdetail">
+<div class="ahead"><span class="back" id="xd-back">‹</span><div><div class="ttl">ツイート</div></div></div>
+<div class="abody" id="xd-body" style="background:#fff"></div>
+</div>
+
+<!-- GALLERY -->
+<div class="view" id="v-gallery">
+<div class="ahead"><span class="back" data-home2>‹</span><div><div class="ttl">思い出コレクション</div><div class="sub2">名場面カード＆エンディング到達記録</div></div></div>
+<div class="abody" id="gallery-body" style="background:#f7f5fb"></div>
+</div>
+
+<!-- CALL HISTORY -->
+<div class="view" id="v-calls">
+<div class="ahead"><span class="back" data-home2>‹</span><div><div class="ttl">通話履歴</div><div class="sub2">この端末の通話記録</div></div></div>
+<div class="abody" id="calls-body" style="background:#fff"></div>
+</div>
+
+<!-- MUSIC PLAYER -->
+<div class="view" id="v-music">
+<div class="ahead"><span class="back" data-home2>‹</span><div><div class="ttl">ミュージック</div><div class="sub2">課題曲プレイヤー（v8で長尺版に差し替え）</div></div></div>
+<div class="abody" id="music-body" style="background:#fff"></div>
 </div>
 
 <!-- CALL -->
@@ -839,11 +1024,18 @@ hirotoRankF:null, rankedF:false, ending:null, finalSong:"YOUNG", boost3:0,
 conceptBenefit:0, conceptTeamRank:null, conceptPersonalRank:null, conceptTeamVotes:null,
 freeSend:{hiroto:0,dk:0},
 epiDone:false, freeNoticed:false,
+fav:[], callLog:[], editHist:[],
 };
 }
 let S = freshState();
 let curRoom=null, curProfile=null;
 
+/* v8: エンディング到達記録（リセットしても残るコレクション用メタデータ） */
+const META_KEY="uragawaMetaV1";
+let META={endings:[]};
+try{ const d=JSON.parse(localStorage.getItem(META_KEY)); if(d&&Array.isArray(d.endings)) META=d; }catch(e){}
+function metaSave(){ try{ localStorage.setItem(META_KEY, JSON.stringify(META)); }catch(e){} }
+function metaAddEnding(e){ if(e && META.endings.indexOf(e)<0){ META.endings.push(e); metaSave(); } }
 function save(){ try{ localStorage.setItem(SAVE_KEY, JSON.stringify(S));}catch(e){}}
 function load(){ try{ const d=localStorage.getItem(SAVE_KEY); if(d){ S=Object.assign(freshState(), JSON.parse(d)); return true;}}catch(e){} return false;}
 
@@ -852,7 +1044,7 @@ const $=s=>document.querySelector(s);
 function show(id){
 document.querySelectorAll(".view").forEach(v=>v.classList.remove("on"));
 $("#"+id).classList.add("on");
-if(id!=="v-scene") stopMusic();
+if(id!=="v-scene" && id!=="v-music") stopMusic();
 }
 function toast(msg){
 const t=$("#toast"); t.textContent=msg; t.classList.add("on");
@@ -872,11 +1064,22 @@ if(S.beat>=20 && S.ending==="debut") return "2019年12月";
 if(S.beat>=20 && S.ending==="step") return "2020年";
 return BEAT_MONTH[S.beat]||"";
 }
+let _nbTimer=null, _nbLast=0, _nbRoom=null;
+function notifyBanner(room, who, text){
+const now=Date.now(); if(now-_nbLast<6000) return; _nbLast=now;
+const b=$("#notif-banner"); if(!b) return;
+_nbRoom=room;
+$("#nb-nm").textContent= who==="sys"? ROOMS[room].name: (room==="dk"||room==="staff"? ROOMS[room].name+"（"+whoName(who)+"）": whoName(who));
+$("#nb-tx").textContent=(text||"").replace(/\n/g," ");
+b.classList.add("on");
+if(_nbTimer) clearTimeout(_nbTimer);
+_nbTimer=setTimeout(()=>b.classList.remove("on"),4200);
+}
 function pushChat(room, who, text, opts){
 opts=opts||{};
-S.chats[room].push({who, text, img:opts.img||null, voice:opts.voice||null, sys:!!opts.sys, d:curDateLabel()});
+S.chats[room].push({who, text, img:opts.img||null, voice:opts.voice||null, stamp:opts.stamp||null, sys:!!opts.sys, d:curDateLabel()});
 if(curRoom!==room || !$("#v-chat").classList.contains("on")){
-if(who!=="me" && !opts.sys) S.unread[room]=(S.unread[room]||0)+1;
+if(who!=="me" && !opts.sys){ S.unread[room]=(S.unread[room]||0)+1; notifyBanner(room, who, opts.voice? "🎤 ボイスメッセージ": text); }
 }
 }
 function sysChat(room,text){ pushChat(room,"sys",text,{sys:true});}
@@ -968,6 +1171,9 @@ const APPS=[
 {id:"x", lb:"Twitter", ic:'<svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.094 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59l-.047-.02z"/></svg>', bg:"#1DA1F2", view:"v-x", lock:()=>S.beat<5},
 {id:"news", lb:"ニュース", ic:'<span style="font-weight:900;font-style:italic;font-size:20px">Y!</span>', bg:"#FF0033", view:"v-news", lock:()=>S.beat<5},
 {id:"rank", lb:"順位表", ic:"👑", bg:"linear-gradient(180deg,#ffd60a,#f5b800)", view:"v-rank", badge:()=> ((S.beat>=6&&!S.ranked)||(S.beat>=13&&!S.ranked2)||(S.beat>=17&&!S.ranked3))?1:0},
+{id:"gallery", lb:"思い出", ic:"🖼️", bg:"linear-gradient(180deg,#7a5cff,#4a2fb5)", view:"v-gallery"},
+{id:"music", lb:"ミュージック", ic:"🎵", bg:"linear-gradient(180deg,#fc5c7d,#fa2d48)", view:"v-music"},
+{id:"calls", lb:"通話履歴", ic:"📞", bg:"linear-gradient(180deg,#5be584,#28b446)", view:"v-calls"},
 {id:"settings", lb:"設定", ic:"⚙️", bg:"linear-gradient(180deg,#c7c7cc,#8e8e93)", view:"v-settings"},
 ];
 function renderHome(){
@@ -992,11 +1198,11 @@ const phases=[
 ["第3回順位発表","35人→20人。ファイナルへ進めるのは誰だ。"],
 ["ファイナル ― 前夜","2019年12月10日。幕張メッセを前にした、最後の夜。"],
 ["ファイナル ― 最終順位発表","2019年12月11日、幕張メッセ。JO1の11人が決まる。"],
-["完結 ― 後日談","エンディングの先の物語。フリーチャットも解放中。"],
+["完結 ― 後日談","エンディングの先の物語。思い出コレクションで名場面を振り返れる。"],
 ];
 const p=phases[Math.min(S.beat,20)];
 $("#w-phase").textContent=p[0];
-$("#w-main").textContent= S.elim? "史実と同じ結末――36位。でも、IFは何度でも選び直せる。": (S.elim3? "第3回順位発表で散った。でも、IFは何度でも選び直せる。": (S.beat>=20 && S.ending && !S.epiDone? "後日談（エピローグ）が解放された。下のボタンから読める。大翔とのフリーチャットも解放中。": (S.beat>=20 && S.ending && S.epiDone? "後日談まで読了。大翔とのフリーチャットは、トークからいつでも続けられる。": p[1])));
+$("#w-main").textContent= S.elim? "史実と同じ結末――36位。でも、IFは何度でも選び直せる。": (S.elim3? "第3回順位発表で散った。でも、IFは何度でも選び直せる。": (S.beat>=20 && S.ending && !S.epiDone? "後日談（エピローグ）が解放された。下のボタンから読める。思い出コレクションも更新された。": (S.beat>=20 && S.ending && S.epiDone? "後日談まで読了。思い出コレクションで名場面を振り返れる。": p[1])));
 $("#w-trust").textContent=S.trust;
 $("#w-mental").textContent=S.mental;
 $("#w-att").textContent=S.tr.hiroto.att;
@@ -1036,6 +1242,9 @@ if(a.id==="x") renderX();
 if(a.id==="news"){ renderNews(); decorateNews(); }
 if(a.id==="members") renderMembers();
 if(a.id==="edit") renderEdit();
+if(a.id==="gallery") renderGallery();
+if(a.id==="music") renderMusic();
+if(a.id==="calls") renderCalls();
 }
 document.querySelectorAll("[data-home]").forEach(el=>el.onclick=()=>{ renderHome(); show("v-home");});
 $("#homebar").onclick=()=>{ renderHome(); show("v-home");};
@@ -1054,28 +1263,59 @@ w.appendChild(d);
 }
 function openChat(id){
 curRoom=id; S.unread[id]=0; save();
-if(id==="hiroto" && S.ending && !S.freeNoticed){ S.freeNoticed=true; sysChat("hiroto","💬 エンディング到達 ― 大翔とのフリーチャットが解放されました。自由にメッセージを送れます"); save(); }
 $("#chat-title").textContent=ROOMS[id].name;
 $("#chat-sub").textContent=ROOMS[id].sub;
-renderChat(); show("v-chat");
+hidePanels(); renderChat(); show("v-chat");
+}
+/* v8: グループ既読人数・スタンプ・写真サムネ・トーク内検索ハイライト・時刻表示 */
+let chatQuery="";
+const GROUP_SIZE={staff:8, dk:5};
+function msgTimeStr(room, mi){
+const base={staff:10*60+20, pd:15*60+40, hiroto:21*60+15, dk:22*60+5}[room]||21*60;
+const t=base+((mi*17)%170);
+return Math.floor(t/60)%24+":"+("0"+(t%60)).slice(-2);
+}
+function readCountFor(room, mi){
+const max=(GROUP_SIZE[room]||1)-1; if(max<=0) return 0;
+const later=S.chats[room].slice(mi+1).some(m=>m.who!=="me"&&!m.sys);
+if(later) return max;
+return (mi*3+2)%max;
+}
+function hlText(text){
+const e=esc(text);
+if(!chatQuery) return e;
+const q=esc(chatQuery);
+return e.split(q).join("<mark>"+q+"</mark>");
 }
 function renderChat(){
 const w=$("#chat-body"); w.innerHTML="";
 let lastMe=-1; S.chats[curRoom].forEach((m,i)=>{ if(m.who==="me") lastMe=i; });
 const readOK= lastMe>=0 && S.chats[curRoom].slice(lastMe+1).some(m=>m.who!=="me"&&!m.sys);
+const isGroup=!!GROUP_SIZE[curRoom];
+function readMeta(mi){
+const tm=msgTimeStr(curRoom, mi);
+if(isGroup){ const rc=readCountFor(curRoom, mi); return (rc>0? "既読 "+rc+"<br>":"")+tm; }
+return ((mi===lastMe&&readOK)? "既読<br>":"")+tm;
+}
 let prevD="";
 S.chats[curRoom].forEach((m,mi)=>{
 if(m.d && m.d!==prevD){ prevD=m.d; if(!m.sys){ const dv=document.createElement("div"); dv.className="date-div"; dv.textContent=m.d; w.appendChild(dv);} }
 if(m.sys){ const d=document.createElement("div"); d.className="sysmsg"; d.textContent=m.text; w.appendChild(d); return;}
 const d=document.createElement("div");
+const tm=msgTimeStr(curRoom, mi);
+const tap=T[m.who]?` onclick="openProfile('${m.who}')" style="cursor:pointer"`:"";
 if(m.voice){
 d.className="msg";
-d.innerHTML=`<img class="av sm" src="${whoImg(m.who)}"><div class="col"><div class="who">${whoName(m.who)}</div><div class="bub vbub"><button class="vbtn" onclick="toggleVoice(this,'${m.voice.src}')">▶</button><span class="vwave">${voiceBars(m.voice.src.length*13)}</span><span class="vdur">${m.voice.dur}</span></div><div class="vcap">🎤 ${esc(m.voice.cap||"")}</div></div>`;
+d.innerHTML=`<img class="av sm" src="${whoImg(m.who)}"${tap}><div class="col"><div class="who">${whoName(m.who)}</div><div class="bub vbub"><button class="vbtn" onclick="toggleVoice(this,'${m.voice.src}')">▶</button><span class="vwave">${voiceBars(m.voice.src.length*13)}</span><span class="vdur">${m.voice.dur}</span></div><div class="vcap">🎤 ${esc(m.voice.cap||"")}</div></div><div class="mmeta" style="align-self:flex-end">${tm}</div>`;
 }
-else if(m.who==="me"){ d.className="msg me"; d.innerHTML=`<div class="col"><div style="display:flex;align-items:flex-end;gap:5px"><div class="mmeta">${(mi===lastMe&&readOK)?"既読":""}</div><div class="bub">${m.img?`<img class="chat-img" src="${m.img}">`:""}${esc(m.text)}</div></div></div>`;}
+else if(m.stamp){
+if(m.who==="me"){ d.className="msg me"; d.innerHTML=`<div class="col"><div style="display:flex;align-items:flex-end;gap:5px"><div class="mmeta">${readMeta(mi)}</div><div class="bub stamp">${m.stamp}</div></div></div>`; }
+else{ d.className="msg"; d.innerHTML=`<img class="av sm" src="${whoImg(m.who)}"${tap}><div class="col"><div class="who">${whoName(m.who)}</div><div class="bub stamp">${m.stamp}</div></div><div class="mmeta" style="align-self:flex-end">${tm}</div>`; }
+}
+else if(m.who==="me"){ d.className="msg me"; d.innerHTML=`<div class="col"><div style="display:flex;align-items:flex-end;gap:5px"><div class="mmeta">${readMeta(mi)}</div><div class="bub">${m.img?`<img class="chat-img" src="${m.img}">`:""}${m.img?"":hlText(m.text)}</div></div></div>`;}
 else{
 d.className="msg";
-d.innerHTML=`<img class="av sm" src="${whoImg(m.who)}"><div class="col"><div class="who">${whoName(m.who)}</div><div class="bub">${m.img?`<img class="chat-img" src="${m.img}">`:""}${esc(m.text)}</div></div>`;
+d.innerHTML=`<img class="av sm" src="${whoImg(m.who)}"${tap}><div class="col"><div class="who">${whoName(m.who)}</div><div class="bub">${m.img?`<img class="chat-img" src="${m.img}">`:""}${m.img?"":hlText(m.text)}</div></div><div class="mmeta" style="align-self:flex-end">${tm}</div>`;
 }
 w.appendChild(d);
 });
@@ -1097,6 +1337,26 @@ function esc(s){ return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;");}
 $("#chat-back").onclick=()=>{ renderTalkList(); show("v-talk");};
 $("#chat-send").onclick=sendFree;
 $("#chat-text").addEventListener("keydown",e=>{ if(e.key==="Enter") sendFree();});
+/* v8: 入力中表示と、既読が付いてから返信が来る“間” */
+function showTyping(room, who){
+if(curRoom!==room || !$("#v-chat").classList.contains("on")) return;
+hideTyping();
+const w=$("#chat-body"); const d=document.createElement("div"); d.className="msg"; d.id="typing-row";
+d.innerHTML=`<img class="av sm" src="${whoImg(who)}"><div class="col"><div class="who">${whoName(who)}</div><div class="bub typing"><i></i><i></i><i></i></div></div>`;
+w.appendChild(d); w.scrollTop=w.scrollHeight;
+}
+function hideTyping(){ const t=document.getElementById("typing-row"); if(t) t.remove(); }
+function scheduleReply(room, who, text, delay){
+delay=delay||1000;
+setTimeout(()=>{
+if(curRoom===room && $("#v-chat").classList.contains("on")){
+const metas=$("#chat-body").querySelectorAll(".msg.me .mmeta");
+if(metas.length){ const mm=metas[metas.length-1]; if(mm.textContent.indexOf("既読")<0) mm.innerHTML="既読"+(GROUP_SIZE[room]? " "+((GROUP_SIZE[room]-1)):"")+"<br>"+mm.textContent; }
+}
+}, Math.max(280, delay-480));
+setTimeout(()=>{ showTyping(room, who); }, Math.max(330, delay-380));
+setTimeout(()=>{ hideTyping(); pushChat(room, who, text); save(); if(curRoom===room) renderChat(); }, delay+620);
+}
 function sendFree(){
 const inp=$("#chat-text"); const v=inp.value.trim(); if(!v) return;
 inp.value="";
@@ -1106,11 +1366,10 @@ if(room==="hiroto" || room==="dk"){
 const n=(S.freeSend[room]||0)+1; S.freeSend[room]=n; save();
 if(room==="hiroto"){
 if(S.ending){
-const rep=freeChatReply(v,n);
-setTimeout(()=>{ pushChat(room,"hiroto",rep); save(); if(curRoom===room) renderChat(); },900);
+/* v8: フリーチャットは本人の意向で廃止（v6で追加した導線・応答を撤去）。送信した文は自分の吹き出しとして残るが、返信は来ない */
 }else{
 const replies=["おつかれさまです。今は練習中やから、また後で返しますね","ありがとうございます。……ちょっと救われました","ほんまですか。……ふふ、なんか嬉しいわ"];
-setTimeout(()=>{ pushChat(room,"hiroto",replies[(n-1)%replies.length]); save(); if(curRoom===room) renderChat(); },900);
+scheduleReply(room,"hiroto",replies[(n-1)%replies.length],1050);
 }
 }else{
 const dkReplies=[
@@ -1119,41 +1378,39 @@ const dkReplies=[
 ["keiya","なおさん、見てくれてました？"],
 ["hiroto","みんな、うるさいって。……でも、ありがとうございます"],
 ];
-setTimeout(()=>{ const r=dkReplies[(n-1)%dkReplies.length]; pushChat(room,r[0],r[1]); save(); if(curRoom===room) renderChat(); },900);
+const r=dkReplies[(n-1)%dkReplies.length]; scheduleReply(room,r[0],r[1],1050);
 }
 }
 }
 
-/* ================= v6 FREE CHAT（エンディング後） ================= */
-/* 話題キーワードに反応するプール＋エンディング別トーン（d=デビュー後／s=旅立ち前） */
-const FREE_TOPICS=[
-{k:["おはよう"], d:"おはようございます、なおさん。……朝から連絡、嬉しいです", s:"おはようございます。……こっちは朝からレッスンです"},
-{k:["こんばんは","こんにちは","こんばんわ","やっほ"], d:"こんばんは。……ちょうど、なおさんに連絡しようと思ってたところです", s:"こんばんは、なおさん。……今日も練習、終わりました"},
-{k:["おつかれ","お疲れ"], d:"おつかれさまです。なおさんも、お仕事おつかれさまです", s:"おつかれさまです。……なおさんの声、聞くとほっとします"},
-{k:["ありがとう"], d:"……俺のほうこそ、ありがとうございます。ずっと", s:"ありがとうございます。……俺、もっと頑張ります"},
-{k:["好き","大好き"], d:"…………。……そういうの、急に言われたら……仕事、手につかへんくなるやつです", s:"…………。……俺も、です。……それだけは、負けてないです"},
-{k:["会いたい","あいたい"], d:"……俺も、会いたいです。次の休み、分かったら真っ先に言います", s:"俺も会いたいです。……中国から帰ったら、真っ先に会いに行きます"},
-{k:["練習"], d:"今日もレッスンでした。新しい振り、だいぶ揃ってきました", s:"今日はダンスと中国語のレッスンでした。……発音、だいぶマシになりました"},
-{k:["歌"], d:"歌、褒められることが増えました。……なおさんのおかげです", s:"ボーカルの先生に、表現が良くなったって言われました"},
-{k:["ダンス"], d:"ダンスは、もう『未経験』とは言わせません。……たぶん", s:"ダンス、毎日みっちりです。筋肉痛と仲良しになりました"},
-{k:["ごはん","食べ","お腹","おなか"], d:"今日はメンバーと鍋でした。なおさんも、ちゃんと食べてますか", s:"寮のごはん、だいぶ慣れました。……日本のからあげが恋しいです"},
-{k:["ねむ","眠","寝"], d:"今日はもう限界です……。なおさんも、早く寝てくださいね", s:"ねむいです……。でも、なおさんと話すと目、覚めます"},
-{k:["忙しい","いそがしい"], d:"忙しいです、正直。……でも、連絡はします。約束したんで", s:"忙しいけど、充実してます。……なおさんに心配かけたくないんで、元気です"},
-{k:["ライブ","ステージ","公演"], d:"次のステージ、決まったら真っ先に報告します", s:"ステージに立つ日を思うと、練習も頑張れます"},
-{k:["約束"], d:"約束は、守ります。……『最初の報告は、なおさん』。ずっとです", s:"約束、覚えてます。『今度こそデビューして帰ってくる』。……守ります"},
-{k:["中国"], d:"中国……いつか行ってみたい場所ではあります。……何か、ありました？", s:"中国語、毎日勉強してます。『吉祥』って、もう完璧に言えます"},
-{k:["応援"], d:"応援、届いてます。……ほんまに、力になってます", s:"応援してくれる人がいるから、行ってきますって言えるんです"},
-{k:["元気"], d:"元気です。なおさんは、元気ですか", s:"元気ですよ。……なおさんこそ、無理してないですか"},
-{k:["デビュー"], d:"デビューしても、まだ実感のない日もあります。……でも、ステージは楽しいです", s:"デビューは、今度こそ掴みます。……待っててください"},
-];
-const FREE_DEFAULT_DEBUT=["今、休憩中です。……なおさんの顔、浮かびました","今日も一日、終わりました。……報告です、これ","スケジュール、詰まってます。でも、悪くない毎日です","……なんでもない日こそ、連絡したくなるんですよね","メンバーのみんな、元気です。……俺も、元気ですよ","次の活動の話、進んでます。決まったら真っ先に言いますね"];
-const FREE_DEFAULT_STEP=["今日のレッスン、終わりました。……クタクタです","中国語の単語、10個覚えました。……たぶん、覚えました","隆士と馨也は元気です。3人で、頑張ってます","……ふと、合宿のこと思い出してました","なおさんの応援があるから、こっちも頑張れます","次に会える日、楽しみにしてます。……ほんまに"];
-function freeChatReply(text,n){
-const t=text||"";
-for(const tp of FREE_TOPICS){ if(tp.k.some(k=>t.includes(k))) return S.ending==="debut"? tp.d: tp.s; }
-const pool= S.ending==="debut"? FREE_DEFAULT_DEBUT: FREE_DEFAULT_STEP;
-return pool[(n-1)%pool.length];
+/* v8: 写真送信・スタンプ送信・＋メニュー */
+const PHOTO_POOL=["assets/s1/hiroto-big.jpg","assets/s1/ren-big.jpg","assets/s1/minhyeok-big.jpg","assets/s1/younghoon-big.jpg","assets/s1/shion-big.jpg"];
+let photoIdx=0;
+function hidePanels(){ const a=$("#plus-menu"), b=$("#stamp-panel"); if(a) a.style.display="none"; if(b) b.style.display="none"; }
+function maybeRoomReply(){
+const room=curRoom; if(room!=="hiroto"&&room!=="dk") return;
+const n=(S.freeSend[room]||0)+1; S.freeSend[room]=n; save();
+if(room==="hiroto"){
+if(S.ending) return;
+const replies=["おつかれさまです。今は練習中やから、また後で返しますね","ありがとうございます。……ちょっと救われました","ほんまですか。……ふふ、なんか嬉しいわ"];
+scheduleReply(room,"hiroto",replies[(n-1)%replies.length],1150);
+}else{
+const dkReplies=[["ryuji","お、なおさん。おつかれさまです！"],["reito","あ、なおさん……ありがとうございます"],["keiya","なおさん、見てくれてました？"],["hiroto","みんな、うるさいって。……でも、ありがとうございます"]];
+const r=dkReplies[(n-1)%dkReplies.length]; scheduleReply(room,r[0],r[1],1150);
 }
+}
+function sendPhoto(){
+hidePanels();
+const src=PHOTO_POOL[photoIdx%PHOTO_POOL.length]; photoIdx++;
+pushChat(curRoom,"me","📷 写真",{img:src}); save(); renderChat();
+maybeRoomReply();
+}
+function sendStamp(em){
+hidePanels();
+pushChat(curRoom,"me","",{stamp:em}); save(); renderChat();
+maybeRoomReply();
+}
+/* v8: フリーチャット（v6で追加）は本人の意向により廃止。関連データ・応答プールは撤去した（セーブ項目 freeSend/freeNoticed は互換のため残置） */
 
 /* ================= iOS KEYBOARD FIX ================= */
 /* 元版『熱愛バレた件』v300と同方式：キーボード開閉時にチャットが巻き戻ったり張り付いたりしないよう、
@@ -1210,13 +1467,14 @@ b.onclick=nextStep; nx.appendChild(b);
 }
 
 /* ================= CALL UI ================= */
-let callSteps=[], callDone=null, callTimer=null, callSec=0, callAudio=null;
+let callSteps=[], callDone=null, callTimer=null, callSec=0, callAudio=null, curCallInfo=null;
 function startCall(cfg, done){
 callSteps=cfg.steps.slice(); callDone=done||null;
 $("#call-name").textContent=cfg.name||"井汲大翔";
 $("#call-av").src=cfg.img||"assets/s1/hiroto.jpg";
 $("#call-status").textContent=cfg.status||"通話中";
 const incCall=(cfg.status||"").indexOf("着信")>=0;
+curCallInfo={name:cfg.name||"井汲大翔", inc:incCall};
 document.getElementById("v-call").classList.toggle("incoming",incCall);
 const ctp=$("#call-tap"); ctp.textContent=incCall? "応答":"タップで進む ›"; ctp.classList.toggle("accept",incCall);
 show("v-call");
@@ -1257,6 +1515,7 @@ sub.innerHTML=`<div class="call-who">${st.who==="nao"?"なお":(st.who==="narr"?
 $("#call-tap").onclick=()=>{ document.getElementById("v-call").classList.remove("incoming"); const t=$("#call-tap"); t.textContent="タップで進む ›"; t.classList.remove("accept"); nextCallStep(); };
 $("#call-end").onclick=()=>{
 document.getElementById("v-call").classList.remove("incoming");
+if(curCallInfo){ S.callLog=S.callLog||[]; S.callLog.unshift({n:curCallInfo.name, d:curDateLabel(), sec:callSec, inc:curCallInfo.inc}); S.callLog=S.callLog.slice(0,20); curCallInfo=null; save(); }
 if(callTimer) clearInterval(callTimer);
 if(callAudio){ try{callAudio.pause();}catch(e){} callAudio=null; }
 const f=callDone; callDone=null;
@@ -1882,13 +2141,13 @@ const steps=[
 {dlg:["井汲大翔","次に会えるの、ちょっと先になるかもしれません。でも……『最初の報告』は、ずっと、なおさんです"]},
 {narr:"距離は変わった。立場も、毎日の景色も変わった。それでも「最初に報告する人」だけは、変わらなかった。"},
 {narr:"担当をデビューさせる物語は終わった。二人の物語は、まだ続いていく。"},
-{narr:"――後日談（デビュー編）、終わり。トークで大翔とフリーチャットができるようになりました。"},
+{narr:"――後日談（デビュー編）、終わり。思い出コレクションに「後日談」のカードが追加されました。"},
 ];
 playScene(steps, ()=>{
 S.epiDone=true; save();
 pushChat("hiroto","hiroto","なおさん、今日はありがとうございました");
 pushChat("hiroto","hiroto","次の活動も、最初に報告します。……約束です");
-toast("後日談（デビュー編）を読了 🎉 フリーチャット解放中");
+toast("後日談（デビュー編）を読了 🎉 思い出コレクション更新");
 });
 }else{
 pushChat("hiroto","hiroto","なおさん。RBW JAPANの練習生になりました");
@@ -1909,14 +2168,14 @@ const steps=[
 {narr:"言い終わる前に、彼は短く抱きしめた。「行ってきます」――あの日プの夜に交わした約束が、もう一度、更新された。"},
 {narr:"飛行機が、中国・三亜へ向けて飛び立った。担当をデビューさせる戦いは、まだ終わっていない。"},
 {link:["https://v5m44g26fb-sudo.github.io/chuang-uragawa/","▶ 続編『担当をデビューさせる件【創造営編】』へ ― 三亜で、再会する"]},
-{narr:"――後日談（あと一歩編）、終わり。トークで大翔とフリーチャットができるようになりました。"},
+{narr:"――後日談（あと一歩編）、終わり。思い出コレクションに「後日談」のカードが追加されました。"},
 ];
 playScene(steps, ()=>{
 S.epiDone=true; save();
 pushChat("hiroto","hiroto","なおさん。空港に着きました");
 if(V6VOICE.step) pushVoice("hiroto","hiroto",V6VOICE.step.src,V6VOICE.step.dur,V6VOICE.step.cap);
 pushChat("hiroto","hiroto","向こうでも、連絡します。……見ててください");
-toast("後日談（あと一歩編）を読了 🎉 フリーチャット解放中");
+toast("後日談（あと一歩編）を読了 🎉 思い出コレクション更新");
 });
 }
 }
@@ -2077,6 +2336,7 @@ const rows=OFFICIALF.map(o=>({name:o[0],votes:o[1]||0})).concat([{name:"井汲�
 rows.sort((a,b)=>b.votes-a.votes);
 S.hirotoRankF=rows.findIndex(r=>r.name==="井汲大翔")+1;
 S.ending= S.hirotoRankF<=DEBUT_N? "debut": "step";
+metaAddEnding(S.ending);
 save();
 }
 function renderRank3(w){
@@ -2101,7 +2361,7 @@ const rank=i+1; const inz=rank<=DEBUT_N;
 return `<div class="rk-row ${r.me?"me":""}"><div class="rk-num ${rank<=3?"top":""}">${rank}</div><img class="av sm" src="${imgOf(r.name)}"><div class="inf"><div class="nm">${r.name}${r.me?`<span class="zone-tag ${inz?"zone-in":"zone-out"}">${inz?"JO1 デビュー決定":"あと一歩"}</span>`:""}</div><div class="dt">最終順位</div></div><div class="rk-vote"><b>${r.votes==null?"―":r.votes.toLocaleString()}</b><br>票</div></div>`;
 }).join("")+`<div class="rk-note">集計：最終投票（1pick、第4回投票＋生放送投票）の史実結果に、ひろとのIF結果を合わせて再構成した順位です。上位11名の票数は公表値、12位以下の票数は非公表のため「―」としています。デビュー組は「JO1」として2020年3月4日にデビューしました。</div>`;
 }
-function renderRank(){
+function renderRankCore(){
 const w=$("#rank-body");
 if(S.rankedF){ renderFinal(w); return; }
 if(S.ranked3){ renderRank3(w); return; }
@@ -2127,6 +2387,30 @@ const rank=i+1; const inz=rank<=DEBUT_N;
 return `<div class="rk-row ${r.me?"me":""}"><div class="rk-num ${rank<=3?"top":""}">${rank}</div><img class="av sm" src="${imgOf(r.name)}"><div class="inf"><div class="nm">${r.name}${r.me?`<span class="zone-tag ${inz?"zone-in":"zone-out"}">${inz?"デビュー圏内":"圏外"}</span>`:""}</div><div class="dt">第1回順位発表</div></div><div class="rk-vote"><b>${r.votes.toLocaleString()}</b><br>票</div></div>`;
 }).join("")+`<div class="rk-note">集計：第1回国民投票（11pick、2019年9月26日〜10月18日）の史実結果（全60名・票数は公表値）に、ひろとのIF票（放送の分量配分と裏側サポートの効果）を合わせて再構成した順位です。史実では大翔は${HIST_HIROTO_RANK}位（${HIST_HIROTO_VOTES.toLocaleString()}票）でした。デビュー圏は上位${DEBUT_N}名、生き残りラインは60位です。61位以下で脱落した41名は「練習生名簿」で全員確認できます。</div>`;
 }
+/* v8: 順位推移グラフ（史実 vs IF）＋票数カウントアップ */
+function hirotoGraphHTML(){
+const W=344,H=172,L=30,R=10,T=12,B=22, iw=W-L-R, ih=H-T-B, maxR=40;
+const xs=["Ep1","Ep2","Ep3","第1回","Ep6","第2回","第3回","最終"];
+const fact=[12,16,16,19,33,36,null,null];
+const ifs=[null,null,null,S.tr.hiroto.rank||null,null,S.hirotoRank2||null,S.hirotoRank3||null,S.hirotoRankF||null];
+const X=i=>L+iw*i/7, Y=r=>T+ih*(Math.min(r,maxR)-1)/(maxR-1);
+function path(series){ let d="", pen=false; series.forEach((r,i)=>{ if(r==null){ pen=false; return; } d+=(pen?"L":"M")+X(i).toFixed(1)+","+Y(r).toFixed(1)+" "; pen=true; }); return d; }
+function dots(series,color){ return series.map((r,i)=> r==null?"":`<circle cx="${X(i)}" cy="${Y(r)}" r="3.2" fill="${color}"/><text x="${X(i)}" y="${Y(r)-6}" font-size="9.5" fill="${color}" text-anchor="middle" font-weight="700">${r}</text>`).join(""); }
+const grid=[1,11,20,35,40].map(r=>`<line x1="${L}" y1="${Y(r)}" x2="${W-R}" y2="${Y(r)}" stroke="${r===11?"#e6c34a":"#e8ebf0"}" stroke-width="1"/><text x="${L-4}" y="${Y(r)+3}" font-size="8.5" fill="#8e8e93" text-anchor="end">${r}</text>`).join("");
+const xlabs=xs.map((x,i)=>`<text x="${X(i)}" y="${H-6}" font-size="8.5" fill="#8e8e93" text-anchor="middle">${x}</text>`).join("");
+return `<div class="graph-card"><h4>井汲大翔 ― 順位推移グラフ</h4><div class="gl"><span><i></i>この物語（IF）</span><span><i class="f"></i>史実</span></div><svg width="100%" viewBox="0 0 ${W} ${H}"><rect x="${L}" y="${Y(1)}" width="${iw}" height="${Y(11)-Y(1)}" fill="rgba(255,214,10,.14)"/>${grid}<path d="${path(fact)}" fill="none" stroke="#a9a9b3" stroke-width="2" stroke-dasharray="5 4"/>${dots(fact,"#8e8e93")}<path d="${path(ifs)}" fill="none" stroke="#3d7dc4" stroke-width="2.6"/>${dots(ifs,"#16294d")}${xlabs}</svg><div class="graph-note">金色の帯がデビュー圏（11位以内）。史実はEp1速報12位→第1回発表19位→第2回発表36位で脱落。IFの点はあなたの采配で確定した順位です（未確定の回は表示されません）。</div></div>`;
+}
+function animateVotes(scope){
+try{ if(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return; }catch(e){}
+scope.querySelectorAll(".rk-vote b").forEach((b,i)=>{
+const v=parseInt(b.textContent.replace(/,/g,""),10); if(!v) return;
+const delay=Math.min(i*55,1500), dur=780; let t0=null;
+const step=(ts)=>{ if(!t0) t0=ts; const p=(ts-t0-delay)/dur; if(p<0){ b.textContent="0"; requestAnimationFrame(step); return; } if(p>=1){ b.textContent=v.toLocaleString(); return; } const e=1-Math.pow(1-p,3); b.textContent=Math.round(v*e).toLocaleString(); requestAnimationFrame(step); };
+requestAnimationFrame(step);
+});
+}
+function renderRank(){ renderRankCore(); const w=$("#rank-body"); if(w){ w.insertAdjacentHTML("afterbegin", hirotoGraphHTML()); animateVotes(w); } }
+
 /* ================= X / NEWS ================= */
 function buzzList(){
 return TRAINEES.slice().sort((a,b)=>(S.tr[b.id].air*2+S.tr[b.id].att)-(S.tr[a.id].air*2+S.tr[a.id].att));
@@ -2135,57 +2419,120 @@ const ICO_RP='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke
 const ICO_RT='<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#657786" stroke-width="1.8"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>';
 const ICO_HT='<svg width="16" height="16" viewBox="0 0 24 24" fill="#e0245e"><path d="M12 21s-7.5-4.7-10-9.3C.4 8.6 2.3 4.9 5.7 4.9c2 0 3.4 1.1 4.3 2.4.9-1.3 2.3-2.4 4.3-2.4 3.4 0 5.3 3.7 3.7 6.8C19.5 16.3 12 21 12 21z" transform="scale(0.92) translate(1,0.6)"/></svg>';
 const ICO_SH='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#657786" stroke-width="1.8"><path d="M12 15V4m0 0L8 8m4-4l4 4"/><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/></svg>';
-function tweetHTML(p){
+let xTab="feed", curPosts=[], twpMode="tweets";
+function setXTab(t){ xTab=t; renderX(); }
+function tweetHTML(p, idx, plain){
 let n=parseFloat(String(p.f).replace(/,/g,""))||0; if(String(p.f).indexOf("万")>=0) n*=10000;
 const rt=Math.round(n*0.36).toLocaleString(), rp=Math.round(n*0.12).toLocaleString();
 const txt=esc(p.t).replace(/#([^\s#]+)/g,'<span class="tag">#$1</span>');
-return `<div class="xpost"><img class="av" src="assets/default-avatar.svg"><div style="flex:1;min-width:0"><div class="xh"><b>${p.n}</b><span>${p.h}</span></div><div class="xt">${txt}</div><div class="xf"><span>${ICO_RP}${rp}</span><span>${ICO_RT}${rt}</span><span class="lk">${ICO_HT}${p.f}</span><span>${ICO_SH}</span></div></div></div>`;
+const tm=p.tm||["1時間","3時間","5時間","9時間","14時間","21時間"][(idx||0)%6];
+const veri=p.h==="@produce101jp"? ' <span style="color:#1DA1F2;font-size:12px">✔</span>':"";
+return `<div class="xpost"${plain?"":` onclick="openTweet(${idx||0})"`}><img class="av" src="assets/default-avatar.svg"><div style="flex:1;min-width:0"><div class="xh"><b>${p.n}</b>${veri}<span>${p.h} ・ ${tm}</span></div><div class="xt">${txt}</div>${p.img?`<img class="tw-img" src="${p.img}">`:""}<div class="xf"><span>${ICO_RP}${rp}</span><span>${ICO_RT}${rt}</span><span class="lk">${ICO_HT}${p.f}</span><span>${ICO_SH}</span></div></div></div>`;
+}
+const REPLY_POOL=["わかりみが深い…","これほんまにそう","投票完了しました！！","布教させてください、、","泣いた","現場で見てたけど鳥肌やった","国プの鑑すぎる","RT失礼します、これは見てほしい","待って待って待って","語彙力なくなるくらい良かった"];
+function openTweet(i){
+const p=curPosts[i]; if(!p) return;
+const hsh=[...(p.t||"")].reduce((a,c)=>a+c.charCodeAt(0),0);
+const names=["国プの民","ぽん","さくらんぼ","夜更かし国プ","みそ","kpopおじさん","ちな","ゆず茶"];
+const reps=[0,1,2].map(k=>({n:names[(hsh+k*2)%names.length], h:"@fan_"+((hsh*(k+3))%900+100), t:REPLY_POOL[(hsh+k*3)%REPLY_POOL.length], f:String((hsh*(k+2))%180+3), tm:(k+1)+"時間"}));
+$("#xd-body").innerHTML=`<div style="border-bottom:8px solid #f2f2f7">${tweetHTML(p,i,true)}</div><div style="padding:10px 14px;font-weight:800;font-size:13.5px;border-bottom:1px solid #e6ecf0">返信</div>`+reps.map((r,j)=>tweetHTML(r,j,true)).join("");
+show("v-xdetail");
+}
+function renderTrends(w){
+const base=[["PRODUCE 101 JAPAN","5.2万"],["#日プ","3.8万"],["ツカメ","2.1万"],["川尻蓮","9,842"],["国プ","7,315"],["#PRODUCE101JAPAN","6,204"],["岡村隆史","4,930"]];
+const pos= S.beat>=17? 2: (S.beat>=10? 4: 3);
+base.splice(pos,0,["井汲大翔","1.4万"]);
+w.innerHTML=`<div style="padding:13px 14px 4px;font-weight:800;font-size:15.5px">日本のトレンド</div>`+base.map((t,i)=>`<div class="trend-row"><div class="tr-c">${i+1} ・ エンターテインメントのトレンド</div><div class="tr-t">${t[0]}</div><div class="tr-n">${t[1]}件のツイート</div></div>`).join("")+`<div class="rk-note">トレンドは作中の時点（${BEAT_MONTH[Math.min(S.beat,20)]||"2019年"}）の盛り上がりを再現したものです。</div>`;
+}
+function renderNotif(w){
+const items=[
+["💗","<b>推し活お姉さん</b>さんがあなたのツイートをいいねしました","「井汲大翔くんの分量もっとください…お願いします…」"],
+["🔁","<b>DK箱推し</b>さんがあなたのツイートをリツイートしました","「Team DK箱推しは大翔にも票を分けて…！」"],
+["👤","<b>ドンビン情報局</b>さんがあなたをフォローしました",""],
+["💗","<b>票読み垢</b>さんがあなたのツイートをいいねしました","「浦野の死票理論、だいぶ確信に近づいてきた」"],
+["⭐","<b>PRODUCE 101 JAPAN</b>さんが新しいツイートを投稿しました","「第1回投票（11pick）受付中⚡」"],
+["💗","<b>現場レポ垢</b>さんがあなたのツイートをいいねしました","「今日の収録レポ、あとでまとめます」"],
+];
+w.innerHTML=`<div style="padding:13px 14px 4px;font-weight:800;font-size:15.5px">通知</div>`+items.map(n=>`<div class="notif-row"><span class="ni">${n[0]}</span><div><div>${n[1]}</div>${n[2]?`<div class="nt2">${n[2]}</div>`:""}</div></div>`).join("");
+}
+const PROF_POSTS=[
+{n:"PRODUCE 101 JAPAN", h:"@produce101jp", t:"『PRODUCE 101 JAPAN』テーマ曲「ツカメ 〜It's Coming〜」MVを公開中！センターは練習生101人の投票で選ばれた川尻蓮⚡ #PRODUCE101JAPAN #日プ", img:"assets/s1/ren-big.jpg", tm:"10月3日", f:"5.6万"},
+{n:"PRODUCE 101 JAPAN", h:"@produce101jp", t:"第1回順位発表、まもなく開始。101人から60人へ――国プの皆さまの投票結果をお待ちください #PRODUCE101JAPAN", img:"assets/s1/hiroto-big.jpg", tm:"10月25日", f:"3.9万"},
+{n:"PRODUCE 101 JAPAN", h:"@produce101jp", t:"グループバトル「Everybody」チームのステージ写真を公開📸 #PRODUCE101JAPAN #日プ", img:"assets/s1/minhyeok-big.jpg", tm:"11月14日", f:"2.2万"},
+];
+function renderTwProfile(w){
+const media=["assets/s1/ren-big.jpg","assets/s1/hiroto-big.jpg","assets/s1/minhyeok-big.jpg","assets/s1/younghoon-big.jpg","assets/s1/shion-big.jpg","assets/s1/takumi-big.jpg"];
+w.innerHTML=`<div class="twp-head" style="background-image:url('assets/s1/ren-big.jpg')"></div><div class="twp-in"><div class="twp-av">P</div><div class="twp-name">PRODUCE 101 JAPAN <span class="veri">✔</span></div><div class="twp-h">@produce101jp</div><div class="twp-bio">『PRODUCE 101 JAPAN』公式アカウント。国民プロデューサーの皆さまの投票で、デビューする11人が決まります。投票はGYAO!特設サイトから⚡ #PRODUCE101JAPAN #日プ</div><div class="twp-stats"><span><b>4</b> フォロー中</span><span><b>31.6万</b> フォロワー</span></div></div>
+<div class="twp-tabs"><span class="${twpMode==="tweets"?"on":""}" onclick="twpMode='tweets';renderX()">ツイート</span><span class="${twpMode==="media"?"on":""}" onclick="twpMode='media';renderX()">メディア</span></div>
+${twpMode==="media"? `<div class="twp-media">${media.map(m=>`<img src="${m}">`).join("")}</div>`: `<div id="twp-tweets"></div>`}`;
+if(twpMode==="tweets"){ curPosts=PROF_POSTS; const el=document.getElementById("twp-tweets"); if(el) el.innerHTML=PROF_POSTS.map((p,i)=>tweetHTML(p,i)).join(""); }
 }
 function renderX(){
 const w=$("#x-body");
-if(S.beat<5){ w.innerHTML=`<div class="rk-note">放送後にファンの投稿が表示されます。</div>`; return;}
+document.querySelectorAll(".tw-tabs span").forEach(s=>s.classList.toggle("on", s.dataset.xt===xTab));
+document.querySelectorAll(".tw-tabs-b span").forEach((s,i)=>{ s.classList.toggle("on", (xTab==="feed"&&i===0)||(xTab==="trends"&&i===1)||(xTab==="notif"&&i===2)); });
+if(xTab==="trends"){ renderTrends(w); return; }
+if(xTab==="notif"){ renderNotif(w); return; }
+if(xTab==="prof"){ renderTwProfile(w); return; }
+renderXFeed(w);
+}
+function renderXFeed(){
+const w=$("#x-body");
+if(S.beat<5){ curPosts=[]; w.innerHTML=`<div class="rk-note">放送後にファンの投稿が表示されます。</div>`; return;}
 if(S.beat>=17){
 const posts3=[
-{n:"PRODUCE 101 JAPAN", h:"@produce101jp", t:"第3回順位発表の結果、ファイナリスト20名が決定！最終回は12月11日（水）19時からTBS系列で生放送📺 #PRODUCE101JAPAN #日プ", f:"4.1万"},
+{n:"PRODUCE 101 JAPAN", h:"@produce101jp", t:"第3回順位発表の結果、ファイナリスト20名が決定！最終回は12月11日（水）19時からTBS系列で生放送📺 #PRODUCE101JAPAN #日プ", img:"assets/s1/hiroto-big.jpg", tm:"12月6日", f:"4.1万"},
 {n:"現場レポ垢", h:"@genba_repo", t:"コンセプト評価「やんちゃBOY」、センター井汲大翔が想像以上だった。あの子ツカメで泣いてた子だよ…？ 成長が物語になってる", f:"9,870"},
 {n:"推し活お姉さん", h:"@oshi_oneesan", t:"井汲大翔、第3回発表で残った…！！ 19位→36位のはずだった子がファイナルにいる。2pickは1pick目に入れたよ #井汲大翔", f:"1.2万"},
 {n:"票読み垢", h:"@hyoyomi", t:"残留争い、浦野秀太は32位でついに脱落。死票の神様もここまでか。一方で井汲は2pickの「物語の強さ」が出た", f:"3,455"},
 {n:"DK箱推し", h:"@dk_hakooshi", t:"隆士と玲叶は届かなかった…でも2人の分も大翔が幕張に立つ。Team DKの意地を見せてくれ #TeamDK #井汲大翔", f:"2,208"},
 {n:"ドンビン情報局", h:"@dongbin_info", t:"ファイナルは1pick。ドンビンが応援する井汲大翔、最後の一枠の物語はここからが本番", f:"5,540"},
+{n:"実況お姉さん", h:"@jikkyo_101", t:"待って待って待って、やんちゃBOYのセンター大翔だったの！？ 成長物語すぎて泣いてる #やんちゃBOY #井汲大翔", tm:"11月28日", f:"6,120"},
 ];
-w.innerHTML=posts3.map(tweetHTML).join("");
+curPosts=posts3; w.innerHTML=posts3.map((p,i)=>tweetHTML(p,i)).join("");
 return;
 }
 if(S.beat>=10){
 const hair2=S.tr.hiroto.air2||0;
 const posts2=[
-{n:"PRODUCE 101 JAPAN", h:"@produce101jp", t:"グループバトル「Everybody」チームのステージを公開中！第2回投票（11pick）は11月8日まで⚡ #PRODUCE101JAPAN #日プ", f:"2.8万"},
+{n:"PRODUCE 101 JAPAN", h:"@produce101jp", t:"グループバトル「Everybody」チームのステージを公開中！第2回投票（11pick）は11月8日まで⚡ #PRODUCE101JAPAN #日プ", img:"assets/s1/minhyeok-big.jpg", tm:"11月14日", f:"2.8万"},
 {n:"現場レポ垢", h:"@genba_repo", t:"Everybodyチーム、結果は9位だったけど佐藤隆士357票はすごい。井汲大翔も277票で個人2位、ラップ良かった", f:"3,214"},
 {n:"推し活お姉さん", h:"@oshi_oneesan", t:"週次33位まで落ちた井汲大翔が心配で眠れない。Everybodyであんなに良かったのに…物語が届いてない #井汲大翔", f:"7,930"},
 {n:"なおと", h:"@naoto_k_7", t: hair2>=4? "Everybody回、井汲大翔の見せ場ちゃんと放送されてた！ ここから巻き返せる #井汲大翔": "Everybody回、井汲大翔の分量もっと欲しかった…個人2位なのに #井汲大翔", f:"1,208"},
 {n:"票読み垢", h:"@hyoyomi", t:"浦野秀太、今回もボーダーに居座ってる。11pickの埋め草の票ってやつかな。本人は気にしてなさそうなのが、また強い", f:"2,642"},
 {n:"DK箱推し", h:"@dk_hakooshi", t:"Team DK、隆士と玲叶は残れそうだけど大翔が危ない。箱推しは大翔にも票を分けて…！ #TeamDK", f:"1,977"},
-{n:"ドンビン情報局", h:"@dongbin_info", t:"キム・ドンビンが応援してる井汲大翔くん、第2回投票はSMS認証あり。海外ファンは投票できない人も多いはず…国内の国プにかかってる", f:"4,105"},
+{n:"ドンビン情報局", h:"@dongbin_info", t:"キム・ドンビンが応援してる井汲大翔くん、第2回投票はSMS認証あり。海外ファ人は投票できない人も多いはず…国内の国プにかかってる", f:"4,105"},
+{n:"実況お姉さん", h:"@jikkyo_101", t:"Everybodyの大翔、ラップのとこ何回も巻き戻した。あの子こんな顔もするの…？ #Everybody #井汲大翔", tm:"11月14日", f:"2,864"},
 ];
-w.innerHTML=posts2.map(tweetHTML).join("");
+curPosts=posts2; w.innerHTML=posts2.map((p,i)=>tweetHTML(p,i)).join("");
 return;
 }
 const top=buzzList(); const hair=S.tr.hiroto.air;
 const posts=[
-{n:"PRODUCE 101 JAPAN", h:"@produce101jp", t:"『PRODUCE 101 JAPAN』第1話をご覧いただきありがとうございました！第1回投票（11pick）受付中⚡ #PRODUCE101JAPAN #日プ", f:"3.4万"},
+{n:"PRODUCE 101 JAPAN", h:"@produce101jp", t:"『PRODUCE 101 JAPAN』第1話をご覧いただきありがとうございました！第1回投票（11pick）受付中⚡ #PRODUCE101JAPAN #日プ", img:"assets/s1/ren-big.jpg", tm:"10月3日", f:"3.4万"},
 {n:"みかん🍊", h:"@mikan_p_101", t:"ツカメのセンター川尻蓮、納得しかない。101人投票は伊達じゃない #川尻蓮 #PRODUCE101JAPAN", f:"8,204"},
-{n:"推し活お姉さん", h:"@oshi_oneesan", t:"再評価で歌詞が飛んで泣いてた井汲大翔くんが気になって仕方ない。ダンス未経験でC→Dって、そりゃ泣くよ…応援したい #井汲大翔", f:"9,412"},
+{n:"推し活お姉さん", h:"@oshi_oneesan", t:"再評価で歌詞が飛んで泣いてた井汲大翔くんが気になって仕方ない。ダンス未経験でC→Dって、そりゃ泣くよ…応援したい #井汲大翔", img:"assets/s1/hiroto-big.jpg", tm:"10月3日", f:"9,412"},
 {n:"DK箱推し", h:"@dk_hakooshi", t:"Team DKの『Love so sweet』可愛すぎた。高校生組がんばれ…！ #TeamDK #井汲大翔", f:"2,107"},
 {n:"ドンビン情報局", h:"@dongbin_info", t:"PRODUCE X 101のキム・ドンビンが「井汲大翔と川西拓実を応援します」って投稿してる…！ 国境を越えた推し宣言 #井汲大翔 #川西拓実", f:"6,530"},
 {n:"なおと", h:"@naoto_k_7", t: hair>=4? "井汲大翔、分量たっぷりで嬉しい…！ 号泣シーンだけの子じゃないって伝わってる #井汲大翔": "井汲大翔もっと映して…再評価の涙で終わらせないで #井汲大翔", f:"1,540"},
 {n:"現場レポ垢", h:"@genba_repo", t:`今日の収録、${top[0].name}と${top[1].name}の人気がすごかった。あと浦野秀太はなんか毎回11pickの最後に入れちゃう、不思議な存在感`, f:"1,108"},
 {n:"豆粒の母", h:"@mame_no_haha", t:"豆原一成、17歳であの完成度はバグってる。岡山の星 #豆原一成", f:"5,020"},
+{n:"実況お姉さん", h:"@jikkyo_101", t:"再評価の録画見返してるんだけど、歌詞飛んでからの大翔の顔が忘れられない…これは推すしかないやつ #井汲大翔", tm:"10月3日", f:"4,477"},
 ];
-w.innerHTML=posts.map(tweetHTML).join("");
+curPosts=posts; w.innerHTML=posts.map((p,i)=>tweetHTML(p,i)).join("");
 }
+let newsCat="entame";
+const NEWS_GENERAL={
+sports:`<div class="nitem"><div class="src">スポーツ報知 ・ 10/20(日) 18:04</div><div class="hd">ラグビーW杯、日本代表が初の8強入り　「ONE TEAM」で南アフリカに挑む</div><div class="sm">プール戦全勝で決勝トーナメント進出。列島中がラグビーに沸いた秋。</div></div><div class="nitem"><div class="src">日刊スポーツ ・ 9/21(土) 7:30</div><div class="hd">久保建英、マジョルカで存在感　レアル・マドリードからのレンタルで躍動</div><div class="sm">18歳の日本代表MFがスペインで爪痕を残し続けている。</div></div><div class="nitem"><div class="src">スポーツ報知 ・ 8/5(月) 6:12</div><div class="hd">渋野日向子、全英女子オープン優勝　「スマイリング・シンデレラ」に世界が注目</div><div class="sm">日本勢42年ぶりのメジャー制覇。笑顔と勝負強さで一躍時の人に。</div></div>`,
+economy:`<div class="nitem"><div class="src">日本経済新聞 ・ 10/1(火) 9:02</div><div class="hd">消費税10%スタート　軽減税率の線引きで店頭に混乱も</div><div class="sm">食料品などは8%据え置き。イートインとテークアウトで税率が分かれる。</div></div><div class="nitem"><div class="src">時事通信 ・ 11/15(金) 15:40</div><div class="hd">日経平均、2万3000円台を回復　米中協議の進展期待で買い広がる</div><div class="sm">年末に向けた相場の地合いが焦点に。</div></div>`,
+it:`<div class="nitem"><div class="src">ITmedia ・ 9/20(金) 12:15</div><div class="hd">iPhone 11シリーズ発売　トリプルカメラ搭載のProモデルに注目</div><div class="sm">夜間撮影モードの進化が話題。国内キャリアの5Gは来春からの見通し。</div></div><div class="nitem"><div class="src">ケータイ Watch ・ 10/2(水) 17:44</div><div class="hd">キャッシュレス還元事業がスタート　対象店舗で最大5%還元</div><div class="sm">消費増税に合わせたポイント還元。スマホ決済各社の競争も激化。</div></div>`,
+life:`<div class="nitem"><div class="src">朝日新聞 ・ 10/22(火) 13:20</div><div class="hd">即位礼正殿の儀　国内外の賓客が見守るなか厳かに</div><div class="sm">皇居・宮殿で即位を宣言する儀式が行われた。</div></div><div class="nitem"><div class="src">ウェザーニュース ・ 12/1(日) 8:00</div><div class="hd">今年の冬は暖冬傾向　スキー場の雪不足に心配の声</div><div class="sm">年末年始の天気の見通しを気象会社が発表した。</div></div>`,
+world:`<div class="nitem"><div class="src">共同通信 ・ 11/23(土) 10:31</div><div class="hd">日韓GSOMIA、失効を回避　韓国側が終了通告の効力を停止</div><div class="sm">輸出管理をめぐる対立が続くなか、土壇場での判断となった。</div></div><div class="nitem"><div class="src">ロイター ・ 10/31(木) 22:05</div><div class="hd">英国のEU離脱、来年1月末まで再延期　総選挙で打開図る</div><div class="sm">離脱期限の再延長で、英政界の混迷はなお続く。</div></div>`,
+};
 function renderNews(){
 const w=$("#news-body");
 if(S.beat<5){ w.innerHTML=`<div class="rk-note">放送後にニュースが表示されます。</div>`; return;}
+if(newsCat!=="entame" && newsCat!=="top"){ w.innerHTML=NEWS_GENERAL[newsCat]||""; return;}
 if(S.beat>=17){
 w.innerHTML=`
 <div class="nitem" onclick="document.querySelector('#news-c1').style.display='block'"><div class="src">エンタメ速報</div><div class="hd">第3回順位発表、ファイナリスト20名が決定　井汲大翔が初のファイナル進出</div><div class="sm">コンセプト評価でセンターを務めた井汲大翔が、35人→20人の門をくぐった。</div></div>
@@ -2212,63 +2559,105 @@ w.innerHTML=`
 <div class="nitem"><div class="src">テレビ誌オンライン</div><div class="hd">第1回投票は「11pick」　総投票数は3,384万票超、ファンの間では“死票”戦略も話題に</div><div class="sm">1日1回・11人を選ぶ投票方式。推し以外の枠をどう使うか、ファンダムの戦略が順位を左右する。</div></div>`;
 }
 
+const NEWS_HEAD={"news-a1":"「ツカメ」センターは川尻蓮に決定　101人の投票で選ばれた“実力の象徴”","news-a2":"再評価で波乱　歌詞が飛び号泣した井汲大翔に反響「応援したい」の声","news-b1":"グループバトル「Everybody」対決は安藤チームに軍配　井汲チームは9位、佐藤隆士が個人1位","news-b2":"週次速報で井汲大翔が33位に急落　第2回順位発表は「あと1枠」をめぐる攻防に","news-c1":"第3回順位発表、ファイナリスト20名が決定　井汲大翔が初のファイナル進出","news-c2":"コンセプト評価「やんちゃBOY」　センター井汲大翔のステージに反響"};
+const NEWS_META={"news-a1":"10/3(木) 23:14","news-a2":"10/4(金) 0:02","news-b1":"11/14(木) 22:48","news-b2":"11/15(金) 12:30","news-c1":"12/6(金) 0:18","news-c2":"12/5(木) 23:55"};
+const NEWS_COMMENTS=[
+{n:"国プの端くれ",t:"放送で見るのと現場の空気は全然違うらしいけど、この子は画面越しでも伝わってくる何かがある",g:214,b:18},
+{n:"通りすがりのプデュ民",t:"順位だけ見て判断する人多いけど、成長の物語って票になるんだよなぁ",g:156,b:11},
+{n:"48歳主婦",t:"息子と同い年くらいなのでつい応援してしまいます。頑張ってほしい",g:342,b:25},
+{n:"辛口太郎",t:"実力不足は否めない。でも番組としては一番「物語」があるのは確か",g:98,b:41},
+{n:"大阪のおかん",t:"関西の子やから余計に応援したなるわ。泣いてるの見たら投票してもうた",g:187,b:9},
+{n:"票読み専用",t:"11pickの仕組み上、こういう子が残るのは理にかなってる。2pick以降が本番",g:121,b:14},
+];
+function newsRankHTML(){
+const hs=[NEWS_HEAD["news-c1"]||NEWS_HEAD["news-b1"],"ラグビーW杯、日本代表が初の8強入り　列島に歓喜",NEWS_HEAD["news-a2"],"消費税10%スタート　軽減税率の線引きで店頭に混乱も",NEWS_HEAD["news-b2"]||NEWS_HEAD["news-a1"]];
+return `<div class="y-rank"><h4>アクセスランキング</h4>${hs.filter(Boolean).slice(0,5).map((h,i)=>`<div class="yr-row"><span class="yr-n">${i+1}</span><span>${h}</span></div>`).join("")}</div>`;
+}
+function openNewsBody(id){ const b=document.getElementById(id); if(!b) return; b.style.display="block"; b.scrollIntoView({block:"start"}); }
 function decorateNews(){
 document.querySelectorAll("#news-body .nbody").forEach(b=>{
 if(b.querySelector(".nshare")) return;
 b.insertAdjacentHTML("beforeend",'<div class="nshare"><span>🔗 シェア</span><span>💬 コメント</span><span>🔖 ブックマーク</span></div>');
-});
+const id=b.id;
+if(id && NEWS_HEAD[id]){
+const others=Object.keys(NEWS_HEAD).filter(k=>k!==id && document.getElementById(k));
+if(others.length) b.insertAdjacentHTML("beforeend",`<div class="nrel"><h5>関連記事</h5>${others.slice(0,3).map(k=>`<div class="nr-row" onclick="openNewsBody('${k}')">${NEWS_HEAD[k]}</div>`).join("")}</div>`);
+const hsh=[...id].reduce((a,c)=>a+c.charCodeAt(0),0);
+const cs=[0,1,2].map(k=>NEWS_COMMENTS[(hsh+k*2)%NEWS_COMMENTS.length]);
+b.insertAdjacentHTML("beforeend",`<div class="ncom"><h5>コメント欄</h5>${cs.map(c=>`<div class="nc-row"><img src="assets/default-avatar.svg"><div><div class="nc-nm">${c.n}</div><div class="nc-tx">${c.t}</div><div class="nc-lk">そう思う ${c.g} ／ そう思わない ${c.b}</div></div></div>`).join("")}</div>`);
+const item=b.previousElementSibling;
+if(item && item.classList && item.classList.contains("nitem") && NEWS_META[id] && !item.querySelector(".nmeta")) item.insertAdjacentHTML("beforeend",`<div class="sm nmeta" style="color:#999;font-size:11px">${NEWS_META[id]} 配信 ・ 💬 ${120+hsh%380}</div>`);
 }
-/* ================= MEMBERS ================= */
+});
+const nb=$("#news-body");
+if(nb && !nb.querySelector(".y-rank") && (newsCat==="entame"||newsCat==="top")) nb.insertAdjacentHTML("beforeend", newsRankHTML());
+}
+
+/* ================= MEMBERS ================= *//* ================= MEMBERS ================= */
 function renderMembers(){
 const w=$("#members-body");
+const favCount=(S.fav||[]).length;
 const castCards=TRAINEES.map(t=>{
 const st=S.tr[t.id];
-return `<div class="mcard" data-id="${t.id}" data-search="${t.name} ${t.read}"><img src="${t.img}"><div class="nm">${t.name}${t.id==="hiroto"?"（担当）":""}</div><div class="cl">${st.cls}クラス／注目度 ${st.att}${st.rank?`／${st.rank}位`:""}</div></div>`;
+return `<div class="mcard" data-id="${t.id}" data-search="${t.name} ${t.read}"><span class="fav-star ${isFav(t.name)?"on":""}" data-fav="${t.name}">★</span><img src="${t.img}"><div class="nm">${t.name}${t.id==="hiroto"?"（担当）":""}</div><div class="cl">${st.cls}クラス／注目度 ${st.att}${st.rank?`／${st.rank}位`:""}</div></div>`;
 }).join("");
 const rows101=ALL101.filter(o=>!o.cast).map(o=>{
 const img=o.img?`<img class="av sm" src="assets/s1/${o.img}.jpg">`:`<span class="ini">${o.n.charAt(0)}</span>`;
-return `<div class="mrow" data-name="${o.n}" data-search="${o.n} ${o.k}">${img}<div style="min-width:0"><div class="nm">${o.n}</div><div class="dt">${o.a}歳／${o.f}／クラス ${o.c0}→${o.c1}／${o.res}</div></div></div>`;
+return `<div class="mrow" data-name="${o.n}" data-search="${o.n} ${o.k}">${img}<div style="min-width:0"><div class="nm">${o.n}</div><div class="dt">${o.a}歳／${o.f}／クラス ${o.c0}→${o.c1}／${o.res}</div></div><span class="fav-star ${isFav(o.n)?"on":""}" data-fav="${o.n}">★</span></div>`;
 }).join("");
-w.innerHTML=`<div class="m-search"><input id="m-q" placeholder="名前・ふりがなで検索（全101人）" autocomplete="off"></div><div class="m-sec">主要練習生（物語に登場）</div><div class="mgrid">${castCards}</div><div class="m-sec">全練習生データ（史実）― 残りの68人</div><div id="m101">${rows101}</div><div class="rk-note">101人のプロフィール・クラス・順位推移・公表票数は、Wikipedia「PRODUCE 101 JAPAN」の出場者データ等に基づく史実です。写真は番組公式プロフィール写真であることを確認できた人のみ掲載しています（確認できなかった人はイニシャル表示）。</div>`;
+w.innerHTML=`<div class="m-search"><input id="m-q" placeholder="名前・ふりがなで検索（全101人）" autocomplete="off"></div><div class="m-filter"><button id="m-favonly" class="${favOnly?"on":""}">★ 推しメンだけ表示</button><span class="mf-n">登録 ${favCount}人（カード・一覧の★で登録／解除）</span></div><div class="m-sec">主要練習生（物語に登場）</div><div class="mgrid">${castCards}</div><div class="m-sec">全練習生データ（史実）― 残りの68人</div><div id="m101">${rows101}</div><div class="rk-note">101人のプロフィール・クラス・順位推移・公表票数は、Wikipedia「PRODUCE 101 JAPAN」の出場者データ等に基づく史実です。写真は番組公式プロフィール写真であることを確認できた人のみ掲載しています（確認できなかった人はイニシャル表示）。</div>`;
 w.querySelectorAll(".mcard").forEach(c=>c.onclick=()=>openProfile(c.dataset.id));
 w.querySelectorAll(".mrow").forEach(r=>r.onclick=()=>openProfile101(r.dataset.name));
 const q=w.querySelector("#m-q");
-q.addEventListener("input",()=>{
-const v=q.value.trim();
+q.value=memberQuery||"";
+function applyMemberFilter(){
+const v=(memberQuery||"").trim();
 w.querySelectorAll(".mcard,.mrow").forEach(el=>{
-el.style.display=(!v||el.dataset.search.indexOf(v)>=0)?"":"none";
+const okQ=!v||el.dataset.search.indexOf(v)>=0;
+const nm=el.dataset.name||(T[el.dataset.id]?T[el.dataset.id].name:"");
+const okF=!favOnly||isFav(nm);
+el.style.display=(okQ&&okF)?"":"none";
 });
-});
+}
+q.addEventListener("input",()=>{ memberQuery=q.value; applyMemberFilter(); });
+w.querySelectorAll(".fav-star").forEach(s=>s.onclick=(e)=>{ e.stopPropagation(); toggleFav(s.dataset.fav); toast(isFav(s.dataset.fav)? s.dataset.fav+" を推しメンに登録した":"推しメンを解除した"); renderMembers(); });
+const fb=w.querySelector("#m-favonly");
+if(fb) fb.onclick=()=>{ favOnly=!favOnly; fb.classList.toggle("on",favOnly); applyMemberFilter(); };
+applyMemberFilter();
 }
 function openProfile101(name){
 const o=ALL101_BY_NAME[name]; if(!o) return;
+curPf={kind:"101", key:name};
 $("#pf-title").textContent=o.n;
 const eps=["Ep1","Ep2","Ep3","第1回発表","Ep6","第2回発表","Ep9","第3回発表","最終"];
 const pg=o.pg.map(r=>`<td>${r?`<b>${r}位</b>`:"―"}</td>`).join("");
 const vlab=["第1回順位発表","第2回順位発表","第3回順位発表","最終順位発表"];
 const vrows=o.v.map((v,i)=> v? `<div class="meta">${vlab[i]}：${v.toLocaleString()}票</div>`:"").join("");
-const hero=o.img?`<img class="pf-hero" src="assets/s1/${o.img}-big.jpg">`:`<div class="pf-hero-ini">${o.n.charAt(0)}</div>`;
-$("#pf-body").innerHTML=`<div class="pf-wrap">${hero}<div class="pf-in">
+const hero=o.img?`<img class="pf-hero" id="pf-hero" src="assets/s1/${o.img}-big.jpg">`:`<div class="pf-hero-ini">${o.n.charAt(0)}</div>`;
+const strip=o.img?`<div class="pf-strip"><img src="assets/s1/${o.img}-big.jpg" class="on" onclick="setPfHero(this)"><img src="assets/s1/${o.img}.jpg" onclick="setPfHero(this)"></div>`:"";
+$("#pf-body").innerHTML=`<div class="pf-wrap">${hero}${strip}<div class="pf-in">
 <h3>${o.n} <span style="font-size:12px;color:#8e8e93">${o.k}</span></h3>
 <div class="meta">${o.a}歳／${o.f}出身${o.h?`／身長 ${o.h}`:""}${o.w?`／体重 ${o.w}`:""}<br>クラス：レベル分け ${o.c0} → 再評価 ${o.c1}<br>最終結果：${o.res}${o.team?`<br>レベル分け評価のチーム：${o.team}`:""}</div>
 <div class="pf-sec-t">順位推移（史実）</div>
 <table class="prog-tbl"><tr>${eps.map(e=>`<th>${e}</th>`).join("")}</tr><tr>${pg}</tr></table>
 <div class="pf-sec-t">公表されている得票数</div>
 ${vrows||'<div class="meta">公表された票数はありません</div>'}
+${favBtnHTML(o.n)}${o.cast?`<div class="pf-link" onclick="openProfile('${o.cast}')">🎬 物語プロフィールを開く</div>`:""}
 <div class="hist">※このページは史実データの閲覧用です（出典：Wikipedia「PRODUCE 101 JAPAN」出場者データほか）。物語に登場するのは主要練習生33名のみです。${o.img?"":"写真は、同一性に確証が持てる公式プロフィール写真を確認できなかったため、イニシャル表示にしています。"}</div>
 </div></div>`;
 show("v-profile");
 }
 function statRow(lb,v){ return `<div class="stat"><div class="sl">${lb}</div><div class="bar"><i style="width:${v}%"></i></div><div class="sv">${v}</div></div>`;}
 function openProfile(id){
-curProfile=id; const t=T[id], st=S.tr[id];
+curProfile=id; curPf={kind:"cast", key:id}; const t=T[id], st=S.tr[id];
 $("#pf-title").textContent=t.name;
-$("#pf-body").innerHTML=`<div class="pf-wrap"><img class="pf-hero" src="${t.hero||t.img}"><div class="pf-in">
+$("#pf-body").innerHTML=`<div class="pf-wrap"><img class="pf-hero" id="pf-hero" src="${t.hero||t.img}"><div class="pf-strip"><img src="${t.hero||t.img}" class="on" onclick="setPfHero(this)"><img src="${t.img}" onclick="setPfHero(this)"></div><div class="pf-in">
 <h3>${t.name} <span style="font-size:12px;color:#8e8e93">${t.read}</span></h3>
 <div class="meta">${t.age?`${t.age}歳／`:""}${t.from?`${t.from}出身／`:""}クラス：${st.cls}（レベル分け ${t.cls0} → 再評価 ${t.cls1}）／注目度：${st.att}${st.rank?`／現在順位：${st.rank}位`:""}${id==="hiroto"?`<br>ひろと信頼度：${S.trust}／メンタル：${S.mental}`:""}</div>
 ${statRow("ボーカル",t.vo)}${statRow("ダンス",t.da)}${statRow("ラップ",t.ra)}${statRow("ビジュアル",t.vi)}
 <div class="meta" style="margin-top:12px;color:#333;font-size:13px;line-height:1.8">${t.desc}</div>
 <div class="hist">${t.hist}</div>
+${favBtnHTML(t.name)}${prog101HTML(t.name)}
 </div></div>`;
 show("v-profile");
 }
@@ -2276,7 +2665,7 @@ $("#pf-back").onclick=()=>{ renderMembers(); show("v-members");};
 
 /* ================= EDIT ROOM ================= */
 let editDraft=null, editDraft2=null, editDraft3=null;
-function renderEdit(){
+function renderEditCore(){
 const head=$("#ed-head"), w=$("#ed-body"), btn=$("#ed-confirm");
 if(S.beat<4){ head.innerHTML="編集会議はまだ始まっていません。"; w.innerHTML=""; btn.disabled=true; return;}
 const round3 = S.beat>=15 && !S.edit3Done;
@@ -2308,13 +2697,14 @@ head.innerHTML= round3
 : round2
 ? `編集会議（第2ラウンド）：グループバトル回（第6〜7話）の<b>分量ポイント ${EDIT_POINTS}pt</b> を配分してください（残り <b>${EDIT_POINTS-used}pt</b>、1人あたり最大6pt）。<br>第2回順位発表の残留ラインは35位。崖っぷちの大翔に、どんな「物語」を見せるかが勝負です。`
 : `編集会議：放送分の<b>分量ポイント ${EDIT_POINTS}pt</b> を${TRAINEES.length}名に配分してください（残り <b>${EDIT_POINTS-used}pt</b>、1人あたり最大6pt）。<br>分量が多いほど放送で映り、注目度と票が伸びます。第1回投票は11pick——「推しの物語」をどう見せるかが、埋め草の票まで動かします。`;
+head.innerHTML+=edOutlookHTML(round3?3:(round2?2:1), draft);
 btn.disabled = used!==EDIT_POINTS;
 btn.textContent = used===EDIT_POINTS? "この配分で確定する": `あと ${EDIT_POINTS-used}pt 配ってください`;
 w.innerHTML="";
 TRAINEES.forEach(t=>{
 const st=S.tr[t.id];
 const d=document.createElement("div"); d.className="ed-row";
-d.innerHTML=`<img class="av sm" src="${t.img}"><div class="inf"><div class="nm">${t.name}${t.id==="hiroto"?"（担当）":""}</div><div class="dt">${st.cls}クラス／注目度 ${st.att}${round3?`／第1R ${st.air}pt／第2R ${st.air2||0}pt`:(round2?`／第1R ${st.air}pt`:"")}</div></div>
+d.innerHTML=`<img class="av sm" src="${t.img}"><div class="inf"><div class="nm">${t.name}${t.id==="hiroto"?"（担当）":""}</div><div class="dt">${st.cls}クラス／注目度 ${st.att}${round3?`／第1R ${st.air}pt／第2R ${st.air2||0}pt`:(round2?`／第1R ${st.air}pt`:"")}<br><span class="ed-pv">${edPreview(round3?3:(round2?2:1), draft[t.id])}</span></div></div>
 <div class="stepper"><button data-a="-1">−</button><div class="pt">${draft[t.id]}</div><button data-a="1">＋</button></div>`;
 
 d.querySelectorAll("button").forEach(b=>b.onclick=()=>{
@@ -2335,6 +2725,7 @@ TRAINEES.forEach(t=>{
 S.tr[t.id].air3=editDraft3[t.id];
 S.tr[t.id].att += editDraft3[t.id]*2; /* 分量→注目度 */
 });
+S.editHist=S.editHist||[]; S.editHist.push({r:3, items:TRAINEES.filter(t=>editDraft3[t.id]>0).map(t=>[t.name,editDraft3[t.id]])});
 S.edit3Done=true; save();
 pushChat("staff","staff","第3ラウンドの編集データを受け取りました。コンセプト評価回に反映します");
 toast("分量配分（第3ラウンド）を確定した");
@@ -2348,6 +2739,7 @@ TRAINEES.forEach(t=>{
 S.tr[t.id].air2=editDraft2[t.id];
 S.tr[t.id].att += editDraft2[t.id]*2; /* 分量→注目度 */
 });
+S.editHist=S.editHist||[]; S.editHist.push({r:2, items:TRAINEES.filter(t=>editDraft2[t.id]>0).map(t=>[t.name,editDraft2[t.id]])});
 S.edit2Done=true; save();
 pushChat("staff","staff","第2ラウンドの編集データを受け取りました。グループバトル回に反映します");
 toast("分量配分（第2ラウンド）を確定した");
@@ -2359,11 +2751,47 @@ TRAINEES.forEach(t=>{
 S.tr[t.id].air=editDraft[t.id];
 S.tr[t.id].att += editDraft[t.id]*2; /* 分量→注目度 */
 });
+S.editHist=S.editHist||[]; S.editHist.push({r:1, items:TRAINEES.filter(t=>editDraft[t.id]>0).map(t=>[t.name,editDraft[t.id]])});
 S.editDone=true; save();
 pushChat("staff","staff","編集データを受け取りました。ありがとうございます、今夜の放送に反映します");
 toast("分量配分を確定した");
 renderEdit(); renderHome();
 };
+
+function edPreview(round, pt){
+if(pt<=0) return "見通し：変化なし";
+if(round===1) return `見通し：注目度 +${pt*2}／得票 約+${(pt*3.2).toFixed(1)}%`;
+if(round===2) return `見通し：注目度 +${pt*2}／得票 約+${(pt*1.6).toFixed(1)}%`;
+return `見通し：注目度 +${pt*2}／第3回票 約+${(pt*1.2).toFixed(1)}%＋本番の加点要素`;
+}
+function edOutlookHTML(round, draft){
+const pt=draft.hiroto||0; const st=S.tr.hiroto;
+let line="";
+if(round===1){
+const support=Math.max(0, Math.min(0.22, (S.trust-10)*0.004 + Math.max(0,S.mental-70)*0.002));
+const est=Math.round(565892*(1+pt*0.032)*(1+support));
+const rank=1+FACT1.filter(o=>o[0]!=="井汲大翔"&&o[1]>est).length;
+line=`大翔の見通し：分量${pt}ptで約 <b>${est.toLocaleString()}票</b>（史実60名に差し込むと約 <b>${rank}位</b> 相当／史実は19位・565,892票）`;
+}else if(round===2){
+const tb=Math.max(0,(S.trust-55))*0.003 + Math.max(0,S.mental-75)*0.0015;
+const est=Math.round(158000*(1+((st.air||0)+pt)*0.016)*(1+tb+(S.boost2||0)));
+const diff=est-URANO_VOTES2;
+line=`大翔の見通し：約 <b>${est.toLocaleString()}票</b>（残留ライン ${URANO_VOTES2.toLocaleString()}票 ${diff>=0? `を <b>${diff.toLocaleString()}票</b> 上回る見通し` : `まで あと <b>${(-diff).toLocaleString()}票</b>`}）`;
+}else{
+const tb=Math.max(0,(S.trust-55))*0.003 + Math.max(0,S.mental-75)*0.0015;
+const airTotal=(st.air||0)+(st.air2||0)+pt;
+const est=Math.round((st.votes2||170000)*1.15*(1+airTotal*0.012)*(1+tb+(S.boost3||0)*0.004))+(S.conceptBenefit||0);
+const rank=1+FACT3.filter(o=>o[1]>est).length;
+line=`大翔の見通し：約 <b>${est.toLocaleString()}票</b>（第3回の顔ぶれに差し込むと約 <b>${rank}位</b> 相当／残留ラインは20位）`;
+}
+return `<div class="ed-outlook">📊 ${line}<br><span style="color:#a04">※見通しは概算です（実際の結果は当日の揺らぎで前後します）</span></div>`;
+}
+function editHistHTML(){
+if(!S.editHist||!S.editHist.length) return "";
+const rows=S.editHist.map(h=>`<div class="eh-row"><b>第${h.r}ラウンド</b>：${h.items.map(i=>`${i[0]} ${i[1]}pt`).join("、")}（分量1ptごとに注目度+2）</div>`).join("");
+return `<div class="ed-hist"><div class="m-sec">采配履歴（これまでの配分）</div>${rows}</div>`;
+}
+function renderEdit(){ renderEditCore(); const w=$("#ed-body"); if(w && S.editHist && S.editHist.length && !w.querySelector(".ed-hist")) w.insertAdjacentHTML("beforeend", editHistHTML()); }
 
 /* ================= SETTINGS / TITLE ================= */
 $("#set-reset").onclick=()=>{
@@ -2385,7 +2813,7 @@ updateMusicBar();
 };
 $("#set-vol").addEventListener("input",e=>{ SND.vol=+e.target.value; saveSnd(); applyMusicVol(); });
 renderSnd();
-$("#set-about").onclick=()=>{ alert("『担当をデビューさせる件』v7.1\n実在の番組『PRODUCE 101 JAPAN』Season1（2019）を題材にした、ファンメイドのIF物語です。v6では、両エンディング後の「後日談エピローグ」と、エンディング到達後に解放される大翔との「フリーチャット」を追加しました。v6.1ではUIの質感とアニメーション、ステータスゲージ、トークの日付区切り・既読表示などを磨き込みました。v7では、各アプリの見た目を2019年当時の姿（LINE／Twitter／Yahoo!ニュース／iOS 13のノッチ・4G表示・通話画面）に寄せ、練習生101人全員の史実データ（プロフィール・クラス・順位推移・公表票数）を名簿と順位表に収録しました。主人公のなおは高校3年生の制作インターンとして合宿に帯同し、担当練習生・井汲大翔（17歳、学年は1つ下）を裏側から支えます。史実の流れ（レベル分け→ツカメ再評価→ポジション評価→第1回順位発表→グループバトル→第2回順位発表→コンセプト評価→第3回順位発表→ファイナル）をなぞりながら、編集の分量配分と裏側サポートで票と物語を動かし、史実36位の脱落を覆してデビュー圏11位を目指します。登場人物の言動は創作です。\n\nクレジット\n順位発表BGM: \"The Descent\" by Kevin MacLeod (CC-BY)\n課題曲: 嵐「Love so sweet」／PRODUCE 101 JAPAN「ツカメ 〜It's Coming〜」／Hey! Say! JUMP「OVER THE TOP」／SHINee「Everybody」／バブリンチョ「やんちゃBOY やんちゃGIRL」（各公式音源のプレビュー版を使用）");};
+$("#set-about").onclick=()=>{ alert("『担当をデビューさせる件』v8\n実在の番組『PRODUCE 101 JAPAN』Season1（2019）を題材にした、ファンメイドのIF物語です。v8では各アプリを豪華にしました。トークはスタンプ・写真送信・グループ既読人数・トーク内検索・＋メニュー対応。Twitterは公式プロフィール画面・トレンド・通知・ツイート詳細（返信スレッド）・画像付きツイートに対応。Yahoo!ニュースは関連記事・コメント欄・アクセスランキング・カテゴリ別一覧を搭載。順位表には票数カウントアップ演出と、大翔の順位推移グラフ（史実 vs この物語）を追加。名簿では推しメン登録（★）と絞り込み、プロフィールの写真複数表示と101人データ連動を強化。新たに「思い出コレクション」（名場面カード＋両エンディング到達表示）、通話履歴、音楽プレイヤーを追加し、課題曲5曲は公式音源の長尺版に差し替えました。なお、v6で追加したフリーチャットは本人の意向によりv8で廃止しました（セーブデータ互換は維持）。v7では各アプリの見た目を2019年当時の姿（LINE／Twitter／Yahoo!ニュース／iOS 13）に寄せ、練習生101人全員の史実データを収録。主人公のなおは高校3年生の制作インターンとして合宿に帯同し、担当練習生・井汲大翔（17歳、学年は1つ下）を裏側から支えます。史実の流れをなぞりながら、編集の分量配分と裏側サポートで票と物語を動かし、史実36位の脱落を覆してデビュー圏11位を目指します。登場人物の言動は創作です。\n\nクレジット\n順位発表BGM: \"The Descent\" by Kevin MacLeod (CC-BY)\n課題曲: 嵐「Love so sweet」／PRODUCE 101 JAPAN「ツカメ 〜It's Coming〜」／Hey! Say! JUMP「OVER THE TOP」／SHINee「Everybody」／バブリンチョ「やんちゃBOY やんちゃGIRL」（各公式音源の長尺版を使用）");};
 function renderTitle(){
 show("v-title");
 $("#btn-cont").style.display = localStorage.getItem(SAVE_KEY)? "block":"none";
@@ -2397,8 +2825,116 @@ toast("プロローグ開始");
 };
 $("#btn-cont").onclick=()=>{ load(); renderHome(); show("v-home");};
 
+/* v8 realism: 通知バナーをタップしたらそのトークを開く */
+$("#notif-banner").onclick=()=>{ $("#notif-banner").classList.remove("on"); if(_nbRoom) openChat(_nbRoom); };
+
+/* ================= v8: CALL HISTORY ================= */
+function renderCalls(){
+const w=$("#calls-body");
+const log=S.callLog||[];
+if(!log.length){ w.innerHTML=`<div class="rk-note">まだ通話履歴がありません。<br>ストーリー内の通話（順位発表の前夜など）が、ここに記録されます。</div>`; return; }
+w.innerHTML=log.map(c=>`<div class="call-row"><div class="ci2">${c.inc?"📲":"📞"}</div><div style="min-width:0"><div class="cn">${esc(c.n)}</div><div class="cd">${esc(c.d||"")} ・ ${c.inc?"着信":"発信"}</div></div><div class="ct">通話時間<br>${("0"+Math.floor((c.sec||0)/60)).slice(-2)}:${("0"+((c.sec||0)%60)).slice(-2)}</div></div>`).join("")+`<div class="rk-note">通話履歴はこの端末内にのみ保存されます。</div>`;
+}
+
+/* ================= v8: MUSIC PLAYER ================= */
+const TRACK_META={
+love:{artist:"嵐", dur:"4:52", full:true, hook:"♪ Love so sweet\nレベル分け評価（Team DK）の課題曲。\n――公式MV音源・フルバージョン（v8で差し替え）"},
+tsukame:{artist:"PRODUCE 101 JAPAN", dur:"5:46", full:true, hook:"♪ ツカメ 〜It's Coming〜\n番組テーマ曲。再評価のステージで流れる曲。\n――公式チャンネルの長尺音源（v8で差し替え）"},
+ott:{artist:"Hey! Say! JUMP", dur:"4:07", full:true, hook:"♪ OVER THE TOP\nポジション評価（ダンス）の課題曲。\n――公式MV音源・フルバージョン（v8で差し替え）"},
+everybody:{artist:"SHINee", dur:"4:36", full:true, hook:"♪ Everybody\nグループバトルの課題曲。\n――公式MV音源・フルバージョン（v8で差し替え）"},
+yancha:{artist:"バブリンチョ（コンセプト評価）", dur:"3:39", full:true, hook:"♪ やんちゃBOY やんちゃGIRL\nコンセプト評価の課題曲。\n――公式放送ステージ音源（v8で差し替え）"},
+tension:{artist:"Kevin MacLeod「The Descent」(CC-BY)", dur:"0:45", full:false, hook:"♪ 順位発表BGM\n発表シーンでループ再生されます。"},
+};
+function fmtT(s){ if(!isFinite(s)||s<0) s=0; s=Math.floor(s); return Math.floor(s/60)+":"+("0"+(s%60)).slice(-2); }
+function renderMusic(){
+const w=$("#music-body");
+const cur=musicKey? TRACKS[musicKey]: null;
+w.innerHTML=`<div class="pl-now"><div class="pl-t">${cur? esc(cur.title.replace(/^♪ /,"")):"（再生中の曲はありません）"}</div><div class="pl-a">${cur? esc(TRACK_META[musicKey].artist):"下のリストから曲を選んでください"}</div>
+<div class="pl-prog"><i id="pl-fill"></i></div><div class="pl-times"><span id="pl-cur">0:00</span><span id="pl-dur">${cur? TRACK_META[musicKey].dur:"0:00"}</span></div>
+<div class="pl-ctl"><button class="sub2b" id="pl-stop">■</button><button id="pl-play">${musicAu.paused?"▶":"⏸"}</button></div></div>
+${cur? `<div class="pl-lyric"><span class="pl-lt">LYRIC / NOTE</span>
+${esc(TRACK_META[musicKey].hook)}</div>`:""}
+<div class="m-sec">曲目リスト（課題曲）</div>
+${Object.keys(TRACKS).map(k=>{ const m=TRACK_META[k]; return `<div class="pl-row ${musicKey===k?"on":""}" data-k="${k}"><div class="pn"><div class="pt2">${esc(TRACKS[k].title.replace(/^♪ /,""))}${m.full?'<span class="full-badge">FULL</span>':""}</div><div class="pa2">${esc(m.artist)}</div></div><div class="pd2">${m.dur}</div></div>`; }).join("")}
+<div class="rk-note">v8で課題曲5曲を公式音源の長尺版（フルバージョン）に差し替えました。場面に合わせて自動でも流れます。音量は「設定」から変更できます。</div>`;
+w.querySelectorAll(".pl-row").forEach(r=>r.onclick=()=>{ const k=r.dataset.k; if(!SND.on){ toast("設定でサウンドがOFFになっています"); return; } startMusic(k); renderMusic(); });
+const pb=$("#pl-play"); if(pb) pb.onclick=()=>{ if(!musicKey){ toast("まず曲を選んでください"); return; } if(!SND.on){ toast("設定でサウンドがOFFになっています"); return; } if(musicAu.paused) musicAu.play().catch(()=>{}); else musicAu.pause(); renderMusic(); };
+const sb=$("#pl-stop"); if(sb) sb.onclick=()=>{ stopMusic(); renderMusic(); };
+}
+setInterval(()=>{ if(!$("#v-music") || !$("#v-music").classList.contains("on")) return; const f=$("#pl-fill"), c=$("#pl-cur"), d=$("#pl-dur"), pb=$("#pl-play"); if(f&&musicAu.duration) f.style.width=(musicAu.currentTime/musicAu.duration*100)+"%"; if(c) c.textContent=fmtT(musicAu.currentTime); if(d&&musicAu.duration) d.textContent=fmtT(musicAu.duration); if(pb) pb.textContent=musicAu.paused?"▶":"⏸"; },500);
+
+/* ================= v8: GALLERY（思い出コレクション） ================= */
+let galDetail=-1;
+const GALLERY=[
+{t:"坡州の合宿所", s:"プロローグ", img:"assets/s1/hiroto-big.jpg", un:()=>S.beat>=1, lines:["2019年8月、韓国・坡州。高校3年生の制作インターン・なおが帯同した合宿で、担当になったのはTeam DK。","中心は、ダンス未経験の17歳・井汲大翔。物語はここから始まった。"], voice:{src:"assets/vc-intro.mp3",dur:"0:03",cap:"いくみひろとです。……ひろとって、呼んでください"}},
+{t:"可愛いにしか目がいかなくて", s:"レベル分け評価", img:"assets/s1/hiroto-big.jpg", un:()=>S.beat>=2, lines:["Team DK『Love so sweet』。結果はCクラス。","A-NONトレーナーの言葉は「可愛いにしか目がいかなくて」。悔しさと、始まったばかりの手応えが同居した日。"], voice:{src:"assets/vc-level.mp3",dur:"0:10",cap:"終わりました。……Cでした"}},
+{t:"歌詞が飛んだ日", s:"ツカメ再評価", img:"assets/s1/hiroto-big.jpg", un:()=>S.beat>=3, lines:["3日間の練習の果てに臨んだ再評価で、歌詞が飛んだ。","うずくまって泣いた17歳に、トレーナー陣の厳しい言葉。それでも「まだ終わりたくない」が残った。"], voice:{src:"assets/vc-tsukame.mp3",dur:"0:04",cap:"……歌詞、飛びました"}},
+{t:"発表直前の電話", s:"第1回順位発表・直前", img:"assets/s1/hiroto.jpg", un:()=>S.beat>=6, lines:["順位発表の直前、会場入りしたはずの大翔から電話が来た。","「ちょっとだけ声、聞きたくて」――素直な一言と、照れた「忘れてください」。"], voice:{src:"assets/vc-call.mp3",dur:"0:05",cap:"なおさん、ちょっとだけ声、聞きたくて"}},
+{t:"第1回順位発表", s:"ピラミッドの椅子", img:"assets/s1/hiroto-big.jpg", un:()=>!!S.ranked, lines:["101人から60人へ。ピラミッドの椅子に、大翔の名前が残った。","史実では19位通過。この物語では、裏側の分量とサポートが少しだけ運命を動かした。"], voice:{src:"assets/vc-thanks.mp3",dur:"0:02",cap:"ありがとうな。ほんまに"}},
+{t:"Everybody", s:"グループバトル", img:"assets/s1/minhyeok-big.jpg", un:()=>S.beat>=9, lines:["大翔が指名者として組んだチーム。センターはイ・ミンヒョク。","チームは9位に敗れたが、大翔は個人2位（277票）。ラップで見せた、新しい顔。"], music:"everybody"},
+{t:"あと1枠の先", s:"第2回順位発表", img:"assets/s1/hiroto-big.jpg", un:()=>!!S.ranked2, lines:["史実では36位。残留ライン35位・浦野秀太と、たった1枠の差で終わった場所。","この物語で、その1枠の先に何が起きたかは――あなたの采配の結果。"]},
+{t:"本物のセンター", s:"コンセプト評価", img:"assets/s1/hiroto-big.jpg", un:()=>S.beat>=17, lines:["『やんちゃBOY やんちゃGIRL』。史実では立つはずのなかったセンターの場所。","暫定センターの看板を守り抜いて、17歳が本物のセンターとしてステージに立った。"], voice:{src:"assets/vc-yancha.mp3",dur:"0:05",cap:"センター、立てました"}, music:"yancha"},
+{t:"ファイナル前夜", s:"2019年12月10日", img:"assets/s1/hiroto.jpg", un:()=>S.beat>=19, lines:["幕張メッセを前にした最後の夜の電話。","「ここまで来れたの、なおさんのおかげです」――始まりの坡州から、ずっと裏側で支えてきた。"], voice:{src:"assets/vc-final.mp3",dur:"0:07",cap:"明日で全部決まりますね"}},
+{t:"デビュー ― JO1の11人へ", s:"エンディング", end:"debut", img:"assets/s1/hiroto-big.jpg", un:()=>META.endings.indexOf("debut")>=0, lines:["最終順位発表で、上位11人の椅子に井汲大翔が座った。","2020年3月4日、JO1デビューシングル『PROTOSTAR』。最初の報告は、約束どおり、なおのところへ。"], voice:{src:"assets/vc-debut-after.mp3",dur:"0:04",cap:"デビュー、決まりました"}},
+{t:"あと一歩 ― 旅立ち", s:"エンディング", end:"step", img:"assets/s1/hiroto-big.jpg", un:()=>META.endings.indexOf("step")>=0, lines:["デビューには、あと一歩届かなかった。","それでも歩みは止まらない。RBW JBOYZとして、そして中国『創造営2021』へ。続編で、再会する。"], voice:{src:"assets/vc-china.mp3",dur:"0:07",cap:"中国に行ってきます"}},
+];
+function galBack(){ galDetail=-1; renderGallery(); const b=$("#gallery-body"); if(b) b.scrollTop=0; }
+function galPlayMusic(key, btn){ if(musicKey===key && !musicAu.paused){ stopMusic(); btn.textContent="🎵 この場面の曲を再生"; } else { if(!SND.on){ toast("設定でサウンドがOFFになっています"); return; } startMusic(key); btn.textContent="⏸ 曲を止める"; } }
+function renderGallery(){
+const w=$("#gallery-body");
+if(galDetail>=0 && GALLERY[galDetail] && GALLERY[galDetail].un()){
+const g=GALLERY[galDetail];
+w.innerHTML=`<span class="gal-back" onclick="galBack()">‹ コレクションに戻る</span><div class="gal-detail"><img class="gd-hero" src="${g.img}"><div class="gd-in"><div class="gd-ch">${esc(g.s)}</div><h3>${esc(g.t)}</h3>${g.lines.map(l=>`<div class="gd-line">${esc(l)}</div>`).join("")}
+${g.voice?`<div class="msg" style="margin-top:14px"><div class="col" style="max-width:100%"><div class="bub vbub"><button class="vbtn" onclick="toggleVoice(this,'${g.voice.src}')">▶</button><span class="vwave">${voiceBars(g.voice.src.length*13)}</span><span class="vdur">${g.voice.dur}</span></div><div class="vcap">🎤 ${esc(g.voice.cap)}</div></div></div>`:""}
+${g.music?`<button class="gal-play" onclick="galPlayMusic('${g.music}',this)">🎵 この場面の曲を再生（${esc(TRACKS[g.music].title.replace(/^♪ /,""))}）</button>`:""}
+</div></div>`;
+return;
+}
+galDetail=-1;
+const unl=GALLERY.filter(g=>g.un()).length;
+const endLine=`エンディング到達：デビュー編 ${META.endings.indexOf("debut")>=0?"<b>★ 到達</b>":"― 未到達"} ／ あと一歩編 ${META.endings.indexOf("step")>=0?"<b>★ 到達</b>":"― 未到達"}`;
+w.innerHTML=`<div class="gal-head"><div class="gh-t">名場面コレクション</div><div class="gh-s">${endLine}<br>解放済みカード：<b>${unl} / ${GALLERY.length}</b>（物語の進行で解放されます）</div></div><div class="gal-grid">${GALLERY.map((g,i)=>{ const u=g.un(); return `<div class="gal-card ${u?"":"lock"}" data-i="${i}"><img src="${g.img}"><div class="gc-in"><div class="gc-ch">${u? esc(g.s):"？？？"}</div><div class="gc-t">${u? esc(g.t):"未解放のカード"}${g.end?'<span class="gc-end">ENDING</span>':""}</div></div></div>`; }).join("")}</div><div class="rk-note" style="background:#f7f5fb">エンディングカードは、到達したエンディングだけが解放されます。両エンディング到達でコレクション完成です（到達記録はデータをリセットしても残ります）。</div>`;
+w.querySelectorAll(".gal-card").forEach(c=>c.onclick=()=>{ const i=+c.dataset.i; if(!GALLERY[i].un()){ toast("まだ解放されていません（物語を進めると開きます）"); return; } galDetail=i; renderGallery(); });
+}
+
+/* ================= v8: FAVORITES ================= */
+let favOnly=false, memberQuery="";
+function isFav(name){ return (S.fav||[]).indexOf(name)>=0; }
+function toggleFav(name){ S.fav=S.fav||[]; const i=S.fav.indexOf(name); if(i>=0) S.fav.splice(i,1); else S.fav.push(name); save(); }
+let curPf={kind:null,key:null};
+function favBtnHTML(name){ return `<button class="fav-btn ${isFav(name)?"on":""}" onclick="toggleFavProfile('${name.replace(/'/g,"")}')">${isFav(name)?"★ 推しメン登録済み（タップで解除）":"☆ 推しメンに登録"}</button>`; }
+function toggleFavProfile(name){ toggleFav(name); toast(isFav(name)? name+" を推しメンに登録した":"推しメンを解除した"); if(curPf.kind==="cast") openProfile(curPf.key); else if(curPf.kind==="101") openProfile101(curPf.key); }
+function setPfHero(el){ const h=document.getElementById("pf-hero"); if(h) h.src=el.src; if(el.parentElement) el.parentElement.querySelectorAll("img").forEach(i=>i.classList.toggle("on", i===el)); }
+function prog101HTML(name){
+const o=ALL101_BY_NAME[name]; if(!o) return "";
+const eps=["Ep1","Ep2","Ep3","第1回発表","Ep6","第2回発表","Ep9","第3回発表","最終"];
+const pg=o.pg.map(r=>`<td>${r?`<b>${r}位</b>`:"―"}</td>`).join("");
+return `<div class="pf-sec-t">順位推移（史実・101人データ）</div><table class="prog-tbl"><tr>${eps.map(e=>`<th>${e}</th>`).join("")}</tr><tr>${pg}</tr></table><div class="pf-link" onclick="openProfile101('${name}')">📋 101人データの詳細ページを開く</div>`;
+}
+
+/* ================= v8 wiring ================= */
+document.querySelectorAll("[data-home2]").forEach(el=>el.onclick=()=>{ renderHome(); show("v-home"); });
+document.querySelectorAll(".tw-tabs span").forEach(s=>s.onclick=()=>setXTab(s.dataset.xt));
+document.querySelectorAll(".tw-tabs-b span").forEach((s,i)=>s.onclick=()=>{ if(i===0) setXTab("feed"); else if(i===1) setXTab("trends"); else if(i===2) setXTab("notif"); else toast("メッセージはこのアプリでは開けません"); });
+document.querySelectorAll(".y-chips span").forEach(s=>s.onclick=()=>{ document.querySelectorAll(".y-chips span").forEach(x=>x.classList.remove("on")); s.classList.add("on"); newsCat=s.dataset.cat; renderNews(); decorateNews(); });
+$("#xd-back").onclick=()=>{ show("v-x"); renderX(); };
+$("#chat-pbtn").onclick=()=>{ renderCalls(); show("v-calls"); };
+$("#chat-sbtn").onclick=()=>{ const b=$("#chat-searchbar"); const open=b.style.display==="none"; b.style.display=open?"flex":"none"; if(open){ const q=$("#chat-q"); if(q) q.focus(); } else { chatQuery=""; const q=$("#chat-q"); if(q) q.value=""; const n=$("#chat-qn"); if(n) n.textContent=""; renderChat(); } };
+$("#chat-qx").onclick=()=>{ $("#chat-searchbar").style.display="none"; chatQuery=""; $("#chat-q").value=""; $("#chat-qn").textContent=""; renderChat(); };
+$("#chat-q").addEventListener("input",e=>{ chatQuery=e.target.value.trim(); renderChat(); const n=$("#chat-body").querySelectorAll("mark").length; $("#chat-qn").textContent=chatQuery? n+"件":""; const f=$("#chat-body").querySelector("mark"); if(f) f.scrollIntoView({block:"center"}); });
+$("#ci-plus").onclick=()=>{ const p=$("#plus-menu"); const o=p.style.display==="none"; hidePanels(); p.style.display=o?"grid":"none"; };
+$("#ci-stamp").onclick=()=>{ const p=$("#stamp-panel"); const o=p.style.display==="none"; hidePanels(); p.style.display=o?"grid":"none"; };
+$("#ci-photo").onclick=sendPhoto;
+$("#pm-photo").onclick=sendPhoto;
+$("#pm-stamp").onclick=()=>{ hidePanels(); $("#stamp-panel").style.display="grid"; };
+$("#pm-voice").onclick=()=>{ hidePanels(); toast("ボイスメッセージは、トーク内の🎤マークの吹き出しから再生できます"); };
+$("#pm-call").onclick=()=>{ hidePanels(); renderCalls(); show("v-calls"); };
+(function(){ const sp=$("#stamp-panel"); if(!sp) return; ["😊","😂","🥺","😭","💪","🔥","👏","🙏","💤","🍚","🎤","💙","✨","😴","🤔","😳"].forEach(em=>{ const s=document.createElement("span"); s.textContent=em; s.onclick=()=>sendStamp(em); sp.appendChild(s); }); })();
+$("#music-title").style.cursor="pointer";
+$("#music-title").onclick=()=>{ renderMusic(); show("v-music"); };
+
 /* init */
-if(load() && S.beat>0){ renderTitle();} else { S=freshState(); renderTitle();}
+if(load() && S.beat>0){ if(S.ending) metaAddEnding(S.ending); renderTitle();} else { S=freshState(); renderTitle();}
 </script>
 </body>
 </html>
