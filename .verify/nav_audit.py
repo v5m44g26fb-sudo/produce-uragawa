@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
 # Navigation audit harness for produce-uragawa (WebKit, iPhone-equivalent)
+# v8.53 harness repair: page load outgrew the 5s default goto timeout
+# (explicit timeout=60000 now); the settings app is resolved by id
+# because GYAO!/vote were inserted before it in the app grid; the LINE
+# talk-list tab key is data-lt="talk" now (tl = timeline); D2 flips to
+# a post-announcement state in memory because related-article rows
+# need >=2 listed NEWS_HEAD articles (the beat17 list holds one).
 import sys, time, json
 sys.path.insert(0, "/home/hatch/.venv-tools/lib/python3.12/site-packages")
 from playwright.sync_api import sync_playwright
@@ -78,7 +84,7 @@ def main():
         dialogs = []
         page.on("dialog", lambda d: (dialogs.append(d.message), d.accept()))
         page.add_init_script("localStorage.setItem('uragawaMetaV1', JSON.stringify({endings:['debut','step']}))")
-        page.goto(URL)
+        page.goto(URL, timeout=60000)
         page.wait_for_timeout(700)
         expect_view(page, "A0 title shown", "v-title")
         tap(page, "#btn-start")
@@ -118,7 +124,9 @@ def main():
         log("B0c talk search filters (v8.2)", nvis == 1, f"visible={nvis}")
         page.locator("#tl-q").fill("")
         page.wait_for_timeout(150)
-        tap(page, '.line-tabs span[data-lt="tl"]')
+        # v8.53: the LINE tab keys changed since v8.2 (tl = timeline now);
+        # the talk-list tab is data-lt="talk".
+        tap(page, '.line-tabs span[data-lt="talk"]')
         expect_view(page, "B0d LINE deco tab stays (v8.2)", "v-talk")
         tap(page, "#v-talk .troom >> nth=0"); expect_view(page, "B1 open staff chat", "v-chat")
         tap(page, "#chat-back"); expect_view(page, "B2 chat back -> talk", "v-talk")
@@ -239,13 +247,30 @@ def main():
         log("D1c bookmark toggles (v8.2)", bm is True, f"{bm}")
         lk = page.evaluate("""() => { const b=[...document.querySelectorAll('#news-body .nbody')].find(x=>x.style.display==='block'); if(!b) return null; const e=b.querySelector('.nc-lk'); if(!e) return null; const t0=e.textContent; e.click(); const t1=e.textContent; e.click(); return t0+'->'+t1; }""")
         log("D1d comment souomou toggles (v8.2)", bool(lk) and lk.split("->")[0] != lk.split("->")[1], f"{lk}")
-        nrel = page.locator("#news-body .nr-row").count()
-        if nrel:
-            tap(page, "#news-body .nr-row >> nth=0")
-            opened2 = page.evaluate("() => Array.from(document.querySelectorAll('#news-body .nbody')).filter(b => b.style.display === 'block').length")
-            log("D2 related article opens", opened2 > opened, f"open {opened}->{opened2}")
-        else:
-            log("D2 related article opens", False, "no .nr-row found")
+        # v8.53: related rows (.nr-row) render only when >=2 NEWS_HEAD
+        # articles are listed at once; at this seed state (beat17) the
+        # entame list holds just one, so flip to a post-announcement
+        # state in memory (no save) for this check, then restore.
+        d2 = page.evaluate("""() => {
+          const keep={ beat: S.beat, ranked3: S.ranked3 };
+          S.beat=19; S.ranked3=true; renderNews(); decorateNews();
+          let res={ found: false };
+          const items=[...document.querySelectorAll('#news-body .nitem[onclick]')];
+          for(const it of items){
+            it.click();
+            const row=document.querySelector('#news-body .nr-row');
+            if(row){
+              const m=/openNewsBody\\('([^']+)'\\)/.exec(row.getAttribute('onclick')||'');
+              row.click();
+              const tgt=m? document.getElementById(m[1]): null;
+              res={ found: true, key: m && m[1], open: !!(tgt && tgt.style.display==='block') };
+              break;
+            }
+          }
+          S.beat=keep.beat; S.ranked3=keep.ranked3; renderNews(); decorateNews();
+          return res;
+        }""")
+        log("D2 related article opens", bool(d2 and d2["found"] and d2["open"]), f"{d2}")
         tap(page, ".y-chips span[data-cat='sports']")
         log("D3 sports category", "ラグビー" in body_text(page, "#news-body"))
         tap(page, ".y-chips span[data-cat='entame']")
@@ -322,7 +347,10 @@ def main():
         tap(page, "#v-calls .back"); expect_view(page, "J2 calls back -> home", "v-home")
 
         # ---- SETTINGS ----
-        app(9); expect_view(page, "K0 settings", "v-settings")
+        # v8.53: app order changed after this script was written (GYAO!/vote were
+        # inserted before settings), so resolve settings by app id, not by index.
+        app(page.evaluate("() => APPS.findIndex(a=>a.id==='settings')"))
+        expect_view(page, "K0 settings", "v-settings")
         tap(page, "#set-about")
         page.wait_for_timeout(300)
         mo = page.evaluate("() => { const m=document.querySelector('#about-modal'); return m? m.style.display : '(none)'; }")
@@ -347,7 +375,7 @@ def main():
         pg.set_default_timeout(5000)
         pg.on("pageerror", lambda e: errors.append(f"scene pageerror: {e}"))
         pg.on("dialog", lambda d: d.accept())
-        pg.goto(URL); pg.wait_for_timeout(600)
+        pg.goto(URL, timeout=60000); pg.wait_for_timeout(600)
         rtap(pg.locator("#btn-start"), pg, 250)
         rtap(pg.locator("#btn-next"), pg, 400)
         done = False
@@ -390,7 +418,7 @@ def main():
             cp.set_default_timeout(5000)
             cp.on("pageerror", lambda e: errors.append(f"call{H} pageerror: {e}"))
             cp.on("dialog", lambda d: d.accept())
-            cp.goto(URL); cp.wait_for_timeout(500)
+            cp.goto(URL, timeout=60000); cp.wait_for_timeout(500)
             rtap(cp.locator("#btn-start"), cp, 200)
             cp.evaluate("() => startCall(CALL1, null)")
             cp.wait_for_timeout(300)

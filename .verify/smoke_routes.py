@@ -34,6 +34,7 @@
 #     -> r3=21, elim3). On that route: ep12 stays closed on every path,
 #     the rf vote gate is closed, the ep12-linked memory cards stay
 #     locked, the lock screen carries the 21st-place notification.
+#     The vote schedule's final-round chip also stays 受付前 there (v8.53).
 #     Then the Part-3 redo (restoreSnap3) is played through an ending
 #     + epilogue, after which ep12 opens normally.
 #     (ex-v850 D + ex-v849 C; see the v8.50/v8.51 design memos in
@@ -331,10 +332,15 @@ with sync_playwright() as p:
         "デビュー、決まりました" in first.get("text", "") and first.get("card") not in (None, ""),
         first.get("text", "")[:60])
     page.evaluate("() => { const g=document.querySelector('#lk-notifs .lk-ntf.go'); if(g) g.click(); }")
-    page.wait_for_timeout(700)
-    gal = page.evaluate("""() => ({ view: (document.querySelector('.view.on')||{}).id || '',
-      hasTitle: document.body.innerText.includes('タイトルへ戻る'),
-      hasCard: document.body.innerText.includes('デビュー ― JO1の11人へ') })""")
+    # v8.53: poll for the gallery transition (a fixed 700ms wait flaked once)
+    gal = {}
+    for _ in range(12):
+        page.wait_for_timeout(250)
+        gal = page.evaluate("""() => ({ view: (document.querySelector('.view.on')||{}).id || '',
+          hasTitle: document.body.innerText.includes('タイトルへ戻る'),
+          hasCard: document.body.innerText.includes('デビュー ― JO1の11人へ') })""")
+        if gal["hasCard"] and gal["hasTitle"]:
+            break
     log("B6 closing note tap -> gallery card detail (debut card, back-to-title present)",
         gal["hasCard"] and gal["hasTitle"], f"view={gal['view']}")
     page.evaluate("""() => { const bs=[...document.querySelectorAll('button')];
@@ -381,10 +387,15 @@ with sync_playwright() as p:
         "中国に行ってきます" in first.get("text", "") and first.get("go") and first.get("card") not in (None, ""),
         first.get("text", "")[:60])
     page.evaluate("() => { const g=document.querySelector('#lk-notifs .lk-ntf.go'); if(g) g.click(); }")
-    page.wait_for_timeout(700)
-    gal = page.evaluate("""() => ({ view: (document.querySelector('.view.on')||{}).id || '',
-      hasTitle: document.body.innerText.includes('タイトルへ戻る'),
-      hasCard: document.body.innerText.includes('あと一歩 ― 旅立ち') })""")
+    # v8.53: poll for the gallery transition (a fixed 700ms wait flaked once)
+    gal = {}
+    for _ in range(12):
+        page.wait_for_timeout(250)
+        gal = page.evaluate("""() => ({ view: (document.querySelector('.view.on')||{}).id || '',
+          hasTitle: document.body.innerText.includes('タイトルへ戻る'),
+          hasCard: document.body.innerText.includes('あと一歩 ― 旅立ち') })""")
+        if gal["hasCard"] and gal["hasTitle"]:
+            break
     log("C5 closing note tap -> gallery card detail (step card, back-to-title present)",
         gal["hasCard"] and gal["hasTitle"], f"view={gal['view']}")
     page.evaluate("""() => { const bs=[...document.querySelectorAll('button')];
@@ -506,6 +517,12 @@ with sync_playwright() as p:
       .map(e=>e.textContent.replace(/\\s+/g,' ').trim())""")
     log("E8 lock result notification shows 3rd announcement 21st place on elim3",
         any("21位" in t for t in lk), " / ".join(lk)[:120])
+    vchip = page.evaluate("""() => { renderVote();
+      const rows=[...document.querySelectorAll('#vote-body .vt-srow')];
+      const rf=rows.find(e=>{ const n=e.querySelector('.sn'); return n && n.textContent.includes('最終投票'); });
+      return rf? rf.querySelector('.vt-st').textContent: null; }""")
+    log("E8b elim3 vote schedule: final-round chip stays 受付前 (no end-state leak, v8.53)",
+        vchip == "受付前", f"chip={vchip}")
     back_home(page)
     page.evaluate(CLICK, "#btn-next"); page.wait_for_timeout(400)
     st0 = page.evaluate(STATE)
