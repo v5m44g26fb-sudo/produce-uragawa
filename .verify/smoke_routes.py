@@ -23,7 +23,8 @@
 #  D: ELIM route — genuine minimum play WITHOUT the boost2 pick
 #     reaches the 2nd-announcement elimination (r2=36, votes2=162,426,
 #     i.e. 2,453 under the URANO line 164,879; CR2 snapshot at beat11:
-#     trust=24 / mental=97). Home widget/redo button, the lock-screen
+#     trust=24 / mental=97). Home widget/redo button, the home phase
+#     label (stays at the 2nd announcement, v8.54), the lock-screen
 #     result notification and the closed r3/rf vote gates are checked,
 #     then the Part-2 redo (restoreSnap2) is played back to survival.
 #     (ex-v850 B)
@@ -34,7 +35,8 @@
 #     -> r3=21, elim3). On that route: ep12 stays closed on every path,
 #     the rf vote gate is closed, the ep12-linked memory cards stay
 #     locked, the lock screen carries the 21st-place notification.
-#     The vote schedule's final-round chip also stays 受付前 there (v8.53).
+#     The vote schedule's final-round chip also stays 受付前 there (v8.53),
+#     and the home phase label stays at the 3rd announcement (v8.54).
 #     Then the Part-3 redo (restoreSnap3) is played through an ending
 #     + epilogue, after which ep12 opens normally.
 #     (ex-v850 D + ex-v849 C; see the v8.50/v8.51 design memos in
@@ -435,10 +437,13 @@ with sync_playwright() as p:
         cap.get("cr2") == {"beat": 11, "trust": 24, "mental": 97, "boost2": 0, "v2": 162426},
         json.dumps(cap.get("cr2")))
     hw = page.evaluate("""() => ({ w: document.querySelector('#w-main').textContent,
+      phase: document.querySelector('#w-phase').textContent,
       btn: document.querySelector('#btn-next').textContent })""")
     log("D3 home widget + redo button on elim route",
         hw["w"] == "史実と同じ結末――36位。でも、IFは何度でも選び直せる。" and hw["btn"] == "↩ 第2部の始まりからやり直す",
         hw["btn"])
+    log("D3b home phase label on elim route = 第2回順位発表 (story position, v8.54)",
+        hw["phase"] == "第2回順位発表", hw["phase"])
     page.evaluate("() => { renderLock(); show('v-lock'); }"); page.wait_for_timeout(300)
     lk = page.evaluate("""() => [...document.querySelectorAll('#lk-notifs .lk-ntf')]
       .map(e=>e.textContent.replace(/\\s+/g,' ').trim())""")
@@ -524,6 +529,9 @@ with sync_playwright() as p:
     log("E8b elim3 vote schedule: final-round chip stays 受付前 (no end-state leak, v8.53)",
         vchip == "受付前", f"chip={vchip}")
     back_home(page)
+    eph = page.evaluate("() => document.querySelector('#w-phase').textContent")
+    log("E8c home phase label on elim3 route = 第3回順位発表 (story position, v8.54)",
+        eph == "第3回順位発表", eph)
     page.evaluate(CLICK, "#btn-next"); page.wait_for_timeout(400)
     st0 = page.evaluate(STATE)
     log("E9 redo returns to Part-3 start (beat14 snap, elim3 cleared, votes2 kept)",
