@@ -123,6 +123,13 @@ padding:56px 14px 10px;display:flex;align-items:center;gap:10px;border-bottom:1p
 .scene-next{flex:none;padding:10px 16px calc(16px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:8px}
 .scene-next button{border:none;border-radius:14px;padding:13px;font-size:14.5px;font-weight:700;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;cursor:pointer}
 .scene-next button.choice{background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.4)}
+/* ===== music bar / sound settings ===== */
+.music-bar{flex:none;display:flex;align-items:center;gap:10px;padding:10px 16px 0}
+.music-bar button{width:34px;height:34px;border-radius:50%;border:1.5px solid rgba(255,255,255,.5);background:rgba(255,255,255,.12);color:#fff;font-size:12px;cursor:pointer;flex:none}
+.music-bar span{font-size:12px;color:#cfc8e4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.snd-btn{border:1.5px solid var(--accent);background:#fff;color:var(--accent);border-radius:14px;padding:5px 16px;font-weight:700;font-size:13px;cursor:pointer}
+.snd-btn.off{background:#e5e5ea;color:#8e8e93;border-color:#e5e5ea}
+.set-row input[type=range]{accent-color:var(--accent)}
 /* ===== ranking ===== */
 .rk-row{display:flex;align-items:center;gap:11px;padding:11px 14px;border-bottom:1px solid #eee;background:#fff}
 .rk-row.me{background:#fff7d6}
@@ -271,6 +278,7 @@ padding:56px 14px 10px;display:flex;align-items:center;gap:10px;border-bottom:1p
 <!-- SCENE -->
 <div class="view" id="v-scene">
 <div class="scene-body" id="scene-body"></div>
+<div class="music-bar" id="music-bar" style="display:none"><button id="music-toggle">⏸</button><span id="music-title"></span></div>
 <div class="scene-next" id="scene-next"></div>
 </div>
 
@@ -316,9 +324,11 @@ padding:56px 14px 10px;display:flex;align-items:center;gap:10px;border-bottom:1p
 <div class="view" id="v-settings">
 <div class="ahead"><span class="back" data-home>‹</span><div><div class="ttl">設定</div></div></div>
 <div class="abody" style="background:#f2f2f7">
+<div class="set-row" style="cursor:default"><span>サウンド（音楽）</span><button id="set-snd" class="snd-btn">ON</button></div>
+<div class="set-row" style="cursor:default"><span>音量</span><input id="set-vol" type="range" min="0" max="100" step="5" style="flex:1;margin:0 12px"></div>
 <div class="set-row" id="set-about"><span>この作品について</span><span>›</span></div>
 <div class="set-row" id="set-reset"><span class="danger">データを消して最初から</span><span>›</span></div>
-<div style="padding:14px 16px;font-size:11px;color:#8e8e93;line-height:1.7">担当をデビューさせる件 v3<br>※本作品は実在の番組『PRODUCE 101 JAPAN』（2019）と実在の人物を題材にしたファンメイドのIF作品です。史実をもとにしていますが、登場人物の言動や順位の変動は創作を含みます。</div>
+<div style="padding:14px 16px;font-size:11px;color:#8e8e93;line-height:1.7">担当をデビューさせる件 v4<br>※本作品は実在の番組『PRODUCE 101 JAPAN』（2019）と実在の人物を題材にしたファンメイドのIF作品です。史実をもとにしていますが、登場人物の言動や順位の変動は創作を含みます。<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲は各アーティストの公式音源（プレビュー版）を使用しています。</div>
 </div>
 </div>
 
@@ -531,6 +541,7 @@ const $=s=>document.querySelector(s);
 function show(id){
 document.querySelectorAll(".view").forEach(v=>v.classList.remove("on"));
 $("#"+id).classList.add("on");
+if(id!=="v-scene") stopMusic();
 }
 function toast(msg){
 const t=$("#toast"); t.textContent=msg; t.classList.add("on");
@@ -562,11 +573,63 @@ let _curAudio=null;
 function toggleVoice(btn, src){
 const bub=btn.closest(".vbub");
 if(_curAudio && _curAudio._bub && _curAudio._bub!==bub){ try{_curAudio.pause();}catch(e){} _curAudio._bub.classList.remove("playing"); _curAudio._btn.textContent="▶"; }
-if(!bub._au){ const au=new Audio(src); bub._au=au; au._bub=bub; au._btn=btn; au.addEventListener("ended",()=>{ bub.classList.remove("playing"); btn.textContent="▶"; }); }
+if(!bub._au){ const au=new Audio(src); bub._au=au; au._bub=bub; au._btn=btn; au.addEventListener("ended",()=>{ bub.classList.remove("playing"); btn.textContent="▶"; duckMusic(false); }); }
 const au=bub._au;
-if(au.paused){ au.play(); _curAudio=au; bub.classList.add("playing"); btn.textContent="⏸"; }
-else{ au.pause(); bub.classList.remove("playing"); btn.textContent="▶"; }
+au.volume=SND.vol/100;
+if(au.paused){ au.play(); _curAudio=au; bub.classList.add("playing"); btn.textContent="⏸"; duckMusic(true); }
+else{ au.pause(); bub.classList.remove("playing"); btn.textContent="▶"; duckMusic(false); }
 }
+/* ================= MUSIC ================= */
+/* 楽曲の差し替えはTRACKSのsrcだけを変更すればよい（長尺版が用意できたら同じ場所のファイルを置換） */
+const TRACKS={
+love:{src:"assets/music/love-so-sweet.mp3", title:"♪ Love so sweet / 嵐 ― レベル分け評価"},
+tsukame:{src:"assets/music/tukame.mp3", title:"♪ ツカメ 〜It's Coming〜 ― テーマ曲"},
+ott:{src:"assets/music/over-the-top.mp3", title:"♪ OVER THE TOP / Hey! Say! JUMP ― ポジション評価"},
+everybody:{src:"assets/music/everybody.mp3", title:"♪ Everybody / SHINee ― グループバトル"},
+tension:{src:"assets/music/bgm-tension.mp3", title:"♪ 順位発表BGM", loop:true},
+};
+const BEAT_MUSIC={1:"love",2:"tsukame",3:"ott",6:"tension",8:"everybody",13:"tension"};
+const SND_KEY="uragawaSoundV1";
+let SND={on:true, vol:80};
+try{ const d=JSON.parse(localStorage.getItem(SND_KEY)); if(d) SND=Object.assign(SND,d); }catch(e){}
+function saveSnd(){ try{ localStorage.setItem(SND_KEY, JSON.stringify(SND)); }catch(e){} }
+const musicAu=new Audio(); musicAu.preload="auto";
+let musicKey=null, musicDuck=false;
+function musicVol(){ return (SND.vol/100)*(musicDuck?0.25:1); }
+function applyMusicVol(){ try{ musicAu.volume=musicVol(); }catch(e){} }
+function startMusic(key){
+const tr=TRACKS[key]; if(!tr) return;
+musicKey=key;
+if(musicAu._key!==key){ musicAu.src=tr.src; musicAu._key=key; musicAu.loop=!!tr.loop; }
+try{ musicAu.currentTime=0; }catch(e){}
+applyMusicVol();
+if(SND.on){ musicAu.play().catch(()=>{}); }
+updateMusicBar();
+}
+function stopMusic(){
+musicKey=null;
+try{ musicAu.pause(); }catch(e){}
+updateMusicBar();
+}
+function duckMusic(on){ musicDuck=on; applyMusicVol(); }
+function updateMusicBar(){
+const bar=$("#music-bar"); if(!bar) return;
+if(musicKey && $("#v-scene").classList.contains("on")){
+bar.style.display="flex";
+$("#music-title").textContent=TRACKS[musicKey].title;
+$("#music-toggle").textContent=musicAu.paused? "▶":"⏸";
+}else{ bar.style.display="none"; }
+}
+musicAu.addEventListener("play",updateMusicBar);
+musicAu.addEventListener("pause",updateMusicBar);
+musicAu.addEventListener("ended",updateMusicBar);
+$("#music-toggle").onclick=()=>{
+if(!musicKey) return;
+if(!SND.on){ toast("設定でサウンドがOFFになっています"); return; }
+if(musicAu.paused){ musicAu.play().catch(()=>{}); } else { musicAu.pause(); }
+updateMusicBar();
+};
+
 function whoName(who){
 if(who==="pd") return "PD";
 if(who==="staff") return "先輩スタッフ";
@@ -726,6 +789,8 @@ let sceneQueue=[], sceneDone=null;
 function playScene(steps, done){
 sceneQueue=steps.slice(); sceneDone=done;
 $("#scene-body").innerHTML=""; show("v-scene");
+const mk=BEAT_MUSIC[S.beat];
+if(mk) startMusic(mk); else stopMusic();
 nextStep();
 }
 function nextStep(){
@@ -1472,7 +1537,20 @@ localStorage.removeItem(SAVE_KEY); S=freshState(); editDraft=null; editDraft2=nu
 renderTitle(); toast("リセットしました");
 }
 };
-$("#set-about").onclick=()=>{ alert("『担当をデビューさせる件』v3\n実在の番組『PRODUCE 101 JAPAN』Season1（2019）を題材にした、ファンメイドのIF物語です。主人公のなおは高校3年生の制作インターンとして合宿に帯同し、担当練習生・井汲大翔（17歳、学年は1つ下）を裏側から支えます。史実の流れ（レベル分け→ツカメ再評価→ポジション評価→第1回順位発表→グループバトル→第2回順位発表）をなぞりながら、編集の分量配分と裏側サポートで票と物語を動かし、史実36位の脱落を覆してデビュー圏11位を目指します。登場人物の言動は創作です。");};
+function renderSnd(){
+$("#set-snd").textContent=SND.on?"ON":"OFF";
+$("#set-snd").classList.toggle("off",!SND.on);
+$("#set-vol").value=SND.vol;
+}
+$("#set-snd").onclick=()=>{
+SND.on=!SND.on; saveSnd(); renderSnd();
+if(!SND.on){ try{musicAu.pause();}catch(e){} }
+else if(musicKey){ musicAu.play().catch(()=>{}); }
+updateMusicBar();
+};
+$("#set-vol").addEventListener("input",e=>{ SND.vol=+e.target.value; saveSnd(); applyMusicVol(); });
+renderSnd();
+$("#set-about").onclick=()=>{ alert("『担当をデビューさせる件』v4\n実在の番組『PRODUCE 101 JAPAN』Season1（2019）を題材にした、ファンメイドのIF物語です。主人公のなおは高校3年生の制作インターンとして合宿に帯同し、担当練習生・井汲大翔（17歳、学年は1つ下）を裏側から支えます。史実の流れ（レベル分け→ツカメ再評価→ポジション評価→第1回順位発表→グループバトル→第2回順位発表）をなぞりながら、編集の分量配分と裏側サポートで票と物語を動かし、史実36位の脱落を覆してデビュー圏11位を目指します。登場人物の言動は創作です。\n\nクレジット\n順位発表BGM: \"The Descent\" by Kevin MacLeod (CC-BY)\n課題曲: 嵐「Love so sweet」／PRODUCE 101 JAPAN「ツカメ 〜It's Coming〜」／Hey! Say! JUMP「OVER THE TOP」／SHINee「Everybody」（各公式音源のプレビュー版を使用）");};
 function renderTitle(){
 show("v-title");
 $("#btn-cont").style.display = localStorage.getItem(SAVE_KEY)? "block":"none";
