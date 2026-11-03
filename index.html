@@ -445,6 +445,10 @@ button:active{transform:scale(.965)}
 .am-body{font-size:12.5px;line-height:1.75;color:#333}
 #about-close{margin-top:12px;width:100%;border:none;background:#007aff;color:#fff;font-weight:700;font-size:14px;border-radius:10px;padding:10px;cursor:pointer;font-family:inherit}
 
+/* ===== v8.3: Twitterヘッダーのスクロール連動・プロフィールの登録月 ===== */
+#v-x .tw-head{will-change:margin-top}
+.twp-joined{margin-left:14px}
+
 /* ===== v7.1 hotfix: 通話画面の下切れ修正（実機で進行不能になる問題） ===== */
 .call-sub{flex:0 1 auto;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch}
 .call-choices{max-height:30vh;overflow-y:auto}
@@ -772,8 +776,8 @@ button:active{transform:scale(.965)}
 <div class="set-row" style="cursor:default"><span>音量</span><input id="set-vol" type="range" min="0" max="100" step="5" style="flex:1;margin:0 12px"></div>
 <div class="set-row" id="set-about"><span>この作品について</span><span>›</span></div>
 <div class="set-row" id="set-reset"><span class="danger">データを消して最初から</span><span>›</span></div>
-<div style="padding:14px 16px;font-size:11px;color:#8e8e93;line-height:1.7">担当をデビューさせる件 v8.2<br>※v8.2：全アプリの実物寄せをさらに深化（Twitterの2019年仕様ヘッダーとスパークル切替・いいね／リツイートのトグル・ツイート詳細の時刻と件数、ニュースのサムネイルとコメント反応、音楽プレイヤーのシーク・前後送り、トーク一覧の検索と時刻表示）。プロフィールの「戻る」も開いた場所に戻るよう改善。<br>※v8：各アプリの豪華化（トークのスタンプ・写真送信・既読人数・検索／Twitterのプロフィール・トレンド・通知・ツイート詳細／ニュースの関連記事・コメント・アクセスランキング）、思い出コレクション、順位推移グラフ、推しメン登録、通話履歴、音楽プレイヤーを追加。課題曲5曲は公式音源の長尺版に差し替え。本人の意向により、v6で追加したフリーチャットは廃止しました。<br>※本作品は実在の番組『PRODUCE 101 JAPAN』（2019）と実在の人物を題材にしたファンメイドのIF作品です。史実をもとにしていますが、登場人物の言動や順位の変動は創作を含みます。<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲は各アーティストの公式音源（長尺版）を使用しています。</div>
-<div class="about-modal" id="about-modal" style="display:none"><div class="am-card"><div class="am-t">『担当をデビューさせる件』v8.2</div><div class="am-body">実在の番組『PRODUCE 101 JAPAN』Season1（2019）を題材にした、ファンメイドのIF物語です。<br>v8では各アプリを豪華にしました。トークはスタンプ・写真送信・グループ既読人数・トーク内検索・＋メニュー対応。Twitterは公式プロフィール画面・トレンド・通知・ツイート詳細（返信スレッド）・画像付きツイートに対応。Yahoo!ニュースは関連記事・コメント欄・アクセスランキング・カテゴリ別一覧を搭載。順位表には票数カウントアップ演出と、大翔の順位推移グラフ（史実 vs この物語）を追加。名簿では推しメン登録（★）と絞り込み、プロフィールの写真複数表示と101人データ連動を強化。新たに「思い出コレクション」（名場面カード＋両エンディング到達表示）、通話履歴、音楽プレイヤーを追加し、課題曲5曲は公式音源の長尺版に差し替えました。なお、v6で追加したフリーチャットは本人の意向によりv8で廃止しました（セーブデータ互換は維持）。<br>v8.2では全アプリの実物寄せをさらに深めました。Twitterは2019年当時のヘッダー（アバター＋「ホーム」＋スパークル切替）と下部タブ構成に寄せ、いいね／リツイートのトグル、ツイート詳細の時刻・件数表示、プロフィールのフォローボタンを実装。Yahoo!ニュースは記事サムネイルとカテゴリタブ、シェア／ブックマーク／コメントの「そう思う」に反応を持たせ、音楽プレイヤーはシークと前後の曲送りに対応。トーク一覧には検索と最終メッセージ時刻を追加し、プロフィールの「戻る」は開いた場所に戻るようになりました。<br>v7では各アプリの見た目を2019年当時の姿（LINE／Twitter／Yahoo!ニュース／iOS 13）に寄せ、練習生101人全員の史実データを収録。主人公のなおは高校3年生の制作インターンとして合宿に帯同し、担当練習生・井汲大翔（17歳、学年は1つ下）を裏側から支えます。史実の流れをなぞりながら、編集の分量配分と裏側サポートで票と物語を動かし、史実36位の脱落を覆してデビュー圏11位を目指します。登場人物の言動は創作です。<br><br>クレジット<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲: 嵐「Love so sweet」／PRODUCE 101 JAPAN「ツカメ 〜It's Coming〜」／Hey! Say! JUMP「OVER THE TOP」／SHINee「Everybody」／バブリンチョ「やんちゃBOY やんちゃGIRL」（各公式音源の長尺版を使用）</div><button id="about-close">閉じる</button></div></div>
+<div style="padding:14px 16px;font-size:11px;color:#8e8e93;line-height:1.7">担当をデビューさせる件 v8.3<br>※v8.3：Twitterヘッダーのスクロール連動（下スクロールで隠れ、上スクロールで復帰する2019年実物の挙動）と、公式プロフィールへの登録月（2019年4月）表示を追加。新規ボイス2本（第3回発表後／デビューエンディング）も収録。<br>※v8.2：全アプリの実物寄せをさらに深化（Twitterの2019年仕様ヘッダーとスパークル切替・いいね／リツイートのトグル・ツイート詳細の時刻と件数、ニュースのサムネイルとコメント反応、音楽プレイヤーのシーク・前後送り、トーク一覧の検索と時刻表示）。プロフィールの「戻る」も開いた場所に戻るよう改善。<br>※v8：各アプリの豪華化（トークのスタンプ・写真送信・既読人数・検索／Twitterのプロフィール・トレンド・通知・ツイート詳細／ニュースの関連記事・コメント・アクセスランキング）、思い出コレクション、順位推移グラフ、推しメン登録、通話履歴、音楽プレイヤーを追加。課題曲5曲は公式音源の長尺版に差し替え。本人の意向により、v6で追加したフリーチャットは廃止しました。<br>※本作品は実在の番組『PRODUCE 101 JAPAN』（2019）と実在の人物を題材にしたファンメイドのIF作品です。史実をもとにしていますが、登場人物の言動や順位の変動は創作を含みます。<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲は各アーティストの公式音源（長尺版）を使用しています。</div>
+<div class="about-modal" id="about-modal" style="display:none"><div class="am-card"><div class="am-t">『担当をデビューさせる件』v8.3</div><div class="am-body">実在の番組『PRODUCE 101 JAPAN』Season1（2019）を題材にした、ファンメイドのIF物語です。<br>v8では各アプリを豪華にしました。トークはスタンプ・写真送信・グループ既読人数・トーク内検索・＋メニュー対応。Twitterは公式プロフィール画面・トレンド・通知・ツイート詳細（返信スレッド）・画像付きツイートに対応。Yahoo!ニュースは関連記事・コメント欄・アクセスランキング・カテゴリ別一覧を搭載。順位表には票数カウントアップ演出と、大翔の順位推移グラフ（史実 vs この物語）を追加。名簿では推しメン登録（★）と絞り込み、プロフィールの写真複数表示と101人データ連動を強化。新たに「思い出コレクション」（名場面カード＋両エンディング到達表示）、通話履歴、音楽プレイヤーを追加し、課題曲5曲は公式音源の長尺版に差し替えました。なお、v6で追加したフリーチャットは本人の意向によりv8で廃止しました（セーブデータ互換は維持）。<br>v8.3ではTwitterのヘッダーにスクロール連動（下スクロールでせり上がって隠れ、上スクロールで戻ってくる、2019年当時の挙動）を実装し、公式アカウントのプロフィールに登録月（2019年4月から利用しています）を追加。新規ボイス2本（第3回順位発表後の決意と、デビューエンディング後の感謝）も収録しました。<br>v8.2では全アプリの実物寄せをさらに深めました。Twitterは2019年当時のヘッダー（アバター＋「ホーム」＋スパークル切替）と下部タブ構成に寄せ、いいね／リツイートのトグル、ツイート詳細の時刻・件数表示、プロフィールのフォローボタンを実装。Yahoo!ニュースは記事サムネイルとカテゴリタブ、シェア／ブックマーク／コメントの「そう思う」に反応を持たせ、音楽プレイヤーはシークと前後の曲送りに対応。トーク一覧には検索と最終メッセージ時刻を追加し、プロフィールの「戻る」は開いた場所に戻るようになりました。<br>v7では各アプリの見た目を2019年当時の姿（LINE／Twitter／Yahoo!ニュース／iOS 13）に寄せ、練習生101人全員の史実データを収録。主人公のなおは高校3年生の制作インターンとして合宿に帯同し、担当練習生・井汲大翔（17歳、学年は1つ下）を裏側から支えます。史実の流れをなぞりながら、編集の分量配分と裏側サポートで票と物語を動かし、史実36位の脱落を覆してデビュー圏11位を目指します。登場人物の言動は創作です。<br><br>クレジット<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲: 嵐「Love so sweet」／PRODUCE 101 JAPAN「ツカメ 〜It's Coming〜」／Hey! Say! JUMP「OVER THE TOP」／SHINee「Everybody」／バブリンチョ「やんちゃBOY やんちゃGIRL」（各公式音源の長尺版を使用）</div><button id="about-close">閉じる</button></div></div>
 </div>
 </div>
 
@@ -2118,6 +2122,7 @@ S.ranked3=true;
 if(surv){
 S.beat=18; save();
 pushChat("hiroto","hiroto","なおさん。ファイナル、決まりました");
+pushVoice("hiroto","hiroto","assets/vc-madaowarenai.mp3","0:03","……聞いてください。俺、まだ終われないです");
 pushChat("hiroto","hiroto","あと少しです。……あと少しだけ、隣にいてください");
 pushChat("dk","ryuji","大翔、幕張は任せた。俺らの分も立つんやぞ");
 pushChat("dk","reito","大翔のセンター、ちゃんと見届けた。……ファイナル、絶対見に行く");
@@ -2180,6 +2185,7 @@ playScene(steps, ()=>{
 S.rankedF=true; S.beat=20; save();
 if(debut){
 pushChat("hiroto","hiroto","なおさん。デビュー、決まりました");
+pushVoice("hiroto","hiroto","assets/vc-okage.mp3","0:02","なおさんのおかげで、ここまで来れました");
 pushChat("hiroto","hiroto","約束、忘れません。……これからも、よろしくお願いします");
 toast("完結 🎉 デビューエンディング");
 }else{
@@ -2586,13 +2592,14 @@ const PROF_POSTS=[
 ];
 function renderTwProfile(w){
 const media=["assets/s1/ren-big.jpg","assets/s1/hiroto-big.jpg","assets/s1/minhyeok-big.jpg","assets/s1/younghoon-big.jpg","assets/s1/shion-big.jpg","assets/s1/takumi-big.jpg"];
-w.innerHTML=`<div class="twp-head" style="background-image:url('assets/s1/ren-big.jpg')"></div><div class="twp-in"><button class="twp-follow${twFollow?" on":""}" id="twp-follow">${twFollow?"フォロー中":"フォローする"}</button><div class="twp-av">P</div><div class="twp-name">PRODUCE 101 JAPAN ${vbadgeSVG()}</div><div class="twp-h">@produce101jp</div><div class="twp-bio">『PRODUCE 101 JAPAN』公式アカウント。国民プロデューサーの皆さまの投票で、デビューする11人が決まります。投票はGYAO!特設サイトから⚡ #PRODUCE101JAPAN #日プ</div><div class="twp-stats"><span><b>4</b> フォロー中</span><span><b>31.6万</b> フォロワー</span></div><div class="twp-meta">🔗 <a href="https://produce101.jp" target="_blank" rel="noopener">produce101.jp</a></div></div>
+w.innerHTML=`<div class="twp-head" style="background-image:url('assets/s1/ren-big.jpg')"></div><div class="twp-in"><button class="twp-follow${twFollow?" on":""}" id="twp-follow">${twFollow?"フォロー中":"フォローする"}</button><div class="twp-av">P</div><div class="twp-name">PRODUCE 101 JAPAN ${vbadgeSVG()}</div><div class="twp-h">@produce101jp</div><div class="twp-bio">『PRODUCE 101 JAPAN』公式アカウント。国民プロデューサーの皆さまの投票で、デビューする11人が決まります。投票はGYAO!特設サイトから⚡ #PRODUCE101JAPAN #日プ</div><div class="twp-stats"><span><b>4</b> フォロー中</span><span><b>31.6万</b> フォロワー</span></div><div class="twp-meta">🔗 <a href="https://produce101.jp" target="_blank" rel="noopener">produce101.jp</a><span class="twp-joined">📅 2019年4月から利用しています</span></div></div>
 <div class="twp-tabs"><span class="${twpMode==="tweets"?"on":""}" onclick="twpMode='tweets';renderX()">ツイート</span><span class="${twpMode==="media"?"on":""}" onclick="twpMode='media';renderX()">メディア</span></div>
 ${twpMode==="media"? `<div class="twp-media">${media.map(m=>`<img src="${m}">`).join("")}</div>`: `<div id="twp-tweets"></div>`}`;
 if(twpMode==="tweets"){ curPosts=PROF_POSTS; const el=document.getElementById("twp-tweets"); if(el) el.innerHTML='<div class="pin-label">📌 固定されたツイート</div>'+PROF_POSTS.map((p,i)=>tweetHTML(p,i)).join(""); }
 const fb=document.getElementById("twp-follow"); if(fb) fb.onclick=()=>{ twFollow=!twFollow; fb.classList.toggle("on",twFollow); fb.textContent=twFollow?"フォロー中":"フォローする"; toast(twFollow? "PRODUCE 101 JAPANをフォローしました":"フォローを解除しました"); };
 }
 function renderX(){
+twHeadReset();
 const w=$("#x-body");
 const tt=$("#tw-title"); if(tt) tt.textContent= xTab==="feed"? (twMode==="latest"? "最新ツイート":"ホーム"): (xTab==="trends"? "検索": xTab==="notif"? "通知":"プロフィール");
 document.querySelectorAll(".tw-tabs-b span").forEach((s,i)=>{ s.classList.toggle("on", (xTab==="feed"&&i===0)||(xTab==="trends"&&i===1)||(xTab==="notif"&&i===2)); });
@@ -3090,6 +3097,23 @@ $("#tl-plus").onclick=()=>toast("新しいトークはこのアプリでは作�
 document.querySelectorAll(".call-grid div").forEach(d=>d.onclick=()=>d.classList.toggle("on"));
 document.querySelectorAll(".call-incoming div").forEach(d=>d.onclick=()=>toast("この機能はこのアプリでは使えません"));
 document.querySelectorAll(".tw-tabs-b span").forEach((s,i)=>s.onclick=()=>{ if(i===0) setXTab("feed"); else if(i===1) setXTab("trends"); else if(i===2) setXTab("notif"); else toast("メッセージはこのアプリでは開けません"); });
+/* v8.3: Twitterヘッダーのスクロール連動（2019年実物の挙動：下スクロールでヘッダーがせり上がって隠れ、上スクロールで即座に戻る）。
+   戻り導線の安全策：①上方向スクロールで比率どおり即復帰 ②最上部では必ず全表示 ③タブ切替・再表示（renderX）で必ず全表示にリセット
+   ④下部タブバーとホームバーは常時表示のまま（ヘッダーは隠さない対象にしない） */
+let twHeadOff=0, twLastTop=0;
+function twHeadReset(){ twHeadOff=0; const th=document.querySelector("#v-x .tw-head"); if(th) th.style.marginTop="0px"; const xb=$("#x-body"); twLastTop= xb? xb.scrollTop:0; }
+(function(){
+const xb=$("#x-body"); if(!xb) return;
+const th=document.querySelector("#v-x .tw-head"); if(!th) return;
+xb.addEventListener("scroll",()=>{
+const st=xb.scrollTop;
+const h=th.offsetHeight||98;
+if(st<=0) twHeadOff=0;
+else twHeadOff=Math.max(0, Math.min(h, twHeadOff+(st-twLastTop)));
+twLastTop=st;
+th.style.marginTop=(-twHeadOff)+"px";
+},{passive:true});
+})();
 document.querySelectorAll(".y-chips span").forEach(s=>s.onclick=()=>{ document.querySelectorAll(".y-chips span").forEach(x=>x.classList.remove("on")); s.classList.add("on"); newsCat=s.dataset.cat; renderNews(); decorateNews(); });
 $("#xd-back").onclick=()=>{ show("v-x"); renderX(); };
 $("#chat-pbtn").onclick=()=>{ renderCalls(); show("v-calls"); };
