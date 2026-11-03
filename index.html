@@ -126,6 +126,7 @@ input,textarea{font-size:16px!important}
 .scene-next{flex:none;padding:10px 16px calc(16px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:8px}
 .scene-next button{border:none;border-radius:14px;padding:13px;font-size:14.5px;font-weight:700;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;cursor:pointer}
 .scene-next button.choice{background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.4)}
+.sc-link{display:block;margin:10px 0;background:linear-gradient(180deg,#ff7ba5,#ff5c8a);color:#fff;font-weight:700;font-size:14px;text-align:center;text-decoration:none;border-radius:14px;padding:13px 14px;line-height:1.5}
 /* ===== music bar / sound settings ===== */
 .music-bar{flex:none;display:flex;align-items:center;gap:10px;padding:10px 16px 0}
 .music-bar button{width:34px;height:34px;border-radius:50%;border:1.5px solid rgba(255,255,255,.5);background:rgba(255,255,255,.12);color:#fff;font-size:12px;cursor:pointer;flex:none}
@@ -331,7 +332,7 @@ input,textarea{font-size:16px!important}
 <div class="set-row" style="cursor:default"><span>音量</span><input id="set-vol" type="range" min="0" max="100" step="5" style="flex:1;margin:0 12px"></div>
 <div class="set-row" id="set-about"><span>この作品について</span><span>›</span></div>
 <div class="set-row" id="set-reset"><span class="danger">データを消して最初から</span><span>›</span></div>
-<div style="padding:14px 16px;font-size:11px;color:#8e8e93;line-height:1.7">担当をデビューさせる件 v4<br>※本作品は実在の番組『PRODUCE 101 JAPAN』（2019）と実在の人物を題材にしたファンメイドのIF作品です。史実をもとにしていますが、登場人物の言動や順位の変動は創作を含みます。<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲は各アーティストの公式音源（プレビュー版）を使用しています。</div>
+<div style="padding:14px 16px;font-size:11px;color:#8e8e93;line-height:1.7">担当をデビューさせる件 v6<br>※本作品は実在の番組『PRODUCE 101 JAPAN』（2019）と実在の人物を題材にしたファンメイドのIF作品です。史実をもとにしていますが、登場人物の言動や順位の変動は創作を含みます。<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲は各アーティストの公式音源（プレビュー版）を使用しています。</div>
 </div>
 </div>
 
@@ -534,6 +535,7 @@ edit3Done:false, ranked3:false, elim3:false, snap3:null, hirotoRank3:null,
 hirotoRankF:null, rankedF:false, ending:null, finalSong:"YOUNG", boost3:0,
 conceptBenefit:0, conceptTeamRank:null, conceptPersonalRank:null, conceptTeamVotes:null,
 freeSend:{hiroto:0,dk:0},
+epiDone:false, freeNoticed:false,
 };
 }
 let S = freshState();
@@ -679,16 +681,16 @@ const phases=[
 ["第3回順位発表","35人→20人。ファイナルへ進めるのは誰だ。"],
 ["ファイナル ― 前夜","2019年12月10日。幕張メッセを前にした、最後の夜。"],
 ["ファイナル ― 最終順位発表","2019年12月11日、幕張メッセ。JO1の11人が決まる。"],
-["完結","『担当をデビューさせる件』― 完"],
+["完結 ― 後日談","エンディングの先の物語。フリーチャットも解放中。"],
 ];
 const p=phases[Math.min(S.beat,20)];
 $("#w-phase").textContent=p[0];
-$("#w-main").textContent= S.elim? "史実と同じ結末――36位。でも、IFは何度でも選び直せる。": (S.elim3? "第3回順位発表で散った。でも、IFは何度でも選び直せる。": p[1]);
+$("#w-main").textContent= S.elim? "史実と同じ結末――36位。でも、IFは何度でも選び直せる。": (S.elim3? "第3回順位発表で散った。でも、IFは何度でも選び直せる。": (S.beat>=20 && S.ending && !S.epiDone? "後日談（エピローグ）が解放された。下のボタンから読める。大翔とのフリーチャットも解放中。": (S.beat>=20 && S.ending && S.epiDone? "後日談まで読了。大翔とのフリーチャットは、トークからいつでも続けられる。": p[1])));
 $("#w-trust").textContent=S.trust;
 $("#w-mental").textContent=S.mental;
 $("#w-rank").textContent= S.hirotoRankF? S.hirotoRankF+"位（最終）": (S.hirotoRank3? S.hirotoRank3+"位（第3回）": (S.hirotoRank2? S.hirotoRank2+"位（第2回）": (S.tr.hiroto.rank? S.tr.hiroto.rank+"位":"―")));
-$("#btn-next").disabled = S.beat>=20 && !S.elim && !S.elim3;
-$("#btn-next").textContent = S.elim? "↩ 第2部の始まりからやり直す": (S.elim3? "↩ 第3部の始まりからやり直す": (S.beat>=20? (S.ending==="debut"? "完結 🎉 ― デビューエンディング": "完結 🎉 ― あと一歩エンディング"): "▶ ストーリーを進める"));
+$("#btn-next").disabled = S.beat>=20 && !S.elim && !S.elim3 && (S.epiDone || !S.ending);
+$("#btn-next").textContent = S.elim? "↩ 第2部の始まりからやり直す": (S.elim3? "↩ 第3部の始まりからやり直す": (S.beat>=20? (S.epiDone? (S.ending==="debut"? "完結 🎉 ― デビューエンディング（後日談済）": "完結 🎉 ― あと一歩エンディング（後日談済）"): "▶ 後日談 ― エピローグを読む"): "▶ ストーリーを進める"));
 const wrap=$("#apps"); wrap.innerHTML="";
 APPS.forEach(a=>{
 const d=document.createElement("div");
@@ -737,6 +739,7 @@ w.appendChild(d);
 }
 function openChat(id){
 curRoom=id; S.unread[id]=0; save();
+if(id==="hiroto" && S.ending && !S.freeNoticed){ S.freeNoticed=true; sysChat("hiroto","💬 エンディング到達 ― 大翔とのフリーチャットが解放されました。自由にメッセージを送れます"); save(); }
 $("#chat-title").textContent=ROOMS[id].name;
 $("#chat-sub").textContent=ROOMS[id].sub;
 renderChat(); show("v-chat");
@@ -783,8 +786,13 @@ const room=curRoom;
 if(room==="hiroto" || room==="dk"){
 const n=(S.freeSend[room]||0)+1; S.freeSend[room]=n; save();
 if(room==="hiroto"){
+if(S.ending){
+const rep=freeChatReply(v,n);
+setTimeout(()=>{ pushChat(room,"hiroto",rep); save(); if(curRoom===room) renderChat(); },900);
+}else{
 const replies=["おつかれさまです。今は練習中やから、また後で返しますね","ありがとうございます。……ちょっと救われました","ほんまですか。……ふふ、なんか嬉しいわ"];
 setTimeout(()=>{ pushChat(room,"hiroto",replies[(n-1)%replies.length]); save(); if(curRoom===room) renderChat(); },900);
+}
 }else{
 const dkReplies=[
 ["ryuji","お、なおさん。おつかれさまです！"],
@@ -795,6 +803,37 @@ const dkReplies=[
 setTimeout(()=>{ const r=dkReplies[(n-1)%dkReplies.length]; pushChat(room,r[0],r[1]); save(); if(curRoom===room) renderChat(); },900);
 }
 }
+}
+
+/* ================= v6 FREE CHAT（エンディング後） ================= */
+/* 話題キーワードに反応するプール＋エンディング別トーン（d=デビュー後／s=旅立ち前） */
+const FREE_TOPICS=[
+{k:["おはよう"], d:"おはようございます、なおさん。……朝から連絡、嬉しいです", s:"おはようございます。……こっちは朝からレッスンです"},
+{k:["こんばんは","こんにちは","こんばんわ","やっほ"], d:"こんばんは。……ちょうど、なおさんに連絡しようと思ってたところです", s:"こんばんは、なおさん。……今日も練習、終わりました"},
+{k:["おつかれ","お疲れ"], d:"おつかれさまです。なおさんも、お仕事おつかれさまです", s:"おつかれさまです。……なおさんの声、聞くとほっとします"},
+{k:["ありがとう"], d:"……俺のほうこそ、ありがとうございます。ずっと", s:"ありがとうございます。……俺、もっと頑張ります"},
+{k:["好き","大好き"], d:"…………。……そういうの、急に言われたら……仕事、手につかへんくなるやつです", s:"…………。……俺も、です。……それだけは、負けてないです"},
+{k:["会いたい","あいたい"], d:"……俺も、会いたいです。次の休み、分かったら真っ先に言います", s:"俺も会いたいです。……中国から帰ったら、真っ先に会いに行きます"},
+{k:["練習"], d:"今日もレッスンでした。新しい振り、だいぶ揃ってきました", s:"今日はダンスと中国語のレッスンでした。……発音、だいぶマシになりました"},
+{k:["歌"], d:"歌、褒められることが増えました。……なおさんのおかげです", s:"ボーカルの先生に、表現が良くなったって言われました"},
+{k:["ダンス"], d:"ダンスは、もう『未経験』とは言わせません。……たぶん", s:"ダンス、毎日みっちりです。筋肉痛と仲良しになりました"},
+{k:["ごはん","食べ","お腹","おなか"], d:"今日はメンバーと鍋でした。なおさんも、ちゃんと食べてますか", s:"寮のごはん、だいぶ慣れました。……日本のからあげが恋しいです"},
+{k:["ねむ","眠","寝"], d:"今日はもう限界です……。なおさんも、早く寝てくださいね", s:"ねむいです……。でも、なおさんと話すと目、覚めます"},
+{k:["忙しい","いそがしい"], d:"忙しいです、正直。……でも、連絡はします。約束したんで", s:"忙しいけど、充実してます。……なおさんに心配かけたくないんで、元気です"},
+{k:["ライブ","ステージ","公演"], d:"次のステージ、決まったら真っ先に報告します", s:"ステージに立つ日を思うと、練習も頑張れます"},
+{k:["約束"], d:"約束は、守ります。……『最初の報告は、なおさん』。ずっとです", s:"約束、覚えてます。『今度こそデビューして帰ってくる』。……守ります"},
+{k:["中国"], d:"中国……いつか行ってみたい場所ではあります。……何か、ありました？", s:"中国語、毎日勉強してます。『吉祥』って、もう完璧に言えます"},
+{k:["応援"], d:"応援、届いてます。……ほんまに、力になってます", s:"応援してくれる人がいるから、行ってきますって言えるんです"},
+{k:["元気"], d:"元気です。なおさんは、元気ですか", s:"元気ですよ。……なおさんこそ、無理してないですか"},
+{k:["デビュー"], d:"デビューしても、まだ実感のない日もあります。……でも、ステージは楽しいです", s:"デビューは、今度こそ掴みます。……待っててください"},
+];
+const FREE_DEFAULT_DEBUT=["今、休憩中です。……なおさんの顔、浮かびました","今日も一日、終わりました。……報告です、これ","スケジュール、詰まってます。でも、悪くない毎日です","……なんでもない日こそ、連絡したくなるんですよね","メンバーのみんな、元気です。……俺も、元気ですよ","次の活動の話、進んでます。決まったら真っ先に言いますね"];
+const FREE_DEFAULT_STEP=["今日のレッスン、終わりました。……クタクタです","中国語の単語、10個覚えました。……たぶん、覚えました","隆士と馨也は元気です。3人で、頑張ってます","……ふと、合宿のこと思い出してました","なおさんの応援があるから、こっちも頑張れます","次に会える日、楽しみにしてます。……ほんまに"];
+function freeChatReply(text,n){
+const t=text||"";
+for(const tp of FREE_TOPICS){ if(tp.k.some(k=>t.includes(k))) return S.ending==="debut"? tp.d: tp.s; }
+const pool= S.ending==="debut"? FREE_DEFAULT_DEBUT: FREE_DEFAULT_STEP;
+return pool[(n-1)%pool.length];
 }
 
 /* ================= iOS KEYBOARD FIX ================= */
@@ -832,6 +871,7 @@ if(st.narr){ const d=document.createElement("div"); d.className="narr"; d.textCo
 if(st.hist){ const d=document.createElement("div"); d.className="narr hist"; d.textContent="【史実】"+st.hist; body.appendChild(d);}
 if(st.photo){ const im=document.createElement("img"); im.className="scene-photo"; im.src=st.photo; body.appendChild(im);}
 if(st.dlg){ const d=document.createElement("div"); d.className="dlg"; d.innerHTML=`<div class="nm">${st.dlg[0]}</div><div class="tx">${esc(st.dlg[1])}</div>`; body.appendChild(d);}
+if(st.link){ const a=document.createElement("a"); a.className="sc-link"; a.href=st.link[0]; a.target="_blank"; a.rel="noopener"; a.textContent=st.link[1]; body.appendChild(a);}
 body.scrollTop=body.scrollHeight;
 if(st.choice){
 st.choice.forEach(c=>{
@@ -1490,6 +1530,74 @@ const CALL2={name:"井汲大翔", img:"assets/s1/hiroto.jpg", status:"通話中�
 {who:"hiroto", text:"……おやすみなさい、なおさん。……明日、幕張で"},
 ]};
 
+/* ================= v6: 後日談エピローグ ================= */
+/* 新規ボイス（後日談用）。実尺：debut 3.68秒／step 7.20秒 */
+const V6VOICE={
+debut:{src:"assets/vc-debut-after.mp3", dur:"0:04", cap:"デビュー、決まりました。……約束、果たせましたね"},
+step:{src:"assets/vc-china.mp3", dur:"0:07", cap:"中国に行ってきます。……今度こそ、デビューして帰ってきます"},
+};
+function playEpilogue(){
+stopMusic();
+if(S.ending==="debut"){
+pushChat("hiroto","hiroto","なおさん");
+if(V6VOICE.debut) pushVoice("hiroto","hiroto",V6VOICE.debut.src,V6VOICE.debut.dur,V6VOICE.debut.cap);
+pushChat("hiroto","hiroto","デビューシングルのショーケース、来てくれますか。……来てほしいです");
+const steps=[
+{narr:"――後日談（デビュー編）"},
+{narr:"ファイナルの夜。生放送が終わった直後、真っ先に届いたのが、トークに残っているあのボイスだった。「デビュー、決まりました。……約束、果たせましたね」――彼は、本当に“最初の報告”をなおにくれた。"},
+{narr:"2020年3月4日。JO1のデビューシングル『PROTOSTAR』発売日。都内の会場では、デビューショーケースが行われようとしていた。"},
+{hist:"JO1は2020年3月4日、シングル『PROTOSTAR』でデビューした。タイトル曲は「無限大（INFINITY）」。この物語の世界では、その11人の中に井汲大翔がいる。"},
+{narr:"なおの制作インターンは、番組の終わりとともに終わっていた。今日の彼女は「スタッフ」ではなく、招待客。首から下げていたスタッフパスは、もうない。"},
+{narr:"開演前。楽屋にはもう、簡単には近づけない。それでも――ショーケースの案内よりも先に、彼からの連絡が届いていた。「最初に報告するのは、なおさんです」。あの夜の約束は、ちゃんと守られていた。"},
+{narr:"ショーケース。『無限大（INFINITY）』――4か月前、歌詞を飛ばして泣いていた少年は、もういなかった。センターマイクの列に立ち、迷いのない顔で踊る井汲大翔がいた。"},
+{narr:"終演後。関係者エリアの隅で、マネージャーに断って、ほんの少しだけ時間がもらえた。衣装のままの大翔が、小走りでやって来る。"},
+{dlg:["井汲大翔","……来てくれたんですね。……ステージから、見えました"]},
+{dlg:["井汲大翔","前は、合宿所の廊下で、いつでも会えたのに。今は……マネージャーさん、通さないと会えないんですね"]},
+{narr:"少しだけ寂しそうに笑って、それから、彼はまっすぐ言った。"},
+{dlg:["井汲大翔","……だから、真っ先に連絡したんです。デビューすることも、今日のことも。……約束、したんで"]},
+{narr:"スタッフに呼ばれる声がした。行かなきゃ、と分かっているのに、彼は一瞬だけ足を止めて――カメラの届かない柱の陰で、短く、強く抱きしめた。"},
+{dlg:["井汲大翔","次に会えるの、ちょっと先になるかもしれません。でも……『最初の報告』は、ずっと、なおさんです"]},
+{narr:"距離は変わった。立場も、毎日の景色も変わった。それでも「最初に報告する人」だけは、変わらなかった。"},
+{narr:"担当をデビューさせる物語は終わった。二人の物語は、まだ続いていく。"},
+{narr:"――後日談（デビュー編）、終わり。トークで大翔とフリーチャットができるようになりました。"},
+];
+playScene(steps, ()=>{
+S.epiDone=true; save();
+pushChat("hiroto","hiroto","なおさん、今日はありがとうございました");
+pushChat("hiroto","hiroto","次の活動も、最初に報告します。……約束です");
+toast("後日談（デビュー編）を読了 🎉 フリーチャット解放中");
+});
+}else{
+pushChat("hiroto","hiroto","なおさん。RBW JAPANの練習生になりました");
+pushChat("hiroto","hiroto","隆士と馨也と一緒です。また、ここから始めます");
+const steps=[
+{narr:"――後日談（あと一歩編）"},
+{narr:"2020年春。井汲大翔は、佐藤隆士・田口馨也とともにRBW JAPANの練習生になった。3人のユニットは「RBW JBOYZ」と呼ばれた。"},
+{hist:"史実の井汲大翔は、日プ後もRBW JAPANの練習生として歩みを続けた。2021年には中国『創造営2021』にRBW JBOYZとして出演し、最終15位。愛称は「吉祥弟弟（ジーシャン・ディーディー）」。2023年『BOYS PLANET』では21位だった。"},
+{narr:"なおは春から大学生になった。もう「担当スタッフ」ではない。会えるのは、レッスンの合間の、ほんの短い時間だけ。"},
+{narr:"それでも連絡は続いた。ダンスの動画、ボーカルの録音、そして――いつの頃からか、中国語の勉強の話が増えていった。"},
+{dlg:["井汲大翔","中国語、難しいです。……でも、楽しいんですよ。発音、聞いてください……『吉祥』。……俺の名前、縁起のいい読み方、できるんやって"]},
+{narr:"なおは彼のために、中国語の単語カードを作って渡した。裏側のサポートは、もう仕事じゃない。それでも、できることはあった。"},
+{narr:"2021年1月。電話の向こうの声は、いつもより少しだけ震えていた。"},
+{dlg:["井汲大翔","……決まりました。中国のオーディション番組、『創造営2021』。……RBW JBOYZで、出ます"]},
+{dlg:["井汲大翔","なおさん。……俺、もう一回、世界で勝負してきます"]},
+{narr:"出発の日。空港の出発ロビー。人混みの中で、彼はキャリーケースの取っ手に手を置いたまま、しばらく何も言わなかった。"},
+{dlg:["井汲大翔","……行ってきます。……今度こそ、デビューして帰ってきます"]},
+{narr:"言い終わる前に、彼は短く抱きしめた。「行ってきます」――あの日プの夜に交わした約束が、もう一度、更新された。"},
+{narr:"飛行機が、中国・三亜へ向けて飛び立った。担当をデビューさせる戦いは、まだ終わっていない。"},
+{link:["https://v5m44g26fb-sudo.github.io/chuang-uragawa/","▶ 続編『担当をデビューさせる件【創造営編】』へ ― 三亜で、再会する"]},
+{narr:"――後日談（あと一歩編）、終わり。トークで大翔とフリーチャットができるようになりました。"},
+];
+playScene(steps, ()=>{
+S.epiDone=true; save();
+pushChat("hiroto","hiroto","なおさん。空港に着きました");
+if(V6VOICE.step) pushVoice("hiroto","hiroto",V6VOICE.step.src,V6VOICE.step.dur,V6VOICE.step.cap);
+pushChat("hiroto","hiroto","向こうでも、連絡します。……見ててください");
+toast("後日談（あと一歩編）を読了 🎉 フリーチャット解放中");
+});
+}
+}
+
 function chooseOption(i){
 const pc=S.pendingChoice; if(!pc) return;
 const o=pc.options[i];
@@ -1502,6 +1610,7 @@ toast("選択がストーリーに反映された");
 $("#btn-next").onclick=()=>{
 if(S.elim){ restoreSnap2(); return; }
 if(S.elim3){ restoreSnap3(); return; }
+if(S.beat>=20 && S.ending && !S.epiDone){ playEpilogue(); return; }
 if(S.pendingCall1){
 S.pendingCall1=false; save();
 startCall(CALL1, ()=>{ sysChat("hiroto","📞 ひろとと通話した（第1回発表の直前）"); save(); const b=BEATS[S.beat]; if(b) b(); renderHome(); });
@@ -1910,7 +2019,7 @@ updateMusicBar();
 };
 $("#set-vol").addEventListener("input",e=>{ SND.vol=+e.target.value; saveSnd(); applyMusicVol(); });
 renderSnd();
-$("#set-about").onclick=()=>{ alert("『担当をデビューさせる件』v5\n実在の番組『PRODUCE 101 JAPAN』Season1（2019）を題材にした、ファンメイドのIF物語です。主人公のなおは高校3年生の制作インターンとして合宿に帯同し、担当練習生・井汲大翔（17歳、学年は1つ下）を裏側から支えます。史実の流れ（レベル分け→ツカメ再評価→ポジション評価→第1回順位発表→グループバトル→第2回順位発表→コンセプト評価→第3回順位発表→ファイナル）をなぞりながら、編集の分量配分と裏側サポートで票と物語を動かし、史実36位の脱落を覆してデビュー圏11位を目指します。登場人物の言動は創作です。\n\nクレジット\n順位発表BGM: \"The Descent\" by Kevin MacLeod (CC-BY)\n課題曲: 嵐「Love so sweet」／PRODUCE 101 JAPAN「ツカメ 〜It's Coming〜」／Hey! Say! JUMP「OVER THE TOP」／SHINee「Everybody」／バブリンチョ「やんちゃBOY やんちゃGIRL」（各公式音源のプレビュー版を使用）");};
+$("#set-about").onclick=()=>{ alert("『担当をデビューさせる件』v6\n実在の番組『PRODUCE 101 JAPAN』Season1（2019）を題材にした、ファンメイドのIF物語です。v6では、両エンディング後の「後日談エピローグ」と、エンディング到達後に解放される大翔との「フリーチャット」を追加しました。主人公のなおは高校3年生の制作インターンとして合宿に帯同し、担当練習生・井汲大翔（17歳、学年は1つ下）を裏側から支えます。史実の流れ（レベル分け→ツカメ再評価→ポジション評価→第1回順位発表→グループバトル→第2回順位発表→コンセプト評価→第3回順位発表→ファイナル）をなぞりながら、編集の分量配分と裏側サポートで票と物語を動かし、史実36位の脱落を覆してデビュー圏11位を目指します。登場人物の言動は創作です。\n\nクレジット\n順位発表BGM: \"The Descent\" by Kevin MacLeod (CC-BY)\n課題曲: 嵐「Love so sweet」／PRODUCE 101 JAPAN「ツカメ 〜It's Coming〜」／Hey! Say! JUMP「OVER THE TOP」／SHINee「Everybody」／バブリンチョ「やんちゃBOY やんちゃGIRL」（各公式音源のプレビュー版を使用）");};
 function renderTitle(){
 show("v-title");
 $("#btn-cont").style.display = localStorage.getItem(SAVE_KEY)? "block":"none";
