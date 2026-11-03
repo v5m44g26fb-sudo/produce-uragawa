@@ -223,6 +223,67 @@ input,textarea{font-size:16px!important}
 .call-btns{margin-top:auto;display:flex;flex-direction:column;align-items:center;gap:10px;width:100%}
 .call-tap{border-radius:14px;padding:13px 22px;font-size:14px;font-weight:700;background:rgba(255,255,255,.14);color:#fff;cursor:pointer;border:1px solid rgba(255,255,255,.3)}
 .call-end{border:none;width:62px;height:62px;border-radius:50%;background:#ff3b30;color:#fff;font-size:24px;cursor:pointer;box-shadow:0 8px 20px rgba(255,59,48,.4)}
+/* ===== v6.1 UI polish ===== */
+.view.on{animation:viewIn .22s ease both}
+@keyframes viewIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+button{transition:transform .08s ease,filter .15s ease}
+button:active{transform:scale(.965)}
+.app{transition:transform .1s ease}
+.app:active{transform:scale(.92)}
+.app .ic{border-radius:16px;box-shadow:0 6px 14px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.25)}
+.dock{box-shadow:0 10px 26px rgba(0,0,0,.35)}
+.widget{box-shadow:0 12px 32px rgba(0,0,0,.45);border-radius:24px;padding:14px 16px}
+.widget button{padding:13px;border-radius:14px;box-shadow:0 6px 16px rgba(124,92,255,.35);min-height:46px}
+.w-row{margin-top:9px}
+.w-gauges{display:flex;flex-direction:column;gap:5px;margin-top:9px}
+.wg{display:flex;align-items:center;gap:8px;font-size:11px;color:#ddd6ee}
+.wg-lb{width:50px;flex:none;letter-spacing:.04em;white-space:nowrap}
+.wg b{color:#fff;font-size:12px;width:30px;text-align:right;font-variant-numeric:tabular-nums}
+.wg-bar{flex:1;height:6px;background:rgba(255,255,255,.16);border-radius:3px;overflow:hidden}
+.wg-bar i{display:block;height:100%;width:0;border-radius:3px;transition:width .6s ease}
+#wg-trust{background:linear-gradient(90deg,#ff9ecf,#ff5c8a)}
+#wg-mental{background:linear-gradient(90deg,#37d5c8,#2fbf9f)}
+#wg-att{background:linear-gradient(90deg,#ffd60a,#ff9500)}
+.ahead{box-shadow:0 1px 10px rgba(0,0,0,.06)}
+.ahead .back{font-size:24px;padding:10px 12px;margin:-4px 0;border-radius:12px;min-width:44px;text-align:center}
+.ahead .back:active{background:rgba(0,0,0,.06)}
+.ahead .ttl{letter-spacing:.02em}
+.troom{transition:background .12s ease;padding:13px 14px}
+.msg:nth-last-child(-n+4){animation:msgIn .22s ease both}
+@keyframes msgIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.bub{border-radius:16px;box-shadow:0 1px 2px rgba(0,0,0,.1)}
+.msg.me .bub{background:linear-gradient(180deg,#ffe95c,#ffe14d)}
+.date-div{align-self:center;background:rgba(0,0,0,.3);color:#fff;font-size:10.5px;border-radius:9px;padding:3px 11px;letter-spacing:.05em}
+.read-mark{font-size:9.5px;color:#54677c}
+.vbub{background:linear-gradient(180deg,#ffffff,#f2f5f8);border:1px solid rgba(0,0,0,.05)}
+.vbub.playing{border-color:var(--line);box-shadow:0 0 0 2px rgba(6,199,85,.22)}
+.vbtn{width:34px;height:34px;box-shadow:0 2px 6px rgba(6,199,85,.35)}
+.chat-input input{padding:10px 14px}
+.chat-input button{min-height:42px;padding:0 18px}
+.choices button{padding:11px 12px;min-height:44px}
+.rk-row{animation:msgIn .3s ease both}
+.rk-row:nth-child(2){animation-delay:.04s}.rk-row:nth-child(3){animation-delay:.08s}.rk-row:nth-child(4){animation-delay:.12s}.rk-row:nth-child(5){animation-delay:.16s}.rk-row:nth-child(6){animation-delay:.2s}.rk-row:nth-child(7){animation-delay:.24s}.rk-row:nth-child(8){animation-delay:.28s}.rk-row:nth-child(9){animation-delay:.32s}.rk-row:nth-child(10){animation-delay:.36s}
+.rk-row.me{background:linear-gradient(90deg,#fff7d6,#ffedb0);box-shadow:inset 3px 0 0 #e6a700}
+.music-bar{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:999px;margin:10px 16px 0;padding:6px 14px 6px 6px}
+.music-bar button{width:30px;height:30px}
+.scene-body>*{animation:msgIn .3s ease both}
+.dlg{border-radius:16px;background:rgba(255,255,255,.09)}
+.scene-next button{padding:14px;min-height:48px}
+.call-av{animation:callPulse 2.2s ease-in-out infinite}
+@keyframes callPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.22),0 10px 30px rgba(0,0,0,.5)}50%{box-shadow:0 0 0 14px rgba(255,255,255,0),0 10px 30px rgba(0,0,0,.5)}}
+.call-tap{min-height:44px}
+.toast{box-shadow:0 10px 30px rgba(0,0,0,.4);transform:translateX(-50%) translateY(8px);transition:opacity.3s,transform.3s}
+.toast.on{transform:translateX(-50%) translateY(0)}
+.set-row{min-height:54px}
+.set-row:active{background:#f2f2f7}
+.stepper button{width:36px;height:36px}
+.ed-foot button{padding:14px}
+.mcard img{border-radius:16px;box-shadow:0 4px 10px rgba(0,0,0,.12)}
+.mcard{transition:opacity .12s ease}
+.mcard:active{opacity:.75}
+.nitem:active,.xpost:active{background:#f7f7fa}
+.title-in button{padding:15px}
+.title-in .b-cont{backdrop-filter:blur(6px)}
 </style>
 </head>
 <body>
@@ -257,7 +318,12 @@ input,textarea{font-size:16px!important}
 <div class="widget">
 <div class="w-title" id="w-phase">2019年8月 ― 坡州</div>
 <div class="w-main" id="w-main">制作チームに配属された。</div>
-<div class="w-row"><span>ひろと信頼度 <b id="w-trust">0</b></span><span>メンタル <b id="w-mental">70</b></span><span>現在順位 <b id="w-rank">―</b></span></div>
+<div class="w-row"><span>現在順位 <b id="w-rank">―</b></span></div>
+<div class="w-gauges">
+<div class="wg"><span class="wg-lb">信頼度</span><div class="wg-bar"><i id="wg-trust"></i></div><b id="w-trust">0</b></div>
+<div class="wg"><span class="wg-lb">メンタル</span><div class="wg-bar"><i id="wg-mental"></i></div><b id="w-mental">70</b></div>
+<div class="wg"><span class="wg-lb">注目度</span><div class="wg-bar"><i id="wg-att"></i></div><b id="w-att">0</b></div>
+</div>
 <button id="btn-next">▶ ストーリーを進める</button>
 </div>
 <div class="apps" id="apps"></div>
@@ -332,7 +398,7 @@ input,textarea{font-size:16px!important}
 <div class="set-row" style="cursor:default"><span>音量</span><input id="set-vol" type="range" min="0" max="100" step="5" style="flex:1;margin:0 12px"></div>
 <div class="set-row" id="set-about"><span>この作品について</span><span>›</span></div>
 <div class="set-row" id="set-reset"><span class="danger">データを消して最初から</span><span>›</span></div>
-<div style="padding:14px 16px;font-size:11px;color:#8e8e93;line-height:1.7">担当をデビューさせる件 v6<br>※本作品は実在の番組『PRODUCE 101 JAPAN』（2019）と実在の人物を題材にしたファンメイドのIF作品です。史実をもとにしていますが、登場人物の言動や順位の変動は創作を含みます。<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲は各アーティストの公式音源（プレビュー版）を使用しています。</div>
+<div style="padding:14px 16px;font-size:11px;color:#8e8e93;line-height:1.7">担当をデビューさせる件 v6.1<br>※本作品は実在の番組『PRODUCE 101 JAPAN』（2019）と実在の人物を題材にしたファンメイドのIF作品です。史実をもとにしていますが、登場人物の言動や順位の変動は創作を含みます。<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲は各アーティストの公式音源（プレビュー版）を使用しています。</div>
 </div>
 </div>
 
@@ -561,9 +627,17 @@ $("#sb-time").textContent=h+":"+m;
 }
 setInterval(clock,20000); clock();
 
+/* v6.1: トークの日付区切り用ラベル（月単位。正確な日付が史実で確定する場面のみ日まで表記） */
+const BEAT_MONTH={0:"2019年8月",1:"2019年8月",2:"2019年9月",3:"2019年9月",4:"2019年10月",5:"2019年10月",6:"2019年10月",7:"2019年10月",8:"2019年11月",9:"2019年11月",10:"2019年11月",11:"2019年11月",12:"2019年11月",13:"2019年11月",14:"2019年11月",15:"2019年11月",16:"2019年11月",17:"2019年12月",18:"2019年12月",19:"2019年12月10日",20:"2019年12月11日"};
+function curDateLabel(){
+if(S.epiDone) return S.ending==="debut"? "2020年3月": "2021年2月";
+if(S.beat>=20 && S.ending==="debut") return "2019年12月";
+if(S.beat>=20 && S.ending==="step") return "2020年";
+return BEAT_MONTH[S.beat]||"";
+}
 function pushChat(room, who, text, opts){
 opts=opts||{};
-S.chats[room].push({who, text, img:opts.img||null, voice:opts.voice||null, sys:!!opts.sys});
+S.chats[room].push({who, text, img:opts.img||null, voice:opts.voice||null, sys:!!opts.sys, d:curDateLabel()});
 if(curRoom!==room || !$("#v-chat").classList.contains("on")){
 if(who!=="me" && !opts.sys) S.unread[room]=(S.unread[room]||0)+1;
 }
@@ -688,6 +762,10 @@ $("#w-phase").textContent=p[0];
 $("#w-main").textContent= S.elim? "史実と同じ結末――36位。でも、IFは何度でも選び直せる。": (S.elim3? "第3回順位発表で散った。でも、IFは何度でも選び直せる。": (S.beat>=20 && S.ending && !S.epiDone? "後日談（エピローグ）が解放された。下のボタンから読める。大翔とのフリーチャットも解放中。": (S.beat>=20 && S.ending && S.epiDone? "後日談まで読了。大翔とのフリーチャットは、トークからいつでも続けられる。": p[1])));
 $("#w-trust").textContent=S.trust;
 $("#w-mental").textContent=S.mental;
+$("#w-att").textContent=S.tr.hiroto.att;
+$("#wg-trust").style.width=Math.max(0,Math.min(100,S.trust))+"%";
+$("#wg-mental").style.width=Math.max(0,Math.min(100,S.mental))+"%";
+$("#wg-att").style.width=Math.max(0,Math.min(100,S.tr.hiroto.att))+"%";
 $("#w-rank").textContent= S.hirotoRankF? S.hirotoRankF+"位（最終）": (S.hirotoRank3? S.hirotoRank3+"位（第3回）": (S.hirotoRank2? S.hirotoRank2+"位（第2回）": (S.tr.hiroto.rank? S.tr.hiroto.rank+"位":"―")));
 $("#btn-next").disabled = S.beat>=20 && !S.elim && !S.elim3 && (S.epiDone || !S.ending);
 $("#btn-next").textContent = S.elim? "↩ 第2部の始まりからやり直す": (S.elim3? "↩ 第3部の始まりからやり直す": (S.beat>=20? (S.epiDone? (S.ending==="debut"? "完結 🎉 ― デビューエンディング（後日談済）": "完結 🎉 ― あと一歩エンディング（後日談済）"): "▶ 後日談 ― エピローグを読む"): "▶ ストーリーを進める"));
@@ -746,14 +824,18 @@ renderChat(); show("v-chat");
 }
 function renderChat(){
 const w=$("#chat-body"); w.innerHTML="";
-S.chats[curRoom].forEach(m=>{
+let lastMe=-1; S.chats[curRoom].forEach((m,i)=>{ if(m.who==="me") lastMe=i; });
+const readOK= lastMe>=0 && S.chats[curRoom].slice(lastMe+1).some(m=>m.who!=="me"&&!m.sys);
+let prevD="";
+S.chats[curRoom].forEach((m,mi)=>{
+if(m.d && m.d!==prevD){ prevD=m.d; if(!m.sys){ const dv=document.createElement("div"); dv.className="date-div"; dv.textContent=m.d; w.appendChild(dv);} }
 if(m.sys){ const d=document.createElement("div"); d.className="sysmsg"; d.textContent=m.text; w.appendChild(d); return;}
 const d=document.createElement("div");
 if(m.voice){
 d.className="msg";
 d.innerHTML=`<img class="av sm" src="${whoImg(m.who)}"><div class="col"><div class="who">${whoName(m.who)}</div><div class="bub vbub"><button class="vbtn" onclick="toggleVoice(this,'${m.voice.src}')">▶</button><span class="vwave">${voiceBars(m.voice.src.length*13)}</span><span class="vdur">${m.voice.dur}</span></div><div class="vcap">🎤 ${esc(m.voice.cap||"")}</div></div>`;
 }
-else if(m.who==="me"){ d.className="msg me"; d.innerHTML=`<div class="col"><div class="bub">${m.img?`<img class="chat-img" src="${m.img}">`:""}${esc(m.text)}</div></div>`;}
+else if(m.who==="me"){ d.className="msg me"; d.innerHTML=`<div class="col"><div class="bub">${m.img?`<img class="chat-img" src="${m.img}">`:""}${esc(m.text)}</div>${(mi===lastMe&&readOK)?`<div class="read-mark">既読</div>`:""}</div>`;}
 else{
 d.className="msg";
 d.innerHTML=`<img class="av sm" src="${whoImg(m.who)}"><div class="col"><div class="who">${whoName(m.who)}</div><div class="bub">${m.img?`<img class="chat-img" src="${m.img}">`:""}${esc(m.text)}</div></div>`;
@@ -2019,7 +2101,7 @@ updateMusicBar();
 };
 $("#set-vol").addEventListener("input",e=>{ SND.vol=+e.target.value; saveSnd(); applyMusicVol(); });
 renderSnd();
-$("#set-about").onclick=()=>{ alert("『担当をデビューさせる件』v6\n実在の番組『PRODUCE 101 JAPAN』Season1（2019）を題材にした、ファンメイドのIF物語です。v6では、両エンディング後の「後日談エピローグ」と、エンディング到達後に解放される大翔との「フリーチャット」を追加しました。主人公のなおは高校3年生の制作インターンとして合宿に帯同し、担当練習生・井汲大翔（17歳、学年は1つ下）を裏側から支えます。史実の流れ（レベル分け→ツカメ再評価→ポジション評価→第1回順位発表→グループバトル→第2回順位発表→コンセプト評価→第3回順位発表→ファイナル）をなぞりながら、編集の分量配分と裏側サポートで票と物語を動かし、史実36位の脱落を覆してデビュー圏11位を目指します。登場人物の言動は創作です。\n\nクレジット\n順位発表BGM: \"The Descent\" by Kevin MacLeod (CC-BY)\n課題曲: 嵐「Love so sweet」／PRODUCE 101 JAPAN「ツカメ 〜It's Coming〜」／Hey! Say! JUMP「OVER THE TOP」／SHINee「Everybody」／バブリンチョ「やんちゃBOY やんちゃGIRL」（各公式音源のプレビュー版を使用）");};
+$("#set-about").onclick=()=>{ alert("『担当をデビューさせる件』v6.1\n実在の番組『PRODUCE 101 JAPAN』Season1（2019）を題材にした、ファンメイドのIF物語です。v6では、両エンディング後の「後日談エピローグ」と、エンディング到達後に解放される大翔との「フリーチャット」を追加しました。v6.1ではUIの質感とアニメーション、ステータスゲージ、トークの日付区切り・既読表示などを磨き込みました。主人公のなおは高校3年生の制作インターンとして合宿に帯同し、担当練習生・井汲大翔（17歳、学年は1つ下）を裏側から支えます。史実の流れ（レベル分け→ツカメ再評価→ポジション評価→第1回順位発表→グループバトル→第2回順位発表→コンセプト評価→第3回順位発表→ファイナル）をなぞりながら、編集の分量配分と裏側サポートで票と物語を動かし、史実36位の脱落を覆してデビュー圏11位を目指します。登場人物の言動は創作です。\n\nクレジット\n順位発表BGM: \"The Descent\" by Kevin MacLeod (CC-BY)\n課題曲: 嵐「Love so sweet」／PRODUCE 101 JAPAN「ツカメ 〜It's Coming〜」／Hey! Say! JUMP「OVER THE TOP」／SHINee「Everybody」／バブリンチョ「やんちゃBOY やんちゃGIRL」（各公式音源のプレビュー版を使用）");};
 function renderTitle(){
 show("v-title");
 $("#btn-cont").style.display = localStorage.getItem(SAVE_KEY)? "block":"none";
