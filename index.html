@@ -210,7 +210,7 @@ input,textarea{font-size:16px!important}
 .set-row .danger{color:var(--red);font-weight:700}
 /* ===== call ===== */
 #v-call{background:linear-gradient(180deg,#1b1830,#0a0a12);color:#fff}
-.call-in{flex:1;display:flex;flex-direction:column;align-items:center;padding:96px 24px calc(26px + env(safe-area-inset-bottom))}
+.call-in{flex:1;min-height:0;height:100%;overflow:hidden;display:flex;flex-direction:column;align-items:center;padding:calc(54px + 2vh) 24px calc(14px + env(safe-area-inset-bottom))}
 .call-status{font-size:12.5px;color:#a79fc0;letter-spacing:.08em}
 .call-av{width:112px;height:112px;border-radius:50%;object-fit:cover;object-position:top;border:3px solid rgba(255,255,255,.35);margin-top:16px;box-shadow:0 10px 30px rgba(0,0,0,.5)}
 .call-name{font-size:22px;font-weight:800;margin-top:14px}
@@ -377,6 +377,33 @@ button:active{transform:scale(.965)}
 .prog-tbl th{background:#f2f5fa;color:#555;font-weight:600}
 .prog-tbl td b{color:#16294d}
 .pf-sec-t{font-size:12px;font-weight:700;color:#8e8e93;margin-top:16px;letter-spacing:.05em}
+
+/* ===== v7.1 hotfix: 通話画面の下切れ修正（実機で進行不能になる問題） ===== */
+.call-sub{flex:0 1 auto;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.call-choices{max-height:30vh;overflow-y:auto}
+.call-btns{flex:none}
+@media (max-height:760px){
+.call-in{padding-top:58px}
+.call-av{width:88px;height:88px;margin-top:10px}
+.call-name{font-size:19px;margin-top:9px}
+.call-sub{margin-top:16px;padding:10px 13px;font-size:13.5px}
+.call-grid{gap:10px 14px;margin-top:18px}
+.call-grid .cg{width:48px;height:48px;font-size:18px}
+.call-incoming{margin-top:20px}
+}
+@media (max-height:660px){
+.call-in{padding-top:52px}
+.call-av{width:62px;height:62px;margin-top:6px}
+.call-name{font-size:17px;margin-top:6px}
+.call-time{font-size:12px}
+.call-sub{margin-top:11px}
+.call-grid{gap:8px 12px;margin-top:11px}
+.call-grid .cg{width:42px;height:42px;font-size:16px}
+.call-grid div{font-size:9.5px}
+.call-incoming{margin-top:14px}
+.call-tap{padding:11px 18px;font-size:13px}
+.call-end{width:56px;height:56px;font-size:21px}
+}
 </style>
 </head>
 <body>
@@ -496,7 +523,7 @@ button:active{transform:scale(.965)}
 <div class="set-row" style="cursor:default"><span>音量</span><input id="set-vol" type="range" min="0" max="100" step="5" style="flex:1;margin:0 12px"></div>
 <div class="set-row" id="set-about"><span>この作品について</span><span>›</span></div>
 <div class="set-row" id="set-reset"><span class="danger">データを消して最初から</span><span>›</span></div>
-<div style="padding:14px 16px;font-size:11px;color:#8e8e93;line-height:1.7">担当をデビューさせる件 v7<br>※本作品は実在の番組『PRODUCE 101 JAPAN』（2019）と実在の人物を題材にしたファンメイドのIF作品です。史実をもとにしていますが、登場人物の言動や順位の変動は創作を含みます。<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲は各アーティストの公式音源（プレビュー版）を使用しています。</div>
+<div style="padding:14px 16px;font-size:11px;color:#8e8e93;line-height:1.7">担当をデビューさせる件 v7.1<br>※本作品は実在の番組『PRODUCE 101 JAPAN』（2019）と実在の人物を題材にしたファンメイドのIF作品です。史実をもとにしていますが、登場人物の言動や順位の変動は創作を含みます。<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲は各アーティストの公式音源（プレビュー版）を使用しています。</div>
 </div>
 </div>
 
@@ -2358,7 +2385,7 @@ updateMusicBar();
 };
 $("#set-vol").addEventListener("input",e=>{ SND.vol=+e.target.value; saveSnd(); applyMusicVol(); });
 renderSnd();
-$("#set-about").onclick=()=>{ alert("『担当をデビューさせる件』v7\n実在の番組『PRODUCE 101 JAPAN』Season1（2019）を題材にした、ファンメイドのIF物語です。v6では、両エンディング後の「後日談エピローグ」と、エンディング到達後に解放される大翔との「フリーチャット」を追加しました。v6.1ではUIの質感とアニメーション、ステータスゲージ、トークの日付区切り・既読表示などを磨き込みました。v7では、各アプリの見た目を2019年当時の姿（LINE／Twitter／Yahoo!ニュース／iOS 13のノッチ・4G表示・通話画面）に寄せ、練習生101人全員の史実データ（プロフィール・クラス・順位推移・公表票数）を名簿と順位表に収録しました。主人公のなおは高校3年生の制作インターンとして合宿に帯同し、担当練習生・井汲大翔（17歳、学年は1つ下）を裏側から支えます。史実の流れ（レベル分け→ツカメ再評価→ポジション評価→第1回順位発表→グループバトル→第2回順位発表→コンセプト評価→第3回順位発表→ファイナル）をなぞりながら、編集の分量配分と裏側サポートで票と物語を動かし、史実36位の脱落を覆してデビュー圏11位を目指します。登場人物の言動は創作です。\n\nクレジット\n順位発表BGM: \"The Descent\" by Kevin MacLeod (CC-BY)\n課題曲: 嵐「Love so sweet」／PRODUCE 101 JAPAN「ツカメ 〜It's Coming〜」／Hey! Say! JUMP「OVER THE TOP」／SHINee「Everybody」／バブリンチョ「やんちゃBOY やんちゃGIRL」（各公式音源のプレビュー版を使用）");};
+$("#set-about").onclick=()=>{ alert("『担当をデビューさせる件』v7.1\n実在の番組『PRODUCE 101 JAPAN』Season1（2019）を題材にした、ファンメイドのIF物語です。v6では、両エンディング後の「後日談エピローグ」と、エンディング到達後に解放される大翔との「フリーチャット」を追加しました。v6.1ではUIの質感とアニメーション、ステータスゲージ、トークの日付区切り・既読表示などを磨き込みました。v7では、各アプリの見た目を2019年当時の姿（LINE／Twitter／Yahoo!ニュース／iOS 13のノッチ・4G表示・通話画面）に寄せ、練習生101人全員の史実データ（プロフィール・クラス・順位推移・公表票数）を名簿と順位表に収録しました。主人公のなおは高校3年生の制作インターンとして合宿に帯同し、担当練習生・井汲大翔（17歳、学年は1つ下）を裏側から支えます。史実の流れ（レベル分け→ツカメ再評価→ポジション評価→第1回順位発表→グループバトル→第2回順位発表→コンセプト評価→第3回順位発表→ファイナル）をなぞりながら、編集の分量配分と裏側サポートで票と物語を動かし、史実36位の脱落を覆してデビュー圏11位を目指します。登場人物の言動は創作です。\n\nクレジット\n順位発表BGM: \"The Descent\" by Kevin MacLeod (CC-BY)\n課題曲: 嵐「Love so sweet」／PRODUCE 101 JAPAN「ツカメ 〜It's Coming〜」／Hey! Say! JUMP「OVER THE TOP」／SHINee「Everybody」／バブリンチョ「やんちゃBOY やんちゃGIRL」（各公式音源のプレビュー版を使用）");};
 function renderTitle(){
 show("v-title");
 $("#btn-cont").style.display = localStorage.getItem(SAVE_KEY)? "block":"none";
