@@ -46,7 +46,7 @@ text-shadow:0 1px 4px rgba(0,0,0,.35);mix-blend-mode:difference;
 /* ===== home ===== */
 .wallpaper{position:absolute;inset:0;background:url('assets/s1/hiroto-big.jpg') center 22%/cover no-repeat}
 .wallpaper:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.30),rgba(0,0,0,0) 32%,rgba(0,0,0,0) 62%,rgba(0,0,0,.45))}
-.home-inner{position:relative;z-index:2;display:flex;flex-direction:column;height:100%;padding:64px 20px 16px}
+.home-inner{position:relative;z-index:2;display:flex;flex-direction:column;height:100%;padding:64px 20px 16px;overflow-y:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
 .widget{
 background:rgba(18,16,28,.58);backdrop-filter:blur(14px);border-radius:22px;color:#fff;
 padding:12px 14px;margin-bottom:16px;border:1px solid rgba(255,255,255,.14);
@@ -75,7 +75,7 @@ padding:56px 14px 10px;display:flex;align-items:center;gap:10px;border-bottom:1p
 .ahead .back{font-size:20px;color:var(--accent);cursor:pointer;padding:2px 6px}
 .ahead .ttl{font-size:16.5px;font-weight:700}
 .ahead .sub2{font-size:11px;color:var(--sub)}
-.abody{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.abody{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch}
 /* ===== talk list & chat ===== */
 .troom{display:flex;gap:11px;padding:12px 14px;border-bottom:1px solid #eee;cursor:pointer;align-items:center;background:#fff}
 .troom:active{background:#f2f2f7}
@@ -187,7 +187,7 @@ input,textarea{font-size:16px!important}
 .stepper{display:flex;align-items:center;gap:9px}
 .stepper button{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--accent);background:#fff;color:var(--accent);font-size:16px;font-weight:700;cursor:pointer}
 .stepper .pt{font-size:16px;font-weight:800;width:22px;text-align:center}
-.ed-head{padding:12px 16px;background:#fff3f6;border-bottom:1px solid #f3d3de;font-size:12.5px;line-height:1.7}
+.ed-head{padding:12px 16px;background:#fff3f6;border-bottom:1px solid #f3d3de;font-size:12.5px;line-height:1.7;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;max-height:48%}
 .ed-head b{color:#c2185b}
 .ed-foot{flex:none;padding:12px 14px calc(14px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid #eee}
 .ed-foot button{width:100%;border:none;border-radius:12px;padding:13px;font-size:14.5px;font-weight:700;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;cursor:pointer}
@@ -697,6 +697,43 @@ button:active{transform:scale(.965)}
 /* ===== v8.10: Twitter以外の画面精査（順位表ジャンプチップ／設定リセットのアプリ内モーダル） ===== */
 .rk-jump{position:absolute;right:14px;bottom:30px;z-index:60;background:#16294d;color:#fff;border:none;border-radius:999px;padding:10px 15px;font-size:12.5px;font-weight:700;box-shadow:0 8px 22px rgba(10,20,50,.4);cursor:pointer;display:none;font-family:inherit}
 .rk-jump.on{display:block}
+/* ===== v8.11: ホーム画面の高さ適応（実機Safariのツールバーで実効高さが縮んでもドック／グリッドが切れないように段階的に圧縮。届かない場合は .home-inner のスクロールで必ず到達可能にする） ===== */
+.home-inner::-webkit-scrollbar{display:none}
+@media (max-height:780px){
+.home-inner{padding-top:58px}
+.widget{padding:12px 14px;margin-bottom:12px}
+.widget .w-main{line-height:1.35}
+.w-row{margin-top:6px}
+.w-gauges{gap:4px;margin-top:7px}
+.widget button{padding:11px;min-height:44px}
+.apps{gap:13px 10px}
+.app .ic{width:52px;height:52px}
+.dock{padding:8px 14px}
+}
+@media (max-height:740px){
+.home-inner{padding-top:56px}
+.widget{padding:10px 12px}
+.w-gauges{gap:3px}
+.widget button{padding:10px;min-height:42px}
+.apps{gap:10px 8px}
+.app{gap:4px}
+.app .ic{width:47px;height:47px}
+.dock{padding:7px 12px}
+}
+@media (max-height:680px){
+.home-inner{padding-bottom:10px}
+.widget{padding:8px 12px;margin-bottom:8px}
+.widget button{min-height:40px}
+.w-row{margin-top:4px}
+.w-gauges{flex-direction:row;gap:8px}
+.wg{flex:1;flex-wrap:wrap;row-gap:3px}
+.wg .wg-bar{flex-basis:100%;order:3}
+.wg-lb{width:auto}
+.apps{gap:8px}
+.app .ic{width:42px;height:42px}
+.app .lb{font-size:10px}
+.dock{padding:6px 12px}
+}
 .rk-row.flash{animation:rkFlash 1.05s ease}
 @keyframes rkFlash{0%{box-shadow:inset 0 0 0 3px #e6a700}100%{box-shadow:inset 0 0 0 0 rgba(230,167,0,0)}}
 #reset-cancel{margin-top:12px;width:100%;border:none;background:#007aff;color:#fff;font-weight:700;font-size:14px;border-radius:10px;padding:10px;cursor:pointer;font-family:inherit}
@@ -743,6 +780,7 @@ button:active{transform:scale(.965)}
 <button class="b-cont" id="btn-cont" style="display:none">つづきから</button>
 <div class="tk-fic">※本作品は実在の番組『PRODUCE 101 JAPAN』（2019）と実在の人物を題材にしたファンメイドのIF物語です。史実をもとにしていますが、登場人物の言動・順位の変動は創作です。</div>
 </div>
+<div class="about-modal" id="start-modal" style="display:none"><div class="am-card"><div class="am-t">最初から始めますか？</div><div class="am-body">保存データがあります。最初から始めると、進行状況・トーク・順位などのセーブデータは新しいデータで上書きされます。元に戻せません。<br>※エンディング到達記録（思い出コレクションの到達表示）とサウンド設定は、この端末に残ります。</div><button id="start-cancel">キャンセル</button><button id="start-ok">最初から始める</button></div></div>
 </div>
 
 <!-- HOME -->
@@ -869,8 +907,8 @@ button:active{transform:scale(.965)}
 <div class="set-row" style="cursor:default"><span>音量</span><input id="set-vol" type="range" min="0" max="100" step="5" style="flex:1;margin:0 12px"></div>
 <div class="set-row" id="set-about"><span>この作品について</span><span>›</span></div>
 <div class="set-row" id="set-reset"><span class="danger">データを消して最初から</span><span>›</span></div>
-<div style="padding:14px 16px;font-size:11px;color:#8e8e93;line-height:1.7">担当をデビューさせる件 v8.10<br>※v8.10：Twitter以外の画面まわり（順位表・ホーム・設定・ステータスバー）を精査しました。順位表は、大翔の順位が画面の外にあるときにタップでその行まで飛べるチップを追加。ホームはドックのアイコンにも未読バッジが付くようになり、注目度ゲージは数値（最大124）とバーの伸びが食い違わないよう目盛りを調整。設定の「データを消して最初から」はネイティブの確認ダイアログからアプリ内モーダルに替え、消えるデータと残るデータ（エンディング到達記録・サウンド設定）を明記しました。<br>※v8.9：Twitter以外のアプリをさらに精査しました。Yahoo!ニュースは自分のコメントの「そう思う」状態も保存されるようになり、LINEのトーク一覧の時刻表示は実物の形式（現在のフェーズ内の発言は時刻、日付が確定する場面では「昨日」など）に寄せ、音楽プレイヤーは再生が終わると曲目リストのイコライザ表示がその場で尺表示に戻るよう直しました。<br>※v8.8：Twitter以外のアプリを精査しました。LINEは下部タブとヘッダーのアイコンを2019年当時の実物風の線画SVGに替え、トーク画面の☰から開けるルームメニュー（検索／通話履歴／トーク情報）を追加。Yahoo!ニュースはカテゴリ名表示の連動、記事見出しの再タップで本文を閉じられるトグル化、自分のコメントとブックマークが再表示しても残る保存対応。編集室はステッパーの無効状態表示と配分進捗バーを追加。名簿は検索・絞り込みで0件の節の見出しを隠し、空状態の案内を表示。思い出コレクションの詳細に「解放済みカード n／総数」の位置表示、通話履歴は着信／発信の矢印付きアイコン、音楽プレイヤーは再生中イコライザ表示を追加しました。<br>※v8.7：Twitterの公式ツイートの文面・数値をプロフィール側とフィード側で統一しました（11月14日の「Everybody」ステージ写真ツイートは、フィード側だけ文面といいね数が食い違い、日付と投票締切も矛盾していたため、プロフィール側の文面に一本化。第3回順位発表のツイートもプロフィール側へ一元化）。あわせて全アプリの文面・数値の横断整合監査を実施（票数・順位・日付は画面間で一致を確認。史実の公表実数には変更なし）。<br>※v8.6：公式プロフィールに収録した実在ツイートを、タイムライン（フィード）側にも展開。第1回投票期の帯では先頭の創作ツイートを実物（10月3日のツカメMV公開、9月26日の投票スタート）に置き換え、グループバトル期の帯に10月24日の実在ツイート2件（第1回順位発表式告知、第2回国民投票スタート）を追加。最終回（12月11日）を過ぎたあとは、実在のJO1紹介ツイートがフィードの先頭に流れるようになりました（作中の時系列に合わせた出し分け）。設定アイコンの歯車は歯を少し長くして歯車らしく微調整。井汲大翔の公約ツイートは今回も本文・日付の特定に至らず、引き続き未収録です。<br>※v8.5：公式アカウントの実在ツイートを追加収録（2019年9月25日の初放送告知、9月26日の投票開始、10月24日の第1回順位発表式告知と第2回投票開始、12月11日のJO1紹介）。本文はWayback Machineに残る当時の投稿ページで確認し、改行の畳みとリンク省略のうえ収録。いいね数はアーカイブ取得時点の実数。従来の創作ツイート（10月25日付の順位発表告知）は実物に置き換え。ホーム画面のアプリアイコンも2019年当時の実物寄せに刷新（LINEの白吹き出し、Twitterの鳥、Yahoo!ニュースのY!、ミュージックの白地に赤い音符など、絵文字アイコンをSVG再現へ置き換え）。<br>※v8.4.1：公式アカウント（@produce101jp）のプロフィールに、2019年9月4日の練習生紹介ツイートと9月13日の推しカメラツイート（いずれも井汲大翔分・実際の投稿）を実物どおり収録。<br>※v8.4：Twitterの投稿ボタン（羽根ペン）を実物化し、投稿画面から実際にツイートできるように。プロフィールはバナーがスクロールで縮む実物挙動を追加。通知・検索タブを実物構成に刷新（メンション切替・キーワード検索・おすすめユーザー）。音楽プレイヤーにシャッフル／リピートを追加。Yahoo!ニュースは共有シートとコメント投稿に対応。思い出コレクションに第3回順位発表のカードを追加。<br>※v8.3：Twitterヘッダーのスクロール連動（下スクロールで隠れ、上スクロールで復帰する2019年実物の挙動）と、公式プロフィールへの登録月（2019年4月）表示を追加。新規ボイス2本（第3回発表後／デビューエンディング）も収録。<br>※v8.2：全アプリの実物寄せをさらに深化（Twitterの2019年仕様ヘッダーとスパークル切替・いいね／リツイートのトグル・ツイート詳細の時刻と件数、ニュースのサムネイルとコメント反応、音楽プレイヤーのシーク・前後送り、トーク一覧の検索と時刻表示）。プロフィールの「戻る」も開いた場所に戻るよう改善。<br>※v8：各アプリの豪華化（トークのスタンプ・写真送信・既読人数・検索／Twitterのプロフィール・トレンド・通知・ツイート詳細／ニュースの関連記事・コメント・アクセスランキング）、思い出コレクション、順位推移グラフ、推しメン登録、通話履歴、音楽プレイヤーを追加。課題曲5曲は公式音源の長尺版に差し替え。本人の意向により、v6で追加したフリーチャットは廃止しました。<br>※本作品は実在の番組『PRODUCE 101 JAPAN』（2019）と実在の人物を題材にしたファンメイドのIF作品です。史実をもとにしていますが、登場人物の言動や順位の変動は創作を含みます。<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲は各アーティストの公式音源（長尺版）を使用しています。</div>
-<div class="about-modal" id="about-modal" style="display:none"><div class="am-card"><div class="am-t">『担当をデビューさせる件』v8.10</div><div class="am-body">実在の番組『PRODUCE 101 JAPAN』Season1（2019）を題材にした、ファンメイドのIF物語です。<br>v8.10では、Twitter以外の画面まわり（順位表・ホーム・設定・ステータスバー）を精査しました。順位表には、大翔の順位が画面外にあるときにタップでその行まで移動できるチップを追加。ホームのドックにも未読バッジが付くようになり、注目度ゲージは数値（最大124）とバーの伸びが食い違って見える問題を目盛りの調整で解消しました。設定のデータリセットはアプリ内モーダルでの確認に統一し、消えるデータと残るデータ（エンディング到達記録・サウンド設定）を明示。ステータスバーは明るい画面・暗い画面の両方で時刻とアイコンが読めることを確認しています（時刻は端末の実時刻表示が仕様です）。<br>v8.9では、Twitter以外のアプリをさらに精査しました。Yahoo!ニュースは、自分のコメントに付けた「そう思う」の状態もセーブに保存され、開き直しても残るようになりました。LINEのトーク一覧の最終メッセージ表示は実物の形式に寄せ、作中の現在フェーズ内の発言は時刻、日付が日単位で確定する場面（2019年12月10日・11日）では前日の発言を「昨日」と表示します。音楽プレイヤーは、再生が終わった瞬間に曲目リストのイコライザ表示が尺表示へ戻るよう描画を直しました。<br>v8.8では、Twitter以外のアプリを精査しました。LINEは下部タブとヘッダーのアイコンを2019年当時の実物風の線画に替え、トーク画面のメニュー（☰）から検索・通話履歴・トーク情報へ進めるように。Yahoo!ニュースはカテゴリ名の連動、記事の開閉トグル、自分のコメントとブックマークの保存に対応。編集室には配分進捗バーとステッパーの無効表示、名簿には検索の空状態表示、コレクション詳細には解放済み枚数の位置表示、通話履歴には着信／発信の矢印、音楽プレイヤーには再生中イコライザを追加しました。<br>v8では各アプリを豪華にしました。トークはスタンプ・写真送信・グループ既読人数・トーク内検索・＋メニュー対応。Twitterは公式プロフィール画面・トレンド・通知・ツイート詳細（返信スレッド）・画像付きツイートに対応。Yahoo!ニュースは関連記事・コメント欄・アクセスランキング・カテゴリ別一覧を搭載。順位表には票数カウントアップ演出と、大翔の順位推移グラフ（史実 vs この物語）を追加。名簿では推しメン登録（★）と絞り込み、プロフィールの写真複数表示と101人データ連動を強化。新たに「思い出コレクション」（名場面カード＋両エンディング到達表示）、通話履歴、音楽プレイヤーを追加し、課題曲5曲は公式音源の長尺版に差し替えました。なお、v6で追加したフリーチャットは本人の意向によりv8で廃止しました（セーブデータ互換は維持）。<br>v8.4.1では、公式アカウント（@produce101jp）のプロフィール欄に、実際に2019年9月4日に投稿された井汲大翔の練習生紹介ツイートと、9月13日のツカメ推しカメラツイートを、本文そのまま収録しました。<br>v8.5では、Wayback Machineに残る当時の投稿ページから、2019年9月25日の初放送告知、9月26日の投票開始、10月24日の第1回順位発表式告知と第2回投票開始、12月11日のJO1紹介の各ツイートも本文確認のうえ追加収録しました（改行の畳みとリンク省略あり、いいね数はアーカイブ取得時点の実数）。これに伴い、従来の創作ツイート（10月25日付の順位発表告知）は実物に置き換えています。<br>v8.6では、その実在ツイートをタイムライン（フィード）側にも広げました。第1回投票期のフィードでは先頭の創作ツイートを実物（10月3日のツカメMV公開、9月26日の投票スタート）に置き換え、グループバトル期のフィードには10月24日の実在ツイート2件を追加し、最終回を過ぎると12月11日のJO1紹介ツイートが先頭に流れるよう、作中の時系列に合わせて出し分けています。あわせて設定アイコンの歯車の歯を少し長くし、歯車らしい見え方に微調整しました。なお、井汲大翔の公約ツイート（2019年9月17〜21日の「11人に選ばれたら」シリーズ）は、今回もファン記事の埋め込み引用やアーカイブ照合で本文・日付の特定に至らなかったため、推測では入れず未収録のままです。<br>v8.7では、Twitterの公式ツイートの文面・数値をプロフィールとタイムラインで統一しました（11月14日の「Everybody」ステージ写真ツイートの食い違いを解消し、第3回順位発表のツイートもプロフィール側へ一元化）。あわせて全アプリを通じた文面・数値の横断整合監査を行い、票数・順位・日付の画面間一致を確認しました（史実の公表実数は変更なし）。<br>v8.4では、Twitterの投稿ボタンを2019年当時の羽根ペンの実物様式にし、投稿画面から実際にツイートしてタイムラインへ反映できるようにしました。プロフィール画面ではバナーがスクロールに合わせて縮む実物の挙動を追加。通知タブは「すべて／メンション」切替と実物のアイコン構成に、検索タブはキーワード検索とおすすめユーザーに対応。音楽プレイヤーには当時のiOSミュージックの実物機能であるシャッフルとリピート（オフ／すべて／1曲）を追加。Yahoo!ニュースでは共有シートとコメント投稿ができるようになり、思い出コレクションには第3回順位発表のカード（ボイス付き）が増えました。<br>v8.3ではTwitterのヘッダーにスクロール連動（下スクロールでせり上がって隠れ、上スクロールで戻ってくる、2019年当時の挙動）を実装し、公式アカウントのプロフィールに登録月（2019年4月から利用しています）を追加。新規ボイス2本（第3回順位発表後の決意と、デビューエンディング後の感謝）も収録しました。<br>v8.2では全アプリの実物寄せをさらに深めました。Twitterは2019年当時のヘッダー（アバター＋「ホーム」＋スパークル切替）と下部タブ構成に寄せ、いいね／リツイートのトグル、ツイート詳細の時刻・件数表示、プロフィールのフォローボタンを実装。Yahoo!ニュースは記事サムネイルとカテゴリタブ、シェア／ブックマーク／コメントの「そう思う」に反応を持たせ、音楽プレイヤーはシークと前後の曲送りに対応。トーク一覧には検索と最終メッセージ時刻を追加し、プロフィールの「戻る」は開いた場所に戻るようになりました。<br>v7では各アプリの見た目を2019年当時の姿（LINE／Twitter／Yahoo!ニュース／iOS 13）に寄せ、練習生101人全員の史実データを収録。主人公のなおは高校3年生の制作インターンとして合宿に帯同し、担当練習生・井汲大翔（17歳、学年は1つ下）を裏側から支えます。史実の流れをなぞりながら、編集の分量配分と裏側サポートで票と物語を動かし、史実36位の脱落を覆してデビュー圏11位を目指します。登場人物の言動は創作です。<br><br>クレジット<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲: 嵐「Love so sweet」／PRODUCE 101 JAPAN「ツカメ 〜It's Coming〜」／Hey! Say! JUMP「OVER THE TOP」／SHINee「Everybody」／バブリンチョ「やんちゃBOY やんちゃGIRL」（各公式音源の長尺版を使用）</div><button id="about-close">閉じる</button></div></div>
+<div style="padding:14px 16px;font-size:11px;color:#8e8e93;line-height:1.7">担当をデビューさせる件 v8.11<br>※v8.11：タイトル画面の「はじめから」の確認も、ネイティブの確認ダイアログからアプリ内モーダルに統一しました（設定のデータリセットと同じ流儀で、消えるデータと残るデータを明記）。順位表のジャンプチップは、大翔に加えて推しメン（★）登録した練習生の行にも対応。画面外の対象が複数ある場合は「他n人」と表示され、タップするたびに次の対象へ飛べます。<br>※v8.10：Twitter以外の画面まわり（順位表・ホーム・設定・ステータスバー）を精査しました。順位表は、大翔の順位が画面の外にあるときにタップでその行まで飛べるチップを追加。ホームはドックのアイコンにも未読バッジが付くようになり、注目度ゲージは数値（最大124）とバーの伸びが食い違わないよう目盛りを調整。設定の「データを消して最初から」はネイティブの確認ダイアログからアプリ内モーダルに替え、消えるデータと残るデータ（エンディング到達記録・サウンド設定）を明記しました。<br>※v8.9：Twitter以外のアプリをさらに精査しました。Yahoo!ニュースは自分のコメントの「そう思う」状態も保存されるようになり、LINEのトーク一覧の時刻表示は実物の形式（現在のフェーズ内の発言は時刻、日付が確定する場面では「昨日」など）に寄せ、音楽プレイヤーは再生が終わると曲目リストのイコライザ表示がその場で尺表示に戻るよう直しました。<br>※v8.8：Twitter以外のアプリを精査しました。LINEは下部タブとヘッダーのアイコンを2019年当時の実物風の線画SVGに替え、トーク画面の☰から開けるルームメニュー（検索／通話履歴／トーク情報）を追加。Yahoo!ニュースはカテゴリ名表示の連動、記事見出しの再タップで本文を閉じられるトグル化、自分のコメントとブックマークが再表示しても残る保存対応。編集室はステッパーの無効状態表示と配分進捗バーを追加。名簿は検索・絞り込みで0件の節の見出しを隠し、空状態の案内を表示。思い出コレクションの詳細に「解放済みカード n／総数」の位置表示、通話履歴は着信／発信の矢印付きアイコン、音楽プレイヤーは再生中イコライザ表示を追加しました。<br>※v8.7：Twitterの公式ツイートの文面・数値をプロフィール側とフィード側で統一しました（11月14日の「Everybody」ステージ写真ツイートは、フィード側だけ文面といいね数が食い違い、日付と投票締切も矛盾していたため、プロフィール側の文面に一本化。第3回順位発表のツイートもプロフィール側へ一元化）。あわせて全アプリの文面・数値の横断整合監査を実施（票数・順位・日付は画面間で一致を確認。史実の公表実数には変更なし）。<br>※v8.6：公式プロフィールに収録した実在ツイートを、タイムライン（フィード）側にも展開。第1回投票期の帯では先頭の創作ツイートを実物（10月3日のツカメMV公開、9月26日の投票スタート）に置き換え、グループバトル期の帯に10月24日の実在ツイート2件（第1回順位発表式告知、第2回国民投票スタート）を追加。最終回（12月11日）を過ぎたあとは、実在のJO1紹介ツイートがフィードの先頭に流れるようになりました（作中の時系列に合わせた出し分け）。設定アイコンの歯車は歯を少し長くして歯車らしく微調整。井汲大翔の公約ツイートは今回も本文・日付の特定に至らず、引き続き未収録です。<br>※v8.5：公式アカウントの実在ツイートを追加収録（2019年9月25日の初放送告知、9月26日の投票開始、10月24日の第1回順位発表式告知と第2回投票開始、12月11日のJO1紹介）。本文はWayback Machineに残る当時の投稿ページで確認し、改行の畳みとリンク省略のうえ収録。いいね数はアーカイブ取得時点の実数。従来の創作ツイート（10月25日付の順位発表告知）は実物に置き換え。ホーム画面のアプリアイコンも2019年当時の実物寄せに刷新（LINEの白吹き出し、Twitterの鳥、Yahoo!ニュースのY!、ミュージックの白地に赤い音符など、絵文字アイコンをSVG再現へ置き換え）。<br>※v8.4.1：公式アカウント（@produce101jp）のプロフィールに、2019年9月4日の練習生紹介ツイートと9月13日の推しカメラツイート（いずれも井汲大翔分・実際の投稿）を実物どおり収録。<br>※v8.4：Twitterの投稿ボタン（羽根ペン）を実物化し、投稿画面から実際にツイートできるように。プロフィールはバナーがスクロールで縮む実物挙動を追加。通知・検索タブを実物構成に刷新（メンション切替・キーワード検索・おすすめユーザー）。音楽プレイヤーにシャッフル／リピートを追加。Yahoo!ニュースは共有シートとコメント投稿に対応。思い出コレクションに第3回順位発表のカードを追加。<br>※v8.3：Twitterヘッダーのスクロール連動（下スクロールで隠れ、上スクロールで復帰する2019年実物の挙動）と、公式プロフィールへの登録月（2019年4月）表示を追加。新規ボイス2本（第3回発表後／デビューエンディング）も収録。<br>※v8.2：全アプリの実物寄せをさらに深化（Twitterの2019年仕様ヘッダーとスパークル切替・いいね／リツイートのトグル・ツイート詳細の時刻と件数、ニュースのサムネイルとコメント反応、音楽プレイヤーのシーク・前後送り、トーク一覧の検索と時刻表示）。プロフィールの「戻る」も開いた場所に戻るよう改善。<br>※v8：各アプリの豪華化（トークのスタンプ・写真送信・既読人数・検索／Twitterのプロフィール・トレンド・通知・ツイート詳細／ニュースの関連記事・コメント・アクセスランキング）、思い出コレクション、順位推移グラフ、推しメン登録、通話履歴、音楽プレイヤーを追加。課題曲5曲は公式音源の長尺版に差し替え。本人の意向により、v6で追加したフリーチャットは廃止しました。<br>※本作品は実在の番組『PRODUCE 101 JAPAN』（2019）と実在の人物を題材にしたファンメイドのIF作品です。史実をもとにしていますが、登場人物の言動や順位の変動は創作を含みます。<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲は各アーティストの公式音源（長尺版）を使用しています。</div>
+<div class="about-modal" id="about-modal" style="display:none"><div class="am-card"><div class="am-t">『担当をデビューさせる件』v8.11</div><div class="am-body">実在の番組『PRODUCE 101 JAPAN』Season1（2019）を題材にした、ファンメイドのIF物語です。<br>v8.11では、タイトル画面の「はじめから」の確認もアプリ内モーダルに統一し（消えるデータと残るデータは設定のリセット確認と同じ明記）、順位表のジャンプチップを推しメン（★）登録した練習生の行にも広げました。画面外の対象が複数あるときは「他n人」と併記され、タップのたびに次の対象へ移動します。<br>v8.10では、Twitter以外の画面まわり（順位表・ホーム・設定・ステータスバー）を精査しました。順位表には、大翔の順位が画面外にあるときにタップでその行まで移動できるチップを追加。ホームのドックにも未読バッジが付くようになり、注目度ゲージは数値（最大124）とバーの伸びが食い違って見える問題を目盛りの調整で解消しました。設定のデータリセットはアプリ内モーダルでの確認に統一し、消えるデータと残るデータ（エンディング到達記録・サウンド設定）を明示。ステータスバーは明るい画面・暗い画面の両方で時刻とアイコンが読めることを確認しています（時刻は端末の実時刻表示が仕様です）。<br>v8.9では、Twitter以外のアプリをさらに精査しました。Yahoo!ニュースは、自分のコメントに付けた「そう思う」の状態もセーブに保存され、開き直しても残るようになりました。LINEのトーク一覧の最終メッセージ表示は実物の形式に寄せ、作中の現在フェーズ内の発言は時刻、日付が日単位で確定する場面（2019年12月10日・11日）では前日の発言を「昨日」と表示します。音楽プレイヤーは、再生が終わった瞬間に曲目リストのイコライザ表示が尺表示へ戻るよう描画を直しました。<br>v8.8では、Twitter以外のアプリを精査しました。LINEは下部タブとヘッダーのアイコンを2019年当時の実物風の線画に替え、トーク画面のメニュー（☰）から検索・通話履歴・トーク情報へ進めるように。Yahoo!ニュースはカテゴリ名の連動、記事の開閉トグル、自分のコメントとブックマークの保存に対応。編集室には配分進捗バーとステッパーの無効表示、名簿には検索の空状態表示、コレクション詳細には解放済み枚数の位置表示、通話履歴には着信／発信の矢印、音楽プレイヤーには再生中イコライザを追加しました。<br>v8では各アプリを豪華にしました。トークはスタンプ・写真送信・グループ既読人数・トーク内検索・＋メニュー対応。Twitterは公式プロフィール画面・トレンド・通知・ツイート詳細（返信スレッド）・画像付きツイートに対応。Yahoo!ニュースは関連記事・コメント欄・アクセスランキング・カテゴリ別一覧を搭載。順位表には票数カウントアップ演出と、大翔の順位推移グラフ（史実 vs この物語）を追加。名簿では推しメン登録（★）と絞り込み、プロフィールの写真複数表示と101人データ連動を強化。新たに「思い出コレクション」（名場面カード＋両エンディング到達表示）、通話履歴、音楽プレイヤーを追加し、課題曲5曲は公式音源の長尺版に差し替えました。なお、v6で追加したフリーチャットは本人の意向によりv8で廃止しました（セーブデータ互換は維持）。<br>v8.4.1では、公式アカウント（@produce101jp）のプロフィール欄に、実際に2019年9月4日に投稿された井汲大翔の練習生紹介ツイートと、9月13日のツカメ推しカメラツイートを、本文そのまま収録しました。<br>v8.5では、Wayback Machineに残る当時の投稿ページから、2019年9月25日の初放送告知、9月26日の投票開始、10月24日の第1回順位発表式告知と第2回投票開始、12月11日のJO1紹介の各ツイートも本文確認のうえ追加収録しました（改行の畳みとリンク省略あり、いいね数はアーカイブ取得時点の実数）。これに伴い、従来の創作ツイート（10月25日付の順位発表告知）は実物に置き換えています。<br>v8.6では、その実在ツイートをタイムライン（フィード）側にも広げました。第1回投票期のフィードでは先頭の創作ツイートを実物（10月3日のツカメMV公開、9月26日の投票スタート）に置き換え、グループバトル期のフィードには10月24日の実在ツイート2件を追加し、最終回を過ぎると12月11日のJO1紹介ツイートが先頭に流れるよう、作中の時系列に合わせて出し分けています。あわせて設定アイコンの歯車の歯を少し長くし、歯車らしい見え方に微調整しました。なお、井汲大翔の公約ツイート（2019年9月17〜21日の「11人に選ばれたら」シリーズ）は、今回もファン記事の埋め込み引用やアーカイブ照合で本文・日付の特定に至らなかったため、推測では入れず未収録のままです。<br>v8.7では、Twitterの公式ツイートの文面・数値をプロフィールとタイムラインで統一しました（11月14日の「Everybody」ステージ写真ツイートの食い違いを解消し、第3回順位発表のツイートもプロフィール側へ一元化）。あわせて全アプリを通じた文面・数値の横断整合監査を行い、票数・順位・日付の画面間一致を確認しました（史実の公表実数は変更なし）。<br>v8.4では、Twitterの投稿ボタンを2019年当時の羽根ペンの実物様式にし、投稿画面から実際にツイートしてタイムラインへ反映できるようにしました。プロフィール画面ではバナーがスクロールに合わせて縮む実物の挙動を追加。通知タブは「すべて／メンション」切替と実物のアイコン構成に、検索タブはキーワード検索とおすすめユーザーに対応。音楽プレイヤーには当時のiOSミュージックの実物機能であるシャッフルとリピート（オフ／すべて／1曲）を追加。Yahoo!ニュースでは共有シートとコメント投稿ができるようになり、思い出コレクションには第3回順位発表のカード（ボイス付き）が増えました。<br>v8.3ではTwitterのヘッダーにスクロール連動（下スクロールでせり上がって隠れ、上スクロールで戻ってくる、2019年当時の挙動）を実装し、公式アカウントのプロフィールに登録月（2019年4月から利用しています）を追加。新規ボイス2本（第3回順位発表後の決意と、デビューエンディング後の感謝）も収録しました。<br>v8.2では全アプリの実物寄せをさらに深めました。Twitterは2019年当時のヘッダー（アバター＋「ホーム」＋スパークル切替）と下部タブ構成に寄せ、いいね／リツイートのトグル、ツイート詳細の時刻・件数表示、プロフィールのフォローボタンを実装。Yahoo!ニュースは記事サムネイルとカテゴリタブ、シェア／ブックマーク／コメントの「そう思う」に反応を持たせ、音楽プレイヤーはシークと前後の曲送りに対応。トーク一覧には検索と最終メッセージ時刻を追加し、プロフィールの「戻る」は開いた場所に戻るようになりました。<br>v7では各アプリの見た目を2019年当時の姿（LINE／Twitter／Yahoo!ニュース／iOS 13）に寄せ、練習生101人全員の史実データを収録。主人公のなおは高校3年生の制作インターンとして合宿に帯同し、担当練習生・井汲大翔（17歳、学年は1つ下）を裏側から支えます。史実の流れをなぞりながら、編集の分量配分と裏側サポートで票と物語を動かし、史実36位の脱落を覆してデビュー圏11位を目指します。登場人物の言動は創作です。<br><br>クレジット<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲: 嵐「Love so sweet」／PRODUCE 101 JAPAN「ツカメ 〜It's Coming〜」／Hey! Say! JUMP「OVER THE TOP」／SHINee「Everybody」／バブリンチョ「やんちゃBOY やんちゃGIRL」（各公式音源の長尺版を使用）</div><button id="about-close">閉じる</button></div></div>
 <div class="about-modal" id="reset-modal" style="display:none"><div class="am-card"><div class="am-t">データを消して最初から</div><div class="am-body">進行状況・トーク・順位などのセーブデータを消して、最初からやり直します。元に戻せません。<br>※エンディング到達記録（思い出コレクションの到達表示）とサウンド設定は、この端末に残ります。</div><button id="reset-cancel">キャンセル</button><button id="reset-ok">消して最初から</button></div></div>
 </div>
 </div>
@@ -2502,7 +2540,7 @@ $("#rank-sub").textContent="第2回順位発表 ― 中間集計";
 const rows=TRAINEES.filter(t=>BASE2[t.id]!=null).slice().sort((a,b)=>(S.tr[b.id].votes2||0)-(S.tr[a.id].votes2||0));
 w.innerHTML=rows.map((t,i)=>{
 const st=S.tr[t.id];
-return `<div class="rk-row ${t.id==="hiroto"?"me":""}"><div class="rk-num">${i+1}</div><img class="av sm" src="${t.img}"><div class="inf"><div class="nm">${t.name}</div><div class="dt">クラス ${st.cls}／分量 ${(st.air||0)+(st.air2||0)}pt</div></div><div class="rk-vote"><b>${(st.votes2||0).toLocaleString()}</b><br>票</div></div>`;
+return `<div class="rk-row ${t.id==="hiroto"?"me":""}" data-rkname="${t.name}"><div class="rk-num">${i+1}</div><img class="av sm" src="${t.img}"><div class="inf"><div class="nm">${t.name}</div><div class="dt">クラス ${st.cls}／分量 ${(st.air||0)+(st.air2||0)}pt</div></div><div class="rk-vote"><b>${(st.votes2||0).toLocaleString()}</b><br>票</div></div>`;
 }).join("")+`<div class="rk-note">第2回投票（11pick、2019年10月24日〜11月8日）の中間集計です。公式順位は第2回順位発表で確定します。残留ラインは35位——史実の35位は浦野秀太（${URANO_VOTES2.toLocaleString()}票）でした。</div>`;
 }
 function renderRank2(w){
@@ -2520,7 +2558,7 @@ rows=rows.slice(0,60);
 w.innerHTML=rows.map((r,i)=>{
 const rank=i+1; const inz=rank<=DEBUT_N;
 const tag=r.me?`<span class="zone-tag ${elim?"zone-out":(inz?"zone-in":"zone-out")}">${elim?"脱落":(inz?"デビュー圏内":"残留")}</span>`:"";
-return `<div class="rk-row ${r.me?"me":""}"><div class="rk-num ${rank<=3?"top":""}">${rank}</div><img class="av sm" src="${imgOf(r.name)}"><div class="inf"><div class="nm">${r.name}${tag}</div><div class="dt">第2回順位発表</div></div><div class="rk-vote"><b>${r.votes==null?"―":r.votes.toLocaleString()}</b><br>票</div></div>`;
+return `<div class="rk-row ${r.me?"me":""}" data-rkname="${r.name}"><div class="rk-num ${rank<=3?"top":""}">${rank}</div><img class="av sm" src="${imgOf(r.name)}"><div class="inf"><div class="nm">${r.name}${tag}</div><div class="dt">第2回順位発表</div></div><div class="rk-vote"><b>${r.votes==null?"―":r.votes.toLocaleString()}</b><br>票</div></div>`;
 }).join("")+`<div class="rk-note">集計：第2回国民投票（11pick）の史実結果（順位は全60名、票数は公表されている分のみ表示）に、ひろとのIF結果を合わせて再構成した順位です。史実では大翔は36位で脱落しました（残留ライン35位・浦野秀太 ${URANO_VOTES2.toLocaleString()}票）。デビュー圏は上位${DEBUT_N}名、残留ラインは35位です。</div>`;
 }
 /* ================= PART 3: RANKING ================= */
@@ -2584,7 +2622,7 @@ rows.push({name:"井汲大翔",votes:hv,me:true});
 rows.sort((a,b)=>b.votes-a.votes);
 w.innerHTML=rows.map((r,i)=>{
 const rank=i+1; const surv=rank<=20;
-return `<div class="rk-row ${r.me?"me":""}"><div class="rk-num ${rank<=3?"top":""}">${rank}</div><img class="av sm" src="${imgOf(r.name)}"><div class="inf"><div class="nm">${r.name}${r.me?`<span class="zone-tag ${surv?"zone-in":"zone-out"}">${surv?"ファイナル進出":"脱落"}</span>`:""}</div><div class="dt">第3回順位発表</div></div><div class="rk-vote"><b>${r.votes.toLocaleString()}</b><br>票</div></div>`;
+return `<div class="rk-row ${r.me?"me":""}" data-rkname="${r.name}"><div class="rk-num ${rank<=3?"top":""}">${rank}</div><img class="av sm" src="${imgOf(r.name)}"><div class="inf"><div class="nm">${r.name}${r.me?`<span class="zone-tag ${surv?"zone-in":"zone-out"}">${surv?"ファイナル進出":"脱落"}</span>`:""}</div><div class="dt">第3回順位発表</div></div><div class="rk-vote"><b>${r.votes.toLocaleString()}</b><br>票</div></div>`;
 }).join("")+`<div class="rk-note">集計：第3回国民投票（2pick、2019年11月14日〜11月29日）の史実結果（順位・票数はいずれも公表値）に、ひろとのIF結果を合わせて再構成した順位です。残留ラインは20位。史実では大翔は第2回発表で脱落しており、この発表にはいませんでした。また史実ではキム・ヒチョン、キム・ユンドン、チョン・ヨンフンの3名が発表前に辞退しています。</div>`;
 }
 function renderFinal(w){
@@ -2595,7 +2633,7 @@ rows.push({name:"井汲大翔",votes:hv,me:true});
 rows.sort((a,b)=>(b.votes||0)-(a.votes||0));
 w.innerHTML=rows.map((r,i)=>{
 const rank=i+1; const inz=rank<=DEBUT_N;
-return `<div class="rk-row ${r.me?"me":""}"><div class="rk-num ${rank<=3?"top":""}">${rank}</div><img class="av sm" src="${imgOf(r.name)}"><div class="inf"><div class="nm">${r.name}${r.me?`<span class="zone-tag ${inz?"zone-in":"zone-out"}">${inz?"JO1 デビュー決定":"あと一歩"}</span>`:""}</div><div class="dt">最終順位</div></div><div class="rk-vote"><b>${r.votes==null?"―":r.votes.toLocaleString()}</b><br>票</div></div>`;
+return `<div class="rk-row ${r.me?"me":""}" data-rkname="${r.name}"><div class="rk-num ${rank<=3?"top":""}">${rank}</div><img class="av sm" src="${imgOf(r.name)}"><div class="inf"><div class="nm">${r.name}${r.me?`<span class="zone-tag ${inz?"zone-in":"zone-out"}">${inz?"JO1 デビュー決定":"あと一歩"}</span>`:""}</div><div class="dt">最終順位</div></div><div class="rk-vote"><b>${r.votes==null?"―":r.votes.toLocaleString()}</b><br>票</div></div>`;
 }).join("")+`<div class="rk-note">集計：最終投票（1pick、第4回投票＋生放送投票）の史実結果に、ひろとのIF結果を合わせて再構成した順位です。上位11名の票数は公表値、12位以下の票数は非公表のため「―」としています。デビュー組は「JO1」として2020年3月4日にデビューしました。</div>`;
 }
 function renderRankCore(){
@@ -2608,7 +2646,7 @@ if(!S.ranked && S.beat<6){
 w.innerHTML=`<div class="rk-note">第1回順位発表はまだ実施されていません。<br>第1回投票は1日1回・11人を選ぶ「11pick」制（2019年9月26日〜10月18日）。下記は現在の注目度順です。<br><br></div>`+
 TRAINEES.slice().sort((a,b)=>S.tr[b.id].att-S.tr[a.id].att).map((t,i)=>{
 const st=S.tr[t.id];
-return `<div class="rk-row ${t.id==="hiroto"?"me":""}"><div class="rk-num">${i+1}</div><img class="av sm" src="${t.img}"><div class="inf"><div class="nm">${t.name}</div><div class="dt">注目度 ${st.att}／クラス ${st.cls}</div></div></div>`;
+return `<div class="rk-row ${t.id==="hiroto"?"me":""}" data-rkname="${t.name}"><div class="rk-num">${i+1}</div><img class="av sm" src="${t.img}"><div class="inf"><div class="nm">${t.name}</div><div class="dt">注目度 ${st.att}／クラス ${st.cls}</div></div></div>`;
 }).join("");
 $("#rank-sub").textContent="事前注目度ランキング";
 return;
@@ -2621,7 +2659,7 @@ rows1.sort((a,b)=>b.votes-a.votes);
 rows1=rows1.slice(0,60);
 w.innerHTML=rows1.map((r,i)=>{
 const rank=i+1; const inz=rank<=DEBUT_N;
-return `<div class="rk-row ${r.me?"me":""}"><div class="rk-num ${rank<=3?"top":""}">${rank}</div><img class="av sm" src="${imgOf(r.name)}"><div class="inf"><div class="nm">${r.name}${r.me?`<span class="zone-tag ${inz?"zone-in":"zone-out"}">${inz?"デビュー圏内":"圏外"}</span>`:""}</div><div class="dt">第1回順位発表</div></div><div class="rk-vote"><b>${r.votes.toLocaleString()}</b><br>票</div></div>`;
+return `<div class="rk-row ${r.me?"me":""}" data-rkname="${r.name}"><div class="rk-num ${rank<=3?"top":""}">${rank}</div><img class="av sm" src="${imgOf(r.name)}"><div class="inf"><div class="nm">${r.name}${r.me?`<span class="zone-tag ${inz?"zone-in":"zone-out"}">${inz?"デビュー圏内":"圏外"}</span>`:""}</div><div class="dt">第1回順位発表</div></div><div class="rk-vote"><b>${r.votes.toLocaleString()}</b><br>票</div></div>`;
 }).join("")+`<div class="rk-note">集計：第1回国民投票（11pick、2019年9月26日〜10月18日）の史実結果（全60名・票数は公表値）に、ひろとのIF票（放送の分量配分と裏側サポートの効果）を合わせて再構成した順位です。史実では大翔は${HIST_HIROTO_RANK}位（${HIST_HIROTO_VOTES.toLocaleString()}票）でした。デビュー圏は上位${DEBUT_N}名、生き残りラインは60位です。61位以下で脱落した41名は「練習生名簿」で全員確認できます。</div>`;
 }
 /* v8: 順位推移グラフ（史実 vs IF）＋票数カウントアップ */
@@ -2647,16 +2685,39 @@ requestAnimationFrame(step);
 });
 }
 function renderRank(){ renderRankCore(); const w=$("#rank-body"); if(w){ w.insertAdjacentHTML("afterbegin", hirotoGraphHTML()); animateVotes(w); rkJumpInit(w); } }
-/* v8.10: 順位表（最大60行）で大翔の行が画面外にあるときだけ、タップでその行まで飛べるチップを出す */
+/* v8.11: ジャンプチップは大翔に加えて推しメン（★登録）の行にも対応する。
+   対象は表示順（順位順）に集め、チップは常に「画面外にある対象のうち一番上」を指す。
+   画面外の対象が複数ある場合は「他n人」と併記し、タップでその行へ飛ぶと
+   その行が見えるようになるため、チップは次の画面外の対象へ切り替わる。
+   大翔が★登録されても対象は1行に重複しない */
+let rkJumpKey=null;
+function rkTargets(w){
+const favs=(S.fav||[]);
+const out=[];
+w.querySelectorAll(".rk-row").forEach(row=>{
+const isMe=row.classList.contains("me");
+const nm=row.getAttribute("data-rkname")||"";
+if(!isMe && favs.indexOf(nm)<0) return;
+const num=row.querySelector(".rk-num");
+out.push({el:row, name:nm, rank:num?num.textContent:"", me:isMe});
+});
+return out;
+}
 function rkJumpUpdate(){
 const w=$("#rank-body"), chip=$("#rk-jump"); if(!w||!chip) return;
-const me=w.querySelector(".rk-row.me");
-if(!me || !$("#v-rank").classList.contains("on")){ chip.classList.remove("on"); return; }
-const br=w.getBoundingClientRect(), mr=me.getBoundingClientRect();
+if(!$("#v-rank").classList.contains("on")){ chip.classList.remove("on"); return; }
+const br=w.getBoundingClientRect();
+const off=[];
+rkTargets(w).forEach(t=>{
+const mr=t.el.getBoundingClientRect();
 const vis=mr.bottom>br.top+10 && mr.top<br.bottom-10;
-const num=me.querySelector(".rk-num");
-chip.textContent=(mr.top<br.top? "▲ ":"▼ ")+"井汲大翔 "+(num?num.textContent:"")+"位へ";
-chip.classList.toggle("on", !vis);
+if(!vis) off.push({t:t, above:mr.top<br.top});
+});
+if(!off.length){ chip.classList.remove("on"); rkJumpKey=null; return; }
+const cur=off[0];
+rkJumpKey=cur.t.name;
+chip.textContent=(cur.above? "▲ ":"▼ ")+(cur.t.me? cur.t.name : "★"+cur.t.name)+" "+cur.t.rank+"位へ"+(off.length>1? "（他"+(off.length-1)+"人）":"");
+chip.classList.add("on");
 }
 function rkJumpInit(w){
 rkJumpUpdate();
@@ -2665,7 +2726,11 @@ if(w.dataset.rkJump) return; w.dataset.rkJump="1";
 w.addEventListener("scroll", rkJumpUpdate, {passive:true});
 const chip=$("#rk-jump");
 if(chip) chip.onclick=()=>{
-const me=w.querySelector(".rk-row.me"); if(!me) return;
+const ts=rkTargets(w); if(!ts.length) return;
+let tg=null;
+for(let i=0;i<ts.length;i++){ if(ts[i].name===rkJumpKey){ tg=ts[i]; break; } }
+if(!tg) tg=ts[0];
+const me=tg.el;
 let smooth=true; try{ smooth=!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches); }catch(e){}
 me.scrollIntoView({block:"center", behavior:smooth? "smooth":"auto"});
 me.classList.remove("flash"); void me.offsetWidth; me.classList.add("flash");
@@ -3266,11 +3331,18 @@ function renderTitle(){
 show("v-title");
 $("#btn-cont").style.display = localStorage.getItem(SAVE_KEY)? "block":"none";
 }
-$("#btn-start").onclick=()=>{
-if(localStorage.getItem(SAVE_KEY) && !confirm("保存データがあります。最初から始めると上書きされます。よろしいですか？")) return;
+/* v8.11: タイトルの「はじめから」確認もネイティブconfirm()からアプリ内モーダルに統一（設定のリセット確認と同じ流儀） */
+function startNewGame(){
 S=freshState(); editDraft=null; save(); renderHome(); show("v-home");
 toast("プロローグ開始");
+}
+$("#btn-start").onclick=()=>{
+if(localStorage.getItem(SAVE_KEY)){ const m=$("#start-modal"); if(m){ m.style.display="flex"; return; } }
+startNewGame();
 };
+$("#start-cancel").onclick=()=>{ $("#start-modal").style.display="none"; };
+$("#start-modal").onclick=(e)=>{ if(e.target && e.target.id==="start-modal") e.target.style.display="none"; };
+$("#start-ok").onclick=()=>{ $("#start-modal").style.display="none"; startNewGame(); };
 $("#btn-cont").onclick=()=>{ load(); renderHome(); show("v-home");};
 
 /* v8 realism: 通知バナーをタップしたらそのトークを開く */
