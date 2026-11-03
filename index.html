@@ -7,8 +7,8 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{
---line:#06c755; --ink:#111; --sub:#8e8e93; --bg:#f2f2f7; --red:#ff3b30;
---gold:#ffd60a; --accent:#7c5cff; --accent2:#ff5c8a;
+--line:#00B900; --ink:#111; --sub:#8e8e93; --bg:#f2f2f7; --red:#ff3b30;
+--gold:#ffd60a; --accent:#16294d; --accent2:#3d7dc4;
 }
 html,body{height:100%}
 body{
@@ -29,7 +29,7 @@ margin-bottom:14px; flex:none;
 @media (max-width:430px){.phone{border-radius:0;padding:0;height:calc(100dvh - 108px);box-shadow:none}.page-head{padding:10px 12px 6px}.page-head .src{display:none}}
 .screen{position:relative;width:100%;height:100%;border-radius:44px;overflow:hidden;background:#000}
 @media (max-width:430px){.screen{border-radius:0}}
-.island{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:112px;height:30px;background:#000;border-radius:20px;z-index:200}
+.notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:190px;height:27px;background:#000;border-radius:0 0 17px 17px;z-index:200}
 .statusbar{
 position:absolute;top:0;left:0;right:0;height:52px;z-index:150;display:flex;align-items:flex-end;
 justify-content:space-between;padding:0 30px 4px;font-size:14.5px;font-weight:600;color:#fff;pointer-events:none;
@@ -85,20 +85,20 @@ padding:56px 14px 10px;display:flex;align-items:center;gap:10px;border-bottom:1p
 .troom .pv{font-size:12px;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:230px}
 .troom .tm{margin-left:auto;font-size:10.5px;color:var(--sub);flex:none}
 .troom .bdg{background:var(--red);color:#fff;font-size:10px;font-weight:700;min-width:18px;height:18px;border-radius:9px;display:inline-flex;align-items:center;justify-content:center;padding:0 5px;margin-left:6px}
-#v-chat{background:#aebdd3}
+#v-chat{background:#8CABD8}
 .chat-body{flex:1;overflow-y:auto;padding:14px 12px 8px;display:flex;flex-direction:column;gap:10px}
 .msg{display:flex;gap:7px;width:100%}
 .msg .col{display:flex;flex-direction:column;gap:2px;max-width:76%;min-width:0}
 .msg .who{font-size:10.5px;color:#3c4656}
 .bub{background:#fff;border-radius:14px;padding:8px 11px;font-size:13.5px;line-height:1.5;color:#111;box-shadow:0 1px 1px rgba(0,0,0,.08);white-space:pre-wrap;word-break:break-word}
 .msg.me{justify-content:flex-end}
-.msg.me .bub{background:#ffe14d}
+.msg.me .bub{background:#00B900;color:#fff}
 .msg.me .col{align-items:flex-end}
 .sysmsg{align-self:center;background:rgba(0,0,0,.22);color:#fff;font-size:11px;border-radius:10px;padding:4px 10px}
 .chat-img{width:170px;border-radius:12px;display:block}
 .vbub{display:flex;align-items:center;gap:8px;min-width:170px}
 .vbtn{width:30px;height:30px;border-radius:50%;border:none;background:var(--line);color:#fff;font-size:13px;cursor:pointer;flex:none}
-.msg.me .vbtn{background:#e6b800}
+.msg.me .vbtn{background:#fff;color:#00B900}
 .vwave{display:flex;align-items:center;gap:2px;flex:1}
 .vwave i{display:block;width:3px;background:#9aa3ad;border-radius:2px}
 .vbub.playing .vwave i{background:var(--line);animation:vw .7s ease-in-out infinite alternate}
@@ -155,7 +155,7 @@ input,textarea{font-size:16px!important}
 .xpost .xh b{font-size:13.5px}
 .xpost .xh span{color:var(--sub);font-size:12px}
 .xpost .xt{font-size:13.5px;line-height:1.55;margin-top:2px;white-space:pre-wrap}
-.xpost .xt .tag{color:#1d9bf0}
+.xpost .xt .tag{color:#1DA1F2}
 .xpost .xf{font-size:11.5px;color:var(--sub);margin-top:6px}
 .nitem{padding:13px 14px;border-bottom:1px solid #eee;background:#fff;cursor:pointer}
 .nitem .src{font-size:10.5px;color:var(--accent);font-weight:700}
@@ -233,7 +233,7 @@ button:active{transform:scale(.965)}
 .app .ic{border-radius:16px;box-shadow:0 6px 14px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.25)}
 .dock{box-shadow:0 10px 26px rgba(0,0,0,.35)}
 .widget{box-shadow:0 12px 32px rgba(0,0,0,.45);border-radius:24px;padding:14px 16px}
-.widget button{padding:13px;border-radius:14px;box-shadow:0 6px 16px rgba(124,92,255,.35);min-height:46px}
+.widget button{padding:13px;border-radius:14px;box-shadow:0 6px 16px rgba(61,125,196,.4);min-height:46px}
 .w-row{margin-top:9px}
 .w-gauges{display:flex;flex-direction:column;gap:5px;margin-top:9px}
 .wg{display:flex;align-items:center;gap:8px;font-size:11px;color:#ddd6ee}
@@ -252,12 +252,12 @@ button:active{transform:scale(.965)}
 .msg:nth-last-child(-n+4){animation:msgIn .22s ease both}
 @keyframes msgIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .bub{border-radius:16px;box-shadow:0 1px 2px rgba(0,0,0,.1)}
-.msg.me .bub{background:linear-gradient(180deg,#ffe95c,#ffe14d)}
+.msg.me .bub{background:#00B900}
 .date-div{align-self:center;background:rgba(0,0,0,.3);color:#fff;font-size:10.5px;border-radius:9px;padding:3px 11px;letter-spacing:.05em}
 .read-mark{font-size:9.5px;color:#54677c}
 .vbub{background:linear-gradient(180deg,#ffffff,#f2f5f8);border:1px solid rgba(0,0,0,.05)}
-.vbub.playing{border-color:var(--line);box-shadow:0 0 0 2px rgba(6,199,85,.22)}
-.vbtn{width:34px;height:34px;box-shadow:0 2px 6px rgba(6,199,85,.35)}
+.vbub.playing{border-color:var(--line);box-shadow:0 0 0 2px rgba(0,185,0,.22)}
+.vbtn{width:34px;height:34px;box-shadow:0 2px 6px rgba(0,185,0,.35)}
 .chat-input input{padding:10px 14px}
 .chat-input button{min-height:42px;padding:0 18px}
 .choices button{padding:11px 12px;min-height:44px}
@@ -284,6 +284,99 @@ button:active{transform:scale(.965)}
 .nitem:active,.xpost:active{background:#f7f7fa}
 .title-in button{padding:15px}
 .title-in .b-cont{backdrop-filter:blur(6px)}
+
+/* ===== v7: 2019 styling (iOS 13 / LINE 2019 / Twitter 2019 / Yahoo!ニュース 2019) ===== */
+.ahead{background:#fff;border-bottom:1px solid #d8d8de}
+.ahead .back{color:#007aff}
+.ahead .ttl{font-size:17px}
+.statusbar{font-size:14px}
+.statusbar .sicons{gap:5px}
+.statusbar svg{display:block}
+.toast{bottom:auto;top:56px;border-radius:14px;background:rgba(28,28,32,.92);backdrop-filter:blur(8px);max-width:88%;white-space:normal;text-align:center}
+/* LINE */
+.line-head{background:#fff!important;border-bottom:1px solid #d8d8de!important}
+.line-head .ttl{font-size:16px}
+.lh-ic{margin-left:auto;font-size:16px;color:#111;display:flex;gap:14px;align-items:center}
+.line-tabs{flex:none;display:flex;background:#fff;border-top:1px solid #e2e2e7;padding:6px 4px calc(8px + env(safe-area-inset-bottom))}
+.line-tabs span{flex:1;display:flex;flex-direction:column;align-items:center;gap:1px;font-size:15px;color:#8e8e93}
+.line-tabs span i{font-style:normal;font-size:9.5px}
+.line-tabs span.on{color:#00B900}
+.chat-input{background:#fff;border-top:1px solid #e0e0e5;align-items:center}
+.ci-ic{font-size:19px;color:#555;flex:none;padding:0 1px}
+.chat-input input{border:none;background:#f2f2f7;border-radius:18px}
+.msg.me .mmeta{font-size:9.5px;color:#3d5a80;text-align:right;line-height:1.35;flex:none;padding-bottom:1px}
+.msg .mmeta{font-size:9.5px;color:#3d5a80;line-height:1.35;flex:none;padding-bottom:1px;align-self:flex-end}
+.vcap{color:#33507e}
+.msg .who{color:#33507e}
+.sysmsg{background:rgba(30,50,80,.35)}
+.date-div{background:rgba(30,50,80,.35)}
+.read-mark{color:#33507e}
+/* Twitter */
+#v-x{background:#fff}
+.tw-head{padding:56px 12px 8px;display:flex;align-items:center;gap:10px;background:#fff;flex:none}
+.tw-head .back{font-size:24px;color:#1DA1F2;cursor:pointer;padding:2px 6px;min-width:34px;text-align:center}
+.tw-search{flex:1;background:#e6ecf0;border-radius:999px;padding:7px 14px;font-size:13px;color:#657786;display:flex;gap:7px;align-items:center}
+.tw-bird{flex:none}
+.tw-tabs{flex:none;display:flex;background:#fff;border-bottom:1px solid #e6ecf0;overflow-x:auto}
+.tw-tabs span{padding:9px 13px;font-size:13.5px;color:#657786;white-space:nowrap;cursor:pointer}
+.tw-tabs span.on{color:#1DA1F2;font-weight:700;border-bottom:2.5px solid #1DA1F2}
+.tw-tabs-b{flex:none;display:flex;background:#fff;border-top:1px solid #e6ecf0;padding:7px 10px calc(9px + env(safe-area-inset-bottom))}
+.tw-tabs-b span{flex:1;display:flex;justify-content:center;color:#657786}
+.tw-tabs-b span.on{color:#1DA1F2}
+.tw-fab{position:absolute;right:16px;bottom:calc(74px + env(safe-area-inset-bottom));width:54px;height:54px;border-radius:50%;background:#1DA1F2;box-shadow:0 6px 16px rgba(29,161,242,.45);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:5}
+.xpost{padding:11px 14px 8px;border-bottom:1px solid #e6ecf0}
+.xpost .av{width:46px;height:46px}
+.xpost .xh{font-size:13px;display:flex;gap:5px;align-items:baseline;flex-wrap:wrap}
+.xpost .xh b{font-size:14px;color:#14171a}
+.xpost .xh span{color:#657786}
+.xf{display:flex;gap:0;margin-top:8px;max-width:300px}
+.xf span{flex:1;display:flex;align-items:center;gap:5px;font-size:11.5px;color:#657786}
+.xf .lk{color:#e0245e}
+/* Yahoo!ニュース */
+.y-head{background:#fff;border-bottom:2.5px solid #ff0033}
+.y-chips{flex:none;display:flex;gap:6px;background:#fff;padding:8px 12px;border-bottom:1px solid #eee;overflow-x:auto}
+.y-chips span{font-size:12px;padding:5px 11px;border:1px solid #ddd;border-radius:999px;color:#555;white-space:nowrap}
+.y-chips span.on{background:#ff0033;border-color:#ff0033;color:#fff;font-weight:700}
+.nitem .src{color:#ff0033}
+.nshare{display:flex;gap:8px;margin-top:16px;padding-top:12px;border-top:1px solid #eee}
+.nshare span{font-size:11.5px;border:1px solid #ddd;border-radius:6px;padding:6px 10px;color:#555}
+/* rank: show-style navy band */
+.rank-head{background:linear-gradient(180deg,#0d1a30,#1d3f6e);color:#fff;border-bottom:3px solid #c9a227}
+.rank-head .back{color:#ffd60a}
+.rank-head .ttl{color:#fff}
+.rank-head .sub2{color:#a9c2e4}
+.rk-num.g1{color:#e6a700}.rk-num.g2{color:#8a94a6}.rk-num.g3{color:#b0763a}
+/* call: iOS 13 */
+#v-call{background:linear-gradient(180deg,#2b3245,#10131c)}
+.call-grid{display:grid;grid-template-columns:repeat(3,74px);gap:14px 18px;margin-top:30px;justify-content:center}
+.call-grid div{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:10.5px;color:#e8ecf4}
+.call-grid .cg{width:58px;height:58px;border-radius:50%;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;font-size:21px}
+.call-incoming{display:none;justify-content:space-between;width:100%;max-width:300px;margin-top:34px;padding:0 14px}
+.call-incoming div{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:11px;color:#e8ecf4}
+.call-incoming .cg{width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;font-size:19px}
+#v-call.incoming .call-incoming{display:flex}
+#v-call.incoming .call-grid{display:none}
+#v-call.incoming .call-time{visibility:hidden}
+.call-tap.accept{background:#4cd964;border-color:#4cd964;border-radius:999px;min-width:150px}
+.call-end svg{transform:rotate(135deg)}
+/* music mini-player (iOS 13) */
+.music-bar{background:#fff;border:none;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.35);margin:10px 16px 0;padding:6px 12px 6px 6px}
+.music-bar span{color:#111;font-weight:600}
+.music-bar button{background:#fa2d48;border:none;color:#fff}
+/* members / profile additions */
+.m-search{flex:none;padding:10px 12px;background:#fff;border-bottom:1px solid #eee}
+.m-search input{width:100%;border:none;background:#f2f2f7;border-radius:10px;padding:9px 12px;font-size:16px}
+.m-sec{padding:12px 14px 2px;font-size:12px;font-weight:700;color:#8e8e93;background:#fff}
+.mrow{display:flex;align-items:center;gap:11px;padding:9px 14px;border-bottom:1px solid #f0f0f3;background:#fff;cursor:pointer}
+.mrow .nm{font-size:14px;font-weight:600}
+.mrow .dt{font-size:11px;color:#8e8e93;margin-top:1px}
+.mrow .ini{width:40px;height:40px;border-radius:50%;background:linear-gradient(180deg,#33507e,#16294d);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;flex:none}
+.pf-hero-ini{width:100%;height:170px;background:linear-gradient(180deg,#33507e,#16294d);color:#fff;display:flex;align-items:center;justify-content:center;font-size:64px;font-weight:800}
+.prog-tbl{width:100%;border-collapse:collapse;margin-top:8px;font-size:12px}
+.prog-tbl th,.prog-tbl td{border:1px solid #e3e6ec;padding:5px 4px;text-align:center}
+.prog-tbl th{background:#f2f5fa;color:#555;font-weight:600}
+.prog-tbl td b{color:#16294d}
+.pf-sec-t{font-size:12px;font-weight:700;color:#8e8e93;margin-top:16px;letter-spacing:.05em}
 </style>
 </head>
 <body>
@@ -295,8 +388,8 @@ button:active{transform:scale(.965)}
 
 <div class="phone">
 <div class="screen">
-<div class="island"></div>
-<div class="statusbar"><span id="sb-time">9:41</span><span class="sicons">5G <span class="batt"><span class="box"><span class="fill"></span></span></span></span></div>
+<div class="notch"></div>
+<div class="statusbar"><span id="sb-time">9:41</span><span class="sicons"><svg width="17" height="11" viewBox="0 0 17 11" fill="#fff"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><span style="font-size:12.5px;font-weight:600">4G</span><svg width="16" height="11" viewBox="0 0 16 12" fill="#fff"><path d="M8 9.6a1.9 1.9 0 1 1 0 3.8 1.9 1.9 0 0 1 0-3.8zM8 5.4c1.9 0 3.6.75 4.9 1.95l-1.7 1.85A4.9 4.9 0 0 0 8 8.35c-1.24 0-2.37.45-3.2 1.2L3.1 7.35A7.3 7.3 0 0 1 8 5.4zM8 1c2.9 0 5.6 1.14 7.55 3L13.85 6A9.55 9.55 0 0 0 8 4.15c-2.24 0-4.3.78-5.85 2.1L.45 4.15A11.4 11.4 0 0 1 8 1z" transform="scale(0.92)"/></svg><svg width="25" height="12" viewBox="0 0 25 12"><rect x="0.5" y="0.5" width="20" height="11" rx="3.5" fill="none" stroke="rgba(255,255,255,.5)"/><rect x="2.2" y="2.2" width="9" height="7.6" rx="1.8" fill="#fff"/><path d="M22.8 4v4a2.2 2.2 0 0 0 0-4z" fill="rgba(255,255,255,.5)"/></svg></span></div>
 
 <!-- TITLE -->
 <div class="view" id="v-title">
@@ -333,16 +426,17 @@ button:active{transform:scale(.965)}
 
 <!-- TALK LIST -->
 <div class="view" id="v-talk">
-<div class="ahead"><span class="back" data-home>‹</span><div><div class="ttl">トーク</div><div class="sub2">番組関係者との連絡用</div></div></div>
+<div class="ahead line-head"><span class="back" data-home>‹</span><div><div class="ttl">トーク</div></div><div class="lh-ic"><span>🔍</span><span>➕</span></div></div>
 <div class="abody" id="talk-list"></div>
+<div class="line-tabs"><span>🏠<i>ホーム</i></span><span class="on">💬<i>トーク</i></span><span>🕐<i>タイムライン</i></span><span>📰<i>ニュース</i></span><span>👛<i>ウォレット</i></span></div>
 </div>
 
 <!-- CHAT -->
 <div class="view" id="v-chat">
-<div class="ahead" style="background:#aebdd3;border-bottom:none"><span class="back" id="chat-back">‹</span><div><div class="ttl" id="chat-title">トーク</div><div class="sub2" id="chat-sub"></div></div></div>
+<div class="ahead line-head"><span class="back" id="chat-back">‹</span><div><div class="ttl" id="chat-title">トーク</div><div class="sub2" id="chat-sub"></div></div><div class="lh-ic"><span>🔍</span><span>📞</span><span>☰</span></div></div>
 <div class="chat-body" id="chat-body"></div>
 <div class="choices" id="chat-choices" style="display:none"></div>
-<div class="chat-input" id="chat-input"><input id="chat-text" placeholder="メッセージを入力" autocomplete="off"><button id="chat-send">送信</button></div>
+<div class="chat-input" id="chat-input"><span class="ci-ic">＋</span><span class="ci-ic">📷</span><span class="ci-ic">☺</span><input id="chat-text" placeholder="メッセージを入力" autocomplete="off"><button id="chat-send">送信</button></div>
 </div>
 
 <!-- SCENE -->
@@ -354,25 +448,29 @@ button:active{transform:scale(.965)}
 
 <!-- RANK -->
 <div class="view" id="v-rank">
-<div class="ahead"><span class="back" data-home>‹</span><div><div class="ttl">順位表</div><div class="sub2" id="rank-sub">第1回順位発表 ― 未実施</div></div></div>
+<div class="ahead rank-head"><span class="back" data-home>‹</span><div><div class="ttl">順位表</div><div class="sub2" id="rank-sub">第1回順位発表 ― 未実施</div></div></div>
 <div class="abody" id="rank-body"></div>
 </div>
 
 <!-- X -->
 <div class="view" id="v-x">
-<div class="ahead" style="background:#000;color:#fff;border-bottom-color:#222"><span class="back" data-home style="color:#fff">‹</span><div><div class="ttl">𝕏</div><div class="sub2" style="color:#aaa">「PRODUCE 101 JAPAN」の検索結果</div></div></div>
-<div class="abody" id="x-body" style="background:#fff"></div>
+<div class="tw-head"><span class="back" data-home>‹</span><div class="tw-search"><span>🔍</span><span>PRODUCE 101 JAPAN</span></div><svg class="tw-bird" width="21" height="21" viewBox="0 0 24 24" fill="#1DA1F2"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.094 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59l-.047-.02z"/></svg></div>
+<div class="tw-tabs"><span class="on">話題のツイート</span><span>最新ツイート</span><span>ユーザー</span><span>画像</span><span>動画</span></div>
+<div class="abody" id="x-body" style="background:#fff;position:relative"></div>
+<div class="tw-fab" onclick="toast('ツイート作成はこのアプリでは開けません')"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.094 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59l-.047-.02z"/></svg></div>
+<div class="tw-tabs-b"><span class="on"><svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M22 11.6L12 2 2 11.6V21a1 1 0 0 0 1 1h6v-7h6v7h6a1 1 0 0 0 1-1z"/></svg></span><span><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="10.5" cy="10.5" r="7"/><path d="M16 16l5.5 5.5"/></svg></span><span><svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22c1.4 0 2.4-1 2.4-2.4H9.6C9.6 21 10.6 22 12 22zm6.7-2.4v-1.9L17 15V9.9C17 6.9 15.4 4.6 13 3.7V3a1 1 0 1 0-2 0v.7C8.6 4.6 7 6.9 7 9.9V15l-1.7 2.7v1.9h13.4z"/></svg></span><span><svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M21 4H3a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1zm-9 7.4L4.2 6h15.6L12 11.4z"/></svg></span></div>
 </div>
 
 <!-- NEWS -->
 <div class="view" id="v-news">
-<div class="ahead"><span class="back" data-home>‹</span><div><div class="ttl">ニュース</div><div class="sub2">エンタメ速報</div></div></div>
+<div class="ahead y-head"><span class="back" data-home>‹</span><div><div class="ttl"><span style="color:#ff0033;font-weight:900">Yahoo!</span>ニュース</div><div class="sub2">エンタメ</div></div></div>
+<div class="y-chips"><span>トップ</span><span>国内</span><span>国際</span><span class="on">エンタメ</span><span>スポーツ</span><span>経済</span><span>IT</span><span>ライフ</span></div>
 <div class="abody" id="news-body"></div>
 </div>
 
 <!-- MEMBERS -->
 <div class="view" id="v-members">
-<div class="ahead"><span class="back" data-home>‹</span><div><div class="ttl">練習生名簿</div><div class="sub2">『PRODUCE 101 JAPAN』主要練習生33名</div></div></div>
+<div class="ahead"><span class="back" data-home>‹</span><div><div class="ttl">練習生名簿</div><div class="sub2">『PRODUCE 101 JAPAN』全101名のデータ（検索できます）</div></div></div>
 <div class="abody" id="members-body"></div>
 </div>
 
@@ -398,7 +496,7 @@ button:active{transform:scale(.965)}
 <div class="set-row" style="cursor:default"><span>音量</span><input id="set-vol" type="range" min="0" max="100" step="5" style="flex:1;margin:0 12px"></div>
 <div class="set-row" id="set-about"><span>この作品について</span><span>›</span></div>
 <div class="set-row" id="set-reset"><span class="danger">データを消して最初から</span><span>›</span></div>
-<div style="padding:14px 16px;font-size:11px;color:#8e8e93;line-height:1.7">担当をデビューさせる件 v6.1<br>※本作品は実在の番組『PRODUCE 101 JAPAN』（2019）と実在の人物を題材にしたファンメイドのIF作品です。史実をもとにしていますが、登場人物の言動や順位の変動は創作を含みます。<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲は各アーティストの公式音源（プレビュー版）を使用しています。</div>
+<div style="padding:14px 16px;font-size:11px;color:#8e8e93;line-height:1.7">担当をデビューさせる件 v7<br>※本作品は実在の番組『PRODUCE 101 JAPAN』（2019）と実在の人物を題材にしたファンメイドのIF作品です。史実をもとにしていますが、登場人物の言動や順位の変動は創作を含みます。<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲は各アーティストの公式音源（プレビュー版）を使用しています。</div>
 </div>
 </div>
 
@@ -410,10 +508,12 @@ button:active{transform:scale(.965)}
 <div class="call-name" id="call-name">井汲大翔</div>
 <div class="call-time" id="call-time">00:00</div>
 <div class="call-sub" id="call-sub"></div>
+<div class="call-incoming"><div><span class="cg">⏰</span>リマインダー</div><div><span class="cg">💬</span>メッセージ</div></div>
+<div class="call-grid"><div><span class="cg">🎙️</span>ミュート</div><div><span class="cg">🔢</span>キーパッド</div><div><span class="cg">🔊</span>スピーカー</div><div><span class="cg">➕</span>追加</div><div><span class="cg">📹</span>FaceTime</div><div><span class="cg">👤</span>連絡先</div></div>
 <div class="call-choices" id="call-choices"></div>
 <div class="call-btns">
 <button class="call-tap" id="call-tap">タップで進む ›</button>
-<button class="call-end" id="call-end" style="display:none">📞</button>
+<button class="call-end" id="call-end" style="display:none"><svg viewBox="0 0 24 24" width="29" height="29" fill="#fff"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></button>
 </div>
 </div>
 </div>
@@ -451,7 +551,7 @@ desc:"岡山の高校生で、最年少級の17歳。子どもにダンスを教
 vo:80, da:88, ra:55, vi:94, att:92, cls0:"B", cls1:"A", base:1771861,
 hist:"史実：練習生同士のビジュアルセンター投票1位。第1回発表3位（1,771,861票）→ 最終3位でJO1入り。",
 desc:"歌もダンスも未経験から、努力で再評価Aクラスに上がった努力家。明るく人懐っこい関西の兄ちゃんタイプ。韓国の『PRODUCE X 101』練習生キム・ドンビンが、大翔とともに彼の応援を公言した。"},
-{id:"shion", name:"鶴房汐恩", read:"つるぼう しおん", age:16, from:"滋賀県", img:"assets/s1/shion.jpg", hero:"assets/s1/shion-big.jpg",
+{id:"shion", name:"鶴房汐恩", read:"つるぼう しおん", age:18, from:"滋賀県", img:"assets/s1/shion.jpg", hero:"assets/s1/shion-big.jpg",
 vo:84, da:78, ra:80, vi:92, att:90, cls0:"C", cls1:"A", base:1238146,
 hist:"史実：第1回発表5位（1,238,146票）→ 最終5位でJO1入り。",
 desc:"韓国の事務所で練習生経験あり。初回は照れからそっけなく見えたが、実は不器用で慕われるタイプ。ぶっきらぼうな短い言葉と、ふと見せる照れ笑いのギャップが人気。"},
@@ -459,7 +559,7 @@ desc:"韓国の事務所で練習生経験あり。初回は照れからそっ�
 vo:84, da:80, ra:45, vi:85, att:84, cls0:"B", cls1:"C", base:905412,
 hist:"史実：第1回発表8位（905,412票）。ファイナル前に辞退。",
 desc:"元HALOのメンバーというプロ経験者。「OVER THE TOP」1組のセンター。経験者らしい落ち着きで、年下の多い1組を引っ張った。"},
-{id:"shunya", name:"大澤駿弥", read:"おおさわ しゅんや", age:null, from:"", img:"assets/s1/shunya.jpg", hero:"assets/s1/shunya-big.jpg",
+{id:"shunya", name:"大澤駿弥", read:"おおさわ しゅんや", age:22, from:"東京都", img:"assets/s1/shunya.jpg", hero:"assets/s1/shunya-big.jpg",
 vo:80, da:78, ra:45, vi:84, att:85, cls0:"D", cls1:"B", base:854843,
 hist:"史実：D→Bの大ジャンプ。第1回発表9位（854,843票）→ 最終13位。",
 desc:"レベル分けDクラスから再評価でBへ、四段階クラスの大ジャンプを果たした伸び盛り。"},
@@ -467,19 +567,19 @@ desc:"レベル分けDクラスから再評価でBへ、四段階クラスの大
 vo:80, da:86, ra:42, vi:88, att:86, cls0:"B", cls1:"A", base:835565,
 hist:"史実：プチメン。第1回発表10位（835,565票）→ 最終12位（あと一歩でデビューを逃した「12位の男」）。",
 desc:"プチメンの一人。ニコニコした愛嬌で「みんなの弟」として大事にされた。普段はニコニコだが、ダンスになると表情が一変する実力派。「ツカメ」センター候補でも2位に入った。"},
-{id:"tomoaki", name:"安藤誠明", read:"あんどう ともあき", age:null, from:"", img:"assets/s1/tomoaki.jpg", hero:"assets/s1/tomoaki-big.jpg",
+{id:"tomoaki", name:"安藤誠明", read:"あんどう ともあき", age:22, from:"福岡県", img:"assets/s1/tomoaki.jpg", hero:"assets/s1/tomoaki-big.jpg",
 vo:97, da:70, ra:40, vi:81, att:84, cls0:"B", cls1:"B", base:798477,
 hist:"史実：第1回発表11位（798,477票）→ 最終14位。",
 desc:"記録に残る全ステージでメインボーカルを任された、随一の歌唱力。安倉さやかトレーナーに「歌だけのオーディションならAが付く子もいる」と評された実力者。"},
-{id:"keigo", name:"佐藤景瑚", read:"さとう けいご", age:null, from:"", img:"assets/s1/keigo.jpg", hero:"assets/s1/keigo-big.jpg",
+{id:"keigo", name:"佐藤景瑚", read:"さとう けいご", age:21, from:"愛知県", img:"assets/s1/keigo.jpg", hero:"assets/s1/keigo-big.jpg",
 vo:76, da:90, ra:55, vi:89, att:81, cls0:"A", cls1:"A", base:780055,
 hist:"史実：第1回発表12位（780,055票）→ 最終7位でJO1入り。",
 desc:"Aクラスを維持し続けた実力派。ダンス・ボーカル・ビジュアルのバランスが良いオールラウンダー。"},
-{id:"masahiko", name:"今西正彦", read:"いまにし まさひこ", age:null, from:"", img:"assets/s1/masahiko.jpg", hero:"assets/s1/masahiko-big.jpg",
+{id:"masahiko", name:"今西正彦", read:"いまにし まさひこ", age:18, from:"大阪府", img:"assets/s1/masahiko.jpg", hero:"assets/s1/masahiko-big.jpg",
 vo:55, da:95, ra:40, vi:82, att:82, cls0:"F", cls1:"B", base:761996,
 hist:"史実：F→Bという finalists最大級のジャンプ。第1回発表13位（761,996票）→ 最終17位。",
 desc:"「dancer hico」としてソロで踊るダンスの実力者なのに、レベル分けではボーカル面を理由にF判定となり、現場がざわついた。再評価でBへ這い上がった。"},
-{id:"junki", name:"河野純喜", read:"こうの じゅんき", age:null, from:"", img:"assets/s1/junki.jpg", hero:"assets/s1/junki-big.jpg",
+{id:"junki", name:"河野純喜", read:"こうの じゅんき", age:21, from:"奈良県", img:"assets/s1/junki.jpg", hero:"assets/s1/junki-big.jpg",
 vo:95, da:74, ra:40, vi:82, att:78, cls0:"B", cls1:"B", base:752859,
 hist:"史実：第1回発表15位（752,859票）→ 最終9位でJO1入り。",
 desc:"ファイナリスト随一のメインボーカル。強豪ひしめくチームでもメインを張れる声の持ち主。"},
@@ -487,15 +587,15 @@ desc:"ファイナリスト随一のメインボーカル。強豪ひしめく�
 vo:82, da:76, ra:50, vi:93, att:80, cls0:"C", cls1:"B", base:680592,
 hist:"史実：第1回発表16位（680,592票）→ 最終6位でJO1入り。",
 desc:"元ジャニーズJr.。ステージ経験に裏打ちされた華とビジュアル。「OVER THE TOP」2組のセンター。"},
-{id:"jun", name:"上原潤", read:"うえはら じゅん", age:null, from:"", img:"assets/s1/jun.jpg", hero:"assets/s1/jun-big.jpg",
+{id:"jun", name:"上原潤", read:"うえはら じゅん", age:22, from:"東京都", img:"assets/s1/jun.jpg", hero:"assets/s1/jun-big.jpg",
 vo:66, da:74, ra:90, vi:79, att:79, cls0:"C", cls1:"B", base:650811,
 hist:"史実：第1回発表17位（650,811票）→ 最終20位。",
 desc:"韓国『PRODUCE X 101』にも参加したリベンジ組。ラップのセンター／リーダーを任される存在。"},
-{id:"raira", name:"佐藤來良", read:"さとう らいら", age:null, from:"", img:"assets/s1/raira.jpg", hero:"assets/s1/raira-big.jpg",
+{id:"raira", name:"佐藤來良", read:"さとう らいら", age:19, from:"奈良県", img:"assets/s1/raira.jpg", hero:"assets/s1/raira-big.jpg",
 vo:88, da:72, ra:45, vi:80, att:71, cls0:"A", cls1:"B", base:513553,
 hist:"史実：第1回発表21位（513,553票）→ 最終16位。",
 desc:"EXPG大阪のボーカルクラス出身。Aクラスで始まった歌唱力の持ち主。"},
-{id:"shoya", name:"木全翔也", read:"きまた しょうや", age:null, from:"", img:"assets/s1/shoya.jpg", hero:"assets/s1/shoya-big.jpg",
+{id:"shoya", name:"木全翔也", read:"きまた しょうや", age:19, from:"愛知県", img:"assets/s1/shoya.jpg", hero:"assets/s1/shoya-big.jpg",
 vo:78, da:88, ra:60, vi:84, att:72, cls0:"A", cls1:"A", base:513499,
 hist:"史実：第1回発表22位（513,499票）→ 最終8位でJO1入り。",
 desc:"ダンス・ボーカルのAクラス常連。本田康祐とは公式WEB企画「歩数計ダンスバトル」で大翔と対戦した縁もある。"},
@@ -507,7 +607,7 @@ desc:"プチメンの一人。小柄だがパフォーマンスで存在感を�
 vo:66, da:70, ra:62, vi:82, att:73, cls0:"D", cls1:"F", base:461920,
 hist:"史実：第1回発表24位（461,920票）→ 最終24位。再評価でFに落ちながらも残り続けた。",
 desc:"Team DK。感情が顔と涙に出やすい、繊細で一生懸命な子。レベル分けの後には泣いていたと番組レビューに残る。菅井トレーナーのレッスンで緊張のあまり声が出なくなった逸話もある。"},
-{id:"sho", name:"與那城奨", read:"よなしろ しょう", age:null, from:"", img:"assets/s1/sho.jpg", hero:"assets/s1/sho-big.jpg",
+{id:"sho", name:"與那城奨", read:"よなしろ しょう", age:23, from:"沖縄県", img:"assets/s1/sho.jpg", hero:"assets/s1/sho-big.jpg",
 vo:84, da:76, ra:48, vi:83, att:70, cls0:"B", cls1:"B", base:325996,
 hist:"史実：第1回発表26位（325,996票）→ 最終11位でJO1入り（後のリーダー）。",
 desc:"チームリーダーを任され、そのチームで1位も取ったまとめ役。落ち着いた包容力で年下を引っ張る。"},
@@ -515,11 +615,11 @@ desc:"チームリーダーを任され、そのチームで1位も取ったま�
 vo:74, da:92, ra:50, vi:78, att:68, cls0:"B", cls1:"B", base:303267,
 hist:"史実：第1回発表28位（303,267票）→ 最終15位。ポジション評価ではダンス部門総合1位。",
 desc:"地下アイドル／WhiteAの経験者。「OVER THE TOP」2組のリーダーとしてFクラス4人を抱えながら完成度を上げ、大翔の1組を破った。川尻蓮へのセンター投票では「個人的にダンスを教えてくれた」と人望も語った。"},
-{id:"sukai", name:"金城碧海", read:"きんじょう すかい", age:null, from:"", img:"assets/s1/sukai.jpg", hero:"assets/s1/sukai-big.jpg",
+{id:"sukai", name:"金城碧海", read:"きんじょう すかい", age:19, from:"大阪府", img:"assets/s1/sukai.jpg", hero:"assets/s1/sukai-big.jpg",
 vo:88, da:62, ra:35, vi:80, att:62, cls0:"B", cls1:"F", base:223410,
 hist:"史実：再評価でFクラスに落ちながら、第1回発表33位（223,410票）→ 最終10位でJO1入りした唯一のFクラスデビュー。",
 desc:"高音が武器のボーカル。再評価F落ちというどん底からデビューまで這い上がった、S1屈指の成長物語の持ち主。"},
-{id:"ryuta", name:"林龍太", read:"はやし りゅうた", age:null, from:"", img:"assets/s1/ryuta.jpg", hero:"assets/s1/ryuta-big.jpg",
+{id:"ryuta", name:"林龍太", read:"はやし りゅうた", age:23, from:"大阪府", img:"assets/s1/ryuta.jpg", hero:"assets/s1/ryuta-big.jpg",
 vo:82, da:80, ra:50, vi:79, att:66, cls0:"A", cls1:"A", base:205000,
 hist:"史実：レベル分け・再評価ともAクラス。最終43位（第2回発表で脱落）。",
 desc:"両ラウンドでAクラスを維持した実力者。安定感のあるボーカルとダンス。"},
@@ -527,7 +627,7 @@ desc:"両ラウンドでAクラスを維持した実力者。安定感のある�
 vo:80, da:72, ra:42, vi:82, att:58, cls0:"B", cls1:"D", base:185000,
 hist:"史実：最終42位（第2回発表で脱落）。グループバトル「Everybody」では大翔チームのセンター。",
 desc:"当時28歳の最年長。日本で活動するマルチタレント／YouTuberとして既に知名度があった。大翔が自ら指名して組んだ「Everybody」チームのセンター。"},
-{id:"shuta", name:"浦野秀太", read:"うらの しゅうた", age:null, from:"", img:"assets/s1/shuta.jpg", hero:"assets/s1/shuta-big.jpg",
+{id:"shuta", name:"浦野秀太", read:"うらの しゅうた", age:22, from:"神奈川県", img:"assets/s1/shuta.jpg", hero:"assets/s1/shuta-big.jpg",
 vo:84, da:70, ra:40, vi:78, att:55, cls0:"C", cls1:"C", base:179023,
 hist:"史実：第1回発表49位（179,023票）→ 第2回発表35位（164,879票）で滑り込み残留。その直下の36位が大翔だった。本人は後年「死票とベネフィットのみで…伝説の練習生」と自己言及した。",
 desc:"元ジャニーズJr.。「RAISE THE FLAG」チームのメインボーカル。11pickの「埋め草の票（死票）」の受け皿とファンの間で呼ばれた、ボーダーラインの象徴のような存在。"},
@@ -551,7 +651,7 @@ desc:"レベル分けは「アスリートBOYS」チーム。大翔が自ら組�
 vo:68, da:74, ra:38, vi:76, att:42, cls0:"F", cls1:"D", base:165000,
 hist:"史実：最終57位（第2回発表で脱落）。「OVER THE TOP」1組のメンバー。",
 desc:"Fクラスから再評価でDへ。「OVER THE TOP」1組で大翔と肩を並べた。"},
-{id:"akihito", name:"古屋亮人", read:"ふるや あきひと", age:null, from:"東京都", img:"assets/s1/akihito.jpg", hero:"assets/s1/akihito-big.jpg",
+{id:"akihito", name:"古屋亮人", read:"ふるや あきひと", age:18, from:"東京都", img:"assets/s1/akihito.jpg", hero:"assets/s1/akihito-big.jpg",
 vo:70, da:68, ra:40, vi:74, att:45, cls0:"D", cls1:"D", base:156742,
 hist:"史実：第1回発表60位（156,742票）で滑り込み → 最終44位（第2回発表で脱落）。",
 desc:"Team DK。資料は薄いが、静かで目立たない努力家。第1回発表では60位の最後の椅子に座った。"},
@@ -563,12 +663,122 @@ desc:"Team DKの最年少。元BOYS AND MEN研究生東京で、舞台経験は�
 vo:70, da:78, ra:40, vi:80, att:40, cls0:"B", cls1:"B", base:105000,
 hist:"史実：最終78位（第1回発表で脱落）。「OVER THE TOP」1組のリーダーだった。",
 desc:"「OVER THE TOP」1組のリーダー。敗れたチームを最後までまとめようとした。"},
-{id:"kenta", name:"山本健太", read:"やまもと けんた", age:17, from:"東京都", img:"assets/s1/kenta.jpg", hero:"assets/s1/kenta-big.jpg",
+{id:"kenta", name:"山本健太", read:"やまもと けんた", age:16, from:"東京都", img:"assets/s1/kenta.jpg", hero:"assets/s1/kenta-big.jpg",
 vo:64, da:78, ra:35, vi:74, att:38, cls0:"D", cls1:"C", base:95000,
 hist:"史実：プチメン。最終81位（第1回発表で脱落）。",
 desc:"プチメンの一人。YKAダンススタジオ出身で、ダンスの基礎がある。寡黙な努力家。"},
 ];
 const T = {}; TRAINEES.forEach(t=>T[t.id]=t);
+const ALL101=[
+{n:"青木聖波",k:"あおき まさなみ",a:18,f:"東京都",nat:"日本",h:"170cm",w:"55kg",c0:"B",c1:"D",fin:27,res:"第3回順位発表で脱落（27位）",team:"Team Breakin'",pg:[14, 14, 15, 14, 15, 20, 30, 27, null],v:[754940, 365955, 108388, null],img:"t001",cast:null},
+{n:"安慶田真樹",k:"あげだ まさき",a:21,f:"沖縄県",nat:"日本",h:"172cm",w:"65kg",c0:"D",c1:"F",fin:49,res:"第2回順位発表で脱落（49位）",team:"琉球BOYS",pg:[65, 79, 90, 47, 51, 49, null, null, null],v:[180707, null, null, null],img:"t002",cast:null},
+{n:"アルジャマ勇心",k:"あるじゃま ゆうじん",a:18,f:"バンクーバー",nat:"日本 カナダ フィリピン",h:"170cm",w:"60kg",c0:"C",c1:"F",fin:77,res:"第1回順位発表で脱落（77位）",team:"純真",pg:[69, 63, 69, 77, null, null, null, null, null],v:[null, null, null, null],img:"t003",cast:null},
+{n:"安藤誠明",k:"あんどう ともあき",a:22,f:"福岡県",nat:"日本",h:"173cm",w:"63kg",c0:"B",c1:"B",fin:14,res:"最終14位（ファイナリスト）",team:"シックスパックス",pg:[4, 4, 7, 11, 11, 10, 7, 6, 14],v:[798477, 654176, 355660, null],img:null,cast:"tomoaki"},
+{n:"安藤優",k:"あんどう ゆう",a:20,f:"山形県",nat:"日本",h:"178cm",w:"65kg",c0:"F",c1:"C",fin:47,res:"第2回順位発表で脱落（47位）",team:"アスリートBOYS",pg:[37, 40, 40, 40, 42, 47, null, null, null],v:[206479, null, null, null],img:"t005",cast:null},
+{n:"イ・ミンヒョク",k:"い みんひょく",a:28,f:"ソウル特別市 茨城県",nat:"韓国",h:"170cm",w:"50kg",c0:"B",c1:"D",fin:42,res:"第2回順位発表で脱落（42位）",team:"ビューティー4",pg:[8, 10, 14, 20, 38, 42, null, null, null],v:[525979, null, null, null],img:null,cast:"minhyeok"},
+{n:"井汲大翔",k:"いくみ ひろと",a:17,f:"大阪府",nat:"日本",h:"169cm",w:"53kg",c0:"C",c1:"D",fin:36,res:"第2回順位発表で脱落（36位）",team:"Team DK",pg:[12, 16, 16, 19, 33, 36, null, null, null],v:[565892, null, null, null],img:null,cast:"hiroto"},
+{n:"池本正義",k:"いけもと まさよし",a:17,f:"兵庫県",nat:"日本",h:"169cm",w:"52kg",c0:"C",c1:"C",fin:92,res:"第1回順位発表で脱落（92位）",team:"アスリートBOYS",pg:[91, 49, 78, 92, null, null, null, null, null],v:[null, null, null, null],img:"t008",cast:null},
+{n:"石井健太郎",k:"いしい けんたろう",a:22,f:"茨城県",nat:"日本",h:"185cm",w:"64kg",c0:"F",c1:"F",fin:96,res:"第1回順位発表で脱落（96位）",team:"↑ イチハチエックス",pg:[57, 87, 70, 96, null, null, null, null, null],v:[null, null, null, null],img:null,cast:null},
+{n:"石井祐輝",k:"いしい ゆうき",a:21,f:"群馬県",nat:"日本",h:"177cm",w:"56kg",c0:"C",c1:"D",fin:73,res:"第1回順位発表で脱落（73位）",team:"Killer-Smile",pg:[68, 90, 48, 73, null, null, null, null, null],v:[null, null, null, null],img:"t010",cast:null},
+{n:"五十畑颯斗",k:"いそはた はやと",a:26,f:"東京都",nat:"日本",h:"172cm",w:"55kg",c0:"B",c1:"D",fin:70,res:"第1回順位発表で脱落（70位）",team:"High-Steps",pg:[38, 47, 65, 70, null, null, null, null, null],v:[null, null, null, null],img:null,cast:null},
+{n:"稲吉ひかり",k:"いなよし ひかり",a:19,f:"神奈川県",nat:"日本",h:"181cm",w:"60kg",c0:"B",c1:"C",fin:74,res:"第1回順位発表で脱落（74位）",team:"Team Rapper Crew",pg:[60, 76, 77, 74, null, null, null, null, null],v:[null, null, null, null],img:"t012",cast:null},
+{n:"井上港人",k:"いのうえ みなと",a:19,f:"滋賀県",nat:"日本",h:"176cm",w:"68kg",c0:"C",c1:"B",fin:18,res:"最終18位（ファイナリスト）",team:"Black Belt",pg:[28, 32, 39, 36, 28, 30, 22, 12, 18],v:[209582, 203852, 287656, null],img:"t013",cast:null},
+{n:"今西正彦",k:"いまにし まさひこ",a:18,f:"大阪府",nat:"日本",h:"171cm",w:"65kg",c0:"F",c1:"B",fin:17,res:"最終17位（ファイナリスト）",team:"ダンサーhico",pg:[5, 8, 13, 13, 20, 22, 20, 18, 17],v:[761996, 336637, 217437, null],img:null,cast:"masahiko"},
+{n:"岩崎琉斗",k:"いわさき りゅうと",a:18,f:"愛知県",nat:"日本",h:"175cm",w:"58kg",c0:"D",c1:"F",fin:50,res:"第2回順位発表で脱落（50位）",team:"Smile Magic",pg:[42, 43, 46, 45, 46, 50, null, null, null],v:[189582, null, null, null],img:"t015",cast:null},
+{n:"上原潤",k:"うえはら じゅん",a:22,f:"東京都",nat:"韓国",h:"177cm",w:"62kg",c0:"C",c1:"B",fin:20,res:"最終20位（ファイナリスト）",team:"— N/a",pg:[6, 7, 12, 17, 22, 12, 5, 7, 20],v:[650811, 519155, 354058, null],img:null,cast:"jun"},
+{n:"内田脩斗",k:"うちだ しゅうと",a:20,f:"東京都",nat:"日本",h:"187cm",w:"69kg",c0:"D",c1:"D",fin:58,res:"第2回順位発表で脱落（58位）",team:"↑ イチハチエックス",pg:[79, 77, 92, 46, 60, 58, null, null, null],v:[183098, null, null, null],img:"t017",cast:null},
+{n:"浦野秀太",k:"うらの しゅうた",a:22,f:"神奈川県",nat:"日本",h:"178cm",w:"61kg",c0:"C",c1:"C",fin:32,res:"第3回順位発表で脱落（32位）",team:"反逆のプリンス",pg:[81, 72, 96, 49, 57, 35, 34, 32, null],v:[179023, 164879, 38000, null],img:null,cast:"shuta"},
+{n:"大川澪哉",k:"おおかわ れいや",a:19,f:"大阪府",nat:"日本",h:"178cm",w:"68kg",c0:"B",c1:"B",fin:78,res:"第1回順位発表で脱落（78位）",team:"Rebornz",pg:[59, 66, 68, 78, null, null, null, null, null],v:[null, null, null, null],img:null,cast:"reiya"},
+{n:"大澤駿弥",k:"おおさわ しゅんや",a:22,f:"東京都",nat:"日本",h:"176cm",w:"61kg",c0:"D",c1:"B",fin:13,res:"最終13位（ファイナリスト）",team:"Smile Magic",pg:[11, 12, 11, 9, 8, 8, 19, 15, 13],v:[854843, 705067, 235413, null],img:null,cast:"shunya"},
+{n:"大平祥生",k:"おおひら しょうせい",a:19,f:"京都府",nat:"日本",h:"176cm",w:"63kg",c0:"C",c1:"B",fin:4,res:"最終4位・JO1としてデビュー",team:"UN Backers",pg:[15, 9, 8, 7, 9, 11, 13, 9, 4],v:[1053408, 543768, 336162, 220594],img:"t021",cast:null},
+{n:"大水陸渡",k:"おおみず りくと",a:20,f:"長崎県",nat:"日本",h:"172cm",w:"58kg",c0:"B",c1:"F",fin:64,res:"第1回順位発表で脱落（64位）",team:"九州漢組",pg:[48, 53, 63, 64, null, null, null, null, null],v:[null, null, null, null],img:"t022",cast:null},
+{n:"岡田武大",k:"おかだ たけひろ",a:19,f:"愛知県",nat:"日本",h:"175cm",w:"55kg",c0:"C",c1:"C",fin:54,res:"第2回順位発表で脱落（54位）",team:"Team Breakin'",pg:[27, 27, 32, 43, 50, 54, null, null, null],v:[203684, null, null, null],img:"t023",cast:null},
+{n:"岡野海斗",k:"おかの かいと",a:18,f:"埼玉県",nat:"日本",h:"168cm",w:"53kg",c0:"C",c1:"D",fin:31,res:"第3回順位発表で脱落（31位）",team:"トライフォース",pg:[54, 82, 82, 50, 30, 28, 35, 31, null],v:[178283, 207937, 54202, null],img:"t024",cast:null},
+{n:"男澤直樹",k:"おざわ なおき",a:20,f:"福岡県",nat:"日本",h:"170cm",w:"60kg",c0:"B",c1:"B",fin:29,res:"第3回順位発表で脱落（29位）",team:"九州漢組",pg:[58, 69, 75, 27, 25, 24, 32, 29, null],v:[313583, 231106, 69937, null],img:"t025",cast:null},
+{n:"片上勇士",k:"かたがみ ゆうし",a:22,f:"大阪府",nat:"日本",h:"171cm",w:"49kg",c0:"F",c1:"F",fin:60,res:"第2回順位発表で脱落（60位）",team:"ビューティー4",pg:[46, 70, 98, 51, 58, 60, null, null, null],v:[177865, null, null, null],img:"t026",cast:null},
+{n:"川尻蓮",k:"かわしり れん",a:22,f:"福岡県",nat:"日本",h:"173cm",w:"60kg",c0:"A",c1:"A",fin:2,res:"最終2位・JO1としてデビュー",team:"UN Backers",pg:[1, 2, 2, 1, 2, 2, 2, 1, 2],v:[1883178, 1074606, 516171, 256527],img:null,cast:"ren"},
+{n:"川西拓実",k:"かわにし たくみ",a:20,f:"兵庫県",nat:"日本",h:"170cm",w:"57kg",c0:"B",c1:"A",fin:3,res:"最終3位・JO1としてデビュー",team:"KSix",pg:[2, 3, 3, 3, 1, 1, 12, 5, 3],v:[1771861, 1149244, 381845, 252885],img:null,cast:"takumi"},
+{n:"菅野雅浩",k:"かんの まさひろ",a:19,f:"北海道",nat:"日本",h:"178cm",w:"68kg",c0:"C",c1:"B",fin:83,res:"第1回順位発表で脱落（83位）",team:"DDD",pg:[62, 83, 72, 83, null, null, null, null, null],v:[null, null, null, null],img:"t029",cast:null},
+{n:"北岡謙人",k:"きたおか けんと",a:19,f:"大阪府",nat:"日本",h:"176cm",w:"53kg",c0:"C",c1:"B",fin:48,res:"第2回順位発表で脱落（48位）",team:"ドリームランド",pg:[34, 33, 28, 32, 43, 48, null, null, null],v:[238778, null, null, null],img:null,cast:"kento"},
+{n:"北川暉",k:"きたがわ ひかる",a:20,f:"大阪府",nat:"日本",h:"168cm",w:"53kg",c0:"D",c1:"D",fin:38,res:"第2回順位発表で脱落（38位）",team:"KSix",pg:[39, 37, 41, 39, 47, 38, null, null, null],v:[206878, null, null, null],img:"t031",cast:null},
+{n:"北川玲叶",k:"きたがわ れいと",a:16,f:"宮崎県",nat:"日本",h:"170cm",w:"52kg",c0:"D",c1:"F",fin:24,res:"第3回順位発表で脱落（24位）",team:"Team DK",pg:[20, 18, 20, 24, 23, 23, 23, 24, null],v:[461920, 269711, 148527, null],img:null,cast:"reito"},
+{n:"木原汰一",k:"きはら たいち",a:21,f:"広島県",nat:"日本",h:"178cm",w:"63kg",c0:"B",c1:"F",fin:75,res:"第1回順位発表で脱落（75位）",team:"— N/a",pg:[95, 46, 43, 75, null, null, null, null, null],v:[null, null, null, null],img:"t033",cast:null},
+{n:"木全翔也",k:"きまた しょうや",a:19,f:"愛知県",nat:"日本",h:"171cm",w:"60kg",c0:"A",c1:"A",fin:8,res:"最終8位・JO1としてデビュー",team:"しゃちほこフレンズ)",pg:[19, 23, 22, 22, 17, 14, 9, 8, 8],v:[513499, 477526, 339052, 171205],img:null,cast:"shoya"},
+{n:"キム・ヒチョン",k:"きむ ひちょん",a:25,f:"ソウル特別市",nat:"韓国",h:"186cm",w:"63kg",c0:"A",c1:"A",fin:null,res:"辞退（第3回順位発表前）",team:"Hello Again",pg:[10, 6, 4, 4, 6, 5, 14, null, null],v:[1411741, 823022, null, null],img:"t035",cast:null},
+{n:"キム・ユンドン",k:"きむ ゆんどん",a:24,f:"京畿道 龍仁市",nat:"韓国",h:"176cm",w:"61kg",c0:"A",c1:"A",fin:null,res:"辞退（第3回順位発表前）",team:"Hello Again",pg:[13, 13, 6, 6, 5, 6, 10, null, null],v:[1145844, 807141, null, null],img:"t036",cast:null},
+{n:"金城碧海",k:"きんじょう すかい",a:19,f:"大阪府",nat:"日本",h:"178cm",w:"60kg",c0:"B",c1:"F",fin:10,res:"最終10位・JO1としてデビュー",team:"Team Sky",pg:[66, 85, 38, 33, 26, 25, 24, 14, 10],v:[223410, 229731, 237936, 157373],img:null,cast:"sukai"},
+{n:"草地稜之",k:"くさち りょうの",a:21,f:"東京都",nat:"日本",h:"178cm",w:"60kg",c0:"B",c1:"F",fin:51,res:"第2回順位発表で脱落（51位）",team:"Killer-Smile",pg:[49, 44, 34, 31, 48, 51, null, null, null],v:[241094, null, null, null],img:"t038",cast:null},
+{n:"グチェレスタケル",k:"ぐちぇれす たける",a:17,f:"フィリピン",nat:"日本 フィリピン",h:"171cm",w:"59kg",c0:"D",c1:"C",fin:71,res:"第1回順位発表で脱落（71位）",team:"純真",pg:[45, 41, 49, 71, null, null, null, null, null],v:[null, null, null, null],img:"t039",cast:null},
+{n:"熊澤歩哉",k:"くまざわ ふみや",a:22,f:"福島県",nat:"日本",h:"175cm",w:"54kg",c0:"B",c1:"F",fin:97,res:"第1回順位発表で脱落（97位）",team:"팬팬 (Pen Pen) ペンペン",pg:[73, 86, 85, 97, null, null, null, null, null],v:[null, null, null, null],img:"t040",cast:null},
+{n:"黒川竜聖",k:"くろかわ りゅうせい",a:19,f:"東京都",nat:"日本",h:"171cm",w:"49kg",c0:"F",c1:"F",fin:69,res:"第1回順位発表で脱落（69位）",team:"ドリームランド",pg:[55, 89, 47, 69, null, null, null, null, null],v:[null, null, null, null],img:null,cast:null},
+{n:"河野純喜",k:"こうの じゅんき",a:21,f:"奈良県",nat:"日本",h:"174cm",w:"64kg",c0:"B",c1:"B",fin:9,res:"最終9位・JO1としてデビュー",team:"シックスパックス)",pg:[16, 17, 18, 15, 10, 9, 11, 11, 9],v:[752859, 661099, 300869, 159057],img:null,cast:"junki"},
+{n:"古賀一馬",k:"こが かずま",a:22,f:"東京都",nat:"日本",h:"178cm",w:"56kg",c0:"D",c1:"D",fin:61,res:"第1回順位発表で脱落（61位）",team:"Killer-Smile",pg:[26, 30, 36, 61, null, null, null, null, null],v:[null, null, null, null],img:"t043",cast:null},
+{n:"駒尺雄樹",k:"こまじゃく ゆうき",a:19,f:"大阪府",nat:"日本",h:"184cm",w:"67kg",c0:"F",c1:"D",fin:93,res:"第1回順位発表で脱落（93位）",team:"ō Boys 慶應BOYS",pg:[52, 95, 57, 93, null, null, null, null, null],v:[null, null, null, null],img:null,cast:null},
+{n:"小松倖真",k:"こまつ こうしん",a:17,f:"兵庫県",nat:"日本",h:"165cm",w:"50kg",c0:"D",c1:"D",fin:22,res:"第3回順位発表で脱落（22位）",team:"プチメン",pg:[21, 21, 23, 23, 29, 31, 28, 22, null],v:[477851, 180413, 185385, null],img:"t045",cast:"koshin"},
+{n:"小山省吾",k:"こやま しょうご",a:19,f:"兵庫県",nat:"日本",h:"168cm",w:"58kg",c0:"F",c1:"B",fin:null,res:"辞退（順位発表前に番組を離脱）",team:"Black Belt",pg:[90, 59, 81, null, null, null, null, null, null],v:[null, null, null, null],img:"t046",cast:null},
+{n:"佐々木真生",k:"ささき まお",a:18,f:"宮城県",nat:"日本",h:"175cm",w:"64kg",c0:"D",c1:"B",fin:46,res:"第2回順位発表で脱落（46位）",team:"DDD",pg:[70, 74, 50, 34, 45, 46, null, null, null],v:[222871, null, null, null],img:"t047",cast:"mao"},
+{n:"佐藤來良",k:"さとう らいら",a:19,f:"奈良県",nat:"日本",h:"175cm",w:"63kg",c0:"A",c1:"B",fin:16,res:"最終16位（ファイナリスト）",team:"KSix",pg:[36, 34, 27, 21, 18, 21, 18, 19, 16],v:[513553, 364272, 209695, null],img:null,cast:"raira"},
+{n:"佐藤隆士",k:"さとう りゅうじ",a:17,f:"埼玉県",nat:"日本",h:"171cm",w:"56kg",c0:"C",c1:"C",fin:23,res:"第3回順位発表で脱落（23位）",team:"Team DK",pg:[35, 31, 35, 56, 36, 33, 27, 23, null],v:[169961, 176035, 184001, null],img:null,cast:"ryuji"},
+{n:"佐藤景瑚",k:"さとう けいご",a:21,f:"愛知県",nat:"日本",h:"181cm",w:"60kg",c0:"A",c1:"A",fin:7,res:"最終7位・JO1としてデビュー",team:"High-Steps",pg:[25, 19, 17, 12, 14, 16, 17, 13, 7],v:[780055, 464326, 287083, 186309],img:null,cast:"keigo"},
+{n:"佐野文哉",k:"さの ふみや",a:22,f:"山梨県",nat:"日本",h:"171cm",w:"54kg",c0:"B",c1:"B",fin:21,res:"第3回順位発表で脱落（21位）",team:"Black Belt",pg:[94, 57, 79, 57, 37, 34, 21, 21, null],v:[157943, 175673, 203197, null],img:"t051",cast:null},
+{n:"白岩瑠姫",k:"しろいわ るき",a:21,f:"東京都",nat:"日本",h:"175cm",w:"55kg",c0:"C",c1:"B",fin:6,res:"最終6位・JO1としてデビュー",team:"反逆のプリンス",pg:[22, 20, 19, 16, 16, 13, 4, 4, 6],v:[680592, 494924, 448795, 194919],img:null,cast:"ruki"},
+{n:"鈴木晨順",k:"すずき しんじゅん",a:20,f:"静岡県",nat:"日本",h:"174cm",w:"61kg",c0:"F",c1:"B",fin:84,res:"第1回順位発表で脱落（84位）",team:"アスリートBOYS",pg:[96, 55, 86, 84, null, null, null, null, null],v:[null, null, null, null],img:null,cast:null},
+{n:"鈴木雅",k:"すずき みやび",a:23,f:"兵庫県",nat:"日本",h:"180cm",w:"69kg",c0:"C",c1:"F",fin:59,res:"第2回順位発表で脱落（59位）",team:"トライフォース",pg:[86, 80, 97, 54, 59, 59, null, null, null],v:[171732, null, null, null],img:"t054",cast:null},
+{n:"鈴木玄",k:"すずき げん",a:18,f:"大阪府",nat:"日本",h:"175cm",w:"62kg",c0:"B",c1:"C",fin:82,res:"第1回順位発表で脱落（82位）",team:"Rebornz",pg:[56, 81, 71, 82, null, null, null, null, null],v:[null, null, null, null],img:"t055",cast:null},
+{n:"髙野慧",k:"たかの あきら",a:19,f:"東京都",nat:"日本",h:"176cm",w:"60kg",c0:"D",c1:"D",fin:67,res:"第1回順位発表で脱落（67位）",team:"トライフォース",pg:[31, 42, 59, 67, null, null, null, null, null],v:[null, null, null, null],img:"t056",cast:null},
+{n:"瀧澤翼",k:"たきざわ つばさ",a:16,f:"千葉県",nat:"日本",h:"177cm",w:"60kg",c0:"B",c1:"D",fin:37,res:"第2回順位発表で脱落（37位）",team:"Rebornz",pg:[29, 29, 31, 37, 35, 37, null, null, null],v:[209445, null, null, null],img:"t057",cast:null},
+{n:"田口馨也",k:"たぐち けいや",a:16,f:"茨城県",nat:"日本",h:"169cm",w:"48kg",c0:"C",c1:"D",fin:65,res:"第1回順位発表で脱落（65位）",team:"Team DK",pg:[78, 38, 44, 65, null, null, null, null, null],v:[null, null, null, null],img:null,cast:"keiya"},
+{n:"田中雄也",k:"たなか ゆうや",a:21,f:"埼玉県",nat:"日本",h:"177cm",w:"62kg",c0:"B",c1:"D",fin:76,res:"第1回順位発表で脱落（76位）",team:"High-Steps",pg:[75, 88, 73, 76, null, null, null, null, null],v:[null, null, null, null],img:"t059",cast:null},
+{n:"チョン・ヨンフン",k:"ちょん よんふん",a:26,f:"ソウル特別市",nat:"韓国",h:"180cm",w:"67kg",c0:"B",c1:"C",fin:null,res:"辞退（第3回順位発表前）",team:"Hello Again",pg:[9, 11, 9, 8, 7, 7, 6, null, null],v:[905412, 748508, null, null],img:"t060",cast:"younghoon"},
+{n:"鶴房汐恩",k:"つるぼう しおん",a:18,f:"滋賀県",nat:"日本",h:"178cm",w:"64kg",c0:"C",c1:"A",fin:5,res:"最終5位・JO1としてデビュー",team:"Sion",pg:[7, 5, 5, 5, 3, 3, 3, 3, 5],v:[1238146, 996794, 460657, 204045],img:null,cast:"shion"},
+{n:"寺師敬",k:"てらし けい",a:23,f:"神奈川県",nat:"日本",h:"176cm",w:"65kg",c0:"B",c1:"F",fin:40,res:"第2回順位発表で脱落（40位）",team:"アスリートBOYS",pg:[30, 35, 42, 55, 40, 40, null, null, null],v:[170218, null, null, null],img:"t062",cast:null},
+{n:"東郷良樹",k:"とうごう よしき",a:24,f:"宮崎県",nat:"日本",h:"173cm",w:"60kg",c0:"B",c1:"D",fin:79,res:"第1回順位発表で脱落（79位）",team:"To-Go",pg:[41, 61, 66, 79, null, null, null, null, null],v:[null, null, null, null],img:"t063",cast:null},
+{n:"床波志音",k:"とこなみ しおん",a:19,f:"熊本県",nat:"日本",h:"175cm",w:"58kg",c0:"C",c1:"B",fin:19,res:"最終19位（ファイナリスト）",team:"九州漢組",pg:[87, 65, 94, 35, 21, 19, 16, 17, 19],v:[214846, 402418, 223259, null],img:"t064",cast:null},
+{n:"中川吟亮",k:"なかがわ ぎんすけ",a:20,f:"福岡県",nat:"日本",h:"169cm",w:"52kg",c0:"F",c1:"F",fin:62,res:"第1回順位発表で脱落（62位）",team:"Boyz III Men",pg:[33, 45, 62, 62, null, null, null, null, null],v:[null, null, null, null],img:null,cast:null},
+{n:"中川勝就",k:"なかがわ かつなり",a:22,f:"兵庫県",nat:"日本",h:"183cm",w:"64kg",c0:"C",c1:"B",fin:63,res:"第1回順位発表で脱落（63位）",team:"Team Rapper Crew",pg:[51, 64, 61, 63, null, null, null, null, null],v:[null, null, null, null],img:"t066",cast:null},
+{n:"中里空",k:"なかざと そら",a:17,f:"長崎県",nat:"日本",h:"176cm",w:"61kg",c0:"C",c1:"B",fin:39,res:"第2回順位発表で脱落（39位）",team:"Team Sky",pg:[85, 98, 37, 42, 32, 39, null, null, null],v:[205590, null, null, null],img:"t067",cast:null},
+{n:"中谷日向",k:"なかたに ひゅうが",a:20,f:"大阪府",nat:"日本",h:"173cm",w:"57kg",c0:"F",c1:"D",fin:57,res:"第2回順位発表で脱落（57位）",team:"ビューティー4",pg:[44, 75, 89, 53, 54, 57, null, null, null],v:[173896, null, null, null],img:"t068",cast:"hyuga"},
+{n:"中西直樹",k:"なかにし なおき",a:21,f:"奈良県",nat:"日本",h:"178cm",w:"60kg",c0:"B",c1:"C",fin:88,res:"第1回順位発表で脱落（88位）",team:"ビューティー4",pg:[98, 54, 83, 88, null, null, null, null, null],v:[null, null, null, null],img:"t069",cast:null},
+{n:"中野龍之介",k:"なかの りゅうのすけ",a:20,f:"大阪府",nat:"日本",h:"178cm",w:"57kg",c0:"B",c1:"F",fin:52,res:"第2回順位発表で脱落（52位）",team:"High-Steps",pg:[63, 50, 45, 38, 52, 52, null, null, null],v:[208013, null, null, null],img:"t070",cast:null},
+{n:"中林登生",k:"なかばやし とうい",a:21,f:"大阪府",nat:"日本",h:"171cm",w:"57kg",c0:"D",c1:"D",fin:55,res:"第2回順位発表で脱落（55位）",team:"アスリートBOYS",pg:[89, 58, 93, 44, 55, 55, null, null, null],v:[190407, null, null, null],img:"t071",cast:"toi"},
+{n:"中本大賀",k:"なかもと たいが",a:18,f:"大阪府",nat:"日本",h:"181cm",w:"65kg",c0:"D",c1:"C",fin:30,res:"第3回順位発表で脱落（30位）",team:"KSix",pg:[61, 36, 30, 29, 31, 29, 33, 30, null],v:[271957, 204423, 64952, null],img:"t072",cast:null},
+{n:"西涼太郎",k:"にし りょうたろう",a:19,f:"愛知県",nat:"日本",h:"170cm",w:"66kg",c0:"B",c1:"D",fin:66,res:"第1回順位発表で脱落（66位）",team:"しゃちほこフレンズ",pg:[64, 67, 64, 66, null, null, null, null, null],v:[null, null, null, null],img:"t073",cast:null},
+{n:"西尾航暉",k:"にしお こうき",a:20,f:"北海道",nat:"日本",h:"173cm",w:"54kg",c0:"F",c1:"F",fin:53,res:"第2回順位発表で脱落（53位）",team:"DDD",pg:[43, 68, 91, 52, 53, 53, null, null, null],v:[174629, null, null, null],img:"t074",cast:null},
+{n:"西野友也",k:"にしの ともや",a:22,f:"東京都",nat:"日本",h:"171cm",w:"59kg",c0:"D",c1:"F",fin:68,res:"第1回順位発表で脱落（68位）",team:"アスリートBOYS",pg:[67, 97, 51, 68, null, null, null, null, null],v:[null, null, null, null],img:"t075",cast:null},
+{n:"西山和貴",k:"にしやま かずき",a:24,f:"福岡県",nat:"日本",h:"170cm",w:"58kg",c0:"B",c1:"C",fin:72,res:"第1回順位発表で脱落（72位）",team:"Boyz III Men",pg:[88, 71, 60, 72, null, null, null, null, null],v:[null, null, null, null],img:null,cast:null},
+{n:"長谷川怜央",k:"はせがわ れお",a:21,f:"京都府",nat:"日本",h:"176cm",w:"55kg",c0:"F",c1:"F",fin:89,res:"第1回順位発表で脱落（89位）",team:"Boyz III Men",pg:[74, 92, 52, 89, null, null, null, null, null],v:[null, null, null, null],img:null,cast:null},
+{n:"秦健豪",k:"はた けんごう",a:18,f:"メルボルン",nat:"日本",h:"163cm",w:"53kg",c0:"B",c1:"B",fin:86,res:"第1回順位発表で脱落（86位）",team:"팬팬 (Pen Pen) ペンペン",pg:[82, 91, 58, 86, null, null, null, null, null],v:[null, null, null, null],img:"t078",cast:null},
+{n:"林龍太",k:"はやし りゅうた",a:23,f:"大阪府",nat:"日本",h:"174cm",w:"61kg",c0:"A",c1:"A",fin:43,res:"第2回順位発表で脱落（43位）",team:"Smile Magic",pg:[40, 25, 21, 18, 49, 43, null, null, null],v:[629359, null, null, null],img:null,cast:"ryuta"},
+{n:"福地正",k:"ふくち しょう",a:25,f:"沖縄県",nat:"日本",h:"163cm",w:"54kg",c0:"F",c1:"C",fin:28,res:"第3回順位発表で脱落（28位）",team:"琉球BOYS",pg:[50, 60, 67, 59, 27, 32, 31, 28, null],v:[157298, 176636, 89361, null],img:"t080",cast:null},
+{n:"古屋亮人",k:"ふるや あきひと",a:18,f:"東京都",nat:"日本",h:"173cm",w:"60kg",c0:"D",c1:"D",fin:44,res:"第2回順位発表で脱落（44位）",team:"Team DK",pg:[76, 73, 88, 60, 44, 44, null, null, null],v:[156742, null, null, null],img:null,cast:"akihito"},
+{n:"本田康祐",k:"ほんだ こうすけ",a:24,f:"福島県",nat:"日本",h:"175cm",w:"63kg",c0:"B",c1:"B",fin:15,res:"最終15位（ファイナリスト）",team:"反逆のプリンス",pg:[47, 39, 33, 28, 13, 15, 15, 16, 15],v:[303267, 477362, 229428, null],img:null,cast:"kosuke"},
+{n:"松倉悠",k:"まつくら はるか",a:23,f:"北海道",nat:"日本",h:"173cm",w:"54kg",c0:"F",c1:"F",fin:95,res:"第1回順位発表で脱落（95位）",team:"ō Boys 慶應BOYS",pg:[97, 52, 84, 95, null, null, null, null, null],v:[null, null, null, null],img:null,cast:null},
+{n:"豆原一成",k:"まめはら いっせい",a:17,f:"岡山県",nat:"日本",h:"173cm",w:"69kg",c0:"A",c1:"A",fin:1,res:"最終1位・JO1としてデビュー",team:"— N/a",pg:[3, 1, 1, 2, 4, 4, 1, 2, 1],v:[1848191, 962252, 505823, 261583],img:null,cast:"issei"},
+{n:"磨田寛大",k:"みがきだ かんた",a:20,f:"三重県",nat:"日本",h:"171cm",w:"58kg",c0:"F",c1:"F",fin:25,res:"第3回順位発表で脱落（25位）",team:"KSix",pg:[24, 26, 29, 41, 41, 26, 26, 25, null],v:[206392, 225718, 129462, null],img:"t085",cast:null},
+{n:"三井瞭",k:"みつい りょう",a:22,f:"東京都",nat:"日本",h:"170cm",w:"60kg",c0:"B",c1:"D",fin:41,res:"第2回順位発表で脱落（41位）",team:"反逆のプリンス",pg:[17, 22, 26, 30, 34, 41, null, null, null],v:[266289, null, null, null],img:"t086",cast:null},
+{n:"宮里龍斗志",k:"みやざと たつとし",a:21,f:"沖縄県",nat:"日本",h:"168cm",w:"62kg",c0:"B",c1:"B",fin:26,res:"第3回順位発表で脱落（26位）",team:"琉球BOYS",pg:[32, 28, 25, 25, 24, 27, 29, 26, null],v:[374466, 224857, 118118, null],img:"t087",cast:null},
+{n:"宮島優心",k:"みやじま ゆうご",a:18,f:"埼玉県",nat:"日本",h:"164cm",w:"49kg",c0:"B",c1:"A",fin:12,res:"最終12位（ファイナリスト）",team:"プチメン)",pg:[18, 15, 10, 10, 12, 18, 25, 20, 12],v:[835565, 414240, 204145, null],img:null,cast:"yugo"},
+{n:"森慎二郎",k:"もり しんじろう",a:19,f:"大阪府",nat:"日本",h:"181cm",w:"65kg",c0:"F",c1:"F",fin:90,res:"第1回順位発表で脱落（90位）",team:"KSix",pg:[53, 51, 76, 90, null, null, null, null, null],v:[null, null, null, null],img:null,cast:null},
+{n:"山田聡",k:"やまだ さとし",a:21,f:"神奈川県",nat:"日本",h:"178cm",w:"63kg",c0:"D",c1:"F",fin:85,res:"第1回順位発表で脱落（85位）",team:"UN Backers",pg:[92, 48, 80, 85, null, null, null, null, null],v:[null, null, null, null],img:null,cast:null},
+{n:"山田恭",k:"やまだ きょう",a:18,f:"石川県",nat:"日本",h:"178cm",w:"61kg",c0:"B",c1:"C",fin:45,res:"第2回順位発表で脱落（45位）",team:"Killer-Smile",pg:[72, 62, 54, 58, 39, 45, null, null, null],v:[157564, null, null, null],img:"t091",cast:null},
+{n:"山本健太",k:"やまもと けんた",a:16,f:"東京都",nat:"日本",h:"165cm",w:"50kg",c0:"D",c1:"C",fin:81,res:"第1回順位発表で脱落（81位）",team:"プチメン",pg:[93, 56, 87, 81, null, null, null, null, null],v:[null, null, null, null],img:null,cast:"kenta"},
+{n:"結城樹",k:"ゆうき たつき",a:22,f:"山形県",nat:"日本",h:"180cm",w:"65kg",c0:"D",c1:"D",fin:80,res:"第1回順位発表で脱落（80位）",team:"アスリートBOYS",pg:[71, 93, 55, 80, null, null, null, null, null],v:[null, null, null, null],img:"t093",cast:null},
+{n:"與那城奨",k:"よなしろ しょう",a:23,f:"沖縄県",nat:"日本",h:"180cm",w:"70kg",c0:"B",c1:"B",fin:11,res:"最終11位・JO1としてデビュー",team:"シックスパックス)",pg:[23, 24, 24, 26, 19, 17, 8, 10, 11],v:[325996, 425199, 320944, 140003],img:null,cast:"sho"},
+{n:"米原尚平",k:"よねはら しょうへい",a:23,f:"大阪府",nat:"日本",h:"188cm",w:"75kg",c0:"F",c1:"D",fin:91,res:"第1回順位発表で脱落（91位）",team:"↑ イチハチエックス",pg:[84, 84, 74, 91, null, null, null, null, null],v:[null, null, null, null],img:null,cast:null},
+{n:"渡邊公貴",k:"わたなべ こうき",a:21,f:"宮崎県",nat:"日本",h:"173cm",w:"56kg",c0:"D",c1:"D",fin:94,res:"第1回順位発表で脱落（94位）",team:"ōdai 渡邊兄弟",pg:[80, 96, 56, 94, null, null, null, null, null],v:[null, null, null, null],img:"t096",cast:null},
+{n:"渡邊大貴",k:"わたなべ たいき",a:21,f:"宮崎県",nat:"日本",h:"171cm",w:"56kg",c0:"D",c1:"C",fin:87,res:"第1回順位発表で脱落（87位）",team:"ōdai 渡邊兄弟",pg:[77, 94, 53, 87, null, null, null, null, null],v:[null, null, null, null],img:"t097",cast:null},
+{n:"渡辺龍星",k:"わたなべ りゅうせい",a:22,f:"東京都",nat:"日本",h:"184cm",w:"79kg",c0:"B",c1:"D",fin:56,res:"第2回順位発表で脱落（56位）",team:"↑ イチハチエックス",pg:[83, 78, 95, 48, 56, 56, null, null, null],v:[179353, null, null, null],img:"t098",cast:null},
+{n:"畑顕矢",k:"はた けんや",a:23,f:"東京都",nat:"日本",h:"179cm",w:"63kg",c0:"D",c1:"C",fin:null,res:"辞退（順位発表前に番組を離脱）",team:"Killer-Smile",pg:[null, null, null, null, null, null, null, null, null],v:[null, null, null, null],img:null,cast:null},
+{n:"佐藤一翔",k:"わわわあ さとう かずと",a:null,f:"福岡県",nat:"日本",h:"-",w:"-",c0:"C",c1:"辞退",fin:null,res:"辞退（第1回順位発表前）",team:"九州漢組",pg:[null, null, null, null, null, null, null, null, null],v:[null, null, null, null],img:"t100",cast:null},
+{n:"片山湧貴",k:"わわわい かたやま ゆうき",a:null,f:"岡山県",nat:"日本",h:"-",w:"-",c0:"",c1:"",fin:null,res:"辞退（番組収録前）",team:"— N/a",pg:[null, null, null, null, null, null, null, null, null],v:[null, null, null, null],img:null,cast:null}
+];
+const ALL101_BY_NAME={}; ALL101.forEach(o=>ALL101_BY_NAME[o.n]=o);
+/* pg: [Ep1,Ep2,Ep3,Ep5(第1回発表),Ep6,Ep8(第2回発表),Ep9,Ep11(第3回発表),Ep12(最終)] の順位。v: [第1回,第2回,第3回,最終] の公表票数（未公表はnull） */
+/* 史実の順位発表テーブル（出典：Wikipedia「PRODUCE 101 JAPAN」順位推移表・得票数。大翔の行は表示時にIF票で置き換える） */
+const FACT1=[["川尻蓮",1883178],["豆原一成",1848191],["川西拓実",1771861],["キム・ヒチョン",1411741],["鶴房汐恩",1238146],["キム・ユンドン",1145844],["大平祥生",1053408],["チョン・ヨンフン",905412],["大澤駿弥",854843],["宮島優心",835565],["安藤誠明",798477],["佐藤景瑚",780055],["今西正彦",761996],["青木聖波",754940],["河野純喜",752859],["白岩瑠姫",680592],["上原潤",650811],["林龍太",629359],["井汲大翔",565892],["イ・ミンヒョク",525979],["佐藤來良",513553],["木全翔也",513499],["小松倖真",477851],["北川玲叶",461920],["宮里龍斗志",374466],["與那城奨",325996],["男澤直樹",313583],["本田康祐",303267],["中本大賀",271957],["三井瞭",266289],["草地稜之",241094],["北岡謙人",238778],["金城碧海",223410],["佐々木真生",222871],["床波志音",214846],["井上港人",209582],["瀧澤翼",209445],["中野龍之介",208013],["北川暉",206878],["安藤優",206479],["磨田寛大",206392],["中里空",205590],["岡田武大",203684],["中林登生",190407],["岩崎琉斗",189582],["内田脩斗",183098],["安慶田真樹",180707],["渡辺龍星",179353],["浦野秀太",179023],["岡野海斗",178283],["片上勇士",177865],["西尾航暉",174629],["中谷日向",173896],["鈴木雅",171732],["寺師敬",170218],["佐藤隆士",169961],["佐野文哉",157943],["山田恭",157564],["福地正",157298],["古屋亮人",156742]];
+const FACT2=[["川西拓実",1149244],["川尻蓮",1074606],["鶴房汐恩",996794],["豆原一成",962252],["キム・ヒチョン",823022],["キム・ユンドン",807141],["チョン・ヨンフン",748508],["大澤駿弥",705067],["河野純喜",661099],["安藤誠明",654176],["大平祥生",543768],["上原潤",519155],["白岩瑠姫",494924],["木全翔也",477526],["本田康祐",477362],["佐藤景瑚",464326],["與那城奨",425199],["宮島優心",414240],["床波志音",402418],["青木聖波",365955],["佐藤來良",364272],["今西正彦",336637],["北川玲叶",269711],["男澤直樹",231106],["金城碧海",229731],["磨田寛大",225718],["宮里龍斗志",224857],["岡野海斗",207937],["中本大賀",204423],["井上港人",203852],["小松倖真",180413],["福地正",176636],["佐藤隆士",176035],["佐野文哉",175673],["浦野秀太",164879],["井汲大翔",null],["瀧澤翼",null],["北川暉",null],["中里空",null],["寺師敬",null],["三井瞭",null],["イ・ミンヒョク",null],["林龍太",null],["古屋亮人",null],["山田恭",null],["佐々木真生",null],["安藤優",null],["北岡謙人",null],["安慶田真樹",null],["岩崎琉斗",null],["草地稜之",null],["中野龍之介",null],["西尾航暉",null],["岡田武大",null],["中林登生",null],["渡辺龍星",null],["中谷日向",null],["内田脩斗",null],["鈴木雅",null],["片上勇士",null]];
+const FACT3=[["川尻蓮",516171],["豆原一成",505823],["鶴房汐恩",460657],["白岩瑠姫",448795],["川西拓実",381845],["安藤誠明",355660],["上原潤",354058],["木全翔也",339052],["大平祥生",336162],["與那城奨",320944],["河野純喜",300869],["井上港人",287656],["佐藤景瑚",287083],["金城碧海",237936],["大澤駿弥",235413],["本田康祐",229428],["床波志音",223259],["今西正彦",217437],["佐藤來良",209695],["宮島優心",204145],["佐野文哉",203197],["小松倖真",185385],["佐藤隆士",184001],["北川玲叶",148527],["磨田寛大",129462],["宮里龍斗志",118118],["青木聖波",108388],["福地正",89361],["男澤直樹",69937],["中本大賀",64952],["岡野海斗",54202],["浦野秀太",38000]];
+const FACTF=[["豆原一成",261583],["川尻蓮",256527],["川西拓実",252885],["大平祥生",220594],["鶴房汐恩",204045],["白岩瑠姫",194919],["佐藤景瑚",186309],["木全翔也",171205],["河野純喜",159057],["金城碧海",157373],["與那城奨",140003],["宮島優心",null],["大澤駿弥",null],["安藤誠明",null],["本田康祐",null],["佐藤來良",null],["今西正彦",null],["井上港人",null],["床波志音",null],["上原潤",null]];
 
 /* 第2回発表（Ep8）の史実得票（キャスト分）。公表分は実数、未公表分（脱落者）は順位からの内部推定値。
    null は第1回発表で脱落したため第2回投票の対象外 */
@@ -725,11 +935,11 @@ return T[who]?T[who].img:"assets/default-avatar.svg";
 
 /* ================= HOME ================= */
 const APPS=[
-{id:"talk", lb:"トーク", ic:"💬", bg:"linear-gradient(180deg,#29d967,#06c755)", view:"v-talk", badge:()=>Object.values(S.unread).reduce((a,b)=>a+b,0)},
-{id:"members", lb:"練習生名簿", ic:"📋", bg:"linear-gradient(180deg,#8e7bff,#7c5cff)", view:"v-members"},
-{id:"edit", lb:"編集室", ic:"🎬", bg:"linear-gradient(180deg,#ff7ba5,#ff5c8a)", view:"v-edit", lock:()=>S.beat<4, badge:()=> ((S.beat>=4&&!S.editDone)||(S.beat>=9&&!S.edit2Done)||(S.beat>=15&&!S.edit3Done))?1:0},
-{id:"x", lb:"X", ic:"𝕏", bg:"#000", view:"v-x", lock:()=>S.beat<5},
-{id:"news", lb:"ニュース", ic:"📰", bg:"linear-gradient(180deg,#ffb340,#ff9500)", view:"v-news", lock:()=>S.beat<5},
+{id:"talk", lb:"トーク", ic:'<svg viewBox="0 0 24 24" width="36" height="36"><path fill="#fff" d="M12 2.5c-5.8 0-10.5 3.9-10.5 8.7 0 4.3 3.8 7.9 9 8.6.4.06.8.3.9.7l.5 1.6c.1.4.6.5.9.2l2.6-2.5c.5.1 1 .1 1.6.1 5.8 0 9.5-3.9 9.5-8.7 0-4.8-4.7-8.7-10.5-8.7z"/><text x="12" y="14.6" font-size="5.6" font-weight="900" fill="#00B900" text-anchor="middle" font-family="Arial, sans-serif">LINE</text></svg>', bg:"#00B900", view:"v-talk", badge:()=>Object.values(S.unread).reduce((a,b)=>a+b,0)},
+{id:"members", lb:"練習生名簿", ic:"📋", bg:"linear-gradient(180deg,#33507e,#16294d)", view:"v-members"},
+{id:"edit", lb:"編集室", ic:"🎬", bg:"linear-gradient(180deg,#5b6b82,#33415c)", view:"v-edit", lock:()=>S.beat<4, badge:()=> ((S.beat>=4&&!S.editDone)||(S.beat>=9&&!S.edit2Done)||(S.beat>=15&&!S.edit3Done))?1:0},
+{id:"x", lb:"Twitter", ic:'<svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.094 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59l-.047-.02z"/></svg>', bg:"#1DA1F2", view:"v-x", lock:()=>S.beat<5},
+{id:"news", lb:"ニュース", ic:'<span style="font-weight:900;font-style:italic;font-size:20px">Y!</span>', bg:"#FF0033", view:"v-news", lock:()=>S.beat<5},
 {id:"rank", lb:"順位表", ic:"👑", bg:"linear-gradient(180deg,#ffd60a,#f5b800)", view:"v-rank", badge:()=> ((S.beat>=6&&!S.ranked)||(S.beat>=13&&!S.ranked2)||(S.beat>=17&&!S.ranked3))?1:0},
 {id:"settings", lb:"設定", ic:"⚙️", bg:"linear-gradient(180deg,#c7c7cc,#8e8e93)", view:"v-settings"},
 ];
@@ -796,7 +1006,7 @@ show(a.view);
 if(a.id==="talk") renderTalkList();
 if(a.id==="rank") renderRank();
 if(a.id==="x") renderX();
-if(a.id==="news") renderNews();
+if(a.id==="news"){ renderNews(); decorateNews(); }
 if(a.id==="members") renderMembers();
 if(a.id==="edit") renderEdit();
 }
@@ -835,7 +1045,7 @@ if(m.voice){
 d.className="msg";
 d.innerHTML=`<img class="av sm" src="${whoImg(m.who)}"><div class="col"><div class="who">${whoName(m.who)}</div><div class="bub vbub"><button class="vbtn" onclick="toggleVoice(this,'${m.voice.src}')">▶</button><span class="vwave">${voiceBars(m.voice.src.length*13)}</span><span class="vdur">${m.voice.dur}</span></div><div class="vcap">🎤 ${esc(m.voice.cap||"")}</div></div>`;
 }
-else if(m.who==="me"){ d.className="msg me"; d.innerHTML=`<div class="col"><div class="bub">${m.img?`<img class="chat-img" src="${m.img}">`:""}${esc(m.text)}</div>${(mi===lastMe&&readOK)?`<div class="read-mark">既読</div>`:""}</div>`;}
+else if(m.who==="me"){ d.className="msg me"; d.innerHTML=`<div class="col"><div style="display:flex;align-items:flex-end;gap:5px"><div class="mmeta">${(mi===lastMe&&readOK)?"既読":""}</div><div class="bub">${m.img?`<img class="chat-img" src="${m.img}">`:""}${esc(m.text)}</div></div></div>`;}
 else{
 d.className="msg";
 d.innerHTML=`<img class="av sm" src="${whoImg(m.who)}"><div class="col"><div class="who">${whoName(m.who)}</div><div class="bub">${m.img?`<img class="chat-img" src="${m.img}">`:""}${esc(m.text)}</div></div>`;
@@ -979,6 +1189,9 @@ callSteps=cfg.steps.slice(); callDone=done||null;
 $("#call-name").textContent=cfg.name||"井汲大翔";
 $("#call-av").src=cfg.img||"assets/s1/hiroto.jpg";
 $("#call-status").textContent=cfg.status||"通話中";
+const incCall=(cfg.status||"").indexOf("着信")>=0;
+document.getElementById("v-call").classList.toggle("incoming",incCall);
+const ctp=$("#call-tap"); ctp.textContent=incCall? "応答":"タップで進む ›"; ctp.classList.toggle("accept",incCall);
 show("v-call");
 callSec=0; $("#call-time").textContent="00:00";
 if(callTimer) clearInterval(callTimer);
@@ -1014,8 +1227,9 @@ return;
 }
 sub.innerHTML=`<div class="call-who">${st.who==="nao"?"なお":(st.who==="narr"?"":"井汲大翔")}</div>${esc(st.text)}`;
 }
-$("#call-tap").onclick=nextCallStep;
+$("#call-tap").onclick=()=>{ document.getElementById("v-call").classList.remove("incoming"); const t=$("#call-tap"); t.textContent="タップで進む ›"; t.classList.remove("accept"); nextCallStep(); };
 $("#call-end").onclick=()=>{
+document.getElementById("v-call").classList.remove("incoming");
 if(callTimer) clearInterval(callTimer);
 if(callAudio){ try{callAudio.pause();}catch(e){} callAudio=null; }
 const f=callDone; callDone=null;
@@ -1735,6 +1949,8 @@ return {id:t.id, total:Math.round(total)};
 });
 rows.sort((a,b)=>b.total-a.total);
 rows.forEach((r,i)=>{ S.tr[r.id].rank=i+1; S.tr[r.id].votes=r.total;});
+/* v7: 大翔の表示順位は、史実の第1回発表60名の中にIF票を差し込んだ位置にする */
+S.tr.hiroto.rank = 1 + FACT1.filter(o=>o[0]!=="井汲大翔" && o[1]>S.tr.hiroto.votes).length;
 save();
 }
 function computeRanking2(){
@@ -1770,37 +1986,28 @@ function renderRank2(w){
 $("#rank-sub").textContent="第2回順位発表 ― 結果";
 const hv=S.tr.hiroto.votes2||0;
 const elim = hv<=URANO_VOTES2;
-const rows=OFFICIAL2.map(o=>({name:o[0],votes:o[1],img:(TRAINEES.find(t=>t.name===o[0])||{}).img||"assets/default-avatar.svg",me:false}));
-if(!elim) rows.push({name:"井汲大翔",votes:hv,img:T.hiroto.img,me:true});
-rows.sort((a,b)=>b.votes-a.votes);
-let html=rows.map((r,i)=>{
-const rank=i+1; const inz=rank<=DEBUT_N;
-return `<div class="rk-row ${r.me?"me":""}"><div class="rk-num ${rank<=3?"top":""}">${rank}</div><img class="av sm" src="${r.img}"><div class="inf"><div class="nm">${r.name}${r.me?`<span class="zone-tag ${inz?"zone-in":"zone-out"}">${inz?"デビュー圏内":"残留"}</span>`:""}</div><div class="dt">第2回順位発表</div></div><div class="rk-vote"><b>${r.votes.toLocaleString()}</b><br>票</div></div>`;
-}).join("");
+let rows=FACT2.filter(o=>o[0]!=="井汲大翔").map(o=>({name:o[0],votes:o[1],me:false}));
 if(elim){
-html+=`<div class="rk-row me"><div class="rk-num">36</div><img class="av sm" src="${T.hiroto.img}"><div class="inf"><div class="nm">井汲大翔<span class="zone-tag zone-out">脱落</span></div><div class="dt">史実と同じ36位（票数は未公表）</div></div><div class="rk-vote"><b>―</b><br>票</div></div>`;
+rows.splice(35,0,{name:"井汲大翔",votes:null,me:true});
+}else{
+rows.push({name:"井汲大翔",votes:hv,me:true});
+rows.sort((a,b)=>(b.votes||0)-(a.votes||0));
+rows=rows.slice(0,60);
 }
-w.innerHTML=html+`<div class="rk-note">集計：第2回国民投票（11pick）の公式結果（票数が公表されている生存者31名）に、ひろとのIF結果を合わせて再構成した順位です。史実では大翔は36位で脱落しました（残留ライン35位・浦野秀太 ${URANO_VOTES2.toLocaleString()}票）。デビュー圏は上位${DEBUT_N}名、残留ラインは35位です。</div>`;
+w.innerHTML=rows.map((r,i)=>{
+const rank=i+1; const inz=rank<=DEBUT_N;
+const tag=r.me?`<span class="zone-tag ${elim?"zone-out":(inz?"zone-in":"zone-out")}">${elim?"脱落":(inz?"デビュー圏内":"残留")}</span>`:"";
+return `<div class="rk-row ${r.me?"me":""}"><div class="rk-num ${rank<=3?"top":""}">${rank}</div><img class="av sm" src="${imgOf(r.name)}"><div class="inf"><div class="nm">${r.name}${tag}</div><div class="dt">第2回順位発表</div></div><div class="rk-vote"><b>${r.votes==null?"―":r.votes.toLocaleString()}</b><br>票</div></div>`;
+}).join("")+`<div class="rk-note">集計：第2回国民投票（11pick）の史実結果（順位は全60名、票数は公表されている分のみ表示）に、ひろとのIF結果を合わせて再構成した順位です。史実では大翔は36位で脱落しました（残留ライン35位・浦野秀太 ${URANO_VOTES2.toLocaleString()}票）。デビュー圏は上位${DEBUT_N}名、残留ラインは35位です。</div>`;
 }
 /* ================= PART 3: RANKING ================= */
-/* 第3回順位発表（2019年12月5日放送・第11回）。史実の順位はWikipedia「PRODUCE 101 JAPAN」の順位推移表に基づく。
-   第3回投票は2pick（2019年11月14日〜11月29日）。票数は公表されていないため、下記の票数は内部推定値。
+/* 第3回順位発表（2019年12月5日放送・第11回）。史実の順位・票数はWikipedia「PRODUCE 101 JAPAN」の
+   順位推移表に基づく公表値（FACT3）。第3回投票は2pick（2019年11月14日〜11月29日）。
    史実ではキム・ヒチョン、キム・ユンドン、チョン・ヨンフンの3名がこの発表前に辞退した。 */
-const OFFICIAL3=[
-["川尻蓮",1155000],["豆原一成",1132000],["鶴房汐恩",926000],["白岩瑠姫",814000],["川西拓実",792000],
-["安藤誠明",726000],["上原潤",691000],["木全翔也",657000],["大平祥生",633000],["與那城奨",600000],
-["河野純喜",573000],["井上港人",542000],["佐藤景瑚",514000],["金城碧海",488000],["大澤駿弥",463000],
-["本田康祐",440000],["床波志音",417000],["今西正彦",394000],["佐藤來良",370000],["宮島優心",346000],
-["佐野文哉",324000],["小松倖真",303000],["佐藤隆士",286000],["北川玲叶",268000],["磨田寛大",251000],
-["宮里龍斗志",235000],["青木聖波",220000],["福地正",206000],["男澤直樹",193000],["中本大賀",180000],
-["岡野海斗",168000],["浦野秀太",157000]];
-/* 最終順位（2019年12月11日・幕張メッセ）。上位11名の票数は公表値。12位以下は非公表のため内部推定値。 */
-const OFFICIALF=[
-["豆原一成",261583],["川尻蓮",256527],["川西拓実",252885],["大平祥生",220594],["鶴房汐恩",204045],
-["白岩瑠姫",194919],["佐藤景瑚",186309],["木全翔也",171205],["河野純喜",159057],["金城碧海",157373],
-["與那城奨",140003],["宮島優心",131500],["大澤駿弥",124500],["安藤誠明",118500],["本田康祐",112500],
-["佐藤來良",106500],["今西正彦",100500],["井上港人",95500],["床波志音",90500],["上原潤",85500]];
-function imgOf(name){ const t=TRAINEES.find(x=>x.name===name); return t? t.img : "assets/default-avatar.svg"; }
+const OFFICIAL3=FACT3;
+/* 最終順位（2019年12月11日・幕張メッセ）。上位11名の票数は公表値、12位以下は非公表（null）。 */
+const OFFICIALF=FACTF;
+function imgOf(name){ const t=TRAINEES.find(x=>x.name===name); if(t) return t.img; const o=ALL101_BY_NAME[name]; return (o&&o.img)? ("assets/s1/"+o.img+".jpg") : "assets/default-avatar.svg"; }
 function computeConcept(){
 /* コンセプト評価：史実の「やんちゃBOY」はチーム5位（79票）。分量(air3)と裏側サポートで会場票が動く */
 const st=S.tr.hiroto;
@@ -1839,7 +2046,7 @@ const fb=Math.max(0,(S.trust-60))*0.002 + Math.max(0,S.mental-80)*0.001 + (S.boo
 let hvF=Math.round((st.votes3||300000)*0.30*(1+fb));
 hvF=Math.min(hvF, 240000);
 S.hirotoFinalVotes=hvF;
-const rows=OFFICIALF.map(o=>({name:o[0],votes:o[1]})).concat([{name:"井汲大翔",votes:hvF}]);
+const rows=OFFICIALF.map(o=>({name:o[0],votes:o[1]||0})).concat([{name:"井汲大翔",votes:hvF}]);
 rows.sort((a,b)=>b.votes-a.votes);
 S.hirotoRankF=rows.findIndex(r=>r.name==="井汲大翔")+1;
 S.ending= S.hirotoRankF<=DEBUT_N? "debut": "step";
@@ -1848,24 +2055,24 @@ save();
 function renderRank3(w){
 $("#rank-sub").textContent="第3回順位発表 ― 結果";
 const hv=S.tr.hiroto.votes3||0;
-const rows=OFFICIAL3.map(o=>({name:o[0],votes:o[1],img:imgOf(o[0]),me:false}));
-rows.push({name:"井汲大翔",votes:hv,img:T.hiroto.img,me:true});
+let rows=FACT3.filter(o=>o[0]!=="井汲大翔").map(o=>({name:o[0],votes:o[1],me:false}));
+rows.push({name:"井汲大翔",votes:hv,me:true});
 rows.sort((a,b)=>b.votes-a.votes);
 w.innerHTML=rows.map((r,i)=>{
 const rank=i+1; const surv=rank<=20;
-return `<div class="rk-row ${r.me?"me":""}"><div class="rk-num ${rank<=3?"top":""}">${rank}</div><img class="av sm" src="${r.img}"><div class="inf"><div class="nm">${r.name}${r.me?`<span class="zone-tag ${surv?"zone-in":"zone-out"}">${surv?"ファイナル進出":"脱落"}</span>`:""}</div><div class="dt">第3回順位発表</div></div><div class="rk-vote"><b>${r.votes.toLocaleString()}</b><br>票</div></div>`;
-}).join("")+`<div class="rk-note">集計：第3回国民投票（2pick、2019年11月14日〜11月29日）の史実順位に、ひろとのIF結果を合わせて再構成した順位です。票数は公表されていないため内部推定を含みます。残留ラインは20位。史実では大翔は第2回発表で脱落しており、この発表にはいませんでした。また史実ではキム・ヒチョン、キム・ユンドン、チョン・ヨンフンの3名が発表前に辞退しています。</div>`;
+return `<div class="rk-row ${r.me?"me":""}"><div class="rk-num ${rank<=3?"top":""}">${rank}</div><img class="av sm" src="${imgOf(r.name)}"><div class="inf"><div class="nm">${r.name}${r.me?`<span class="zone-tag ${surv?"zone-in":"zone-out"}">${surv?"ファイナル進出":"脱落"}</span>`:""}</div><div class="dt">第3回順位発表</div></div><div class="rk-vote"><b>${r.votes.toLocaleString()}</b><br>票</div></div>`;
+}).join("")+`<div class="rk-note">集計：第3回国民投票（2pick、2019年11月14日〜11月29日）の史実結果（順位・票数はいずれも公表値）に、ひろとのIF結果を合わせて再構成した順位です。残留ラインは20位。史実では大翔は第2回発表で脱落しており、この発表にはいませんでした。また史実ではキム・ヒチョン、キム・ユンドン、チョン・ヨンフンの3名が発表前に辞退しています。</div>`;
 }
 function renderFinal(w){
 $("#rank-sub").textContent="最終順位発表 ― 結果（2019年12月11日）";
 const hv=S.hirotoFinalVotes||0;
-const rows=OFFICIALF.map(o=>({name:o[0],votes:o[1],img:imgOf(o[0]),me:false}));
-rows.push({name:"井汲大翔",votes:hv,img:T.hiroto.img,me:true});
-rows.sort((a,b)=>b.votes-a.votes);
+let rows=FACTF.filter(o=>o[0]!=="井汲大翔").map(o=>({name:o[0],votes:o[1],me:false}));
+rows.push({name:"井汲大翔",votes:hv,me:true});
+rows.sort((a,b)=>(b.votes||0)-(a.votes||0));
 w.innerHTML=rows.map((r,i)=>{
 const rank=i+1; const inz=rank<=DEBUT_N;
-return `<div class="rk-row ${r.me?"me":""}"><div class="rk-num ${rank<=3?"top":""}">${rank}</div><img class="av sm" src="${r.img}"><div class="inf"><div class="nm">${r.name}${r.me?`<span class="zone-tag ${inz?"zone-in":"zone-out"}">${inz?"JO1 デビュー決定":"あと一歩"}</span>`:""}</div><div class="dt">最終順位</div></div><div class="rk-vote"><b>${r.votes.toLocaleString()}</b><br>票</div></div>`;
-}).join("")+`<div class="rk-note">集計：最終投票（1pick、第4回投票＋生放送投票）の史実結果に、ひろとのIF結果を合わせて再構成した順位です。上位11名の票数は公表値、12位以下は非公表のため内部推定を含みます。デビュー組は「JO1」として2020年3月4日にデビューしました。</div>`;
+return `<div class="rk-row ${r.me?"me":""}"><div class="rk-num ${rank<=3?"top":""}">${rank}</div><img class="av sm" src="${imgOf(r.name)}"><div class="inf"><div class="nm">${r.name}${r.me?`<span class="zone-tag ${inz?"zone-in":"zone-out"}">${inz?"JO1 デビュー決定":"あと一歩"}</span>`:""}</div><div class="dt">最終順位</div></div><div class="rk-vote"><b>${r.votes==null?"―":r.votes.toLocaleString()}</b><br>票</div></div>`;
+}).join("")+`<div class="rk-note">集計：最終投票（1pick、第4回投票＋生放送投票）の史実結果に、ひろとのIF結果を合わせて再構成した順位です。上位11名の票数は公表値、12位以下の票数は非公表のため「―」としています。デビュー組は「JO1」として2020年3月4日にデビューしました。</div>`;
 }
 function renderRank(){
 const w=$("#rank-body");
@@ -1883,37 +2090,49 @@ $("#rank-sub").textContent="事前注目度ランキング";
 return;
 }
 $("#rank-sub").textContent="第1回順位発表 ― 結果";
-const rows=TRAINEES.slice().sort((a,b)=>S.tr[a.id].rank-S.tr[b.id].rank);
-w.innerHTML=rows.map(t=>{
-const st=S.tr[t.id];
-const inz=st.rank<=DEBUT_N;
-return `<div class="rk-row ${t.id==="hiroto"?"me":""}"><div class="rk-num ${st.rank<=3?"top":""}">${st.rank}</div><img class="av sm" src="${t.img}"><div class="inf"><div class="nm">${t.name}<span class="zone-tag ${inz?"zone-in":"zone-out"}">${inz?"デビュー圏内":"圏外"}</span></div><div class="dt">クラス ${st.cls}／分量 ${st.air}pt</div></div><div class="rk-vote"><b>${(st.votes||0).toLocaleString()}</b><br>票</div></div>`;
-}).join("")+`<div class="rk-note">集計：第1回国民投票（11pick）の結果に、放送の分量配分と裏側サポートの効果を反映した「IF」の順位です。史実の第1回発表では大翔は${HIST_HIROTO_RANK}位（${HIST_HIROTO_VOTES.toLocaleString()}票）でした。デビュー圏は上位${DEBUT_N}名、本来の生き残りラインは60位です。<br>※アプリの順位表では、なおが関わる主要練習生${TRAINEES.length}名のみを表示しています。</div>`;
+const hv1=S.tr.hiroto.votes||0;
+let rows1=FACT1.filter(o=>o[0]!=="井汲大翔").map(o=>({name:o[0],votes:o[1],me:false}));
+rows1.push({name:"井汲大翔",votes:hv1,me:true});
+rows1.sort((a,b)=>b.votes-a.votes);
+rows1=rows1.slice(0,60);
+w.innerHTML=rows1.map((r,i)=>{
+const rank=i+1; const inz=rank<=DEBUT_N;
+return `<div class="rk-row ${r.me?"me":""}"><div class="rk-num ${rank<=3?"top":""}">${rank}</div><img class="av sm" src="${imgOf(r.name)}"><div class="inf"><div class="nm">${r.name}${r.me?`<span class="zone-tag ${inz?"zone-in":"zone-out"}">${inz?"デビュー圏内":"圏外"}</span>`:""}</div><div class="dt">第1回順位発表</div></div><div class="rk-vote"><b>${r.votes.toLocaleString()}</b><br>票</div></div>`;
+}).join("")+`<div class="rk-note">集計：第1回国民投票（11pick、2019年9月26日〜10月18日）の史実結果（全60名・票数は公表値）に、ひろとのIF票（放送の分量配分と裏側サポートの効果）を合わせて再構成した順位です。史実では大翔は${HIST_HIROTO_RANK}位（${HIST_HIROTO_VOTES.toLocaleString()}票）でした。デビュー圏は上位${DEBUT_N}名、生き残りラインは60位です。61位以下で脱落した41名は「練習生名簿」で全員確認できます。</div>`;
 }
-
 /* ================= X / NEWS ================= */
 function buzzList(){
 return TRAINEES.slice().sort((a,b)=>(S.tr[b.id].air*2+S.tr[b.id].att)-(S.tr[a.id].air*2+S.tr[a.id].att));
+}
+const ICO_RP='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#657786" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5c-1.5 0-3-.4-4.2-1.1L3 20l1.1-5.3A8.5 8.5 0 1 1 21 11.5z"/></svg>';
+const ICO_RT='<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#657786" stroke-width="1.8"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>';
+const ICO_HT='<svg width="16" height="16" viewBox="0 0 24 24" fill="#e0245e"><path d="M12 21s-7.5-4.7-10-9.3C.4 8.6 2.3 4.9 5.7 4.9c2 0 3.4 1.1 4.3 2.4.9-1.3 2.3-2.4 4.3-2.4 3.4 0 5.3 3.7 3.7 6.8C19.5 16.3 12 21 12 21z" transform="scale(0.92) translate(1,0.6)"/></svg>';
+const ICO_SH='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#657786" stroke-width="1.8"><path d="M12 15V4m0 0L8 8m4-4l4 4"/><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/></svg>';
+function tweetHTML(p){
+let n=parseFloat(String(p.f).replace(/,/g,""))||0; if(String(p.f).indexOf("万")>=0) n*=10000;
+const rt=Math.round(n*0.36).toLocaleString(), rp=Math.round(n*0.12).toLocaleString();
+const txt=esc(p.t).replace(/#([^\s#]+)/g,'<span class="tag">#$1</span>');
+return `<div class="xpost"><img class="av" src="assets/default-avatar.svg"><div style="flex:1;min-width:0"><div class="xh"><b>${p.n}</b><span>${p.h}</span></div><div class="xt">${txt}</div><div class="xf"><span>${ICO_RP}${rp}</span><span>${ICO_RT}${rt}</span><span class="lk">${ICO_HT}${p.f}</span><span>${ICO_SH}</span></div></div></div>`;
 }
 function renderX(){
 const w=$("#x-body");
 if(S.beat<5){ w.innerHTML=`<div class="rk-note">放送後にファンの投稿が表示されます。</div>`; return;}
 if(S.beat>=17){
 const posts3=[
-{n:"PRODUCE 101 JAPAN", h:"@produce101jp_official", t:"第3回順位発表の結果、ファイナリスト20名が決定！最終回は12月11日（水）19時からTBS系列で生放送📺 #PRODUCE101JAPAN #日プ", f:"4.1万"},
+{n:"PRODUCE 101 JAPAN", h:"@produce101jp", t:"第3回順位発表の結果、ファイナリスト20名が決定！最終回は12月11日（水）19時からTBS系列で生放送📺 #PRODUCE101JAPAN #日プ", f:"4.1万"},
 {n:"現場レポ垢", h:"@genba_repo", t:"コンセプト評価「やんちゃBOY」、センター井汲大翔が想像以上だった。あの子ツカメで泣いてた子だよ…？ 成長が物語になってる", f:"9,870"},
 {n:"推し活お姉さん", h:"@oshi_oneesan", t:"井汲大翔、第3回発表で残った…！！ 19位→36位のはずだった子がファイナルにいる。2pickは1pick目に入れたよ #井汲大翔", f:"1.2万"},
 {n:"票読み垢", h:"@hyoyomi", t:"残留争い、浦野秀太は32位でついに脱落。死票の神様もここまでか。一方で井汲は2pickの「物語の強さ」が出た", f:"3,455"},
 {n:"DK箱推し", h:"@dk_hakooshi", t:"隆士と玲叶は届かなかった…でも2人の分も大翔が幕張に立つ。Team DKの意地を見せてくれ #TeamDK #井汲大翔", f:"2,208"},
 {n:"ドンビン情報局", h:"@dongbin_info", t:"ファイナルは1pick。ドンビンが応援する井汲大翔、最後の一枠の物語はここからが本番", f:"5,540"},
 ];
-w.innerHTML=posts3.map(p=>`<div class="xpost"><img class="av" src="assets/default-avatar.svg"><div><div class="xh"><b>${p.n}</b> <span>${p.h}</span></div><div class="xt">${p.t}</div><div class="xf">♥ ${p.f}</div></div></div>`).join("");
+w.innerHTML=posts3.map(tweetHTML).join("");
 return;
 }
 if(S.beat>=10){
 const hair2=S.tr.hiroto.air2||0;
 const posts2=[
-{n:"PRODUCE 101 JAPAN", h:"@produce101jp_official", t:"グループバトル「Everybody」チームのステージを公開中！第2回投票（11pick）は11月8日まで⚡ #PRODUCE101JAPAN #日プ", f:"2.8万"},
+{n:"PRODUCE 101 JAPAN", h:"@produce101jp", t:"グループバトル「Everybody」チームのステージを公開中！第2回投票（11pick）は11月8日まで⚡ #PRODUCE101JAPAN #日プ", f:"2.8万"},
 {n:"現場レポ垢", h:"@genba_repo", t:"Everybodyチーム、結果は9位だったけど佐藤隆士357票はすごい。井汲大翔も277票で個人2位、ラップ良かった", f:"3,214"},
 {n:"推し活お姉さん", h:"@oshi_oneesan", t:"週次33位まで落ちた井汲大翔が心配で眠れない。Everybodyであんなに良かったのに…物語が届いてない #井汲大翔", f:"7,930"},
 {n:"なおと", h:"@naoto_k_7", t: hair2>=4? "Everybody回、井汲大翔の見せ場ちゃんと放送されてた！ ここから巻き返せる #井汲大翔": "Everybody回、井汲大翔の分量もっと欲しかった…個人2位なのに #井汲大翔", f:"1,208"},
@@ -1921,12 +2140,12 @@ const posts2=[
 {n:"DK箱推し", h:"@dk_hakooshi", t:"Team DK、隆士と玲叶は残れそうだけど大翔が危ない。箱推しは大翔にも票を分けて…！ #TeamDK", f:"1,977"},
 {n:"ドンビン情報局", h:"@dongbin_info", t:"キム・ドンビンが応援してる井汲大翔くん、第2回投票はSMS認証あり。海外ファンは投票できない人も多いはず…国内の国プにかかってる", f:"4,105"},
 ];
-w.innerHTML=posts2.map(p=>`<div class="xpost"><img class="av" src="assets/default-avatar.svg"><div><div class="xh"><b>${p.n}</b> <span>${p.h}</span></div><div class="xt">${p.t}</div><div class="xf">♥ ${p.f}</div></div></div>`).join("");
+w.innerHTML=posts2.map(tweetHTML).join("");
 return;
 }
 const top=buzzList(); const hair=S.tr.hiroto.air;
 const posts=[
-{n:"PRODUCE 101 JAPAN", h:"@produce101jp_official", t:"『PRODUCE 101 JAPAN』第1話をご覧いただきありがとうございました！第1回投票（11pick）受付中⚡ #PRODUCE101JAPAN #日プ", f:"3.4万"},
+{n:"PRODUCE 101 JAPAN", h:"@produce101jp", t:"『PRODUCE 101 JAPAN』第1話をご覧いただきありがとうございました！第1回投票（11pick）受付中⚡ #PRODUCE101JAPAN #日プ", f:"3.4万"},
 {n:"みかん🍊", h:"@mikan_p_101", t:"ツカメのセンター川尻蓮、納得しかない。101人投票は伊達じゃない #川尻蓮 #PRODUCE101JAPAN", f:"8,204"},
 {n:"推し活お姉さん", h:"@oshi_oneesan", t:"再評価で歌詞が飛んで泣いてた井汲大翔くんが気になって仕方ない。ダンス未経験でC→Dって、そりゃ泣くよ…応援したい #井汲大翔", f:"9,412"},
 {n:"DK箱推し", h:"@dk_hakooshi", t:"Team DKの『Love so sweet』可愛すぎた。高校生組がんばれ…！ #TeamDK #井汲大翔", f:"2,107"},
@@ -1935,7 +2154,7 @@ const posts=[
 {n:"現場レポ垢", h:"@genba_repo", t:`今日の収録、${top[0].name}と${top[1].name}の人気がすごかった。あと浦野秀太はなんか毎回11pickの最後に入れちゃう、不思議な存在感`, f:"1,108"},
 {n:"豆粒の母", h:"@mame_no_haha", t:"豆原一成、17歳であの完成度はバグってる。岡山の星 #豆原一成", f:"5,020"},
 ];
-w.innerHTML=posts.map(p=>`<div class="xpost"><img class="av" src="assets/default-avatar.svg"><div><div class="xh"><b>${p.n}</b> <span>${p.h}</span></div><div class="xt">${p.t}</div><div class="xf">♥ ${p.f}</div></div></div>`).join("");
+w.innerHTML=posts.map(tweetHTML).join("");
 }
 function renderNews(){
 const w=$("#news-body");
@@ -1966,14 +2185,52 @@ w.innerHTML=`
 <div class="nitem"><div class="src">テレビ誌オンライン</div><div class="hd">第1回投票は「11pick」　総投票数は3,384万票超、ファンの間では“死票”戦略も話題に</div><div class="sm">1日1回・11人を選ぶ投票方式。推し以外の枠をどう使うか、ファンダムの戦略が順位を左右する。</div></div>`;
 }
 
+function decorateNews(){
+document.querySelectorAll("#news-body .nbody").forEach(b=>{
+if(b.querySelector(".nshare")) return;
+b.insertAdjacentHTML("beforeend",'<div class="nshare"><span>🔗 シェア</span><span>💬 コメント</span><span>🔖 ブックマーク</span></div>');
+});
+}
 /* ================= MEMBERS ================= */
 function renderMembers(){
 const w=$("#members-body");
-w.innerHTML=`<div class="mgrid">`+TRAINEES.map(t=>{
+const castCards=TRAINEES.map(t=>{
 const st=S.tr[t.id];
-return `<div class="mcard" data-id="${t.id}"><img src="${t.img}"><div class="nm">${t.name}${t.id==="hiroto"?"（担当）":""}</div><div class="cl">${st.cls}クラス／注目度 ${st.att}${st.rank?`／${st.rank}位`:""}</div></div>`;
-}).join("")+`</div>`;
+return `<div class="mcard" data-id="${t.id}" data-search="${t.name} ${t.read}"><img src="${t.img}"><div class="nm">${t.name}${t.id==="hiroto"?"（担当）":""}</div><div class="cl">${st.cls}クラス／注目度 ${st.att}${st.rank?`／${st.rank}位`:""}</div></div>`;
+}).join("");
+const rows101=ALL101.filter(o=>!o.cast).map(o=>{
+const img=o.img?`<img class="av sm" src="assets/s1/${o.img}.jpg">`:`<span class="ini">${o.n.charAt(0)}</span>`;
+return `<div class="mrow" data-name="${o.n}" data-search="${o.n} ${o.k}">${img}<div style="min-width:0"><div class="nm">${o.n}</div><div class="dt">${o.a}歳／${o.f}／クラス ${o.c0}→${o.c1}／${o.res}</div></div></div>`;
+}).join("");
+w.innerHTML=`<div class="m-search"><input id="m-q" placeholder="名前・ふりがなで検索（全101人）" autocomplete="off"></div><div class="m-sec">主要練習生（物語に登場）</div><div class="mgrid">${castCards}</div><div class="m-sec">全練習生データ（史実）― 残りの68人</div><div id="m101">${rows101}</div><div class="rk-note">101人のプロフィール・クラス・順位推移・公表票数は、Wikipedia「PRODUCE 101 JAPAN」の出場者データ等に基づく史実です。写真は番組公式プロフィール写真であることを確認できた人のみ掲載しています（確認できなかった人はイニシャル表示）。</div>`;
 w.querySelectorAll(".mcard").forEach(c=>c.onclick=()=>openProfile(c.dataset.id));
+w.querySelectorAll(".mrow").forEach(r=>r.onclick=()=>openProfile101(r.dataset.name));
+const q=w.querySelector("#m-q");
+q.addEventListener("input",()=>{
+const v=q.value.trim();
+w.querySelectorAll(".mcard,.mrow").forEach(el=>{
+el.style.display=(!v||el.dataset.search.indexOf(v)>=0)?"":"none";
+});
+});
+}
+function openProfile101(name){
+const o=ALL101_BY_NAME[name]; if(!o) return;
+$("#pf-title").textContent=o.n;
+const eps=["Ep1","Ep2","Ep3","第1回発表","Ep6","第2回発表","Ep9","第3回発表","最終"];
+const pg=o.pg.map(r=>`<td>${r?`<b>${r}位</b>`:"―"}</td>`).join("");
+const vlab=["第1回順位発表","第2回順位発表","第3回順位発表","最終順位発表"];
+const vrows=o.v.map((v,i)=> v? `<div class="meta">${vlab[i]}：${v.toLocaleString()}票</div>`:"").join("");
+const hero=o.img?`<img class="pf-hero" src="assets/s1/${o.img}-big.jpg">`:`<div class="pf-hero-ini">${o.n.charAt(0)}</div>`;
+$("#pf-body").innerHTML=`<div class="pf-wrap">${hero}<div class="pf-in">
+<h3>${o.n} <span style="font-size:12px;color:#8e8e93">${o.k}</span></h3>
+<div class="meta">${o.a}歳／${o.f}出身${o.h?`／身長 ${o.h}`:""}${o.w?`／体重 ${o.w}`:""}<br>クラス：レベル分け ${o.c0} → 再評価 ${o.c1}<br>最終結果：${o.res}${o.team?`<br>レベル分け評価のチーム：${o.team}`:""}</div>
+<div class="pf-sec-t">順位推移（史実）</div>
+<table class="prog-tbl"><tr>${eps.map(e=>`<th>${e}</th>`).join("")}</tr><tr>${pg}</tr></table>
+<div class="pf-sec-t">公表されている得票数</div>
+${vrows||'<div class="meta">公表された票数はありません</div>'}
+<div class="hist">※このページは史実データの閲覧用です（出典：Wikipedia「PRODUCE 101 JAPAN」出場者データほか）。物語に登場するのは主要練習生33名のみです。${o.img?"":"写真は、同一性に確証が持てる公式プロフィール写真を確認できなかったため、イニシャル表示にしています。"}</div>
+</div></div>`;
+show("v-profile");
 }
 function statRow(lb,v){ return `<div class="stat"><div class="sl">${lb}</div><div class="bar"><i style="width:${v}%"></i></div><div class="sv">${v}</div></div>`;}
 function openProfile(id){
@@ -2101,7 +2358,7 @@ updateMusicBar();
 };
 $("#set-vol").addEventListener("input",e=>{ SND.vol=+e.target.value; saveSnd(); applyMusicVol(); });
 renderSnd();
-$("#set-about").onclick=()=>{ alert("『担当をデビューさせる件』v6.1\n実在の番組『PRODUCE 101 JAPAN』Season1（2019）を題材にした、ファンメイドのIF物語です。v6では、両エンディング後の「後日談エピローグ」と、エンディング到達後に解放される大翔との「フリーチャット」を追加しました。v6.1ではUIの質感とアニメーション、ステータスゲージ、トークの日付区切り・既読表示などを磨き込みました。主人公のなおは高校3年生の制作インターンとして合宿に帯同し、担当練習生・井汲大翔（17歳、学年は1つ下）を裏側から支えます。史実の流れ（レベル分け→ツカメ再評価→ポジション評価→第1回順位発表→グループバトル→第2回順位発表→コンセプト評価→第3回順位発表→ファイナル）をなぞりながら、編集の分量配分と裏側サポートで票と物語を動かし、史実36位の脱落を覆してデビュー圏11位を目指します。登場人物の言動は創作です。\n\nクレジット\n順位発表BGM: \"The Descent\" by Kevin MacLeod (CC-BY)\n課題曲: 嵐「Love so sweet」／PRODUCE 101 JAPAN「ツカメ 〜It's Coming〜」／Hey! Say! JUMP「OVER THE TOP」／SHINee「Everybody」／バブリンチョ「やんちゃBOY やんちゃGIRL」（各公式音源のプレビュー版を使用）");};
+$("#set-about").onclick=()=>{ alert("『担当をデビューさせる件』v7\n実在の番組『PRODUCE 101 JAPAN』Season1（2019）を題材にした、ファンメイドのIF物語です。v6では、両エンディング後の「後日談エピローグ」と、エンディング到達後に解放される大翔との「フリーチャット」を追加しました。v6.1ではUIの質感とアニメーション、ステータスゲージ、トークの日付区切り・既読表示などを磨き込みました。v7では、各アプリの見た目を2019年当時の姿（LINE／Twitter／Yahoo!ニュース／iOS 13のノッチ・4G表示・通話画面）に寄せ、練習生101人全員の史実データ（プロフィール・クラス・順位推移・公表票数）を名簿と順位表に収録しました。主人公のなおは高校3年生の制作インターンとして合宿に帯同し、担当練習生・井汲大翔（17歳、学年は1つ下）を裏側から支えます。史実の流れ（レベル分け→ツカメ再評価→ポジション評価→第1回順位発表→グループバトル→第2回順位発表→コンセプト評価→第3回順位発表→ファイナル）をなぞりながら、編集の分量配分と裏側サポートで票と物語を動かし、史実36位の脱落を覆してデビュー圏11位を目指します。登場人物の言動は創作です。\n\nクレジット\n順位発表BGM: \"The Descent\" by Kevin MacLeod (CC-BY)\n課題曲: 嵐「Love so sweet」／PRODUCE 101 JAPAN「ツカメ 〜It's Coming〜」／Hey! Say! JUMP「OVER THE TOP」／SHINee「Everybody」／バブリンチョ「やんちゃBOY やんちゃGIRL」（各公式音源のプレビュー版を使用）");};
 function renderTitle(){
 show("v-title");
 $("#btn-cont").style.display = localStorage.getItem(SAVE_KEY)? "block":"none";
