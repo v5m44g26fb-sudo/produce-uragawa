@@ -631,6 +631,50 @@ button:active{transform:scale(.965)}
 .chat-body,.scene-body{-webkit-overflow-scrolling:touch}
 .xpost .xh .tm2{color:#657786}
 .nitem .nmeta{margin-top:4px}
+
+/* ===== v8.4: 羽根ペンFAB＋投稿画面／プロフィールバナー縮小／通知・検索の質上げ／音楽リピート・シャッフル／ニュース共有シート・コメント投稿 ===== */
+.tw-fab svg{pointer-events:none}
+.twc{position:absolute;inset:0;background:#fff;z-index:60;display:flex;flex-direction:column}
+.twc-head{display:flex;align-items:center;justify-content:space-between;padding:52px 14px 8px;border-bottom:1px solid #e6ecf0}
+.twc-cancel{font-size:15px;color:#1DA1F2;cursor:pointer;padding:6px 2px}
+.twc-post{border:none;background:#1DA1F2;color:#fff;font-weight:700;font-size:14px;border-radius:999px;padding:8px 18px;cursor:pointer;font-family:inherit}
+.twc-post:disabled{opacity:.45;cursor:default}
+.twc-row{display:flex;gap:10px;padding:14px;flex:1;align-items:flex-start}
+.twc-av{width:38px;height:38px;border-radius:50%;background:#1DA1F2;color:#fff;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;flex:none}
+.twc-row textarea{flex:1;border:none;outline:none;resize:none;font-size:16px;font-family:inherit;line-height:1.55;min-height:130px;color:#14171a;background:transparent}
+.twc-foot{display:flex;justify-content:flex-end;padding:10px 16px calc(12px + env(safe-area-inset-bottom));border-top:1px solid #f0f0f3}
+.twc-count{font-size:13px;color:#657786;font-variant-numeric:tabular-nums}
+.twc-count.warn{color:#e0245e;font-weight:700}
+#v-x .twp-head{will-change:height}
+.nt-tabs{display:flex;gap:8px;padding:10px 14px 2px;background:#fff}
+.nt-tabs span{font-size:13px;font-weight:700;color:#657786;border:1px solid #ccd6dd;border-radius:999px;padding:6px 14px;cursor:pointer}
+.nt-tabs span.on{color:#fff;background:#1DA1F2;border-color:#1DA1F2}
+.nt-ic{width:30px;text-align:center;flex:none;padding-top:2px}
+.nt-av{width:34px;height:34px;border-radius:50%;color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;flex:none}
+.nt-body{flex:1;min-width:0}
+.nt-main{font-size:13.5px;line-height:1.55;color:#14171a}
+.nt-tm{color:#657786;font-size:12.5px}
+.nt-tx{font-size:13.5px;line-height:1.55;color:#14171a;margin-top:1px}
+.nt-quote{margin-top:5px;color:#657786;font-size:13px;line-height:1.55;border:1px solid #e6ecf0;border-radius:12px;padding:8px 10px}
+.tw-searchbar .tw-s-in{flex:1;display:flex;gap:7px;align-items:center;background:#e6ecf0;border-radius:999px;padding:7px 14px}
+.tw-searchbar input{flex:1;border:none;background:transparent;outline:none;font-size:16px;font-family:inherit;color:#14171a;min-width:0}
+.tw-sec-t{padding:12px 14px 4px;font-weight:800;font-size:15.5px;background:#fff;color:#14171a}
+.su-row{display:flex;gap:10px;align-items:center;padding:11px 14px;border-bottom:1px solid #e6ecf0;background:#fff}
+.su-row .su-in{flex:1;min-width:0}
+.su-row .su-nm{font-size:14px;font-weight:700;color:#14171a}
+.su-row .su-h{font-size:12.5px;color:#657786}
+.su-row .su-bio{font-size:12.5px;color:#14171a;margin-top:1px;line-height:1.5}
+.su-fol{flex:none;border:1.5px solid #1DA1F2;background:#fff;color:#1DA1F2;font-weight:700;font-size:12.5px;border-radius:999px;padding:6px 13px;cursor:pointer;font-family:inherit}
+.su-fol.on{background:#1DA1F2;color:#fff}
+.pl-ctl2{display:flex;justify-content:center;gap:10px;padding:2px 0 8px}
+.pl-tgl{border:1.5px solid #e5e5ea;background:#fff;color:#8e8e93;font-size:12.5px;font-weight:700;border-radius:999px;padding:7px 14px;cursor:pointer;font-family:inherit}
+.pl-tgl.on{color:#fa2d48;border-color:#fa2d48;background:#fff2f4}
+.nsheet-note{padding:13px 16px;font-size:12.5px;color:#657786;text-align:center;border-bottom:1px solid #e6ecf0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nc-form{display:flex;gap:8px;align-items:center;margin:10px 0 6px}
+.nc-form img{width:30px;height:30px;border-radius:50%;flex:none}
+.nc-form input{flex:1;border:1px solid #ddd;border-radius:999px;padding:8px 13px;font-size:16px;font-family:inherit;outline:none;min-width:0;background:#fff}
+.nc-form button{flex:none;border:none;background:#ff0033;color:#fff;font-weight:700;font-size:12.5px;border-radius:999px;padding:9px 14px;cursor:pointer;font-family:inherit}
+.nc-row.mine{background:#fff8f8;border-radius:10px;padding-left:6px;padding-right:6px}
 </style>
 </head>
 <body>
@@ -730,7 +774,7 @@ button:active{transform:scale(.965)}
 <div class="view" id="v-x">
 <div class="tw-head"><span class="back" data-home>‹</span><span class="tw-av-head" id="tw-av-head">P</span><div class="tw-title" id="tw-title">ホーム</div><span class="tw-spark" id="tw-spark"><svg viewBox="0 0 24 24" width="21" height="21" fill="#1DA1F2"><path d="M11.2 2.4l1.95 6.35 6.35 1.95-6.35 1.95L11.2 19l-1.95-6.35L2.9 10.7l6.35-1.95z"/><path d="M18.7 14.9l.85 2.75 2.75.85-2.75.85-.85 2.75-.85-2.75-2.75-.85 2.75-.85z"/></svg></span></div>
 <div class="abody" id="x-body" style="background:#fff;position:relative"></div>
-<div class="tw-fab" onclick="toast('ツイート作成はこのアプリでは開けません')"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.094 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59l-.047-.02z"/></svg></div>
+<div class="tw-fab" id="tw-fab"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#fff" d="M20.9 3.2c-3-.7-6.7.2-9.9 2.4C7.2 8.3 5 12.5 4.7 17.2L2.9 21l.9.3 3.1-1.9c4.7-.2 9-2.4 11.9-6.3 2.2-3.1 3.1-6.7 2.5-9.7-.1-.2-.2-.3-.4-.2z"/><path d="M6.1 17.9C8.6 13.4 12.1 9.7 16.6 6.5" stroke="#1DA1F2" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg></div>
 <div class="tw-tabs-b"><span class="on"><svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M22 11.6L12 2 2 11.6V21a1 1 0 0 0 1 1h6v-7h6v7h6a1 1 0 0 0 1-1z"/></svg></span><span><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="10.5" cy="10.5" r="7"/><path d="M16 16l5.5 5.5"/></svg></span><span><svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22c1.4 0 2.4-1 2.4-2.4H9.6C9.6 21 10.6 22 12 22zm6.7-2.4v-1.9L17 15V9.9C17 6.9 15.4 4.6 13 3.7V3a1 1 0 1 0-2 0v.7C8.6 4.6 7 6.9 7 9.9V15l-1.7 2.7v1.9h13.4z"/></svg></span><span><svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M21 4H3a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1zm-9 7.4L4.2 6h15.6L12 11.4z"/></svg></span></div>
 <div class="tw-sheet-bg" id="tw-sheet-bg" style="display:none"></div>
 <div class="tw-sheet" id="tw-sheet" style="display:none">
@@ -739,6 +783,11 @@ button:active{transform:scale(.965)}
 <button id="tw-to-home">ホーム表示に戻す</button>
 <button id="tw-sheet-cancel" class="cancel">キャンセル</button>
 </div>
+<div class="twc" id="tw-compose" style="display:none">
+<div class="twc-head"><span class="twc-cancel" id="twc-cancel">キャンセル</span><button class="twc-post" id="twc-post" disabled>ツイートする</button></div>
+<div class="twc-row"><span class="twc-av">な</span><textarea id="twc-text" placeholder="いまどうしてる？" maxlength="140"></textarea></div>
+<div class="twc-foot"><span class="twc-count" id="twc-count">140</span></div>
+</div>
 </div>
 
 <!-- NEWS -->
@@ -746,6 +795,15 @@ button:active{transform:scale(.965)}
 <div class="ahead y-head"><span class="back" data-home>‹</span><div><div class="ttl"><span style="color:#ff0033;font-weight:900">Yahoo!</span>ニュース</div><div class="sub2">エンタメ</div></div></div>
 <div class="y-chips"><span data-cat="top">トップ</span><span data-cat="world">国際</span><span data-cat="entame" class="on">エンタメ</span><span data-cat="sports">スポーツ</span><span data-cat="economy">経済</span><span data-cat="it">IT</span><span data-cat="life">ライフ</span></div>
 <div class="abody" id="news-body"></div>
+<div class="tw-sheet-bg" id="nsheet-bg" style="display:none"></div>
+<div class="tw-sheet" id="nsheet" style="display:none">
+<div class="nsheet-note" id="nsheet-title">記事をシェア</div>
+<button id="ns-copy">リンクをコピーする</button>
+<button id="ns-tw">Twitterでツイートする</button>
+<button id="ns-mail">メールで送る</button>
+<button id="ns-line">LINEで送る</button>
+<button class="cancel" id="ns-cancel">キャンセル</button>
+</div>
 </div>
 
 <!-- MEMBERS -->
@@ -776,8 +834,8 @@ button:active{transform:scale(.965)}
 <div class="set-row" style="cursor:default"><span>音量</span><input id="set-vol" type="range" min="0" max="100" step="5" style="flex:1;margin:0 12px"></div>
 <div class="set-row" id="set-about"><span>この作品について</span><span>›</span></div>
 <div class="set-row" id="set-reset"><span class="danger">データを消して最初から</span><span>›</span></div>
-<div style="padding:14px 16px;font-size:11px;color:#8e8e93;line-height:1.7">担当をデビューさせる件 v8.3<br>※v8.3：Twitterヘッダーのスクロール連動（下スクロールで隠れ、上スクロールで復帰する2019年実物の挙動）と、公式プロフィールへの登録月（2019年4月）表示を追加。新規ボイス2本（第3回発表後／デビューエンディング）も収録。<br>※v8.2：全アプリの実物寄せをさらに深化（Twitterの2019年仕様ヘッダーとスパークル切替・いいね／リツイートのトグル・ツイート詳細の時刻と件数、ニュースのサムネイルとコメント反応、音楽プレイヤーのシーク・前後送り、トーク一覧の検索と時刻表示）。プロフィールの「戻る」も開いた場所に戻るよう改善。<br>※v8：各アプリの豪華化（トークのスタンプ・写真送信・既読人数・検索／Twitterのプロフィール・トレンド・通知・ツイート詳細／ニュースの関連記事・コメント・アクセスランキング）、思い出コレクション、順位推移グラフ、推しメン登録、通話履歴、音楽プレイヤーを追加。課題曲5曲は公式音源の長尺版に差し替え。本人の意向により、v6で追加したフリーチャットは廃止しました。<br>※本作品は実在の番組『PRODUCE 101 JAPAN』（2019）と実在の人物を題材にしたファンメイドのIF作品です。史実をもとにしていますが、登場人物の言動や順位の変動は創作を含みます。<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲は各アーティストの公式音源（長尺版）を使用しています。</div>
-<div class="about-modal" id="about-modal" style="display:none"><div class="am-card"><div class="am-t">『担当をデビューさせる件』v8.3</div><div class="am-body">実在の番組『PRODUCE 101 JAPAN』Season1（2019）を題材にした、ファンメイドのIF物語です。<br>v8では各アプリを豪華にしました。トークはスタンプ・写真送信・グループ既読人数・トーク内検索・＋メニュー対応。Twitterは公式プロフィール画面・トレンド・通知・ツイート詳細（返信スレッド）・画像付きツイートに対応。Yahoo!ニュースは関連記事・コメント欄・アクセスランキング・カテゴリ別一覧を搭載。順位表には票数カウントアップ演出と、大翔の順位推移グラフ（史実 vs この物語）を追加。名簿では推しメン登録（★）と絞り込み、プロフィールの写真複数表示と101人データ連動を強化。新たに「思い出コレクション」（名場面カード＋両エンディング到達表示）、通話履歴、音楽プレイヤーを追加し、課題曲5曲は公式音源の長尺版に差し替えました。なお、v6で追加したフリーチャットは本人の意向によりv8で廃止しました（セーブデータ互換は維持）。<br>v8.3ではTwitterのヘッダーにスクロール連動（下スクロールでせり上がって隠れ、上スクロールで戻ってくる、2019年当時の挙動）を実装し、公式アカウントのプロフィールに登録月（2019年4月から利用しています）を追加。新規ボイス2本（第3回順位発表後の決意と、デビューエンディング後の感謝）も収録しました。<br>v8.2では全アプリの実物寄せをさらに深めました。Twitterは2019年当時のヘッダー（アバター＋「ホーム」＋スパークル切替）と下部タブ構成に寄せ、いいね／リツイートのトグル、ツイート詳細の時刻・件数表示、プロフィールのフォローボタンを実装。Yahoo!ニュースは記事サムネイルとカテゴリタブ、シェア／ブックマーク／コメントの「そう思う」に反応を持たせ、音楽プレイヤーはシークと前後の曲送りに対応。トーク一覧には検索と最終メッセージ時刻を追加し、プロフィールの「戻る」は開いた場所に戻るようになりました。<br>v7では各アプリの見た目を2019年当時の姿（LINE／Twitter／Yahoo!ニュース／iOS 13）に寄せ、練習生101人全員の史実データを収録。主人公のなおは高校3年生の制作インターンとして合宿に帯同し、担当練習生・井汲大翔（17歳、学年は1つ下）を裏側から支えます。史実の流れをなぞりながら、編集の分量配分と裏側サポートで票と物語を動かし、史実36位の脱落を覆してデビュー圏11位を目指します。登場人物の言動は創作です。<br><br>クレジット<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲: 嵐「Love so sweet」／PRODUCE 101 JAPAN「ツカメ 〜It's Coming〜」／Hey! Say! JUMP「OVER THE TOP」／SHINee「Everybody」／バブリンチョ「やんちゃBOY やんちゃGIRL」（各公式音源の長尺版を使用）</div><button id="about-close">閉じる</button></div></div>
+<div style="padding:14px 16px;font-size:11px;color:#8e8e93;line-height:1.7">担当をデビューさせる件 v8.4<br>※v8.4：Twitterの投稿ボタン（羽根ペン）を実物化し、投稿画面から実際にツイートできるように。プロフィールはバナーがスクロールで縮む実物挙動を追加。通知・検索タブを実物構成に刷新（メンション切替・キーワード検索・おすすめユーザー）。音楽プレイヤーにシャッフル／リピートを追加。Yahoo!ニュースは共有シートとコメント投稿に対応。思い出コレクションに第3回順位発表のカードを追加。<br>※v8.3：Twitterヘッダーのスクロール連動（下スクロールで隠れ、上スクロールで復帰する2019年実物の挙動）と、公式プロフィールへの登録月（2019年4月）表示を追加。新規ボイス2本（第3回発表後／デビューエンディング）も収録。<br>※v8.2：全アプリの実物寄せをさらに深化（Twitterの2019年仕様ヘッダーとスパークル切替・いいね／リツイートのトグル・ツイート詳細の時刻と件数、ニュースのサムネイルとコメント反応、音楽プレイヤーのシーク・前後送り、トーク一覧の検索と時刻表示）。プロフィールの「戻る」も開いた場所に戻るよう改善。<br>※v8：各アプリの豪華化（トークのスタンプ・写真送信・既読人数・検索／Twitterのプロフィール・トレンド・通知・ツイート詳細／ニュースの関連記事・コメント・アクセスランキング）、思い出コレクション、順位推移グラフ、推しメン登録、通話履歴、音楽プレイヤーを追加。課題曲5曲は公式音源の長尺版に差し替え。本人の意向により、v6で追加したフリーチャットは廃止しました。<br>※本作品は実在の番組『PRODUCE 101 JAPAN』（2019）と実在の人物を題材にしたファンメイドのIF作品です。史実をもとにしていますが、登場人物の言動や順位の変動は創作を含みます。<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲は各アーティストの公式音源（長尺版）を使用しています。</div>
+<div class="about-modal" id="about-modal" style="display:none"><div class="am-card"><div class="am-t">『担当をデビューさせる件』v8.4</div><div class="am-body">実在の番組『PRODUCE 101 JAPAN』Season1（2019）を題材にした、ファンメイドのIF物語です。<br>v8では各アプリを豪華にしました。トークはスタンプ・写真送信・グループ既読人数・トーク内検索・＋メニュー対応。Twitterは公式プロフィール画面・トレンド・通知・ツイート詳細（返信スレッド）・画像付きツイートに対応。Yahoo!ニュースは関連記事・コメント欄・アクセスランキング・カテゴリ別一覧を搭載。順位表には票数カウントアップ演出と、大翔の順位推移グラフ（史実 vs この物語）を追加。名簿では推しメン登録（★）と絞り込み、プロフィールの写真複数表示と101人データ連動を強化。新たに「思い出コレクション」（名場面カード＋両エンディング到達表示）、通話履歴、音楽プレイヤーを追加し、課題曲5曲は公式音源の長尺版に差し替えました。なお、v6で追加したフリーチャットは本人の意向によりv8で廃止しました（セーブデータ互換は維持）。<br>v8.4では、Twitterの投稿ボタンを2019年当時の羽根ペンの実物様式にし、投稿画面から実際にツイートしてタイムラインへ反映できるようにしました。プロフィール画面ではバナーがスクロールに合わせて縮む実物の挙動を追加。通知タブは「すべて／メンション」切替と実物のアイコン構成に、検索タブはキーワード検索とおすすめユーザーに対応。音楽プレイヤーには当時のiOSミュージックの実物機能であるシャッフルとリピート（オフ／すべて／1曲）を追加。Yahoo!ニュースでは共有シートとコメント投稿ができるようになり、思い出コレクションには第3回順位発表のカード（ボイス付き）が増えました。<br>v8.3ではTwitterのヘッダーにスクロール連動（下スクロールでせり上がって隠れ、上スクロールで戻ってくる、2019年当時の挙動）を実装し、公式アカウントのプロフィールに登録月（2019年4月から利用しています）を追加。新規ボイス2本（第3回順位発表後の決意と、デビューエンディング後の感謝）も収録しました。<br>v8.2では全アプリの実物寄せをさらに深めました。Twitterは2019年当時のヘッダー（アバター＋「ホーム」＋スパークル切替）と下部タブ構成に寄せ、いいね／リツイートのトグル、ツイート詳細の時刻・件数表示、プロフィールのフォローボタンを実装。Yahoo!ニュースは記事サムネイルとカテゴリタブ、シェア／ブックマーク／コメントの「そう思う」に反応を持たせ、音楽プレイヤーはシークと前後の曲送りに対応。トーク一覧には検索と最終メッセージ時刻を追加し、プロフィールの「戻る」は開いた場所に戻るようになりました。<br>v7では各アプリの見た目を2019年当時の姿（LINE／Twitter／Yahoo!ニュース／iOS 13）に寄せ、練習生101人全員の史実データを収録。主人公のなおは高校3年生の制作インターンとして合宿に帯同し、担当練習生・井汲大翔（17歳、学年は1つ下）を裏側から支えます。史実の流れをなぞりながら、編集の分量配分と裏側サポートで票と物語を動かし、史実36位の脱落を覆してデビュー圏11位を目指します。登場人物の言動は創作です。<br><br>クレジット<br>順位発表BGM: "The Descent" by Kevin MacLeod (CC-BY)<br>課題曲: 嵐「Love so sweet」／PRODUCE 101 JAPAN「ツカメ 〜It's Coming〜」／Hey! Say! JUMP「OVER THE TOP」／SHINee「Everybody」／バブリンチョ「やんちゃBOY やんちゃGIRL」（各公式音源の長尺版を使用）</div><button id="about-close">閉じる</button></div></div>
 </div>
 </div>
 
@@ -1207,7 +1265,7 @@ tension:{src:"assets/music/bgm-tension.mp3", title:"♪ 順位発表BGM", loop:t
 };
 const BEAT_MUSIC={1:"love",2:"tsukame",3:"ott",6:"tension",8:"everybody",13:"tension",16:"yancha",17:"tension",19:"tension"};
 const SND_KEY="uragawaSoundV1";
-let SND={on:true, vol:80};
+let SND={on:true, vol:80, rep:"off", shuf:false};
 try{ const d=JSON.parse(localStorage.getItem(SND_KEY)); if(d) SND=Object.assign(SND,d); }catch(e){}
 function saveSnd(){ try{ localStorage.setItem(SND_KEY, JSON.stringify(SND)); }catch(e){} }
 const musicAu=new Audio(); musicAu.preload="auto";
@@ -1240,6 +1298,20 @@ $("#music-toggle").textContent=musicAu.paused? "▶":"⏸";
 musicAu.addEventListener("play",updateMusicBar);
 musicAu.addEventListener("pause",updateMusicBar);
 musicAu.addEventListener("ended",updateMusicBar);
+/* v8.4: リピート／シャッフル（2019年当時のiOSミュージックの実物機能） */
+function plRep(){ return SND.rep||"off"; }
+function plShuf(){ return !!SND.shuf; }
+musicAu.addEventListener("ended",()=>{
+if(!musicKey || musicAu.loop) return;
+if(plRep()==="one"){ try{ musicAu.currentTime=0; musicAu.play().catch(()=>{}); }catch(e){} return; }
+if(plRep()==="all" || plShuf()){
+const mkeys=Object.keys(TRACKS); let nk;
+if(plShuf() && mkeys.length>1){ do{ nk=mkeys[Math.floor(Math.random()*mkeys.length)]; }while(nk===musicKey); }
+else nk=mkeys[(mkeys.indexOf(musicKey)+1)%mkeys.length];
+startMusic(nk);
+if($("#v-music").classList.contains("on")) renderMusic();
+}
+});
 $("#music-toggle").onclick=()=>{
 if(!musicKey) return;
 if(!SND.on){ toast("設定でサウンドがOFFになっています"); return; }
@@ -2568,22 +2640,74 @@ const rtc=Math.round(nn*0.36).toLocaleString();
 $("#xd-body").innerHTML=`<div style="border-bottom:8px solid #f2f2f7">${tweetHTML(p,i,true)}<div class="xd-time">${tweetDateTime(p)}</div><div class="xd-counts"><span><b>${rtc}</b> 件のリツイート</span><span><b>${p.f}</b> 件のいいね</span></div></div><div style="padding:10px 14px;font-weight:800;font-size:13.5px;border-bottom:1px solid #e6ecf0">返信</div>`+reps.map((r,j)=>tweetHTML(r,j,true)).join("");
 show("v-xdetail");
 }
-function renderTrends(w){
-const base=[["PRODUCE 101 JAPAN","5.2万"],["#日プ","3.8万"],["ツカメ","2.1万"],["川尻蓮","9,842"],["国プ","7,315"],["#PRODUCE101JAPAN","6,204"],["岡村隆史","4,930"]];
-const pos= S.beat>=17? 2: (S.beat>=10? 4: 3);
-base.splice(pos,0,["井汲大翔","1.4万"]);
-w.innerHTML=`<div class="tw-searchbar"><div class="tw-search"><span>🔍</span><span>キーワード検索</span></div></div><div style="padding:10px 14px 4px;font-weight:800;font-size:15.5px">日本のトレンド</div>`+base.map((t,i)=>`<div class="trend-row"><div class="tr-c">${i+1} ・ エンターテインメントのトレンド</div><div class="tr-t">${t[0]}</div><div class="tr-n">${t[1]}件のツイート</div></div>`).join("")+`<div class="rk-note">トレンドは作中の時点（${BEAT_MONTH[Math.min(S.beat,20)]||"2019年"}）の盛り上がりを再現したものです。</div>`;
-}
-function renderNotif(w){
-const items=[
-["💗","<b>推し活お姉さん</b>さんがあなたのツイートをいいねしました","「井汲大翔くんの分量もっとください…お願いします…」"],
-["🔁","<b>DK箱推し</b>さんがあなたのツイートをリツイートしました","「Team DK箱推しは大翔にも票を分けて…！」"],
-["👤","<b>ドンビン情報局</b>さんがあなたをフォローしました",""],
-["💗","<b>票読み垢</b>さんがあなたのツイートをいいねしました","「浦野の死票理論、だいぶ確信に近づいてきた」"],
-["⭐","<b>PRODUCE 101 JAPAN</b>さんが新しいツイートを投稿しました","「第1回投票（11pick）受付中⚡」"],
-["💗","<b>現場レポ垢</b>さんがあなたのツイートをいいねしました","「今日の収録レポ、あとでまとめます」"],
+let suFollow={};
+const SU_USERS=[
+{n:"PRODUCE 101 JAPAN", h:"@produce101jp", bio:"『PRODUCE 101 JAPAN』公式アカウント", off:true},
+{n:"推し活お姉さん", h:"@oshi_oneesan", bio:"日プ箱推し気味の国プ。大翔の成長記録係"},
+{n:"票読み垢", h:"@hyoyomi", bio:"票数と順位の分析専門。速報はだいたい当たる"},
+{n:"DK箱推し", h:"@dk_hakooshi", bio:"Team DK応援アカウント。隆士・玲叶・大翔・馨也・亮人"},
 ];
-w.innerHTML=`<div style="padding:13px 14px 4px;font-weight:800;font-size:15.5px">通知</div>`+items.map(n=>`<div class="notif-row"><span class="ni">${n[0]}</span><div><div>${n[1]}</div>${n[2]?`<div class="nt2">${n[2]}</div>`:""}</div></div>`).join("");
+function suRowHTML(u){
+return `<div class="su-row"><span class="nt-av" style="background:${u.off? "linear-gradient(180deg,#33507e,#16294d)": avColor(u.h)}">${u.off? "P": esc(u.n.charAt(0))}</span><div class="su-in"><div class="su-nm">${esc(u.n)}${u.off? vbadgeSVG():""}</div><div class="su-h">${u.h}</div><div class="su-bio">${esc(u.bio)}</div></div><button class="su-fol${suFollow[u.h]?" on":""}" data-su="${u.h}">${suFollow[u.h]?"フォロー中":"フォローする"}</button></div>`;
+}
+function twSearchCorpus(){
+const c=[]; (S.myTweets||[]).forEach(p=>c.push(p)); PROF_POSTS.forEach(p=>c.push(p)); curPosts.forEach(p=>{ if(c.indexOf(p)<0) c.push(p); });
+return c;
+}
+/* v8.4: 検索タブを実物構成に（キーワード検索＋トレンド＋おすすめユーザー） */
+function renderTrends(w){
+const base=[["PRODUCE 101 JAPAN","エンターテインメントのトレンド","5.2万"],["#日プ","エンターテインメントのトレンド","3.8万"],["ツカメ","音楽のトレンド","2.1万"],["川尻蓮","エンターテインメントのトレンド","9,842"],["ラグビー日本代表","スポーツのトレンド","8,977"],["国プ","エンターテインメントのトレンド","7,315"],["#PRODUCE101JAPAN","エンターテインメントのトレンド","6,204"],["岡村隆史","テレビのトレンド","4,930"]];
+const pos= S.beat>=17? 2: (S.beat>=10? 4: 3);
+base.splice(pos,0,["井汲大翔","エンターテインメントのトレンド","1.4万"]);
+w.innerHTML=`<div class="tw-searchbar"><div class="tw-s-in"><span>🔍</span><input id="tw-q" placeholder="キーワード検索" autocomplete="off"></div></div><div id="tw-sres"></div>`;
+const res=document.getElementById("tw-sres");
+function defHTML(){
+return `<div class="tw-sec-t">日本のトレンド</div>`+base.map((t,i)=>`<div class="trend-row"><div class="tr-c">${i+1} ・ ${t[1]}</div><div class="tr-t">${t[0]}</div><div class="tr-n">${t[2]}件のツイート</div></div>`).join("")+`<div class="tw-sec-t">おすすめユーザー</div>`+SU_USERS.map(u=>suRowHTML(u)).join("")+`<div class="rk-note">トレンドは作中の時点（${BEAT_MONTH[Math.min(S.beat,20)]||"2019年"}）の盛り上がりを再現したものです。</div>`;
+}
+function wireSu(){ res.querySelectorAll("[data-su]").forEach(b=>b.onclick=()=>{ const h=b.dataset.su; const u=SU_USERS.find(x=>x.h===h); suFollow[h]=!suFollow[h]; b.classList.toggle("on",suFollow[h]); b.textContent=suFollow[h]?"フォロー中":"フォローする"; toast(suFollow[h]? (u? u.n:"")+"をフォローしました":"フォローを解除しました"); }); }
+function doSearch(q){
+q=(q||"").trim();
+if(!q){ res.innerHTML=defHTML(); wireSu(); return; }
+const corpus=twSearchCorpus();
+const hits=corpus.filter(p=>(p.t||"").indexOf(q)>=0||(p.n||"").indexOf(q)>=0||(p.h||"").indexOf(q)>=0);
+const users=SU_USERS.filter(u=>u.n.indexOf(q)>=0||u.h.indexOf(q)>=0);
+let h=`<div class="tw-sec-t">「${esc(q)}」の検索結果</div>`;
+if(users.length) h+=users.map(u=>suRowHTML(u)).join("");
+if(hits.length){ curPosts=hits; h+=hits.map((p,i)=>tweetHTML(p,i)).join(""); }
+if(!users.length && !hits.length) h+=`<div class="rk-note">「${esc(q)}」に一致するツイートやユーザーは見つかりませんでした。</div>`;
+res.innerHTML=h; wireSu();
+}
+res.innerHTML=defHTML(); wireSu();
+const q=document.getElementById("tw-q");
+if(q) q.addEventListener("input",()=>doSearch(q.value));
+}
+let twNotifTab="all";
+const ICO_HT_F='<svg width="19" height="19" viewBox="0 0 24 24" fill="#E0245E"><path d="M12 21s-7.5-4.7-10-9.3C.4 8.6 2.3 4.9 5.7 4.9c2 0 3.4 1.1 4.3 2.4.9-1.3 2.3-2.4 4.3-2.4 3.4 0 5.3 3.7 3.7 6.8C19.5 16.3 12 21 12 21z" transform="scale(0.92) translate(1,0.6)"/></svg>';
+const ICO_RT_F='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#17BF63" stroke-width="2"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>';
+const ICO_FOL='<svg width="18" height="18" viewBox="0 0 24 24" fill="#1DA1F2"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/></svg>';
+const ICO_STAR='<svg width="18" height="18" viewBox="0 0 24 24" fill="#794BC4"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>';
+function notifIcon(ic){ return ic==="ht"? ICO_HT_F: ic==="rt"? ICO_RT_F: ic==="fol"? ICO_FOL: ICO_STAR; }
+const NOTIF_ALL=[
+{ic:"ht", n:"推し活お姉さん", h:"@oshi_oneesan", act:"さんがあなたのツイートをいいねしました", tm:"2時間", q:"井汲大翔くんの分量もっとください…お願いします…"},
+{ic:"rt", n:"DK箱推し", h:"@dk_hakooshi", act:"さんがあなたのツイートをリツイートしました", tm:"5時間", q:"Team DK箱推しは大翔にも票を分けて…！"},
+{ic:"fol", n:"ドンビン情報局", h:"@dongbin_info", act:"さんがあなたをフォローしました", tm:"8時間"},
+{ic:"ht", n:"票読み垢", h:"@hyoyomi", act:"さんがあなたのツイートをいいねしました", tm:"12時間", q:"浦野の死票理論、だいぶ確信に近づいてきた"},
+{ic:"star", n:"PRODUCE 101 JAPAN", h:"@produce101jp", act:"さんが新しいツイートを投稿しました", tm:"1日", q:"第1回投票（11pick）受付中⚡", off:true},
+{ic:"ht", n:"現場レポ垢", h:"@genba_repo", act:"さんがあなたのツイートをいいねしました", tm:"1日", q:"今日の収録レポ、あとでまとめます"},
+];
+const NOTIF_MEN=[
+{n:"ぽん", h:"@pon_101", t:"分量の件、ほんと同意です…！ 次の放送でもっと映りますように🙏", tm:"3時間"},
+{n:"さくらんぼ", h:"@sakura_pd", t:"あなたのツイート見て大翔くんに投票しました！ 教えてくれてありがとう", tm:"7時間"},
+{n:"みそ", h:"@miso_soup_pd", t:"現場の空気感、レポ助かります。センターの件も気になってました", tm:"1日"},
+];
+/* v8.4: 通知タブを実物構成に（すべて／メンション切替＋色付きSVGアイコン＋アバター） */
+function renderNotif(w){
+const tabs=`<div class="nt-tabs"><span class="${twNotifTab==="all"?"on":""}" onclick="twNotifTab='all';renderX()">すべて</span><span class="${twNotifTab==="men"?"on":""}" onclick="twNotifTab='men';renderX()">メンション</span></div>`;
+if(twNotifTab==="men"){
+w.innerHTML=tabs+NOTIF_MEN.map(m=>`<div class="notif-row"><span class="nt-av" style="background:${avColor(m.h)}">${esc(m.n.charAt(0))}</span><div class="nt-body"><div class="nt-main"><b>${esc(m.n)}</b> <span class="nt-tm">${m.h} ・ ${m.tm}</span></div><div class="nt-tx">${esc(m.t)}</div></div></div>`).join("");
+return;
+}
+w.innerHTML=tabs+NOTIF_ALL.map(n=>`<div class="notif-row"><span class="nt-ic">${notifIcon(n.ic)}</span><div class="nt-body"><span class="nt-av" style="width:30px;height:30px;font-size:12.5px;background:${n.off? "linear-gradient(180deg,#33507e,#16294d)": avColor(n.h)}">${n.off? "P": esc(n.n.charAt(0))}</span><div class="nt-main" style="margin-top:5px"><b>${esc(n.n)}</b>${esc(n.act)} <span class="nt-tm">・ ${n.tm}</span></div>${n.q? `<div class="nt-quote">${esc(n.q)}</div>`:""}</div></div>`).join("");
 }
 const PROF_POSTS=[
 {n:"PRODUCE 101 JAPAN", h:"@produce101jp", t:"『PRODUCE 101 JAPAN』テーマ曲「ツカメ 〜It's Coming〜」MVを公開中！センターは練習生101人の投票で選ばれた川尻蓮⚡ #PRODUCE101JAPAN #日プ", img:"assets/s1/ren-big.jpg", tm:"10月3日", f:"5.6万"},
@@ -2592,13 +2716,19 @@ const PROF_POSTS=[
 ];
 function renderTwProfile(w){
 const media=["assets/s1/ren-big.jpg","assets/s1/hiroto-big.jpg","assets/s1/minhyeok-big.jpg","assets/s1/younghoon-big.jpg","assets/s1/shion-big.jpg","assets/s1/takumi-big.jpg"];
-w.innerHTML=`<div class="twp-head" style="background-image:url('assets/s1/ren-big.jpg')"></div><div class="twp-in"><button class="twp-follow${twFollow?" on":""}" id="twp-follow">${twFollow?"フォロー中":"フォローする"}</button><div class="twp-av">P</div><div class="twp-name">PRODUCE 101 JAPAN ${vbadgeSVG()}</div><div class="twp-h">@produce101jp</div><div class="twp-bio">『PRODUCE 101 JAPAN』公式アカウント。国民プロデューサーの皆さまの投票で、デビューする11人が決まります。投票はGYAO!特設サイトから⚡ #PRODUCE101JAPAN #日プ</div><div class="twp-stats"><span><b>4</b> フォロー中</span><span><b>31.6万</b> フォロワー</span></div><div class="twp-meta">🔗 <a href="https://produce101.jp" target="_blank" rel="noopener">produce101.jp</a><span class="twp-joined">📅 2019年4月から利用しています</span></div></div>
+w.innerHTML=`<div class="twp-head" id="twp-head" style="background-image:url('assets/s1/ren-big.jpg')"></div><div class="twp-in"><button class="twp-follow${twFollow?" on":""}" id="twp-follow">${twFollow?"フォロー中":"フォローする"}</button><div class="twp-av">P</div><div class="twp-name">PRODUCE 101 JAPAN ${vbadgeSVG()}</div><div class="twp-h">@produce101jp</div><div class="twp-bio">『PRODUCE 101 JAPAN』公式アカウント。国民プロデューサーの皆さまの投票で、デビューする11人が決まります。投票はGYAO!特設サイトから⚡ #PRODUCE101JAPAN #日プ</div><div class="twp-stats"><span><b>4</b> フォロー中</span><span><b>31.6万</b> フォロワー</span></div><div class="twp-meta">🔗 <a href="https://produce101.jp" target="_blank" rel="noopener">produce101.jp</a><span class="twp-joined">📅 2019年4月から利用しています</span></div></div>
 <div class="twp-tabs"><span class="${twpMode==="tweets"?"on":""}" onclick="twpMode='tweets';renderX()">ツイート</span><span class="${twpMode==="media"?"on":""}" onclick="twpMode='media';renderX()">メディア</span></div>
 ${twpMode==="media"? `<div class="twp-media">${media.map(m=>`<img src="${m}">`).join("")}</div>`: `<div id="twp-tweets"></div>`}`;
 if(twpMode==="tweets"){ curPosts=PROF_POSTS; const el=document.getElementById("twp-tweets"); if(el) el.innerHTML='<div class="pin-label">📌 固定されたツイート</div>'+PROF_POSTS.map((p,i)=>tweetHTML(p,i)).join(""); }
 const fb=document.getElementById("twp-follow"); if(fb) fb.onclick=()=>{ twFollow=!twFollow; fb.classList.toggle("on",twFollow); fb.textContent=twFollow?"フォロー中":"フォローする"; toast(twFollow? "PRODUCE 101 JAPANをフォローしました":"フォローを解除しました"); };
+profBannerApply();
 }
+let lastXTab="feed";
 function renderX(){
+/* v8.4: プロフィールは開くたび先頭から（実物のプロフィール画面遷移）。バナー縮小はプロフィール内スクロールでのみ進む */
+const enteringProf = xTab==="prof" && lastXTab!=="prof";
+lastXTab=xTab;
+if(enteringProf){ const xbp=$("#x-body"); if(xbp) xbp.scrollTop=0; }
 twHeadReset();
 const w=$("#x-body");
 const tt=$("#tw-title"); if(tt) tt.textContent= xTab==="feed"? (twMode==="latest"? "最新ツイート":"ホーム"): (xTab==="trends"? "検索": xTab==="notif"? "通知":"プロフィール");
@@ -2608,7 +2738,7 @@ if(xTab==="notif"){ renderNotif(w); return; }
 if(xTab==="prof"){ renderTwProfile(w); return; }
 renderXFeed(w);
 }
-function setFeed(w, arr){ const a= twMode==="latest"? arr.slice().reverse(): arr; curPosts=a; w.innerHTML=a.map((p,i)=>tweetHTML(p,i)).join(""); }
+function setFeed(w, arr){ const mine=(S.myTweets||[]).slice(); const base= twMode==="latest"? arr.slice().reverse(): arr; const a=mine.concat(base); curPosts=a; w.innerHTML=a.map((p,i)=>tweetHTML(p,i)).join(""); }
 function renderXFeed(){
 const w=$("#x-body");
 if(S.beat<5){ curPosts=[]; w.innerHTML=`<div class="rk-note">放送後にファンの投稿が表示されます。</div>`; return;}
@@ -2707,6 +2837,9 @@ const hs=[NEWS_HEAD["news-c1"]||NEWS_HEAD["news-b1"],"ラグビーW杯、日本�
 return `<div class="y-rank"><h4>アクセスランキング</h4>${hs.filter(Boolean).slice(0,5).map((h,i)=>`<div class="yr-row"><span class="yr-n">${i+1}</span><span>${h}</span></div>`).join("")}</div>`;
 }
 function openNewsBody(id){ const b=document.getElementById(id); if(!b) return; b.style.display="block"; b.scrollIntoView({block:"start"}); }
+/* v8.4: Yahoo!ニュースの共有シート（iOS共有シート風） */
+function openNewsShare(head){ const shEl=$("#nsheet"), bg=$("#nsheet-bg"); if(!shEl) return; const t=$("#nsheet-title"); if(t) t.textContent= head? "シェア："+head: "記事をシェア"; shEl.style.display="flex"; if(bg) bg.style.display="block"; }
+function closeNewsShare(){ const shEl=$("#nsheet"), bg=$("#nsheet-bg"); if(shEl) shEl.style.display="none"; if(bg) bg.style.display="none"; }
 function decorateNews(){
 document.querySelectorAll("#news-body .nbody").forEach(b=>{
 if(b.querySelector(".nshare")) return;
@@ -2718,6 +2851,13 @@ if(others.length) b.insertAdjacentHTML("beforeend",`<div class="nrel"><h5>関連
 const hsh=[...id].reduce((a,c)=>a+c.charCodeAt(0),0);
 const cs=[0,1,2].map(k=>NEWS_COMMENTS[(hsh+k*2)%NEWS_COMMENTS.length]);
 b.insertAdjacentHTML("beforeend",`<div class="ncom"><h5>コメント欄</h5>${cs.map(c=>`<div class="nc-row"><img src="assets/default-avatar.svg"><div><div class="nc-nm">${c.n}</div><div class="nc-tx">${c.t}</div><div class="nc-lk">そう思う ${c.g} ／ そう思わない ${c.b}</div></div></div>`).join("")}</div>`);
+const nc=b.querySelector(".ncom");
+if(nc && !nc.querySelector(".nc-form")){
+const h5=nc.querySelector("h5");
+if(h5) h5.insertAdjacentHTML("afterend",`<div class="nc-form"><img src="assets/default-avatar.svg"><input class="nc-in" placeholder="コメントを書く" maxlength="120"><button class="nc-post">投稿する</button></div>`);
+const inp=nc.querySelector(".nc-in"), pbtn=nc.querySelector(".nc-post");
+if(inp&&pbtn){ pbtn.onclick=()=>{ const v=inp.value.trim(); if(!v){ toast("コメントを入力してください"); return; } const row=document.createElement("div"); row.className="nc-row mine"; row.innerHTML=`<img src="assets/default-avatar.svg"><div><div class="nc-nm">あなた</div><div class="nc-tx">${esc(v)}</div><div class="nc-lk">そう思う 0 ／ そう思わない 0</div></div>`; const lk=row.querySelector(".nc-lk"); lk.style.cursor="pointer"; lk.onclick=()=>{ const on=lk.classList.toggle("on"); const mm=/そう思う (\d+)/.exec(lk.textContent); if(mm){ const vv=+mm[1]+(on?1:-1); lk.textContent=lk.textContent.replace(/そう思う \d+/,"そう思う "+vv); lk.style.color=on? "#ff0033":""; lk.style.fontWeight=on? "700":""; } }; const first=nc.querySelector(".nc-row"); if(first) nc.insertBefore(row, first); else nc.appendChild(row); inp.value=""; toast("コメントを投稿しました"); }; }
+}
 const item=b.previousElementSibling;
 if(item && item.classList && item.classList.contains("nitem") && NEWS_META[id] && !item.querySelector(".nmeta")) item.insertAdjacentHTML("beforeend",`<div class="sm nmeta" style="color:#999;font-size:11px">${NEWS_META[id]} 配信 ・ 💬 ${120+hsh%380}</div>`);
 const THUMB={"news-a1":"assets/s1/ren-big.jpg","news-a2":"assets/s1/hiroto-big.jpg","news-b1":"assets/s1/minhyeok-big.jpg","news-b2":"assets/s1/hiroto.jpg","news-c1":"assets/s1/hiroto-big.jpg","news-c2":"assets/s1/hiroto.jpg"};
@@ -2725,7 +2865,7 @@ if(item && item.classList && item.classList.contains("nitem") && THUMB[id] && !i
 }
 const sh=b.querySelector(".nshare");
 if(sh && !sh.dataset.wired){ sh.dataset.wired="1"; const sp=sh.querySelectorAll("span");
-sp[0].onclick=()=>toast("リンクをコピーしました");
+sp[0].onclick=()=>openNewsShare(id && NEWS_HEAD[id]? NEWS_HEAD[id]: "");
 sp[1].onclick=()=>{ const c=b.querySelector(".ncom"); if(c) c.scrollIntoView({block:"center"}); else toast("この記事にはコメント欄がありません"); };
 sp[2].onclick=()=>{ const on=sp[2].classList.toggle("on"); sp[2].textContent=on? "🔖 保存済み":"🔖 ブックマーク"; toast(on? "ブックマークに保存しました":"ブックマークを外しました"); };
 }
@@ -3015,7 +3155,7 @@ const w=$("#music-body");
 const cur=musicKey? TRACKS[musicKey]: null;
 w.innerHTML=`<div class="pl-now"><div class="pl-t">${cur? esc(cur.title.replace(/^♪ /,"")):"（再生中の曲はありません）"}</div><div class="pl-a">${cur? esc(TRACK_META[musicKey].artist):"下のリストから曲を選んでください"}</div>
 <div class="pl-prog" id="pl-prog"><i id="pl-fill"></i></div><div class="pl-times"><span id="pl-cur">0:00</span><span id="pl-dur">${cur? TRACK_META[musicKey].dur:"0:00"}</span></div>
-<div class="pl-ctl"><button class="sub2b" id="pl-prev">⏮</button><button class="sub2b" id="pl-stop">■</button><button id="pl-play">${musicAu.paused?"▶":"⏸"}</button><button class="sub2b" id="pl-next">⏭</button></div></div>
+<div class="pl-ctl"><button class="sub2b" id="pl-prev">⏮</button><button class="sub2b" id="pl-stop">■</button><button id="pl-play">${musicAu.paused?"▶":"⏸"}</button><button class="sub2b" id="pl-next">⏭</button></div><div class="pl-ctl2"><button class="pl-tgl${plShuf()?" on":""}" id="pl-shuf">🔀 シャッフル</button><button class="pl-tgl${plRep()!=="off"?" on":""}" id="pl-rep">${plRep()==="one"?"🔂 リピート：1曲":(plRep()==="all"?"🔁 リピート：すべて":"🔁 リピート：オフ")}</button></div></div>
 ${cur? `<div class="pl-lyric"><span class="pl-lt">LYRIC / NOTE</span>
 ${esc(TRACK_META[musicKey].hook)}</div>`:""}
 <div class="m-sec">曲目リスト（課題曲）</div>
@@ -3027,6 +3167,8 @@ const sb=$("#pl-stop"); if(sb) sb.onclick=()=>{ stopMusic(); renderMusic(); };
 const mkeys=Object.keys(TRACKS);
 const pv=$("#pl-prev"); if(pv) pv.onclick=()=>{ if(!musicKey){ toast("まず曲を選んでください"); return; } if(!SND.on){ toast("設定でサウンドがOFFになっています"); return; } startMusic(mkeys[(mkeys.indexOf(musicKey)-1+mkeys.length)%mkeys.length]); renderMusic(); };
 const nx=$("#pl-next"); if(nx) nx.onclick=()=>{ if(!musicKey){ toast("まず曲を選んでください"); return; } if(!SND.on){ toast("設定でサウンドがOFFになっています"); return; } startMusic(mkeys[(mkeys.indexOf(musicKey)+1)%mkeys.length]); renderMusic(); };
+const shb=$("#pl-shuf"); if(shb) shb.onclick=()=>{ SND.shuf=!SND.shuf; saveSnd(); toast(SND.shuf? "シャッフルをONにしました":"シャッフルをOFFにしました"); renderMusic(); };
+const rpb=$("#pl-rep"); if(rpb) rpb.onclick=()=>{ const cur=plRep(); SND.rep= cur==="off"? "all": (cur==="all"? "one":"off"); saveSnd(); toast("リピート："+(SND.rep==="all"?"すべて":SND.rep==="one"?"1曲":"オフ")); renderMusic(); };
 const pg=$("#pl-prog"); if(pg) pg.onclick=(e)=>{ if(!musicKey || !isFinite(musicAu.duration) || !musicAu.duration) return; const r=pg.getBoundingClientRect(); const ratio=Math.min(1,Math.max(0,(e.clientX-r.left)/r.width)); try{ musicAu.currentTime=ratio*musicAu.duration; }catch(err){} const f=$("#pl-fill"); if(f) f.style.width=(ratio*100)+"%"; };
 }
 setInterval(()=>{ if(!$("#v-music") || !$("#v-music").classList.contains("on")) return; const f=$("#pl-fill"), c=$("#pl-cur"), d=$("#pl-dur"), pb=$("#pl-play"); if(f&&musicAu.duration) f.style.width=(musicAu.currentTime/musicAu.duration*100)+"%"; if(c) c.textContent=fmtT(musicAu.currentTime); if(d&&musicAu.duration) d.textContent=fmtT(musicAu.duration); if(pb) pb.textContent=musicAu.paused?"▶":"⏸"; },500);
@@ -3042,6 +3184,7 @@ const GALLERY=[
 {t:"Everybody", s:"グループバトル", img:"assets/s1/minhyeok-big.jpg", un:()=>S.beat>=9, lines:["大翔が指名者として組んだチーム。センターはイ・ミンヒョク。","チームは9位に敗れたが、大翔は個人2位（277票）。ラップで見せた、新しい顔。"], music:"everybody"},
 {t:"あと1枠の先", s:"第2回順位発表", img:"assets/s1/hiroto-big.jpg", un:()=>!!S.ranked2, lines:["史実では36位。残留ライン35位・浦野秀太と、たった1枠の差で終わった場所。","この物語で、その1枠の先に何が起きたかは――あなたの采配の結果。"]},
 {t:"本物のセンター", s:"コンセプト評価", img:"assets/s1/hiroto-big.jpg", un:()=>S.beat>=17, lines:["『やんちゃBOY やんちゃGIRL』。史実では立つはずのなかったセンターの場所。","暫定センターの看板を守り抜いて、17歳が本物のセンターとしてステージに立った。"], voice:{src:"assets/vc-yancha.mp3",dur:"0:05",cap:"センター、立てました"}, music:"yancha"},
+{t:"まだ終われない", s:"第3回順位発表", img:"assets/s1/hiroto-big.jpg", un:()=>!!S.ranked3, lines:["35人から20人へ。ファイナリストを決める第3回順位発表で、大翔の名前が呼ばれた。","「……聞いてください。俺、まだ終われないです」――発表のあと、トークに届いた短い決意。"], voice:{src:"assets/vc-madaowarenai.mp3",dur:"0:03",cap:"……聞いてください。俺、まだ終われないです"}},
 {t:"ファイナル前夜", s:"2019年12月10日", img:"assets/s1/hiroto.jpg", un:()=>S.beat>=19, lines:["幕張メッセを前にした最後の夜の電話。","「ここまで来れたの、なおさんのおかげです」――始まりの坡州から、ずっと裏側で支えてきた。"], voice:{src:"assets/vc-final.mp3",dur:"0:07",cap:"明日で全部決まりますね"}},
 {t:"デビュー ― JO1の11人へ", s:"エンディング", end:"debut", img:"assets/s1/hiroto-big.jpg", un:()=>META.endings.indexOf("debut")>=0, lines:["最終順位発表で、上位11人の椅子に井汲大翔が座った。","2020年3月4日、JO1デビューシングル『PROTOSTAR』。最初の報告は、約束どおり、なおのところへ。"], voice:{src:"assets/vc-debut-after.mp3",dur:"0:04",cap:"デビュー、決まりました"}},
 {t:"あと一歩 ― 旅立ち", s:"エンディング", end:"step", img:"assets/s1/hiroto-big.jpg", un:()=>META.endings.indexOf("step")>=0, lines:["デビューには、あと一歩届かなかった。","それでも歩みは止まらない。RBW JBOYZとして、そして中国『創造営2021』へ。続編で、再会する。"], voice:{src:"assets/vc-china.mp3",dur:"0:07",cap:"中国に行ってきます"}},
@@ -3102,6 +3245,8 @@ document.querySelectorAll(".tw-tabs-b span").forEach((s,i)=>s.onclick=()=>{ if(i
    ④下部タブバーとホームバーは常時表示のまま（ヘッダーは隠さない対象にしない） */
 let twHeadOff=0, twLastTop=0;
 function twHeadReset(){ twHeadOff=0; const th=document.querySelector("#v-x .tw-head"); if(th) th.style.marginTop="0px"; const xb=$("#x-body"); twLastTop= xb? xb.scrollTop:0; }
+/* v8.4: プロフィールのバナーがスクロールで縮む実物挙動（110px→0、スクロール量と1:1連動。戻り導線はヘッダー復帰＋下部タブ＋ホームバーで常時確保） */
+function profBannerApply(st){ const bh=document.getElementById("twp-head"); if(!bh) return; if(st===undefined){ const xb2=$("#x-body"); st= xb2? xb2.scrollTop:0; } const sh=Math.max(0, Math.min(1, st/110)); bh.style.height=(110*(1-sh)).toFixed(1)+"px"; }
 (function(){
 const xb=$("#x-body"); if(!xb) return;
 const th=document.querySelector("#v-x .tw-head"); if(!th) return;
@@ -3112,10 +3257,24 @@ if(st<=0) twHeadOff=0;
 else twHeadOff=Math.max(0, Math.min(h, twHeadOff+(st-twLastTop)));
 twLastTop=st;
 th.style.marginTop=(-twHeadOff)+"px";
+profBannerApply(st);
 },{passive:true});
 })();
 document.querySelectorAll(".y-chips span").forEach(s=>s.onclick=()=>{ document.querySelectorAll(".y-chips span").forEach(x=>x.classList.remove("on")); s.classList.add("on"); newsCat=s.dataset.cat; renderNews(); decorateNews(); });
 $("#xd-back").onclick=()=>{ show("v-x"); renderX(); };
+/* v8.4: 投稿画面（羽根ペンFAB）の配線 */
+function twcUpd(){ const t=$("#twc-text"); const left=140-t.value.length; const cnt=$("#twc-count"); if(cnt){ cnt.textContent=left; cnt.classList.toggle("warn", left<=20); } const pb=$("#twc-post"); if(pb) pb.disabled= t.value.trim().length===0; }
+$("#tw-fab").onclick=()=>{ const c=$("#tw-compose"); c.style.display="flex"; const t=$("#twc-text"); t.value=""; twcUpd(); setTimeout(()=>{ try{ t.focus(); }catch(e){} },60); };
+$("#twc-cancel").onclick=()=>{ $("#tw-compose").style.display="none"; };
+$("#twc-text").addEventListener("input",twcUpd);
+$("#twc-post").onclick=()=>{ const v=$("#twc-text").value.trim(); if(!v) return; S.myTweets=S.myTweets||[]; S.myTweets.unshift({n:"なお", h:"@nao_101", t:v, f:"0", tm:"今"}); save(); $("#tw-compose").style.display="none"; setXTab("feed"); toast("ツイートしました"); };
+/* v8.4: ニュース共有シートの配線 */
+$("#nsheet-bg").onclick=closeNewsShare;
+$("#ns-cancel").onclick=closeNewsShare;
+$("#ns-copy").onclick=()=>{ closeNewsShare(); toast("リンクをコピーしました"); };
+$("#ns-tw").onclick=()=>{ closeNewsShare(); toast("Twitterの投稿画面を開きました"); };
+$("#ns-mail").onclick=()=>{ closeNewsShare(); toast("メールアプリを開きました"); };
+$("#ns-line").onclick=()=>{ closeNewsShare(); toast("LINEの送信先を選ぶ画面を開きました"); };
 $("#chat-pbtn").onclick=()=>{ renderCalls(); show("v-calls"); };
 $("#chat-sbtn").onclick=()=>{ const b=$("#chat-searchbar"); const open=b.style.display==="none"; b.style.display=open?"flex":"none"; if(open){ const q=$("#chat-q"); if(q) q.focus(); } else { chatQuery=""; const q=$("#chat-q"); if(q) q.value=""; const n=$("#chat-qn"); if(n) n.textContent=""; renderChat(); } };
 $("#chat-qx").onclick=()=>{ $("#chat-searchbar").style.display="none"; chatQuery=""; $("#chat-q").value=""; $("#chat-qn").textContent=""; renderChat(); };
